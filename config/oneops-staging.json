@@ -1,0 +1,9 @@
+{
+  "services": {
+    "env": "qa"
+  },
+
+  "ui": {
+    "env": "staging"
+  }
+}
