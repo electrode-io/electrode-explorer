@@ -41,13 +41,6 @@ ComponentData.register = (server, options, next) => {
   server.route({
     path: "/portal/api/update/repo/{org}/{repoName}",
     method: "POST",
-    config: {
-      plugins: {
-        "@walmart/csrf-jwt": {
-          enabled: false
-        }
-      }
-    },
     handler: (request, reply) => {
 
       if (!ghToken) {

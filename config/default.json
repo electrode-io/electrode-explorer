@@ -113,12 +113,6 @@
         }
       }
     },
-    "@walmart/csrf-jwt": {
-      "options": {
-        "secret": "shhhh",
-        "expiresIn": 1200
-      }
-    },
     "@walmart/auth-plugin": {
       "priority": 20
     }

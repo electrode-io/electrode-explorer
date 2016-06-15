@@ -34,7 +34,6 @@
     "@walmart/canary": "^5.0.0",
     "@walmart/canary-event-pattern": "^2.0.0",
     "@walmart/canary-event-sequence": "^2.0.0",
-    "@walmart/csrf-jwt": "^2.1.1",
     "@walmart/electrode-application": "^1.0.0",
     "@walmart/electrode-ccm-client": "^2.0.0",
     "@walmart/electrode-config": "^1.0.1",
