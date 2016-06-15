@@ -84,6 +84,7 @@
   },
   "plugins": {
     "@walmart/store-info-plugin": {},
+    "./server/component-data": {},
     "@walmart/electrode-react-webapp": {
       "options": {
         "pageTitle": "Electrode Portal",
@@ -124,6 +125,7 @@
   },
   "ui": {
     "basePath": "/portal",
+    "automaticUpdate": true,
     "meta": {
       "portalName": "Electrode Showcase"
     }

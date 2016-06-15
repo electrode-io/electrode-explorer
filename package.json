@@ -71,6 +71,7 @@
     "compression": "^1.4.3",
     "exenv": "^1.2.0",
     "fs-extra": "^0.26.5",
+    "github": "^1.1.2",
     "hapi": "^11.1.2",
     "history": "~1.13.1",
     "isomorphic-fetch": "^2.2.0",
