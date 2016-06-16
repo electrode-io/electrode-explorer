@@ -103,7 +103,7 @@ ComponentData.register = (server, options, next) => {
         }
       }
     },
-    handler: (request, reply) => {
+    handler: function (request, reply) {
 
       if (!ghToken) {
         // No token? No automatic updates.
@@ -126,9 +126,32 @@ ComponentData.register = (server, options, next) => {
             return reply("An error occurred saving this repo");
           }
 
+          // update the map of known orgs
+          const orgMap = Path.join(__dirname, `../data/orgs.json`);
+          let orgs = Fs.readFileSync(orgMap);
+          try {
+            orgs = JSON.parse(orgs);
+            if (!orgs[org]) {
+              orgs[org] = 1;
+              Fs.writeFileSync(orgMap, JSON.stringify(orgs));
+            }
+          } catch (err) {
+            console.error("Problem checking org map", err);
+          }
           return reply(`${org}:${repoName} done`);
         });
       });
+    }
+  });
+
+  server.route({
+    method: "GET",
+    path: "/portal/data/{param*}",
+    handler: {
+      directory: {
+        path: Path.join(__dirname, "../data"),
+        listing: true
+      }
     }
   });
 
