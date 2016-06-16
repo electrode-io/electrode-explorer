@@ -66,7 +66,7 @@ const fetchRepo = (org, repoName, cb) => {
       ["title", "examples", "options", "image", "type", "code", "noRender"].forEach((k) => {
         componentsStr = componentsStr.replace(new RegExp(`${k}:`, 'g'), `"${k}":`);
       });
-      componentsStr = componentsStr.replace("\n","");
+      componentsStr = componentsStr.replace("\n", "");
 
       // try catch this as JSON parse is so picky
       const components = JSON.parse(componentsStr);
@@ -74,7 +74,7 @@ const fetchRepo = (org, repoName, cb) => {
       components.forEach((component) => {
         component.examples.forEach((example) => {
           ++pending;
-          fetchComponentCode(org, repoName, example.code.replace("raw!.","")).then(
+          fetchComponentCode(org, repoName, example.code.replace("raw!.", "")).then(
             (code) => {
               example.code = code;
               --pending;
@@ -96,13 +96,6 @@ ComponentData.register = (server, options, next) => {
   server.route({
     path: "/portal/api/update/repo/{org}/{repoName}",
     method: "POST",
-    config: {
-      plugins: {
-        "@walmart/csrf-jwt": {
-          enabled: false
-        }
-      }
-    },
     handler: function (request, reply) {
 
       if (!ghToken) {

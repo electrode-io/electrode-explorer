@@ -8,7 +8,7 @@ const PortalBody = (props) => {
     <div className="portal">
       <PortalHeader/>
       <div className="portal-body">
-      {props.children}
+        {props.children}
       </div>
       <PortalFooter/>
     </div>
