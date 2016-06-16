@@ -67,6 +67,7 @@
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
     "bluebird": "^2",
+    "component-playground": "^1.3.0",
     "compression": "^1.4.3",
     "exenv": "^1.2.0",
     "fs-extra": "^0.26.5",
