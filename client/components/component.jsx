@@ -28,7 +28,7 @@ export default class Component extends React.Component {
   }
 
   render() {
-    const examples = this.state.examples;
+    const { examples } = this.state;
     const localScope = assign({ React }, this.props.scope || {}, Carousel);
     return (
       <div>
