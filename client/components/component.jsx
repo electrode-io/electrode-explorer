@@ -1,12 +1,15 @@
 import React from "react";
-import Playground from "component-playground";
 import assign from "object-assign";
 import { fetchJSON } from "@walmart/electrode-fetch";
 import Carousel from "@walmart/wmreact-carousel";
+import FeaturedElementCarousel from "@walmart/wmreact-carousel/lib/components/featured-element-carousel";
+
+let Playground;
 
 export default class Component extends React.Component {
   constructor(props) {
     super(props);
+    Playground = require("component-playground").default;
     this.state = {
       examples: []
     };
@@ -16,30 +19,29 @@ export default class Component extends React.Component {
     const { org, repo } = this.props.params;
     return fetchJSON(`/portal/data/${org}/${repo}.json`)
       .then((res) => {
+        const examples = this.state.examples;
         res.forEach((r) => {
-          const examples = this.state.examples;
           examples.push({
             title: r.title,
             code: r.examples[0].code
           });
-          this.setState({examples});
         });
+        this.setState({examples});
       });
   }
 
   render() {
     const { examples } = this.state;
-    const localScope = assign({ React }, this.props.scope || {}, Carousel);
+    const localScope = assign({ React, Carousel, FeaturedElementCarousel }, this.props.scope || {});
     return (
       <div>
         {examples && examples.map((e) => {
           return (
             <div>
-              <h2>{e.title}</h2>
-              <div>{e.code}</div>
+              <h4>{e.title}</h4>
               <Playground codeText={e.code}
                 scope={assign(localScope, e.extraScope || {})}
-                noRender={e.noRender} />
+              />
             </div>
           );
         })}
