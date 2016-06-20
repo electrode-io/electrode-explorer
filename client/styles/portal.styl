@@ -1,9 +1,28 @@
+@require "~@walmart/lithe-extras/lib/tenants/walmart/base";
+
 .portal-header {
   background: white;
 }
 
+.portal-header>h1 {
+  text-align: center;
+
+  img {
+    width: 100px;
+    height: 89px;
+  }
+}
+
 .portal-body {
   background: #efefef;
-  padding: 40px;
+  padding: 0 8.5% 100px 20.5%;
   min-height: 700px;
 }
+
+.portal-body span.version {
+  color: #808080;
+  font-weight:normal;
+  font-size:0.8em;
+  display:block;
+}
+

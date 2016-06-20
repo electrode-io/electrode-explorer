@@ -53,7 +53,8 @@
     "basePath": "/portal",
     "automaticUpdate": true,
     "meta": {
-      "portalName": "Electrode Showcase"
+      "portalName": "Electrode Showcase",
+      "portalLogo": "/portal/img/electrode.png"
     }
   }
 }

@@ -1,40 +1,60 @@
 import React from "react";
 import assign from "object-assign";
 import { fetchJSON } from "@walmart/electrode-fetch";
-import Carousel from "@walmart/wmreact-carousel";
-import FeaturedElementCarousel from "@walmart/wmreact-carousel/lib/components/featured-element-carousel";
 
 let Playground;
 
 export default class Component extends React.Component {
   constructor(props) {
     super(props);
-    Playground = require("component-playground").default;
     this.state = {
-      examples: []
+      examples: [],
+      meta: {},
+      passingScope: {}
     };
+  }
+
+  componentDidMount() {
+    Playground = require("component-playground").default;
   }
 
   componentWillMount() {
     const { org, repo } = this.props.params;
-    return fetchJSON(`/portal/data/${org}/${repo}.json`)
+    return fetchJSON(`http://localhost:3000/portal/data/${org}/${repo}.json`)
       .then((res) => {
+        const meta = res.meta || {};
+        const imports = res.imports || [];
         const examples = this.state.examples;
-        res.forEach((r) => {
+        res.components && res.components.forEach((r) => {
           examples.push({
             title: r.title,
             code: r.examples[0].code
           });
         });
-        this.setState({examples});
+        const passingScope = { React, process };
+
+        imports && imports.forEach((imp) => {
+          passingScope[imp.ref] = require(`../demo-modules/${meta.name}/${imp.path}.js`).default;
+        });
+        this.setState({
+          examples, meta, passingScope
+        });
       });
   }
 
   render() {
-    const { examples } = this.state;
-    const localScope = assign({ React, Carousel, FeaturedElementCarousel }, this.props.scope || {});
+    const { examples, meta, passingScope } = this.state;
+    const localScope = assign(passingScope, this.props.scope || {});
+
     return (
       <div>
+        <h2>
+          {meta.title}
+          <span className="version">
+            v{meta.version}
+          </span>
+        </h2>
+        <h3><a href={meta.githubUrl}>{meta.githubUrl}</a></h3>
         {examples && examples.map((e) => {
           return (
             <div>
