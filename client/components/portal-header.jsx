@@ -1,5 +1,6 @@
 import React from "react";
 
+import { fetchJSON } from "@walmart/electrode-fetch";
 import Config from "@walmart/electrode-ui-config";
 import classnames from "classnames";
 import Icon from "@walmart/wmreact-base/lib/components/icon";
@@ -9,13 +10,52 @@ export default class PortalHeader extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      navVisible: false
+      navVisible: false,
+      menu: []
     };
+  }
+
+  componentWillMount() {
+    return fetchJSON(`http://localhost:3000/portal/data/orgs.json`)
+      .then((res) => {
+        const menu = res.orgs;
+        console.log("menu", menu);
+        this.setState({menu});
+      }).catch((err) => {
+        console.error(err);
+      });
   }
 
   _toggleNav() {
     this.setState({
       navVisible: !this.state.navVisible
+    });
+  }
+
+  _renderLinks() {
+    const { menu } = this.state;
+    const orgs = Object.keys(menu);
+
+    return orgs.map((org) => {
+      const { repos } = menu[org];
+
+      const links = repos.map((repo) => {
+        return (
+          <Link
+            className="nav-link"
+            onClick={this._toggleNav.bind(this)}
+            href={`${Config.ui.basePath}/${repo.link}`}>
+            {repo.name}
+          </Link>
+        );
+      });
+
+      return (
+        <div>
+          <div className="nav-link">{org}</div>
+          {links}
+        </div>
+      );
     });
   }
 
@@ -30,18 +70,7 @@ export default class PortalHeader extends React.Component {
         {this.state.navVisible &&
         <div className="portal-nav">
           <ol className="nav-list">
-            <Link
-              className="nav-link"
-              onClick={this._toggleNav.bind(this)}
-              href="/portal/react/carousel">
-              Carousel
-            </Link>
-            <Link
-              className="nav-link"
-              onClick={this._toggleNav.bind(this)}
-              href="/portal/react/base">
-              Base
-            </Link>
+            {this._renderLinks()}
           </ol>
         </div>}
 
