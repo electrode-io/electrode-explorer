@@ -1,20 +1,4 @@
 {
-  "services": {
-    "providers": {
-      "@walmart/electrode-ccm-client": {
-        "options": {
-          "artifactId": "qa-service",
-          "artifactVersion": "",
-          "cloudEnvironment": "{{env.ONEOPS_ENVIRONMENT}}",
-          "cloud": "{{env.ONEOPS_CLOUD}}",
-          "cloudDc": "{{env.DATACENTER}}",
-          "environment": "{{env.NODE_ENV}}",
-          "node": "{{env.ONEOPS_CI_NAME}}"
-        }
-      }
-    }
-  },
-
   "plugins": {
     "@walmart/electrode-react-webapp": {
       "options": {

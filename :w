@@ -11,13 +11,12 @@ const GitHubApi = require("github");
 const Promise = require("bluebird");
 const Config = require("@walmart/electrode-ui-config");
 const ghToken = Config.ui.automaticUpdate && process.env.GHACCESS_TOKEN;
-const github = new GitHubApi(Config.github);
-
-const getStyles = (moduleName, dirName, path) => {
-  // Grab stylesheets, check for dependent stylesheets & install & copy
-  // require them in component.jsx render? Want to keep them separate per
-  // component in case of version differences
-};
+const github = new GitHubApi({
+  version: "3.0.0",
+  protocol: "https",
+  host: "gecgithub01.walmart.com",
+  pathPrefix: "/api/v3"
+});
 
 const parseDir = (moduleName, dirName, path) => {
 
@@ -53,12 +52,6 @@ const parseDir = (moduleName, dirName, path) => {
         } catch (e) {}
       }
       const ws = Fs.createWriteStream(Path.join(demoModules, dirName, "/", file));
-      ws.on("error", (err) => {
-        console.log(">>>>> wrote error for " + Path.join(demoModules, dirName, "/", file) + ", err::", err);
-      });
-      rs.on("error", (err) => {
-        console.log(`>>>>> read error for ${file}`, err);
-      });
       rs.on("data", (chunk) => {
         const ch = chunk.toString();
         ws.write(ch.replace(automationReq, automationNoop));
@@ -98,9 +91,7 @@ const saveModuleDemo = (moduleName) => {
       } catch (e) {}
     }
 
-    const moduleBase = Path.join(__dirname, "../../node_modules/", moduleName);
-    getStyles(moduleName, "", Path.join(moduleBase, "/src/styles"));
-    parseDir(moduleName, "", Path.join(moduleBase, "/lib"));
+    parseDir(moduleName, "", Path.join(__dirname, "../../node_modules/", moduleName, "/lib"));
   });
 
 };
@@ -150,18 +141,10 @@ const handleLibraryScoping = (org, repoName, content) => {
       const localImports = [];
 
       if ((/export {\s?default/).test(indexContent)) {
-        ic = indexContent.replace(/export {\s?default as ([\w-]+)\s?} from "([\.\/\-a-z]+)";/g, (m, ref, path) => {
+        ic = indexContent.replace(/export {\s?default as ([\w\W]+)\s?} from "([\.\/\-a-z]+)";/, (m, ref, path) => {
           const modPath = path.replace("./", "../src/");
           localImports.push(`import ${ref} from "${modPath}";`);
           return `import ${ref} from "${modPath}";`;
-        });
-      }
-
-      if ((/module\.exports/).test(indexContent)) {
-        ic = indexContent.replace(/([\w]+):\s?require\("([\.\/\-a-z]+)"\)(?:\.default),?/g, (m, ref, path) => {
-          const modPath = path.replace("./", "../src/");
-          localImports.push(`import ${ref} from "${modPath}";`);
-          return;
         });
       }
 
@@ -175,7 +158,7 @@ const createImports = (im) => {
   const imports = [];
 
   im.forEach((importStr) => {
-    const innerMatch = importStr.match(/import ([\w]*) from "\.\.\/src\/([a-z\-\/]*)(?:\.jsx)?";/);
+    const innerMatch = importStr.match(/import ([\w]*) from "\.\.\/src\/([a-z\-\/]*)(?:\.jsx)";/);
     if (innerMatch) {
       imports.push({
         ref: innerMatch[1],
@@ -184,7 +167,6 @@ const createImports = (im) => {
     }
   });
 
-  console.log("CreateImports, imports", imports);
   return imports;
 };
 
@@ -255,10 +237,11 @@ const fetchRepo = (org, repoName, cb) => {
         });
         componentsStr = componentsStr.replace("\n", "");
 
-        let components = [];
+        // try catch this as JSON parse is so picky
         try {
-          components = JSON.parse(componentsStr);
+          const components = JSON.parse(componentsStr);
         } catch (err) {
+          console.log("ComponentsStr", componentsStr);
           return reject(new Error("JSON parsing failed for components"));
         }
         let pending = 0;
@@ -271,15 +254,7 @@ const fetchRepo = (org, repoName, cb) => {
                 --pending;
 
                 if (!pending) {
-                  let sins = 0;
                   const sinful = setInterval(() => {
-                    console.log("sinful interval");
-                    console.log("imports", imports);
-                    if (sins > 20) {
-                      clearInterval(sinful);
-                      return console.log("IMPORTS FAIL; GIVING UP");
-                    }
-                    ++sins;
                     if (imports.length) {
                       clearInterval(sinful);
                       return resolve({
@@ -334,23 +309,10 @@ ComponentData.register = (server, options, next) => {
           let orgs = Fs.readFileSync(orgMap);
           try {
             orgs = JSON.parse(orgs);
-
             if (!orgs[org]) {
-              orgs.orgs[org] = {
-                repos: [],
-                hash: {}
-              };
+              orgs[org] = 1;
+              Fs.writeFileSync(orgMap, JSON.stringify(orgs));
             }
-
-            if (!orgs[org].hash[repoName]) {
-              orgs[org].hash[repoName] = 1;
-              orgs.orgs[org].repos.push({
-                name: repoName,
-                link: `${org}/${repoName}`
-              });
-            }
-
-            Fs.writeFileSync(orgMap, JSON.stringify(orgs));
           } catch (err) {
             console.error("Problem checking org map", err);
           }
