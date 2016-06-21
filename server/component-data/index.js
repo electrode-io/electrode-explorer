@@ -11,12 +11,7 @@ const GitHubApi = require("github");
 const Promise = require("bluebird");
 const Config = require("@walmart/electrode-ui-config");
 const ghToken = Config.ui.automaticUpdate && process.env.GHACCESS_TOKEN;
-const github = new GitHubApi({
-  version: "3.0.0",
-  protocol: "https",
-  host: "gecgithub01.walmart.com",
-  pathPrefix: "/api/v3"
-});
+const github = new GitHubApi(Config.github);
 
 const getStyles = (moduleName, dirName, path) => {
   // Grab stylesheets, check for dependent stylesheets & install & copy

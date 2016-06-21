@@ -49,12 +49,22 @@
       }
     }
   },
+  "github": {
+    "version": "3.0.0",
+    "pathPrefix": "/api/v3",
+    "protocol": "https",
+    "host": "gecgithub01.walmart.com"
+  },
   "ui": {
     "basePath": "/portal",
     "automaticUpdate": true,
     "meta": {
       "portalName": "Electrode Showcase",
       "portalLogo": "/portal/img/electrode.png"
+    },
+    "github": {
+      "protocol": "https",
+      "basePath": "gecgithub01.walmart.com"
     }
   }
 }

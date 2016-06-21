@@ -30,11 +30,11 @@ export default class Component extends React.Component {
 
     return (
       <div className="portalMenu">
-      {menu && Object.keys(menu).map((org) => {
+      {menu && Object.keys(menu).map((org) => (
         <span>
           <div className="orgName">{org}</div>
         </span>
-      })}
+      ))}
       </div>
     );
   }

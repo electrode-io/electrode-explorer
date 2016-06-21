@@ -48,10 +48,13 @@ export default class Component extends React.Component {
 
     return (
       <div>
-        <h2>
+        <h2 className="portal-title">
           {meta.title}
           <span className="version">
-            v{meta.version}
+            {meta.github && <div>
+              Github Link: <a href={meta.github}>{meta.github}</a>
+            </div>}
+            {meta.version && `v${meta.version}`}
           </span>
         </h2>
         <h3><a href={meta.githubUrl}>{meta.githubUrl}</a></h3>

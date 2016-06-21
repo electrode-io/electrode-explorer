@@ -1,7 +1,30 @@
 @require "~@walmart/lithe-extras/lib/tenants/walmart/base";
 
 .portal-header {
-  background: white;
+  background: #25aeff;
+}
+
+.portal-title {
+  margin-top: 0;
+}
+
+.portal-header.portal-slider {
+  background: lighten(#007dc6, 30%);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 302;
+}
+
+.portal-name {
+  margin: auto;
+  width: auto;
+  font-size: 24px;
+  padding: 20px 0 20px 20px;
+  z-index: 1;
+  color: #fff;
 }
 
 .portal-header>h1 {
@@ -26,3 +49,65 @@
   display:block;
 }
 
+.portal-nav {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  top: 0;
+  padding-top: 20px;
+  overflow: auto;
+  width: 225px;
+  background: #444;
+  -webkit-overflow-scrolling: touch;
+}
+
+.portal-slider {
+  position: relative;
+  left: 0;
+  z-index: 301;
+  transition: .2s ease -webkit-transform;
+  transition: .2s ease transform;
+}
+
+.is-navigable .portal-slider {
+  -webkit-transform: translate3d(225px, 0, 0);
+  transform: translate3d(225px, 0, 0);
+}
+
+.nav-toggle {
+  position: relative;
+  display: block;
+  left: 0;
+  padding: 25px;
+  width: 60px;
+  float: left;
+  top: 0;
+  cursor: pointer;
+  z-index: 200;
+  color: #fff;
+}
+
+.nav-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+
+.nav-link {
+  display: block;
+  position: relative;
+  padding: 5px 15px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  color: #fff;
+  background-color: #0070b2;
+}
