@@ -1,6 +1,7 @@
 import React from "react";
 import assign from "object-assign";
 import { fetchJSON } from "@walmart/electrode-fetch";
+import ExecutionEnvironment from "exenv";
 
 let Playground;
 
@@ -20,7 +21,11 @@ export default class Component extends React.Component {
 
   componentWillMount() {
     const { org, repo } = this.props.params;
-    return fetchJSON(`http://localhost:3000/portal/data/${org}/${repo}.json`)
+    let host = "http://localhost:3000";
+    if (ExecutionEnvironment.canUseDOM) {
+      host = window.location.origin;
+    }
+    return fetchJSON(`${host}/portal/data/${org}/${repo}.json`)
       .then((res) => {
         const meta = res.meta || {};
         const imports = res.imports || [];
@@ -48,10 +53,13 @@ export default class Component extends React.Component {
 
     return (
       <div>
-        <h2>
+        <h2 className="portal-title">
           {meta.title}
           <span className="version">
-            v{meta.version}
+            {meta.github && <div>
+              Github: <a href={meta.github}>{meta.github}</a>
+            </div>}
+            {meta.version && `v${meta.version}`}
           </span>
         </h2>
         <h3><a href={meta.githubUrl}>{meta.githubUrl}</a></h3>
