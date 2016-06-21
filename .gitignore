@@ -157,3 +157,4 @@ npm-shrinkwrap.json
 .ccm
 
 .isomorphic-loader-config.json
+client/demo-modules

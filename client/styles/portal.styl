@@ -1,9 +1,70 @@
+@require "~@walmart/lithe-extras/lib/tenants/walmart/base";
+
 .portal-header {
   background: white;
 }
 
+.portal-title {
+  margin-top: 0;
+}
+
+.portal-header>h1 {
+  text-align: center;
+
+  img {
+    width: 100px;
+    height: 89px;
+  }
+}
+
 .portal-body {
   background: #efefef;
-  padding: 40px;
+  padding: 0 8.5% 100px 20.5%;
   min-height: 700px;
+}
+
+.portal-body span.version {
+  color: #808080;
+  font-weight:normal;
+  font-size:0.8em;
+  display:block;
+}
+
+.nav-link {
+  display: block;
+  position: relative;
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  color: #fff;
+  background-color: #0070b2;
+}
+
+.portal-menu {
+  background-color: #007dc6;
+}
+
+.menu-link {
+  color: white;
+  margin: 0 10%;
+}
+
+.portal-footer {
+  background-color: #f2f8fd;
+}
+
+.footer-container {
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.footer-text {
+  color: #888;
+  font-size: 13px;
+  line-height: 40px;
+  padding-left: 20px;
 }

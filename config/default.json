@@ -6,84 +6,10 @@
       "version": 2,
       "algorithm": "RSA",
       "encoding": "PKCS#8"
-    },
-    "providers": {
-      "@walmart/service-registry-client": {
-      },
-      "@walmart/iam2-auth-client": {
-      },
-      "@walmart/electrode-ccm-client": {
-        "options": {
-          "artifactId": "qa-service",
-          "artifactVersion": "",
-          "cloudEnvironment": "qa",
-          "cloud": "",
-          "cloudDc": "qa",
-          "environment": "qa",
-          "node": ""
-        }
-      },
-      "@walmart/electrode-quimby-client": {}
-    }
-  },
-  "ccm": {
-    "autoLoad": true,
-    "uiFilter": {
-      "$..atlasXO": [
-        "enable_guest.*",
-        "responsive"
-      ],
-      "$.device.mobile.atlasP13n": [
-        "irs.onehgConfig",
-        "irs.maxTotal"
-      ]
-    },
-    "keys": {
-      "root": {
-        "data": {
-          "atlasXO": {
-            "serviceName": "atlas-checkout",
-            "+configNames": [
-              "guest-checkout",
-              "responsive-config",
-              "opinion-lab"
-            ]
-          },
-          "atlasApi": {
-            "serviceName": "atlas-api",
-            "+configNames": [
-              "checkout"
-            ]
-          }
-        }
-      },
-      "device": {
-        "scopeTemplate": "/{tenantid}/{environment}/{cloudEnvironment}/{deviceType}/{node}",
-        "profiles": {
-          "default": {
-            "tenantid": "01",
-            "environment": "stg"
-          },
-          "mobile": {
-            "deviceType": "mobile"
-          },
-          "desktop": {
-            "deviceType": ""
-          }
-        },
-        "data": {
-          "atlasP13n": {
-            "serviceName": "atlas-p13n",
-            "+configNames": [
-              "irsConfig"
-            ]
-          }
-        }
-      }
     }
   },
   "plugins": {
-    "@walmart/store-info-plugin": {},
+    "./server/component-data": {},
     "@walmart/electrode-react-webapp": {
       "options": {
         "pageTitle": "Electrode Portal",
@@ -95,9 +21,19 @@
             "{{readFile:config/perf.js}}",
             {
               "src": "https://beacon.qa.walmart.com/beacon.js"
+            },
+            {
+              "src": "http://cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/codemirror.min.js"
+            },
+            {
+              "src": "http://cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/mode/javascript/javascript.min.js"
             }
           ]
         },
+        "unbundledStyle": [
+          "http://cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/codemirror.min.css",
+          "http://cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/theme/monokai.min.css"
+        ],
         "paths": {
           "/{args*}": {
             "view": "index",
@@ -111,21 +47,24 @@
           "mapping": "config/assets.json"
         }
       }
-    },
-    "@walmart/csrf-jwt": {
-      "options": {
-        "secret": "shhhh",
-        "expiresIn": 1200
-      }
-    },
-    "@walmart/auth-plugin": {
-      "priority": 20
     }
+  },
+  "github": {
+    "version": "3.0.0",
+    "pathPrefix": "/api/v3",
+    "protocol": "https",
+    "host": "gecgithub01.walmart.com"
   },
   "ui": {
     "basePath": "/portal",
+    "automaticUpdate": true,
     "meta": {
-      "portalName": "Electrode Showcase"
+      "portalName": "Electrode Showcase",
+      "portalLogo": "/portal/img/electrode.png"
+    },
+    "github": {
+      "protocol": "https",
+      "basePath": "gecgithub01.walmart.com"
     }
   }
 }
