@@ -3,6 +3,7 @@ import { fetchJSON } from "@walmart/electrode-fetch";
 import Config from "@walmart/electrode-ui-config";
 import Link from "@walmart/wmreact-base/lib/components/link";
 import Flyout from "@walmart/wmreact-containers/lib/components/flyout";
+import ExecutionEnvironment from "exenv";
 
 function capitalizeFirstLetter(str) {
   if (!str) {
@@ -21,7 +22,11 @@ export default class Component extends React.Component {
   }
 
   componentWillMount() {
-    return fetchJSON(`/portal/data/orgs.json`)
+    let host = "http://localhost:3000";
+    if (ExecutionEnvironment.canUseDOM) {
+      host = window.location.origin;
+    }
+    return fetchJSON(`${host}/portal/data/orgs.json`)
       .then((res) => {
         const menu = res.orgs;
         this.setState({menu});
