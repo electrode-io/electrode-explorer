@@ -52,7 +52,7 @@ export default class Component extends React.Component {
           {meta.title}
           <span className="version">
             {meta.github && <div>
-              Github Link: <a href={meta.github}>{meta.github}</a>
+              Github: <a href={meta.github}>{meta.github}</a>
             </div>}
             {meta.version && `v${meta.version}`}
           </span>
