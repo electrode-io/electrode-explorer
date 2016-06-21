@@ -20,7 +20,7 @@ export default class Component extends React.Component {
 
   componentWillMount() {
     const { org, repo } = this.props.params;
-    return fetchJSON(`http://localhost:3000/portal/data/${org}/${repo}.json`)
+    return fetchJSON(`/portal/data/${org}/${repo}.json`)
       .then((res) => {
         const meta = res.meta || {};
         const imports = res.imports || [];
