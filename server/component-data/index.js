@@ -10,7 +10,7 @@ const Path = require("path");
 const GitHubApi = require("github");
 const Promise = require("bluebird");
 const Config = require("@walmart/electrode-ui-config");
-const ghToken = Config.ui.automaticUpdate && process.env.GHACCESS_TOKEN;
+const ghToken = Config.ui.automaticUpdate && process.env[config.GHACCESS_TOKEN_NAME];
 const github = new GitHubApi(Config.github);
 
 const getStyles = (moduleName, dirName, path) => {
