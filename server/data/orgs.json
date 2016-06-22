@@ -1,1 +1,1 @@
-{"orgs":{"react":{"repos":[{"name":"navigation","link":"react/navigation"},{"name":"base","link":"react/base"},{"name":"carousel","link":"react/carousel"}]}},"hash":{"navigation":1,"base":1,"carousel":1}}
+{"react":{"repos":[{"name":"navigation","link":"react/navigation"},{"name":"carousel","link":"react/carousel"},{"name":"base","link":"react/base"}],"hash":{"navigation":1,"carousel":1,"base":1}}}

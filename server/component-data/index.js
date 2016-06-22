@@ -336,7 +336,7 @@ ComponentData.register = (server, options, next) => {
             orgs = JSON.parse(orgs);
 
             if (!orgs[org]) {
-              orgs.orgs[org] = {
+              orgs[org] = {
                 repos: [],
                 hash: {}
               };
@@ -344,7 +344,7 @@ ComponentData.register = (server, options, next) => {
 
             if (!orgs[org].hash[repoName]) {
               orgs[org].hash[repoName] = 1;
-              orgs.orgs[org].repos.push({
+              orgs[org].repos.push({
                 name: repoName,
                 link: `${org}/${repoName}`
               });
