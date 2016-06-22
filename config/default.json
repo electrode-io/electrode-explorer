@@ -57,7 +57,6 @@
   },
   "ui": {
     "basePath": "/portal",
-    "automaticUpdate": true,
     "meta": {
       "portalName": "Electrode Showcase",
       "portalLogo": "/portal/img/electrode.png"
@@ -67,6 +66,8 @@
       "basePath": "gecgithub01.walmart.com"
     }
   },
+
+  "automaticUpdate": true,
 
   "GHACCESS_TOKEN_NAME": "ECE_GHACCESS_TOKEN"
 }
