@@ -11,7 +11,8 @@ export default class Component extends React.Component {
     this.state = {
       examples: [],
       meta: {},
-      passingScope: {}
+      passingScope: {},
+      usage: []
     };
   }
 
@@ -29,7 +30,9 @@ export default class Component extends React.Component {
       .then((res) => {
         const meta = res.meta || {};
         const imports = res.imports || [];
+        const usage = res.usage || [];
         const examples = this.state.examples;
+
         res.components && res.components.forEach((r) => {
           examples.push({
             title: r.title,
@@ -46,24 +49,30 @@ export default class Component extends React.Component {
           }
         });
         this.setState({
-          examples, meta, passingScope
+          examples, meta, passingScope, usage
         });
       });
   }
 
   render() {
-    const { examples, meta, passingScope } = this.state;
+    const { examples, meta, passingScope, usage } = this.state;
     const localScope = assign(passingScope, this.props.scope || {});
 
     return (
       <div>
         <h2 className="portal-title">
           {meta.title}
-          <span className="version">
+          <span className="component-info">
             {meta.github && <div>
               Github: <a href={meta.github}>{meta.github}</a>
             </div>}
             {meta.version && `v${meta.version}`}
+            {usage.length && <div>
+              This component is required by {usage.length} modules / apps.
+              {usage.map((url) => (
+                <div><a href={url}>{url}</a></div>
+              ))}
+            </div>}
           </span>
         </h2>
         <h3><a href={meta.githubUrl}>{meta.githubUrl}</a></h3>
