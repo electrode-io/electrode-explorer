@@ -2,9 +2,9 @@
 
 const GitHubApi = require("github");
 const Promise = require("bluebird");
-const Config = require("@walmart/electrode-ui-config");
-const ghToken = Config.ui.automaticUpdate && process.env.GHACCESS_TOKEN;
-const github = new GitHubApi(Config.ui.githubApi);
+const Config = require("@walmart/electrode-config").config;
+const github = new GitHubApi(Config.githubApi);
+const ghToken = Config.automaticUpdate && process.env[Config.GHACCESS_TOKEN_NAME];
 const createImports = require("./create-imports");
 
 const handleLibraryScoping = (org, repoName, content) => {

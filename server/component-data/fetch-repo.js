@@ -2,8 +2,8 @@
 
 const GitHubApi = require("github");
 const Promise = require("bluebird");
-const Config = require("@walmart/electrode-ui-config");
-const github = new GitHubApi(Config.ui.githubApi);
+const Config = require("@walmart/electrode-config").config;
+const github = new GitHubApi(Config.githubApi);
 const githubAuthObject = require("./utils/github-auth-object");
 const contentToString = require("./utils/content-to-string");
 

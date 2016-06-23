@@ -4,19 +4,16 @@ const Path = require("path");
 const getStyles = require("./get-styles");
 const parseDir = require("./parse-dir");
 const ensureDirectoryExists = require("./utils/ensure-directory-exists");
+const execFile = require("child_process").execFile;
 
 const saveModuleDemo = (moduleName) => {
 
-  const spawn = require("child_process").spawn;
-  const npmi = spawn("npm", ["i", moduleName]);
-
-  npmi.on("close", (code) => {
-
-    if (code) {
-      return console.log(`npm install failed for this module, code: ${code}`);
+  execFile("bash", [Path.join(__dirname, "../../install-module.sh"), moduleName], (error) => {
+    if (error) {
+      console.log(`npm install failed for this module, error:\n${error}`);
     }
 
-    console.log(`${moduleName}: npm install finished with code ${code}`);
+    console.log(`${moduleName}: npm install finished.`);
 
     const demoModules = Path.join(__dirname, "../../client/demo-modules");
 

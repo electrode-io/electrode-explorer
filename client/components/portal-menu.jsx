@@ -27,8 +27,7 @@ export default class Component extends React.Component {
       host = window.location.origin;
     }
     return fetchJSON(`${host}/portal/data/orgs.json`)
-      .then((res) => {
-        const menu = res.orgs;
+      .then((menu) => {
         this.setState({menu});
       }).catch((err) => {
         console.error(err);

@@ -2,8 +2,8 @@
 
 const Fs = require("fs");
 const Path = require("path");
-const Config = require("@walmart/electrode-ui-config");
-const ghToken = Config.ui.automaticUpdate && process.env.GHACCESS_TOKEN;
+const Config = require("@walmart/electrode-config").config;
+const ghToken = Config.automaticUpdate && process.env[Config.GHACCESS_TOKEN_NAME];
 
 const ensureDirectoryExists = require("./utils/ensure-directory-exists");
 const fetchRepo = require("./fetch-repo");
