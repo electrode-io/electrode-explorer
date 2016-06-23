@@ -12,23 +12,23 @@ const saveModuleDemo = require("./save-module-demo");
 const handleLibraryScoping = require("./handle-library-scoping");
 const fetchComponentCode = require("./fetch-component-code");
 
-const getExampleCode = (example, org, repoName) => {
-
-
-}
-
 const patterns = {
   IMPORT_COMPONENT: /import ([\w]*) from "\.\.\/src\/([a-z\-\/]*)(?:\.jsx)";/g,
   INDEX_COMPONENTS: /Index\.Components\s?=\s?(\[[\w\W]*\]);/,
   EXAMPLE_REQUIRE_PATH: /require\((.*)\)/g,
   INVALID_JSON_PROPERTY_NAMES: /[\s,]([\w_]+)[\s,]{0,1}:/g,
-  NEWLINES: /\n/g
+  NEWLINES: /\n/g,
+  UX_FUNCTION: /ux:(\s?\(\)[^}]+)/g
 };
 
 const replacements = [
   {
     pattern: patterns.EXAMPLE_REQUIRE_PATH,
     func: (m, p1) => p1
+  },
+  {
+    pattern: patterns.UX_FUNCTION,
+    func: `"ux":""`
   },
   {
     pattern: patterns.INVALID_JSON_PROPERTY_NAMES,
@@ -66,9 +66,11 @@ const fetchDemoIndex = (org, repoName, meta, cb) => {
     const indexContent = contentToString(response.content);
 
     const im = indexContent.match(patterns.IMPORT_COMPONENT);
-    const imports = im ?
+    let imports = im ?
       createImports(im) :
-      handleLibraryScoping(org, repoName, indexContent);
+      handleLibraryScoping(org, repoName, indexContent).then((ip) => {
+        return ip;
+      });
 
     const m = indexContent.match(patterns.INDEX_COMPONENTS);
     if (!m) {
@@ -94,6 +96,12 @@ const fetchDemoIndex = (org, repoName, meta, cb) => {
           return Promise.resolve(arr);
         });
       }).then((comps) => {
+
+        // If imports is still a promise, get it's value
+        if (!Array.isArray(imports) && imports.isFulfilled()) {
+          imports = imports.value();
+        }
+
         return Promise.resolve({
           meta: meta,
           imports: imports,
