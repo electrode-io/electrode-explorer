@@ -10,7 +10,7 @@ const saveModuleDemo = (moduleName) => {
 
   execFile("bash", [Path.join(__dirname, "../../install-module.sh"), moduleName], (error) => {
     if (error) {
-      console.log(`npm install failed for this module, error:\n${error}`);
+      return console.log(`npm install failed for this module, error:\n${error}`);
     }
 
     console.log(`${moduleName}: npm install finished.`);
