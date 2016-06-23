@@ -1,10 +1,18 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _classCallCheck2 = require("babel-runtime/helpers/classCallCheck");
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _possibleConstructorReturn2 = require("babel-runtime/helpers/possibleConstructorReturn");
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require("babel-runtime/helpers/inherits");
+
+var _inherits3 = _interopRequireDefault(_inherits2);
 
 var _react = require("react");
 
@@ -32,26 +40,21 @@ var _backdrop2 = _interopRequireDefault(_backdrop);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /* eslint valid-jsdoc:0 */
-/* global document */
-
 /**
 Tray dialog.
 @component Modal.Tray
 @import {Modal}
 */
+/* eslint valid-jsdoc:0 */
+/* global document */
 
 var ModalTray = function (_Component) {
-  _inherits(ModalTray, _Component);
+  (0, _inherits3.default)(ModalTray, _Component);
 
   function ModalTray(props) {
-    _classCallCheck(this, ModalTray);
+    (0, _classCallCheck3.default)(this, ModalTray);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ModalTray).call(this, props));
+    var _this = (0, _possibleConstructorReturn3.default)(this, _Component.call(this, props));
 
     _this.backdropHost = null;
     _this.backdrop = null;
@@ -64,93 +67,83 @@ var ModalTray = function (_Component) {
     return _this;
   }
 
-  _createClass(ModalTray, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      if (_exenv2.default.canUseDOM) {
-        this.backdropHost = document.createElement("div");
-        document.body.insertBefore(this.backdropHost, document.body.firstChild);
-        this.backdrop = _reactDom2.default.render(_react2.default.createElement(_backdrop2.default, null), this.backdropHost);
-      }
+  ModalTray.prototype.componentDidMount = function componentDidMount() {
+    if (_exenv2.default.canUseDOM) {
+      this.backdropHost = document.createElement("div");
+      document.body.insertBefore(this.backdropHost, document.body.firstChild);
+      this.backdrop = _reactDom2.default.render(_react2.default.createElement(_backdrop2.default, null), this.backdropHost);
     }
-  }, {
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      _reactDom2.default.unmountComponentAtNode(this.backdropHost);
-    }
-  }, {
-    key: "componentWillReceiveProps",
-    value: function componentWillReceiveProps(nextProps) {
-      if (nextProps.active) {
-        this.setState({ active: nextProps.active });
-      }
-    }
-  }, {
-    key: "componentDidUpdate",
-    value: function componentDidUpdate() {
-      this.backdrop.setState({ active: this.state.active });
-      this.backdrop = _reactDom2.default.render(_react2.default.createElement(_backdrop2.default, { onClick: this.state.active ? this._onBackdropClick : null }), this.backdropHost);
-    }
+  };
 
-    /**
-    Shows the tray
-    */
+  ModalTray.prototype.componentWillUnmount = function componentWillUnmount() {
+    _reactDom2.default.unmountComponentAtNode(this.backdropHost);
+  };
 
-  }, {
-    key: "show",
-    value: function show() {
-      this.setState({ active: true });
+  ModalTray.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+    if (nextProps.active) {
+      this.setState({ active: nextProps.active });
     }
+  };
 
-    /**
-    Hides the tray
-    */
+  ModalTray.prototype.componentDidUpdate = function componentDidUpdate() {
+    this.backdrop.setState({ active: this.state.active });
+    this.backdrop = _reactDom2.default.render(_react2.default.createElement(_backdrop2.default, { onClick: this.state.active ? this._onBackdropClick : null }), this.backdropHost);
+  };
 
-  }, {
-    key: "hide",
-    value: function hide() {
-      this.setState({ active: false });
-    }
-  }, {
-    key: "_onBackdropClick",
-    value: function _onBackdropClick() {
-      this.hide();
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var extras = {
-        "active": this.state.active
-      };
+  /**
+  Shows the tray
+  */
 
-      return _react2.default.createElement(
+
+  ModalTray.prototype.show = function show() {
+    this.setState({ active: true });
+  };
+
+  /**
+  Hides the tray
+  */
+
+
+  ModalTray.prototype.hide = function hide() {
+    this.setState({ active: false });
+  };
+
+  ModalTray.prototype._onBackdropClick = function _onBackdropClick() {
+    this.hide();
+  };
+
+  ModalTray.prototype.render = function render() {
+    var extras = {
+      "active": this.state.active
+    };
+
+    return _react2.default.createElement(
+      "div",
+      {
+        className: (0, _classnames2.default)("tray-modal", extras, this.props.className),
+        tabIndex: "-1",
+        ref: "modal" },
+      _react2.default.createElement(
         "div",
-        {
-          className: (0, _classnames2.default)("tray-modal", extras, this.props.className),
-          tabIndex: "-1",
-          ref: "modal" },
+        { className: "tray-modal-dialog" },
         _react2.default.createElement(
           "div",
-          { className: "tray-modal-dialog" },
+          { className: "tray-modal-content" },
+          this.props.children,
           _react2.default.createElement(
-            "div",
-            { className: "tray-modal-content" },
-            this.props.children,
+            "button",
+            { className: "tray-modal-close", type: "button", onClick: this.hide },
+            _react2.default.createElement(_icon2.default.Remove, null),
             _react2.default.createElement(
-              "button",
-              { className: "tray-modal-close", type: "button", onClick: this.hide },
-              _react2.default.createElement(_icon2.default.Remove, null),
-              _react2.default.createElement(
-                "span",
-                { className: "visuallyhidden" },
-                "Close"
-              )
+              "span",
+              { className: "visuallyhidden" },
+              "Close"
             )
           )
         )
-      );
-    }
-  }]);
+      )
+    );
+  };
 
   return ModalTray;
 }(_react.Component);

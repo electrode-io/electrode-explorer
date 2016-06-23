@@ -1,10 +1,18 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _classCallCheck2 = require("babel-runtime/helpers/classCallCheck");
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _possibleConstructorReturn2 = require("babel-runtime/helpers/possibleConstructorReturn");
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require("babel-runtime/helpers/inherits");
+
+var _inherits3 = _interopRequireDefault(_inherits2);
 
 var _react = require("react");
 
@@ -18,6 +26,10 @@ var _classnames = require("classnames");
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
+var _map = require("lodash/map");
+
+var _map2 = _interopRequireDefault(_map);
+
 var _button = require("@walmart/wmreact-interactive/lib/components/button");
 
 var _button2 = _interopRequireDefault(_button);
@@ -29,14 +41,6 @@ var _icon2 = _interopRequireDefault(_icon);
 var _reactUtils = require("@walmart/react-utils");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-/* global document */
-/*eslint indent: [2, 2, {"SwitchCase": 1}]*/
 
 var cloneElement = _react2.default.cloneElement;
 
@@ -59,13 +63,16 @@ Flyout
 ```
 */
 
+/* global document */
+/*eslint indent: [2, 2, {"SwitchCase": 1}]*/
+
 var Flyout = function (_Component) {
-  _inherits(Flyout, _Component);
+  (0, _inherits3.default)(Flyout, _Component);
 
   function Flyout(props) {
-    _classCallCheck(this, Flyout);
+    (0, _classCallCheck3.default)(this, Flyout);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Flyout).call(this, props));
+    var _this = (0, _possibleConstructorReturn3.default)(this, _Component.call(this, props));
 
     _this.state = {
       active: props.active || false,
@@ -85,275 +92,263 @@ var Flyout = function (_Component) {
     return _this;
   }
 
-  _createClass(Flyout, [{
-    key: "componentWillUnmount",
-    value: function componentWillUnmount() {
+  Flyout.prototype.componentWillUnmount = function componentWillUnmount() {
+    document.removeEventListener("click", this._documentClick);
+    document.removeEventListener("touchstart", this._documentClick);
+  };
+
+  Flyout.prototype.componentDidMount = function componentDidMount() {
+    this._positionFlyout();
+  };
+
+  Flyout.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+    /**
+     * Ideally this component would be stateless and the `active` prop would
+     * be the only way to change the flyout state. But `setState` is used
+     * heavily in this component and using only props would break too much.
+     * For now, update the `active` state only if the prop is set and
+     * not equal to the current `active` state.
+     */
+    var isControlled = this.props.active !== null;
+
+    if (isControlled && nextProps.active !== this.state.active) {
+      this.setState({ active: nextProps.active });
+    }
+  };
+
+  Flyout.prototype._isTouchDevice = function _isTouchDevice() {
+    return (0, _reactUtils.isTouchDevice)(window);
+  };
+
+  Flyout.prototype._documentClick = function _documentClick(e) {
+    var _this2 = this;
+
+    var closeOnClickOut = this.props.closeOnClickOut;
+    var flyout = this.refs.flyout;
+
+
+    if (closeOnClickOut) {
+      var foundNode = _reactDom2.default.findDOMNode(flyout);
+
+      /**
+       * This is necessary for detecting clicks inside of a deeply nested child.
+       * Provides null-safety for PhantomJS testing.
+       * @param {object} path DOM path
+       * @returns {array} Classnames of node
+       */
+      var getClassNames = function getClassNames(path) {
+        return path ? (0, _map2.default)(path, function (node) {
+          return node.className;
+        }) : [];
+      };
+
+      var nodeClasses = getClassNames(e.path);
+
+      if (foundNode && e.target !== foundNode && foundNode.contains(e.target) !== true && !nodeClasses.join().match("flyout-modal")) {
+        this.setState({ active: false }, function () {
+          if (_this2.props.onActiveChange) {
+            _this2.props.onActiveChange(_this2.state.active);
+          }
+        });
+      }
+    }
+  };
+
+  Flyout.prototype._resetDocumentClickHandlers = function _resetDocumentClickHandlers(active) {
+    if (active) {
+      document.addEventListener("click", this._documentClick);
+      document.addEventListener("touchstart", this._documentClick);
+    } else {
       document.removeEventListener("click", this._documentClick);
       document.removeEventListener("touchstart", this._documentClick);
     }
-  }, {
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this._positionFlyout();
-    }
-  }, {
-    key: "componentWillReceiveProps",
-    value: function componentWillReceiveProps(nextProps) {
-      /**
-       * Ideally this component would be stateless and the `active` prop would
-       * be the only way to change the flyout state. But `setState` is used
-       * heavily in this component and using only props would break too much.
-       * For now, update the `active` state only if the prop is set and
-       * not equal to the current `active` state.
-       */
-      var isControlled = this.props.active !== null;
+  };
 
-      if (isControlled && nextProps.active !== this.state.active) {
-        this.setState({ active: nextProps.active });
+  Flyout.prototype._onStateChangeCallback = function _onStateChangeCallback() {
+    var onActiveChange = this.props.onActiveChange;
+    var active = this.state.active;
+
+    onActiveChange(active);
+    this._resetDocumentClickHandlers(active);
+    this._positionFlyout();
+  };
+
+  Flyout.prototype._onCloseButtonClick = function _onCloseButtonClick(ev) {
+    this._handleLinkNav(ev);
+    this.setState({ active: !this.state.active }, this._onStateChangeCallback);
+  };
+
+  Flyout.prototype._onTrigger = function _onTrigger(ev) {
+    var _this3 = this;
+
+    this._handleLinkNav(ev);
+
+    this.setState({ active: !this.state.active }, function () {
+      _this3._onStateChangeCallback();
+      _this3.props.onTriggerElementClick(ev);
+    });
+  };
+
+  Flyout.prototype._handleLinkNav = function _handleLinkNav(e) {
+    e.preventDefault();
+    var href = e.currentTarget.href || e.target.href;
+    if (href && this.props.disableTouchLinksOnly && !this._isTouchDevice()) {
+      this._navigateWindow(href);
+    }
+  };
+
+  Flyout.prototype._navigateWindow = function _navigateWindow(url) {
+    window.location = url;
+  };
+
+  Flyout.prototype._positionFlyout = function _positionFlyout() {
+    var modal = _reactDom2.default.findDOMNode(this.refs.modal);
+    var flyout = _reactDom2.default.findDOMNode(this.refs.flyout);
+    var _props = this.props;
+    var direction = _props.direction;
+    var size = _props.size;
+    var align = _props.align;
+
+    var newState = {};
+    if (direction === "left" || direction === "right" || direction === "center") {
+      newState.mt = Math.round(modal.offsetHeight / 2) * -1;
+    }
+    if (size === "fluid" || align === "center") {
+      newState.ml = Math.round(modal.offsetWidth / 2) * -1;
+    }
+    if (align === "bottom" && direction === "center") {
+      var modalHt = Math.round(modal.offsetHeight);
+      var btnHt = Math.round(flyout.offsetHeight);
+      if (btnHt <= modalHt) {
+        newState.mt = (modalHt - btnHt) * -1;
       }
+      newState.ml = Math.round(modal.offsetWidth / 2) * -1;
     }
-  }, {
-    key: "_isTouchDevice",
-    value: function _isTouchDevice() {
-      return (0, _reactUtils.isTouchDevice)(window);
-    }
-  }, {
-    key: "_documentClick",
-    value: function _documentClick(e) {
-      var _this2 = this;
+    this.setState(newState);
+  };
 
-      var closeOnClickOut = this.props.closeOnClickOut;
-      var flyout = this.refs.flyout;
+  Flyout.prototype._mouseEnter = function _mouseEnter() {
+    var _this4 = this;
 
-
-      if (closeOnClickOut) {
-        var foundNode = _reactDom2.default.findDOMNode(flyout);
-
-        /**
-         * This is necessary for detecting clicks inside of a deeply nested child.
-         * Provides null-safety for PhantomJS testing.
-         * @param {object} path DOM path
-         * @returns {array} Classnames of node
-         */
-        var getClassNames = function getClassNames(path) {
-          return path ? path.map(function (node) {
-            return node.className;
-          }) : [];
-        };
-
-        var nodeClasses = getClassNames(e.path);
-
-        if (foundNode && e.target !== foundNode && foundNode.contains(e.target) !== true && !nodeClasses.join().match("flyout-modal")) {
-          this.setState({ active: false }, function () {
-            if (_this2.props.onActiveChange) {
-              _this2.props.onActiveChange(_this2.state.active);
-            }
-          });
+    if (this.props.hover && !this._isTouchDevice()) {
+      this.setState({ active: true }, function () {
+        _this4._positionFlyout();
+        if (_this4.props.onActiveChange) {
+          _this4.props.onActiveChange(_this4.state.active);
         }
-      }
-    }
-  }, {
-    key: "_resetDocumentClickHandlers",
-    value: function _resetDocumentClickHandlers(active) {
-      if (active) {
-        document.addEventListener("click", this._documentClick);
-        document.addEventListener("touchstart", this._documentClick);
-      } else {
-        document.removeEventListener("click", this._documentClick);
-        document.removeEventListener("touchstart", this._documentClick);
-      }
-    }
-  }, {
-    key: "_onStateChangeCallback",
-    value: function _onStateChangeCallback() {
-      var onActiveChange = this.props.onActiveChange;
-      var active = this.state.active;
-
-      onActiveChange(active);
-      this._resetDocumentClickHandlers(active);
-      this._positionFlyout();
-    }
-  }, {
-    key: "_onCloseButtonClick",
-    value: function _onCloseButtonClick(ev) {
-      this._handleLinkNav(ev);
-      this.setState({ active: !this.state.active }, this._onStateChangeCallback);
-    }
-  }, {
-    key: "_onTrigger",
-    value: function _onTrigger(ev) {
-      var _this3 = this;
-
-      this._handleLinkNav(ev);
-
-      this.setState({ active: !this.state.active }, function () {
-        _this3._onStateChangeCallback();
-        _this3.props.onTriggerElementClick(ev);
       });
     }
-  }, {
-    key: "_handleLinkNav",
-    value: function _handleLinkNav(e) {
-      e.preventDefault();
-      var href = e.currentTarget.href || e.target.href;
-      if (href && this.props.disableTouchLinksOnly && !this._isTouchDevice()) {
-        this._navigateWindow(href);
-      }
-    }
-  }, {
-    key: "_navigateWindow",
-    value: function _navigateWindow(url) {
-      window.location = url;
-    }
-  }, {
-    key: "_positionFlyout",
-    value: function _positionFlyout() {
-      var modal = _reactDom2.default.findDOMNode(this.refs.modal);
-      var _props = this.props;
-      var direction = _props.direction;
-      var size = _props.size;
-      var align = _props.align;
+  };
 
-      var newState = {};
-      if (direction === "left" || direction === "right" || direction === "center") {
-        newState.mt = Math.round(modal.offsetHeight / 2) * -1;
-      }
-      if (size === "fluid" || align === "center") {
-        newState.ml = Math.round(modal.offsetWidth / 2) * -1;
-      }
-      this.setState(newState);
-    }
-  }, {
-    key: "_mouseEnter",
-    value: function _mouseEnter() {
-      var _this4 = this;
+  Flyout.prototype._mouseLeave = function _mouseLeave() {
+    var _this5 = this;
 
-      if (this.props.hover && !this._isTouchDevice()) {
-        this.setState({ active: true }, function () {
-          _this4._positionFlyout();
-          if (_this4.props.onActiveChange) {
-            _this4.props.onActiveChange(_this4.state.active);
-          }
-        });
-      }
-    }
-  }, {
-    key: "_mouseLeave",
-    value: function _mouseLeave() {
-      var _this5 = this;
-
-      if (this.props.hover && !this._isTouchDevice()) {
-        this.setState({ active: false }, function () {
-          if (_this5.props.onActiveChange) {
-            _this5.props.onActiveChange(_this5.state.active);
-          }
-        });
-      }
-    }
-  }, {
-    key: "_addDirectionAndAlign",
-    value: function _addDirectionAndAlign() {
-      var extras = {};
-
-      extras["flyout-" + this.props.direction] = true;
-      extras["flyout-align-" + this.props.align] = true;
-
-      return extras;
-    }
-  }, {
-    key: "_renderCloseButton",
-    value: function _renderCloseButton(closeButton) {
-      if (closeButton) {
-        return _react2.default.createElement(
-          "button",
-          { className: "flyout-close", type: "button", onClick: this._onCloseButtonClick },
-          _react2.default.createElement(_icon2.default.Remove, null),
-          _react2.default.createElement(
-            "span",
-            { className: "visuallyhidden" },
-            "Close"
-          )
-        );
-      }
-    }
-  }, {
-    key: "_getBackdrop",
-    value: function _getBackdrop() {
-      var classes = (0, _classnames2.default)("flyout-backdrop", {
-        "display-block": this.state.active
+    if (this.props.hover && !this._isTouchDevice()) {
+      this.setState({ active: false }, function () {
+        if (_this5.props.onActiveChange) {
+          _this5.props.onActiveChange(_this5.state.active);
+        }
       });
-      if (this.props.hover) {
-        return _react2.default.createElement("div", { className: classes });
-      }
-      return null;
     }
-  }, {
-    key: "_renderTrigger",
-    value: function _renderTrigger(_ref) {
-      var triggerText = _ref.triggerText;
-      var trigger = _ref.trigger;
+  };
 
-      // by default we will render the trigger element as a button.
-      var triggerEl = _react2.default.createElement(
-        _button2.default,
-        { onClick: this._onTrigger, onMouseEnter: this._mouseEnter,
-          className: "flyout-trigger" },
-        triggerText
-      );
+  Flyout.prototype._addDirectionAndAlign = function _addDirectionAndAlign() {
+    var extras = {};
 
-      // if a custom trigger element is passed
-      if (trigger) {
-        // clone the element
-        triggerEl = cloneElement(trigger, {
-          onClick: this._onTrigger,
-          onMouseEnter: this._mouseEnter,
-          className: (0, _classnames2.default)(trigger.props.className, "flyout-trigger")
-        });
-      }
+    extras["flyout-" + this.props.direction] = true;
+    extras["flyout-align-" + this.props.align] = true;
 
-      // return the new triggerEl
-      return triggerEl;
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var modalExtras = {};
-      var modalFluid = {};
+    return extras;
+  };
 
-      if (this.props.size === "fluid") {
-        modalFluid["flyout-fluid"] = true;
-      } else {
-        modalExtras["flyout-modal-" + this.props.size] = true;
-      }
-
-      if (this.props.block) {
-        modalFluid["flyout-block"] = true;
-      }
-
-      var backdrop = this._getBackdrop();
-
-      var classes = (0, _classnames2.default)("flyout", this._addDirectionAndAlign(), this.props.hidden ? "hide-content" : "", this.props.className, modalFluid);
-
+  Flyout.prototype._renderCloseButton = function _renderCloseButton(closeButton) {
+    if (closeButton) {
       return _react2.default.createElement(
-        "div",
-        { className: classes, ref: "flyout", onMouseLeave: this._mouseLeave },
-        backdrop,
-        this._renderTrigger(this.props),
+        "button",
+        { className: "flyout-close", type: "button", onClick: this._onCloseButtonClick },
+        _react2.default.createElement(_icon2.default.Remove, null),
         _react2.default.createElement(
-          "div",
-          { className: (0, _classnames2.default)("flyout-modal", modalExtras),
-            ref: "modal",
-            style: {
-              display: this.state.active ? "block" : "none",
-              marginTop: this.state.mt,
-              marginLeft: this.state.ml
-            } },
-          this._renderCloseButton(this.props.closeButton),
-          this.props.children
+          "span",
+          { className: "visuallyhidden" },
+          "Close"
         )
       );
     }
-  }]);
+  };
+
+  Flyout.prototype._getBackdrop = function _getBackdrop() {
+    var classes = (0, _classnames2.default)("flyout-backdrop", {
+      "display-block": this.state.active
+    });
+    if (this.props.hover) {
+      return _react2.default.createElement("div", { className: classes });
+    }
+    return null;
+  };
+
+  Flyout.prototype._renderTrigger = function _renderTrigger(_ref) {
+    var triggerText = _ref.triggerText;
+    var trigger = _ref.trigger;
+
+    // by default we will render the trigger element as a button.
+    var triggerEl = _react2.default.createElement(
+      _button2.default,
+      { onClick: this._onTrigger, onMouseEnter: this._mouseEnter,
+        className: "flyout-trigger" },
+      triggerText
+    );
+
+    // if a custom trigger element is passed
+    if (trigger) {
+      // clone the element
+      triggerEl = cloneElement(trigger, {
+        onClick: this._onTrigger,
+        onMouseEnter: this._mouseEnter,
+        className: (0, _classnames2.default)(trigger.props.className, "flyout-trigger")
+      });
+    }
+
+    // return the new triggerEl
+    return triggerEl;
+  };
+
+  Flyout.prototype.render = function render() {
+    var modalExtras = {};
+    var modalFluid = {};
+
+    if (this.props.size === "fluid") {
+      modalFluid["flyout-fluid"] = true;
+    } else {
+      modalExtras["flyout-modal-" + this.props.size] = true;
+    }
+
+    if (this.props.block) {
+      modalFluid["flyout-block"] = true;
+    }
+
+    var backdrop = this._getBackdrop();
+
+    var classes = (0, _classnames2.default)("flyout", this._addDirectionAndAlign(), this.props.hidden ? "hide-content" : "", this.props.className, modalFluid);
+
+    return _react2.default.createElement(
+      "div",
+      { className: classes, ref: "flyout", onMouseLeave: this._mouseLeave },
+      backdrop,
+      this._renderTrigger(this.props),
+      _react2.default.createElement(
+        "div",
+        { className: (0, _classnames2.default)("flyout-modal", modalExtras),
+          ref: "modal",
+          style: {
+            display: this.state.active ? "block" : "none",
+            marginTop: this.state.mt,
+            marginLeft: this.state.ml
+          } },
+        this._renderCloseButton(this.props.closeButton),
+        this.props.children
+      )
+    );
+  };
 
   return Flyout;
 }(_react.Component);

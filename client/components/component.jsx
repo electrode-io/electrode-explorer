@@ -39,7 +39,11 @@ export default class Component extends React.Component {
         const passingScope = { React, process };
 
         imports && imports.forEach((imp) => {
-          passingScope[imp.ref] = require(`../demo-modules/${meta.name}/${imp.path}.js`).default;
+          try {
+            passingScope[imp.ref] = require(`../demo-modules/${meta.name}/${imp.path}.js`).default;
+          } catch (e) {
+            passingScope[imp.ref] = require(`../demo-modules/${meta.name}/${imp.path}/index.js`).default;
+          }
         });
         this.setState({
           examples, meta, passingScope

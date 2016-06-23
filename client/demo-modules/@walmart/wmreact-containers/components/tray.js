@@ -1,10 +1,18 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _classCallCheck2 = require("babel-runtime/helpers/classCallCheck");
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _possibleConstructorReturn2 = require("babel-runtime/helpers/possibleConstructorReturn");
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require("babel-runtime/helpers/inherits");
+
+var _inherits3 = _interopRequireDefault(_inherits2);
 
 var _react = require("react");
 
@@ -23,13 +31,6 @@ var _layout = require("@walmart/wmreact-layout/lib/components/layout");
 var _layout2 = _interopRequireDefault(_layout);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-/* eslint valid-jsdoc:0 */
 
 /**
 Tray container component.
@@ -85,13 +86,15 @@ React.render(<TrayExample/>, mountNode);
 ```
 */
 
+/* eslint valid-jsdoc:0 */
+
 var Tray = function (_Component) {
-  _inherits(Tray, _Component);
+  (0, _inherits3.default)(Tray, _Component);
 
   function Tray(props) {
-    _classCallCheck(this, Tray);
+    (0, _classCallCheck3.default)(this, Tray);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Tray).call(this, props));
+    var _this = (0, _possibleConstructorReturn3.default)(this, _Component.call(this, props));
 
     _this.state = {
       isOpen: _this.props.isOpen
@@ -108,101 +111,94 @@ var Tray = function (_Component) {
   */
 
 
-  _createClass(Tray, [{
-    key: "openTray",
-    value: function openTray() {
+  Tray.prototype.openTray = function openTray() {
+    this.setState({
+      isOpen: true
+    });
+  };
+
+  /**
+  Closes the tray
+  */
+
+
+  Tray.prototype.closeTray = function closeTray() {
+    this.setState({
+      isOpen: false
+    });
+  };
+
+  Tray.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
+    if (nextProps.isOpen && nextProps.isOpen !== this.props.isOpen) {
       this.setState({
-        isOpen: true
+        isOpen: nextProps.isOpen
       });
     }
+  };
 
-    /**
-    Closes the tray
-    */
+  Tray.prototype.renderButtons = function renderButtons() {
+    var onCancel = this.props.onCancel ? this.props.onCancel : this.closeTray;
+    var onDone = this.props.onDone ? this.props.onDone : this.closeTray;
 
-  }, {
-    key: "closeTray",
-    value: function closeTray() {
-      this.setState({
-        isOpen: false
-      });
-    }
-  }, {
-    key: "componentWillReceiveProps",
-    value: function componentWillReceiveProps(nextProps) {
-      if (nextProps.isOpen && nextProps.isOpen !== this.props.isOpen) {
-        this.setState({
-          isOpen: nextProps.isOpen
-        });
-      }
-    }
-  }, {
-    key: "renderButtons",
-    value: function renderButtons() {
-      var onCancel = this.props.onCancel ? this.props.onCancel : this.closeTray;
-      var onDone = this.props.onDone ? this.props.onDone : this.closeTray;
+    var cancelButtonClasses = ["tray-button", "width-full", this.props.cancelButtonClass];
 
-      var cancelButtonClasses = ["tray-button", "width-full", this.props.cancelButtonClass];
+    var doneButtonClasses = ["tray-button", "width-full", this.props.hideCancelButton ? "" : "x-small-margin-top", this.props.doneButtonClass];
 
-      var doneButtonClasses = ["tray-button", "width-full", this.props.hideCancelButton ? "" : "x-small-margin-top", this.props.doneButtonClass];
+    var cancelButton = _react2.default.createElement(
+      _button2.default,
+      { className: cancelButtonClasses.join(" "), onClick: onCancel, inverse: true },
+      this.props.cancelButtonText
+    );
 
-      var cancelButton = _react2.default.createElement(
-        _button2.default,
-        { className: cancelButtonClasses.join(" "), onClick: onCancel, inverse: true },
-        this.props.cancelButtonText
-      );
+    var doneButton = _react2.default.createElement(
+      _button2.default,
+      { className: doneButtonClasses.join(" "), onClick: onDone, primary: true },
+      this.props.doneButtonText
+    );
 
-      var doneButton = _react2.default.createElement(
-        _button2.default,
-        { className: doneButtonClasses.join(" "), onClick: onDone, primary: true },
-        this.props.doneButtonText
-      );
+    var buttonsHidden = this.props.hideDoneButton && this.props.hideCancelButton;
 
-      var buttonsHidden = this.props.hideDoneButton && this.props.hideCancelButton;
+    var buttonColumns = this.props.hideDoneButton || this.props.hideCancelButton ? 1 : 2;
 
-      var buttonColumns = this.props.hideDoneButton || this.props.hideCancelButton ? 1 : 2;
+    return this.props.hideButtons || buttonsHidden ? null : _react2.default.createElement(
+      _layout2.default,
+      { small: buttonColumns, padded: true },
+      this.props.hideCancelButton ? null : cancelButton,
+      this.props.hideDoneButton ? null : doneButton
+    );
+  };
 
-      return this.props.hideButtons || buttonsHidden ? null : _react2.default.createElement(
-        _layout2.default,
-        { small: buttonColumns, padded: true },
-        this.props.hideCancelButton ? null : cancelButton,
-        this.props.hideDoneButton ? null : doneButton
-      );
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var style = this.props.scrollable ? {
-        overflow: "scroll"
-      } : null;
+  Tray.prototype.render = function render() {
+    var style = this.props.scrollable ? {
+      overflow: "scroll"
+    } : null;
 
-      var trayHeaderClasses = ["tray-header", this.props.trayHeaderClass];
+    var trayHeaderClasses = ["tray-header", this.props.trayHeaderClass];
 
-      var trayContentClasses = ["tray-content-wrapper", this.props.trayContentClass];
+    var trayContentClasses = ["tray-content-wrapper", this.props.trayContentClass];
 
-      var header = this.props.header ? _react2.default.createElement(
+    var header = this.props.header ? _react2.default.createElement(
+      "div",
+      { className: trayHeaderClasses.join(" ") },
+      this.props.header
+    ) : null;
+
+    return _react2.default.createElement(
+      _collapsable2.default,
+      { className: "tray-wrapper", isOpen: this.state.isOpen, hidden: !!this.props.hidden },
+      _react2.default.createElement(
         "div",
-        { className: trayHeaderClasses.join(" ") },
-        this.props.header
-      ) : null;
-
-      return _react2.default.createElement(
-        _collapsable2.default,
-        { className: "tray-wrapper", isOpen: this.state.isOpen, hidden: !!this.props.hidden },
+        { className: trayContentClasses.join(" ") },
+        this.renderButtons(),
+        header,
         _react2.default.createElement(
           "div",
-          { className: trayContentClasses.join(" ") },
-          this.renderButtons(),
-          header,
-          _react2.default.createElement(
-            "div",
-            { style: style },
-            this.props.children
-          )
+          { style: style },
+          this.props.children
         )
-      );
-    }
-  }]);
+      )
+    );
+  };
 
   return Tray;
 }(_react.Component);

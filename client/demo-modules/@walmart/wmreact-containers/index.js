@@ -1,8 +1,6 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 
 var _expander = require("./components/expander");
 
@@ -19,6 +17,15 @@ Object.defineProperty(exports, "Flyout", {
   enumerable: true,
   get: function get() {
     return _interopRequireDefault(_flyout).default;
+  }
+});
+
+var _flyoutMagic = require("./components/flyout-magic");
+
+Object.defineProperty(exports, "FlyoutMagic", {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_flyoutMagic).default;
   }
 });
 
@@ -91,6 +98,15 @@ Object.defineProperty(exports, "SlidePanel", {
   enumerable: true,
   get: function get() {
     return _interopRequireDefault(_slidepanel).default;
+  }
+});
+
+var _responsiveFlyoutSlidepanel = require("./components/responsive-flyout-slidepanel");
+
+Object.defineProperty(exports, "ResponsiveFlyoutSlidePanel", {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_responsiveFlyoutSlidepanel).default;
   }
 });
 
