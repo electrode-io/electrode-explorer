@@ -49,12 +49,6 @@
       }
     }
   },
-  "github": {
-    "version": "3.0.0",
-    "pathPrefix": "/api/v3",
-    "protocol": "https",
-    "host": "gecgithub01.walmart.com"
-  },
   "ui": {
     "basePath": "/portal",
     "meta": {
@@ -64,6 +58,12 @@
     "github": {
       "protocol": "https",
       "basePath": "gecgithub01.walmart.com"
+    },
+    "githubApi": {
+      "version": "3.0.0",
+      "pathPrefix": "/api/v3",
+      "protocol": "https",
+      "host": "gecgithub01.walmart.com"
     }
   },
 
