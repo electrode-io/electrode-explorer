@@ -17,7 +17,7 @@ export default class Component extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      menu: []
+      menu: {}
     };
   }
 
@@ -28,7 +28,7 @@ export default class Component extends React.Component {
     }
     return fetchJSON(`${host}/portal/data/orgs.json`)
       .then((menu) => {
-        this.setState({menu});
+        this.setState({menu:menu.orgs});
       }).catch((err) => {
         console.error(err);
       });
