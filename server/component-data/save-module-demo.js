@@ -25,8 +25,12 @@ const saveModuleDemo = (moduleName) => {
 
     // Ensures a directory structure of demo-modules/@NAMESPACE/MODULE_NAME for namespaced
     // modules, demo-modules/MODULE_NAME for non-namespaced modules
-    moduleNameParts.forEach((identifier) =>
-      ensureDirectoryExists(Path.join(demoModules, "/", identifier)));
+    const directory = Path.join(demoModules, "/", moduleNameParts[0]);
+    ensureDirectoryExists(directory);
+
+    if (moduleNameParts.length > 1) {
+      ensureDirectoryExists(Path.join(directory, "/", moduleNameParts[1]));
+    }
 
     const moduleBase = Path.join(__dirname, "../../node_modules/", moduleName);
 
