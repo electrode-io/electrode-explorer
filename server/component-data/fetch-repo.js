@@ -11,6 +11,7 @@ const createImports = require("./create-imports");
 const saveModuleDemo = require("./save-module-demo");
 const handleLibraryScoping = require("./handle-library-scoping");
 const fetchComponentCode = require("./fetch-component-code");
+const fetchUsage = require("./fetch-usage");
 
 const patterns = {
   IMPORT_COMPONENT: /import ([\w]*) from "\.\.\/src\/([a-z\-\/]*)(?:\.jsx)";/g,
@@ -49,7 +50,7 @@ const prepareComponentsArray = (str) => {
 
 };
 
-const fetchDemoIndex = (org, repoName, meta, cb) => {
+const fetchDemoIndex = (org, repoName, meta) => {
 
   const opts = {
     user: org,
@@ -57,67 +58,66 @@ const fetchDemoIndex = (org, repoName, meta, cb) => {
     path: "demo/index.jsx"
   };
 
-  github.repos.getContent(opts, (err, response) => {
+  return new Promise((resolve, reject) => {
+    github.repos.getContent(opts, (err, response) => {
 
-    if (err) {
-      throw err;
-    }
+      if (err) {
+        throw err;
+      }
 
-    const indexContent = contentToString(response.content);
+      const indexContent = contentToString(response.content);
 
-    const im = indexContent.match(patterns.IMPORT_COMPONENT);
-    let imports = im ?
-      createImports(im) :
-      handleLibraryScoping(org, repoName, indexContent).then((ip) => {
-        return ip;
-      });
-
-    const m = indexContent.match(patterns.INDEX_COMPONENTS);
-    if (!m) {
-      throw new Error(`${org}/${repoName}: demo/index.jsx does not define Index.Components`);
-    }
-
-    const componentsStr = prepareComponentsArray(m[1]);
-    let components = [];
-
-    try {
-
-      let components = JSON.parse(componentsStr);
-
-      const result = Promise.each(components, component => {
-        return components.examples = Promise.each(component.examples, example => {
-
-          return fetchComponentCode(org, repoName, example.code.replace("raw!.", ""))
-            .then((code) => {
-              example.code = code;
-            });
-
-        }).then((arr) => {
-          return Promise.resolve(arr);
+      const im = indexContent.match(patterns.IMPORT_COMPONENT);
+      let imports = im ?
+        createImports(im) :
+        handleLibraryScoping(org, repoName, indexContent).then((ip) => {
+          return ip;
         });
-      }).then((comps) => {
 
-        // If imports is still a promise, get it's value
-        if (!Array.isArray(imports) && imports.isFulfilled()) {
-          imports = imports.value();
-        }
+      const m = indexContent.match(patterns.INDEX_COMPONENTS);
+      if (!m) {
+        throw new Error(`${org}/${repoName}: demo/index.jsx does not define Index.Components`);
+      }
 
-        return Promise.resolve({
-          meta: meta,
-          imports: imports,
-          components: comps
+      const componentsStr = prepareComponentsArray(m[1]);
+      let components = [];
+
+      try {
+
+        let components = JSON.parse(componentsStr);
+
+        Promise.each(components, component => {
+          return components.examples = Promise.each(component.examples, example => {
+
+            return fetchComponentCode(org, repoName, example.code.replace("raw!.", ""))
+              .then((code) => {
+                example.code = code;
+              });
+
+          }).then((arr) => {
+            return Promise.resolve(arr);
+          });
+        }).then((comps) => {
+
+          // If imports is still a promise, get it's value
+          if (!Array.isArray(imports) && imports.isFulfilled()) {
+            imports = imports.value();
+          }
+
+          return resolve({
+            meta: meta,
+            imports: imports,
+            components: comps
+          });
         });
-      });
 
-      cb(result);
+      } catch (err) {
+        console.error(`Error parsing components to Array (${org}/${repoName})`, err);
+        throw new Error(`${org}/${repoName}: Could not parse Index.Components to Array`);
+      }
 
-    } catch (err) {
-      console.error(`Error parsing components to Array (${org}/${repoName})`, err);
-      throw new Error(`${org}/${repoName}: Could not parse Index.Components to Array`);
-    }
-
+    });
   });
-
 };
 
 const extractMetaData = (pkg, repoUrl) => {
@@ -168,8 +168,12 @@ const fetchRepo = (org, repoName, cb) => {
       }
 
       try {
-
-        fetchDemoIndex(org, repoName, meta, (data) => resolve(data));
+        Promise.all([
+          fetchDemoIndex(org, repoName, meta),
+          fetchUsage(meta)
+        ]).spread((data, usage) => {
+          return resolve(Object.assign({}, data, {usage}));
+        });
 
       } catch (err) {
 

@@ -69,6 +69,13 @@
     }
   },
 
+  "ORGS_IN_USAGE_SEARCH": [
+    "electrode",
+    "react",
+    "redux",
+    "R-"
+  ],
+
   "automaticUpdate": true,
 
   "GHACCESS_TOKEN_NAME": "ECE_GHACCESS_TOKEN"
