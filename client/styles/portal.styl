@@ -21,6 +21,7 @@
   background: #efefef;
   padding: 0 8.5% 100px 20.5%;
   min-height: 700px;
+  border-top: 2px solid #808080;
 }
 
 .portal-body span.component-info {
@@ -37,6 +38,7 @@
   font-weight: 400;
   text-decoration: none;
   cursor: pointer;
+  text-transform: capitalize;
 }
 
 .nav-link:hover {
@@ -45,12 +47,41 @@
 }
 
 .portal-menu {
-  background-color: #007dc6;
+  background-color: transparent;
+  position: absolute;
+  width: 15%;
+  margin-top: 2px;
+  border-right: 1px solid #e5e5e5;
+}
+
+.portal-menu ul {
+  list-style-type: none;
+  margin: 10px 0;
+  padding-left: 20px;
+}
+
+.portal-menu li {
+  padding: 0 0 5px 10px;
+  text-transform: capitalize;
+  font-size: 0.9em;
+}
+
+.portal-menu li a {
+  color: #606060;
+}
+
+.portal-menu li a:hover {
+  text-decoration: underline;
 }
 
 .menu-link {
   color: white;
   margin: 0 10%;
+}
+
+.portal-menu h4 {
+  margin-left: 20px;
+  text-transform: capitalize;
 }
 
 .portal-footer {
@@ -68,3 +99,4 @@
   line-height: 40px;
   padding-left: 20px;
 }
+
