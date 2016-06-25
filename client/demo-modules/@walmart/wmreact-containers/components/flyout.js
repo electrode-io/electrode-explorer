@@ -26,10 +26,6 @@ var _classnames = require("classnames");
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _map = require("lodash/map");
-
-var _map2 = _interopRequireDefault(_map);
-
 var _button = require("@walmart/wmreact-interactive/lib/components/button");
 
 var _button2 = _interopRequireDefault(_button);
@@ -137,9 +133,7 @@ var Flyout = function (_Component) {
        * @returns {array} Classnames of node
        */
       var getClassNames = function getClassNames(path) {
-        return path ? (0, _map2.default)(path, function (node) {
-          return node.className;
-        }) : [];
+        return path ? path.map((node) => node.className) : [];
       };
 
       var nodeClasses = getClassNames(e.path);
