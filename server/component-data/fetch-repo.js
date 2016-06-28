@@ -120,6 +120,57 @@ const fetchDemoIndex = (org, repoName, meta) => {
   });
 };
 
+const fetchComponentsJSON = (org, repoName, meta) => {
+  const opts = {
+    user: org,
+    repo: repoName,
+    path: "components.json"
+  };
+
+  return new Promise((resolve, reject) => {
+    github.repos.getContent(opts, (err, response) => {
+
+      if (err) {
+        return reject(err);
+      }
+
+      let content = contentToString(response.content);
+      try {
+        content = JSON.parse(content);
+      } catch (e) {
+        console.error(`Error fetching components.json for ${org}/${repoName}`, e);
+        return reject(e);
+      }
+
+      const components = [];
+      const imports = [];
+      content.components.forEach((component) => {
+        component.playground && component.playground.forEach((playground) => {
+          components.push({
+            title: playground.title,
+            examples: [{
+              type: "playground",
+              code: playground.code
+            }]
+          });
+        });
+
+        const filePath = component.fileName.split("./src/")[1].split(".jsx")[0];
+        imports.push({
+          ref: component.component,
+          path: filePath
+        });
+      });
+
+      return resolve({
+        meta,
+        imports,
+        components
+      });
+    });
+  }).catch(() => fetchDemoIndex(org, repoName, meta));
+};
+
 const extractMetaData = (pkg, repoUrl) => {
 
   return {
@@ -132,7 +183,7 @@ const extractMetaData = (pkg, repoUrl) => {
 
 };
 
-const fetchRepo = (org, repoName, cb) => {
+const fetchRepo = (org, repoName) => {
 
   github.authenticate(githubAuthObject);
 
@@ -167,20 +218,15 @@ const fetchRepo = (org, repoName, cb) => {
 
       }
 
-      try {
-        Promise.all([
-          fetchDemoIndex(org, repoName, meta),
-          fetchUsage(meta)
-        ]).spread((data, usage) => {
-          return resolve(Object.assign({}, data, {usage}));
-        });
-
-      } catch (err) {
-
+      return Promise.all([
+        fetchComponentsJSON(org, repoName, meta),
+        fetchUsage(meta)
+      ]).spread((data, usage) => {
+        return resolve(Object.assign({}, data, {usage}));
+      }).catch((err) => {
         console.error(`Error fetching demo index for ${org}/${repoName}`, err);
         return reject(err);
-
-      }
+      });
 
     });
   });
