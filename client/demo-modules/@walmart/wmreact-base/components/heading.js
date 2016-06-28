@@ -1,8 +1,10 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
+
+var _objectWithoutProperties2 = require("babel-runtime/helpers/objectWithoutProperties");
+
+var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
 
 var _react = require("react");
 
@@ -17,8 +19,6 @@ var _objectAssign = require("object-assign");
 var _objectAssign2 = _interopRequireDefault(_objectAssign);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 var headerMapping = {
   h1: "heading-a",
@@ -45,8 +45,7 @@ var createClass = function createClass(h) {
       var _props = this.props;
       var className = _props.className;
       var children = _props.children;
-
-      var headingProps = _objectWithoutProperties(_props, ["className", "children"]);
+      var headingProps = (0, _objectWithoutProperties3.default)(_props, ["className", "children"]);
 
       var classes = (0, _classnames2.default)(className, headerClass, this.props.hidden ? "hide-content" : "");
       var propsToAssign = (0, _objectAssign2.default)({ className: classes }, headingProps);

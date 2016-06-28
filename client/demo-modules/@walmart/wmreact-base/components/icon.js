@@ -1,10 +1,14 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _extends2 = require("babel-runtime/helpers/extends");
+
+var _extends3 = _interopRequireDefault(_extends2);
+
+var _objectWithoutProperties2 = require("babel-runtime/helpers/objectWithoutProperties");
+
+var _objectWithoutProperties3 = _interopRequireDefault(_objectWithoutProperties2);
 
 var _react = require("react");
 
@@ -19,10 +23,6 @@ var _iconValidationMarker = require("./icon-validation-marker");
 var _iconValidationMarker2 = _interopRequireDefault(_iconValidationMarker);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-/* eslint prefer-const:0, react/prop-types: 0 */
-
 
 /**
 Icon component
@@ -108,15 +108,17 @@ By Name
 var Icon = function Icon(props) {
   var extras = {};
   var className = props.className;
+  var other = (0, _objectWithoutProperties3.default)(props, ["className"]);
 
-  var other = _objectWithoutProperties(props, ["className"]);
 
   if (props.size) {
     extras["wmicon-" + props.size] = true;
   }
 
-  return _react2.default.createElement("i", _extends({ className: (0, _classnames2.default)("wmicon", "wmicon-" + props.name, extras, props.hidden ? "hide-content" : "", className) }, other));
+  return _react2.default.createElement("i", (0, _extends3.default)({ className: (0, _classnames2.default)("wmicon", "wmicon-" + props.name, extras, props.hidden ? "hide-content" : "", className) }, other));
 };
+/* eslint prefer-const:0, react/prop-types: 0 */
+
 
 var icons = {
   Truck: "truck",
@@ -179,7 +181,7 @@ var _createIcon = function _createIcon(name) {
     if (props.size) {
       extras["wmicon-" + props.size] = true;
     }
-    return _react2.default.createElement("i", _extends({ className: (0, _classnames2.default)("wmicon", "wmicon-" + name, extras, props.className)
+    return _react2.default.createElement("i", (0, _extends3.default)({ className: (0, _classnames2.default)("wmicon", "wmicon-" + name, extras, props.className)
     }, props));
   };
 };

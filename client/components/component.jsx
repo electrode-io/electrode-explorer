@@ -22,10 +22,10 @@ export default class Component extends React.Component {
 
   componentWillMount() {
     const { org, repo } = this.props.params;
-    let host = "http://localhost:3000";
-    if (ExecutionEnvironment.canUseDOM) {
-      host = window.location.origin;
-    }
+    const host = ExecutionEnvironment.canUseDOM ?
+      window.location.origin :
+      "http://localhost:3000";
+
     return fetchJSON(`${host}/portal/data/${org}/${repo}.json`)
       .then((res) => {
         const meta = res.meta || {};

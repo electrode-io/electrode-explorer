@@ -1,10 +1,10 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _extends2 = require("babel-runtime/helpers/extends");
+
+var _extends3 = _interopRequireDefault(_extends2);
 
 var _react = require("react");
 
@@ -45,7 +45,7 @@ Copy
 var Copy = function Copy(props) {
   return _react2.default.createElement(
     "p",
-    _extends({ className: props.hidden ? "hide-content" : "" }, props),
+    (0, _extends3.default)({ className: props.hidden ? "hide-content" : "" }, props),
     props.children
   );
 };

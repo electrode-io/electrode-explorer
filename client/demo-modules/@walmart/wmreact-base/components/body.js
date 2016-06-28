@@ -1,12 +1,22 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+exports.__esModule = true;
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _extends2 = require("babel-runtime/helpers/extends");
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _extends3 = _interopRequireDefault(_extends2);
+
+var _classCallCheck2 = require("babel-runtime/helpers/classCallCheck");
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _possibleConstructorReturn2 = require("babel-runtime/helpers/possibleConstructorReturn");
+
+var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+var _inherits2 = require("babel-runtime/helpers/inherits");
+
+var _inherits3 = _interopRequireDefault(_inherits2);
 
 var _react = require("react");
 
@@ -27,14 +37,6 @@ var _bodyDesktopHeader = require("./body-desktop-header");
 var _bodyDesktopHeader2 = _interopRequireDefault(_bodyDesktopHeader);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-/*eslint max-len: [2, 100, 4, { "ignorePattern": ".*i5.walmartimages.com.*" }]*/
-
 
 /**
 Body container component.
@@ -57,77 +59,73 @@ Body
 */
 
 var Body = function (_React$Component) {
-  _inherits(Body, _React$Component);
+  (0, _inherits3.default)(Body, _React$Component);
 
   function Body() {
-    _classCallCheck(this, Body);
-
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(Body).apply(this, arguments));
+    (0, _classCallCheck3.default)(this, Body);
+    return (0, _possibleConstructorReturn3.default)(this, _React$Component.apply(this, arguments));
   }
 
-  _createClass(Body, [{
-    key: "_renderHeader",
-    value: function _renderHeader() {
-      return _react2.default.createElement(
-        _wmreactLayout.MediaSelector,
-        null,
-        _react2.default.createElement(_bodyDesktopHeader2.default, _extends({ visibleAtOrAbove: "large" }, this.props)),
-        _react2.default.createElement(_bodyTabletHeader2.default, _extends({ visibleWidths: ["medium"] }, this.props)),
-        _react2.default.createElement(_bodyMobileHeader2.default, _extends({ hiddenAbove: "small" }, this.props))
-      );
-    }
-  }, {
-    key: "_renderFooter",
-    value: function _renderFooter() {
-      return _react2.default.createElement(
-        "div",
-        { className: "clearfix zeus-footer" },
+  Body.prototype._renderHeader = function _renderHeader() {
+    return _react2.default.createElement(
+      _wmreactLayout.MediaSelector,
+      null,
+      _react2.default.createElement(_bodyDesktopHeader2.default, (0, _extends3.default)({ visibleAtOrAbove: "large" }, this.props)),
+      _react2.default.createElement(_bodyTabletHeader2.default, (0, _extends3.default)({ visibleWidths: ["medium"] }, this.props)),
+      _react2.default.createElement(_bodyMobileHeader2.default, (0, _extends3.default)({ hiddenAbove: "small" }, this.props))
+    );
+  };
+
+  Body.prototype._renderFooter = function _renderFooter() {
+    return _react2.default.createElement(
+      "div",
+      { className: "clearfix zeus-footer" },
+      _react2.default.createElement(
+        _wmreactLayout.Layout,
+        { small: 2, className: "zeus-footer-container" },
         _react2.default.createElement(
-          _wmreactLayout.Layout,
-          { small: 2, className: "zeus-footer-container" },
+          "div",
+          { className: "zeus-footer-left" },
+          "© 2015–",
+          new Date().getFullYear(),
+          " Walmart Stores, Inc."
+        ),
+        _react2.default.createElement(
+          "div",
+          { className: "zeus-footer-right" },
           _react2.default.createElement(
             "div",
-            { className: "zeus-footer-left" },
-            "© 2015–",
-            new Date().getFullYear(),
-            " Walmart Stores, Inc."
+            { className: "zeus-footer-left-content" },
+            this.props.footerLeft
           ),
           _react2.default.createElement(
             "div",
-            { className: "zeus-footer-right" },
-            _react2.default.createElement(
-              "div",
-              { className: "zeus-footer-left-content" },
-              this.props.footerLeft
-            ),
-            _react2.default.createElement(
-              "div",
-              { className: "zeus-footer-right-content" },
-              this.props.footerRight
-            )
+            { className: "zeus-footer-right-content" },
+            this.props.footerRight
           )
         )
-      );
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return _react2.default.createElement(
+      )
+    );
+  };
+
+  Body.prototype.render = function render() {
+    return _react2.default.createElement(
+      "div",
+      { className: "page-wrapper" },
+      this.props.showHeader === true && this._renderHeader(),
+      _react2.default.createElement(
         "div",
-        { className: "page-wrapper" },
-        this.props.showHeader === true && this._renderHeader(),
-        _react2.default.createElement(
-          "div",
-          { className: "body-wrapper" },
-          this.props.children
-        ),
-        this.props.showFooter === true && this._renderFooter()
-      );
-    }
-  }]);
+        { className: "body-wrapper" },
+        this.props.children
+      ),
+      this.props.showFooter === true && this._renderFooter()
+    );
+  };
 
   return Body;
 }(_react2.default.Component);
+/*eslint max-len: [2, 100, 4, { "ignorePattern": ".*i5.walmartimages.com.*" }]*/
+
 
 exports.default = Body;
 
