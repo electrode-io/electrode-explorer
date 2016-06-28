@@ -68,7 +68,7 @@ export default class Component extends React.Component {
             </div>}
             {meta.version && `v${meta.version}`}
             {usage.length && <div>
-              This component is required by {usage.length} modules / apps.
+              This component is used in {usage.length} modules / apps.
               {usage.map((url) => (
                 <div><a href={url}>{url}</a></div>
               ))}
