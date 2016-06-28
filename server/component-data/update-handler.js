@@ -8,6 +8,18 @@ const ghToken = Config.automaticUpdate && process.env[Config.GHACCESS_TOKEN_NAME
 const ensureDirectoryExists = require("./utils/ensure-directory-exists");
 const fetchRepo = require("./fetch-repo");
 
+const compare = function (a, b) {
+  if (a.name < b.name) {
+    return -1;
+  }
+
+  if (a.name > b.name) {
+    return 1;
+  }
+
+  return 0;
+};
+
 const UpdateHandler = function (request, reply) {
 
   if (!ghToken) {
@@ -59,6 +71,8 @@ const UpdateHandler = function (request, reply) {
           });
 
         }
+
+        current.repos.sort(compare);
 
         Fs.writeFileSync(orgMap, JSON.stringify(catalog));
 

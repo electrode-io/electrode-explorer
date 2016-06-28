@@ -113,7 +113,8 @@ const fetchDemoIndex = (org, repoName, meta) => {
 
       } catch (err) {
         console.error(`Error parsing components to Array (${org}/${repoName})`, err);
-        throw new Error(`${org}/${repoName}: Could not parse Index.Components to Array`);
+        console.log("trying to fetch file components.json");
+        return fetchComponentsJSON(org, repoName, meta);
       }
 
     });
@@ -168,7 +169,10 @@ const fetchComponentsJSON = (org, repoName, meta) => {
         components
       });
     });
-  }).catch(() => fetchDemoIndex(org, repoName, meta));
+  }).catch((e) => {
+    console.error(`Error parsing file components.json (${org}/${repoName})`, e);
+    throw new Error(`${org}/${repoName}: Could not parse file components.json`);
+  });
 };
 
 const extractMetaData = (pkg, repoUrl) => {
@@ -219,7 +223,7 @@ const fetchRepo = (org, repoName) => {
       }
 
       return Promise.all([
-        fetchComponentsJSON(org, repoName, meta),
+        fetchDemoIndex(org, repoName, meta),
         fetchUsage(meta)
       ]).spread((data, usage) => {
         return resolve(Object.assign({}, data, {usage}));
