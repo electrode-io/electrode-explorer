@@ -155,7 +155,9 @@ const fetchComponentsJSON = (org, repoName, meta) => {
           });
         });
 
-        const filePath = component.fileName.split("./src/")[1].split(".jsx")[0];
+        const pathPrefix = component.fileName.indexOf("src") === 0 ?
+          "src/" : "./src/";
+        const filePath = component.fileName.split(pathPrefix)[1].split(".jsx")[0];
         imports.push({
           ref: component.component,
           path: filePath
