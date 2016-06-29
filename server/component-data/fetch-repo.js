@@ -76,7 +76,7 @@ const fetchDemoIndex = (org, repoName, meta) => {
 
       const m = indexContent.match(patterns.INDEX_COMPONENTS);
       if (!m) {
-        throw new Error(`${org}/${repoName}: demo/index.jsx does not define Index.Components`);
+        return reject(new Error(`${org}/${repoName}: demo/index.jsx does not define Index.Components`));
       }
 
       const componentsStr = prepareComponentsArray(m[1]);
@@ -113,12 +113,11 @@ const fetchDemoIndex = (org, repoName, meta) => {
 
       } catch (err) {
         console.error(`Error parsing components to Array (${org}/${repoName})`, err);
-        console.log("trying to fetch file components.json");
-        return fetchComponentsJSON(org, repoName, meta);
+        return reject(err);
       }
 
     });
-  });
+  }).catch(() => fetchComponentsJSON(org, repoName, meta));
 };
 
 const fetchComponentsJSON = (org, repoName, meta) => {
