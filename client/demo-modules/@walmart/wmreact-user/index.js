@@ -38,6 +38,15 @@ Object.defineProperty(exports, "ForgotPassword", {
   }
 });
 
+var _lostMember = require("./components/lost-member");
+
+Object.defineProperty(exports, "LostMember", {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_lostMember).default;
+  }
+});
+
 var _resetPassword = require("./components/reset-password");
 
 Object.defineProperty(exports, "ResetPassword", {

@@ -47,6 +47,15 @@ Object.defineProperty(exports, "ProductsBOT", {
   }
 });
 
+var _productsSecondaryBot = require("./components/products-secondary-bot");
+
+Object.defineProperty(exports, "ProductSecondaryBOT", {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_productsSecondaryBot).default;
+  }
+});
+
 var _starRating = require("./components/star-rating");
 
 Object.defineProperty(exports, "StarRating", {

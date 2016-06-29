@@ -57,6 +57,9 @@ var CyberFend = function (_React$Component) {
   };
 
   CyberFend.prototype._generateSensorData = function _generateSensorData() {
+    if (!this.props.cf) {
+      return "";
+    }
     this.props.cf.cfsubmit();
     return this.refs.SensorData.value;
   };

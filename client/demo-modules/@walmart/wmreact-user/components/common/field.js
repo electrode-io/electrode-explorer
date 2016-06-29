@@ -38,6 +38,18 @@ var showFieldError = function showFieldError() {
   return field.touched && field.error;
 };
 
+var displayError = function displayError() {
+  var field = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+
+  if (showFieldError(field)) {
+    return _react2.default.createElement(
+      "p",
+      { className: "error-label" },
+      field.error
+    );
+  }
+};
+
 var showFieldValidationSuccess = function showFieldValidationSuccess() {
   var field = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
@@ -104,9 +116,11 @@ var Field = function (_React$Component) {
     var _props2$showLabel = _props2.showLabel;
     var showLabel = _props2$showLabel === undefined ? false : _props2$showLabel;
     var placeholder = _props2.placeholder;
+    var _props2$showErrorOnTo = _props2.showErrorOnTop;
+    var showErrorOnTop = _props2$showErrorOnTo === undefined ? false : _props2$showErrorOnTo;
     var _props2$validationSuc = _props2.validationSuccessMark;
     var validationSuccessMark = _props2$validationSuc === undefined ? false : _props2$validationSuc;
-    var rest = (0, _objectWithoutProperties3.default)(_props2, ["label", "field", "children", "className", "automationId", "tealeafId", "showLabel", "placeholder", "validationSuccessMark"]);
+    var rest = (0, _objectWithoutProperties3.default)(_props2, ["label", "field", "children", "className", "automationId", "tealeafId", "showLabel", "placeholder", "showErrorOnTop", "validationSuccessMark"]);
 
     return _react2.default.createElement(
       "label",
@@ -118,6 +132,7 @@ var Field = function (_React$Component) {
         { className: (0, _classnames2.default)("label-text", { visuallyhidden: !showLabel }) },
         label
       ),
+      showErrorOnTop ? displayError(field) : "",
       _react2.default.createElement(
         "div",
         { className: "validation-group" },
@@ -140,11 +155,7 @@ var Field = function (_React$Component) {
         validationSuccessMark && showFieldValidationSuccess(field) && _react2.default.createElement("i", { className: "validation-marker validation-marker-success" }),
         children
       ),
-      showFieldError(field) && _react2.default.createElement(
-        "p",
-        { className: "error-label" },
-        field.error
-      )
+      showErrorOnTop ? "" : displayError(field)
     );
   };
 
@@ -156,6 +167,7 @@ exports.default = Field;
 
 Field.propTypes = {
   field: _react.PropTypes.object,
+  showErrorOnTop: _react.PropTypes.bool,
   triggerIEHack: _react.PropTypes.bool,
   label: _react.PropTypes.node,
   children: _react.PropTypes.node,

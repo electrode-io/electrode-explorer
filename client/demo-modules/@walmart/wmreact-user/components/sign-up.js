@@ -14,13 +14,17 @@ var _isEmpty = require("lodash/isEmpty");
 
 var _isEmpty2 = _interopRequireDefault(_isEmpty);
 
+var _classnames = require("classnames");
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
 var _heading = require("@walmart/wmreact-base/lib/components/heading");
 
 var _heading2 = _interopRequireDefault(_heading);
 
-var _nortonLogo = require("@walmart/wmreact-iconography/lib/components/norton-logo");
+var _nortonLogoGrey = require("@walmart/wmreact-iconography/lib/components/norton-logo-grey");
 
-var _nortonLogo2 = _interopRequireDefault(_nortonLogo);
+var _nortonLogoGrey2 = _interopRequireDefault(_nortonLogoGrey);
 
 var _button = require("@walmart/wmreact-interactive/lib/components/button");
 
@@ -139,7 +143,7 @@ var SignUpForm = _react2.default.createClass({
         "By clicking Create Account, you acknowledge you have read and agreed to the",
         _react2.default.createElement(
           "a",
-          {
+          { className: "u-textGrey",
             href: "http://corporate.walmart.com/terms-of-use",
             target: "_blank" },
           " Terms of Use "
@@ -147,7 +151,7 @@ var SignUpForm = _react2.default.createClass({
         " and",
         _react2.default.createElement(
           "a",
-          {
+          { className: "u-textGrey",
             href: "http://corporate.walmart.com/privacy-security/walmart-privacy-policy",
             target: "_blank" },
           " Privacy Policy"
@@ -196,8 +200,8 @@ var SignUpForm = _react2.default.createClass({
     initializeForm({ newsletter: newsletterDefaultChecked });
   },
   _navigateBasedOnTarget: function _navigateBasedOnTarget(ev) {
-    var classNames = ev.target.className.split(" ");
-    if (classNames.indexOf("js-sign-in-link") !== -1) {
+    var classNms = ev.target.className.split(" ");
+    if (classNms.indexOf("js-sign-in-link") !== -1) {
       ev.preventDefault();
       this.props.onSignInRequested();
     }
@@ -232,7 +236,6 @@ var SignUpForm = _react2.default.createClass({
         type: "hidden" })
     ) : _react2.default.createElement(_field2.default, {
       field: email,
-      type: "email",
       autoComplete: "off",
       validationSuccessMark: true,
       label: "Email",
@@ -286,13 +289,44 @@ var SignUpForm = _react2.default.createClass({
       this.props.newsletterText
     );
   },
+  renderBottomInfo: function renderBottomInfo() {
+    var _props4 = this.props;
+    var showNortonLogo = _props4.showNortonLogo;
+    var showSignIn = _props4.showSignIn;
+    var onSignInRequested = _props4.onSignInRequested;
+
+
+    return _react2.default.createElement(
+      "div",
+      { className: "bottom-info-wrap" },
+      showSignIn && _react2.default.createElement(
+        "div",
+        { className: "text-center signin-btn action-btn" },
+        "Already have an account?",
+        " ",
+        _react2.default.createElement(
+          _button2.default,
+          {
+            fakelink: true,
+            onClick: onSignInRequested,
+            automationId: this.props.automation.signInBtn },
+          "Sign In"
+        )
+      ),
+      showNortonLogo && _react2.default.createElement(
+        "div",
+        { className: "norton-wrapper" },
+        _react2.default.createElement(_nortonLogoGrey2.default, { grey: false })
+      )
+    );
+  },
   handleSubmit: function handleSubmit(evt) {
     _config2.default.logger.log("On Submit", { event: "submit", form: "SignUp" });
 
-    var _props4 = this.props;
-    var handleSubmit = _props4.handleSubmit;
-    var handleResponse = _props4.handleResponse;
-    var onSignUp = _props4.onSignUp;
+    var _props5 = this.props;
+    var handleSubmit = _props5.handleSubmit;
+    var handleResponse = _props5.handleResponse;
+    var onSignUp = _props5.onSignUp;
 
 
     return handleResponse(handleSubmit(onSignUp)(evt).catch(function () {
@@ -304,22 +338,18 @@ var SignUpForm = _react2.default.createClass({
   render: function render() {
     var _this = this;
 
-    var _props5 = this.props;
-    var titleText = _props5.titleText;
-    var btnPrimary = _props5.btnPrimary;
-    var btnText = _props5.btnText;
-    var onSignInRequested = _props5.onSignInRequested;
-    var privacyPolicyText = _props5.privacyPolicyText;
-    var subtitleText = _props5.subtitleText;
-    var _props5$error = _props5.error;
-    var error = _props5$error === undefined ? {} : _props5$error;
-    var HeadingElement = _props5.headingElement;
-    var submitting = _props5.submitting;
-    var submitSuccess = _props5.submitSuccess;
     var _props6 = this.props;
-    var showNortonLogo = _props6.showNortonLogo;
-    var showSignIn = _props6.showSignIn;
-    var showSubtitle = _props6.showSubtitle;
+    var titleText = _props6.titleText;
+    var btnPrimary = _props6.btnPrimary;
+    var btnText = _props6.btnText;
+    var privacyPolicyText = _props6.privacyPolicyText;
+    var subtitleText = _props6.subtitleText;
+    var _props6$error = _props6.error;
+    var error = _props6$error === undefined ? {} : _props6$error;
+    var HeadingElement = _props6.headingElement;
+    var submitting = _props6.submitting;
+    var submitSuccess = _props6.submitSuccess;
+    var showSubtitle = this.props.showSubtitle;
 
 
     var errorObj = !(0, _isEmpty2.default)(error) && _alertMessageMap2.default.getAlert(error.code);
@@ -337,7 +367,7 @@ var SignUpForm = _react2.default.createClass({
       }),
       _react2.default.createElement(
         HeadingElement,
-        null,
+        { className: "heading" },
         titleText
       ),
       showSubtitle && _react2.default.createElement(
@@ -356,7 +386,10 @@ var SignUpForm = _react2.default.createClass({
             return _this.handleSubmit(evt);
           },
           method: "post",
-          className: btnPrimary ? "option-checkout" : "option-form-control" },
+          className: (0, _classnames2.default)("form-box", {
+            "option-checkout": btnPrimary,
+            "option-form-control": !btnPrimary
+          }) },
         this.renderFirstName(),
         this.renderLastName(),
         this.renderEmail(),
@@ -380,31 +413,9 @@ var SignUpForm = _react2.default.createClass({
             tealeafId: this.props.tealeaf.submitBtn },
           btnText
         ),
-        this.renderNewsletter(),
-        _react2.default.createElement(
-          "div",
-          { className: "bottom-info-wrap pull-left" },
-          showSignIn && _react2.default.createElement(
-            "p",
-            null,
-            "Returning customer?",
-            " ",
-            _react2.default.createElement(
-              _button2.default,
-              {
-                fakelink: true,
-                onClick: onSignInRequested,
-                automationId: this.props.automation.signInBtn },
-              "Sign In"
-            )
-          )
-        ),
-        showNortonLogo && _react2.default.createElement(
-          "div",
-          { className: "pull-right norton-wrapper" },
-          _react2.default.createElement(_nortonLogo2.default, null)
-        )
-      )
+        this.renderNewsletter()
+      ),
+      this.renderBottomInfo()
     );
   }
 });

@@ -130,7 +130,7 @@ exports.default = {
     message: "Please enter the email where we sent the verification code."
   },
 
-  Unauthorized: {
+  cf_is_bot: {
     alertType: "warning",
     message: "Bot detected"
   },

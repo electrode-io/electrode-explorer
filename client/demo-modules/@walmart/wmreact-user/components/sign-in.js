@@ -18,9 +18,9 @@ var _heading = require("@walmart/wmreact-base/lib/components/heading");
 
 var _heading2 = _interopRequireDefault(_heading);
 
-var _nortonLogo = require("@walmart/wmreact-iconography/lib/components/norton-logo");
+var _nortonLogoGrey = require("@walmart/wmreact-iconography/lib/components/norton-logo-grey");
 
-var _nortonLogo2 = _interopRequireDefault(_nortonLogo);
+var _nortonLogoGrey2 = _interopRequireDefault(_nortonLogoGrey);
 
 var _button = require("@walmart/wmreact-interactive/lib/components/button");
 
@@ -37,6 +37,10 @@ var _alert2 = _interopRequireDefault(_alert);
 var _field = require("./common/field");
 
 var _field2 = _interopRequireDefault(_field);
+
+var _password = require("./common/password");
+
+var _password2 = _interopRequireDefault(_password);
 
 var _config = require("../config");
 
@@ -67,6 +71,7 @@ var SignInForm = _react2.default.createClass({
     //redux-form props
     handleSubmit: _react.PropTypes.func.isRequired,
     onForgotPasswordRequested: _react.PropTypes.func.isRequired,
+    onForgotEmailRequested: _react.PropTypes.func.isRequired,
     onSignUpRequested: _react.PropTypes.func.isRequired,
     fields: _react.PropTypes.shape({
       email: _react.PropTypes.object.isRequired,
@@ -83,6 +88,9 @@ var SignInForm = _react2.default.createClass({
     showPrivacyPolicy: _react.PropTypes.bool,
     showLabels: _react.PropTypes.bool,
     showRememberme: _react.PropTypes.bool,
+    showForgotPassword: _react.PropTypes.bool,
+    showForgotEmail: _react.PropTypes.bool,
+    showHidePassword: _react.PropTypes.bool,
     //Captcha
     captchaAvailable: _react.PropTypes.bool,
     captcha: _react.PropTypes.shape({
@@ -96,6 +104,7 @@ var SignInForm = _react2.default.createClass({
       emailInput: _react.PropTypes.string,
       passwordInput: _react.PropTypes.string,
       forgotPasswordLinkBtn: _react.PropTypes.string,
+      forgotEmailLinkBtn: _react.PropTypes.string,
       submitBtn: _react.PropTypes.string,
       signUpBtn: _react.PropTypes.string,
       passwordShowBtn: _react.PropTypes.string,
@@ -107,6 +116,7 @@ var SignInForm = _react2.default.createClass({
       emailInput: _react.PropTypes.string,
       passwordInput: _react.PropTypes.string,
       forgotPasswordLinkBtn: _react.PropTypes.string,
+      forgotEmailLinkBtn: _react.PropTypes.string,
       submitBtn: _react.PropTypes.string,
       signUpBtn: _react.PropTypes.string,
       passwordShowBtn: _react.PropTypes.string,
@@ -125,10 +135,16 @@ var SignInForm = _react2.default.createClass({
       showSignUp: true,
       showNortonLogo: true,
       showPrivacyPolicy: true,
+      showForgotPassword: true,
+      showForgotEmail: false,
+      showHidePassword: false,
       automation: {
         emailInput: "signin-email-input",
         passwordInput: "signin-password-input",
+        passwordShowBtn: "signin-password-input-show-btn",
+        passwordHideBtn: "signin-password-input-hide-btn",
         forgotPasswordLinkBtn: "signin-forgot-password-link-btn",
+        forgotEmailLinkBtn: "signin-forgot-email-link-btn",
         submitBtn: "signin-submit-btn",
         signUpBtn: "signin-sign-up-btn",
         rememberme: "signin-rememberme-checkbox"
@@ -136,7 +152,10 @@ var SignInForm = _react2.default.createClass({
       tealeaf: {
         emailInput: "signin-email-input",
         passwordInput: "signin-password-input",
+        passwordShowBtn: "signin-password-input-show-btn",
+        passwordHideBtn: "signin-password-input-hide-btn",
         forgotPasswordLinkBtn: "signin-forgot-password-link-btn",
+        forgotEmailLinkBtn: "signin-forgot-email-link-btn",
         submitBtn: "signin-submit-btn",
         signUpBtn: "signin-sign-up-btn",
         remembermeCheckbox: "signin-rememberme-checkbox"
@@ -164,95 +183,144 @@ var SignInForm = _react2.default.createClass({
     var email = _props.fields.email;
     var defaultEmail = _props.defaultEmail;
 
-    return lockEmail ? _react2.default.createElement(
-      "p",
-      { className: "font-bold" },
-      email.value,
-      _react2.default.createElement(_field2.default, { field: email,
-        type: "hidden" })
-    ) : _react2.default.createElement(_field2.default, {
-      field: email,
-      type: "email",
-      label: "Email address",
-      showLabel: this.props.showLabels,
-      placeholder: "Email address",
-      automationId: this.props.automation.emailInput,
-      tealeafId: this.props.tealeaf.emailInput,
-      defaultValue: defaultEmail });
+    return _react2.default.createElement(
+      "div",
+      { className: "form-field-email" },
+      lockEmail ? _react2.default.createElement(
+        "p",
+        { className: "font-bold" },
+        email.value,
+        _react2.default.createElement(_field2.default, { field: email,
+          type: "hidden" })
+      ) : _react2.default.createElement(_field2.default, {
+        field: email,
+        label: "Email address",
+        showLabel: this.props.showLabels,
+        showErrorOnTop: false,
+        placeholder: "Email address",
+        automationId: this.props.automation.emailInput,
+        tealeafId: this.props.tealeaf.emailInput,
+        defaultValue: defaultEmail })
+    );
   },
   renderPassword: function renderPassword() {
     var _props2 = this.props;
     var automation = _props2.automation;
     var tealeaf = _props2.tealeaf;
+    var showHidePassword = _props2.showHidePassword;
 
 
-    return _react2.default.createElement(_field2.default, {
-      type: "password",
-      field: this.props.fields.password,
-      label: "Password",
-      showLabel: this.props.showLabels,
-      placeholder: "Password",
-      automationId: automation.passwordInput,
-      tealeafId: tealeaf.passwordInput
-    });
+    return _react2.default.createElement(
+      "div",
+      { className: "form-field-password" },
+      _react2.default.createElement(_password2.default, {
+        field: this.props.fields.password,
+        label: "Password",
+        showErrorOnTop: false,
+        showLabel: this.props.showLabels,
+        showHidePassword: showHidePassword,
+        placeholder: "Password",
+        automationId: automation.passwordInput,
+        tealeafId: tealeaf.passwordInput,
+        showTealeafId: tealeaf.passwordShowBtn,
+        hideTealeafId: tealeaf.passwordHideBtn
+      })
+    );
   },
   renderActions: function renderActions() {
     var _props3 = this.props;
     var btnPrimary = _props3.btnPrimary;
     var btnText = _props3.btnText;
-    var privacyPolicyUrl = _props3.privacyPolicyUrl;
     var submitting = _props3.submitting;
     var submitSuccess = _props3.submitSuccess;
-    var _props4 = this.props;
-    var onForgotPasswordRequested = _props4.onForgotPasswordRequested;
-    var onSignUpRequested = _props4.onSignUpRequested;
-    var _props5 = this.props;
-    var showSignUp = _props5.showSignUp;
-    var showNortonLogo = _props5.showNortonLogo;
-    var showPrivacyPolicy = _props5.showPrivacyPolicy;
-    var captchaInProgress = this.props.captcha.inProgress;
+    var showForgotPassword = _props3.showForgotPassword;
+    var showForgotEmail = _props3.showForgotEmail;
+    var onForgotPasswordRequested = _props3.onForgotPasswordRequested;
+    var onForgotEmailRequested = _props3.onForgotEmailRequested;
+    var captchaInProgress = _props3.captcha.inProgress;
 
-    return [_react2.default.createElement(
-      _button2.default,
-      {
-        fakelink: true,
-        className: "forgot-password-btn-link",
-        onClick: onForgotPasswordRequested,
-        automationId: this.props.automation.forgotPasswordLinkBtn,
-        tealeafId: this.props.tealeaf.forgotPasswordLinkBtn },
-      "Forgot password?"
-    ), _react2.default.createElement(
-      _button2.default,
-      { type: "submit",
-        block: true,
-        primary: btnPrimary,
-        spinner: submitting || submitSuccess || captchaInProgress,
-        disabled: submitting || submitSuccess || captchaInProgress,
-        automationId: this.props.automation.submitBtn,
-        tealeafId: this.props.tealeaf.submitBtn },
-      btnText
-    ), _react2.default.createElement(
+    var showLinkActions = showForgotPassword || showForgotEmail;
+    var linkActions = _react2.default.createElement(
+      "div",
+      { className: "form-actions-links clearfix" },
+      showForgotPassword && _react2.default.createElement(
+        _button2.default,
+        {
+          fakelink: true,
+          className: "forgot-password-btn-link",
+          onClick: onForgotPasswordRequested,
+          automationId: this.props.automation.forgotPasswordLinkBtn,
+          tealeafId: this.props.tealeaf.forgotPasswordLinkBtn },
+        "Forgot password?"
+      ),
+      showForgotEmail && _react2.default.createElement(
+        _button2.default,
+        {
+          fakelink: true,
+          className: "forgot-email-btn-link",
+          onClick: onForgotEmailRequested,
+          automationId: this.props.automation.forgotEmailLinkBtn,
+          tealeafId: this.props.tealeaf.forgotEmailLinkBtn },
+        "Forgot email?"
+      )
+    );
+
+    var buttonActions = _react2.default.createElement(
+      "div",
+      { className: "form-actions" },
+      _react2.default.createElement(
+        _button2.default,
+        { type: "submit",
+          block: true,
+          primary: btnPrimary,
+          spinner: submitting || submitSuccess || captchaInProgress,
+          disabled: submitting || submitSuccess || captchaInProgress,
+          automationId: this.props.automation.submitBtn,
+          tealeafId: this.props.tealeaf.submitBtn },
+        btnText
+      )
+    );
+
+    var showActions = function showActions() {
+      var formActions = [];
+      if (showLinkActions) {
+        formActions.push(linkActions);
+      }
+      formActions.push(buttonActions);
+      return formActions;
+    };
+
+    return showActions();
+  },
+  renderExtras: function renderExtras() {
+    var _props4 = this.props;
+    var onSignUpRequested = _props4.onSignUpRequested;
+    var privacyPolicyUrl = _props4.privacyPolicyUrl;
+    var showSignUp = _props4.showSignUp;
+    var showNortonLogo = _props4.showNortonLogo;
+    var showPrivacyPolicy = _props4.showPrivacyPolicy;
+
+    return _react2.default.createElement(
       "div",
       { className: "bottom-info-wrap" },
-      showNortonLogo && _react2.default.createElement(
-        "div",
-        { className: "norton-wrapper pull-right" },
-        _react2.default.createElement(_nortonLogo2.default, null)
-      ),
       showSignUp && _react2.default.createElement(
-        "p",
-        null,
-        "Don't have an account?",
-        " ",
+        "div",
+        { className: "text-center signup-btn" },
         _react2.default.createElement(
           _button2.default,
           {
+            className: "action-btn",
             fakelink: true,
             onClick: onSignUpRequested,
             automationId: this.props.automation.signUpBtn,
             tealeafId: this.props.tealeaf.signUpBtn },
-          "Create one now"
+          "Create a new account"
         )
+      ),
+      showNortonLogo && _react2.default.createElement(
+        "div",
+        { className: "norton-wrapper" },
+        _react2.default.createElement(_nortonLogoGrey2.default, { grey: false })
       ),
       showPrivacyPolicy && _react2.default.createElement(
         "div",
@@ -266,7 +334,7 @@ var SignInForm = _react2.default.createClass({
           "privacy policy"
         )
       )
-    )];
+    );
   },
   renderRememberMe: function renderRememberMe() {
     if (!this.props.showRememberme) {
@@ -284,12 +352,12 @@ var SignInForm = _react2.default.createClass({
     );
   },
   handleSubmit: function handleSubmit(evt) {
-    var _props6 = this.props;
-    var handleSubmit = _props6.handleSubmit;
-    var handleResponse = _props6.handleResponse;
-    var onSignIn = _props6.onSignIn;
-    var submitting = _props6.submitting;
-    var submitSuccess = _props6.submitSuccess;
+    var _props5 = this.props;
+    var handleSubmit = _props5.handleSubmit;
+    var handleResponse = _props5.handleResponse;
+    var onSignIn = _props5.onSignIn;
+    var submitting = _props5.submitting;
+    var submitSuccess = _props5.submitSuccess;
 
 
     if (submitting || submitSuccess) {
@@ -307,7 +375,8 @@ var SignInForm = _react2.default.createClass({
     return [_react2.default.createElement(
       "form",
       { onSubmit: this.handleSubmit,
-        method: "post"
+        method: "post",
+        className: "form-box"
       },
       this.renderEmail(),
       this.renderPassword(),
@@ -333,13 +402,13 @@ var SignInForm = _react2.default.createClass({
   render: function render() {
     var _this = this;
 
-    var _props7 = this.props;
-    var titleText = _props7.titleText;
-    var _props7$captcha = _props7.captcha;
-    var captcha = _props7$captcha === undefined ? {} : _props7$captcha;
-    var _props7$error = _props7.error;
-    var error = _props7$error === undefined ? {} : _props7$error;
-    var HeadingElement = _props7.headingElement;
+    var _props6 = this.props;
+    var titleText = _props6.titleText;
+    var _props6$captcha = _props6.captcha;
+    var captcha = _props6$captcha === undefined ? {} : _props6$captcha;
+    var _props6$error = _props6.error;
+    var error = _props6$error === undefined ? {} : _props6$error;
+    var HeadingElement = _props6.headingElement;
 
 
     var errorObj = !(0, _isEmpty2.default)(error) && _alertMessageMap2.default.getAlert(error.code);
@@ -351,11 +420,6 @@ var SignInForm = _react2.default.createClass({
     return _react2.default.createElement(
       "section",
       { className: "SignIn clearfix" },
-      _react2.default.createElement(
-        HeadingElement,
-        null,
-        titleText
-      ),
       showForm && errorObj && _react2.default.createElement(_alert2.default, {
         message: errorObj.message,
         alertType: errorObj.alertType || "error",
@@ -364,7 +428,13 @@ var SignInForm = _react2.default.createClass({
           return _this._navigateBasedOnTarget(ev);
         }
       }),
+      _react2.default.createElement(
+        HeadingElement,
+        { className: "heading" },
+        titleText
+      ),
       showForm && this.renderForm(),
+      showForm && this.renderExtras(),
       !showForm && this.renderBotEmail(),
       this.props.children
     );

@@ -69,6 +69,7 @@ var Password = function (_React$Component) {
     var _props = this.props;
     var field = _props.field;
     var props = (0, _objectWithoutProperties3.default)(_props, ["field"]);
+    var showHidePassword = _props.showHidePassword;
     var showAutomationId = _props.showAutomationId;
     var hideAutomationId = _props.hideAutomationId;
     var showTealeafId = _props.showTealeafId;
@@ -95,7 +96,7 @@ var Password = function (_React$Component) {
         type: this.state.show ? "text" : "password",
         triggerIEHack: true,
         className: "show-hide" }),
-      canShowHide(field) && _react2.default.createElement(
+      canShowHide(field) && showHidePassword && _react2.default.createElement(
         "div",
         { className: "show-hide-toggle js-pw-show-hide-toggle copy-mini" },
         _react2.default.createElement(
@@ -124,12 +125,14 @@ Password.propTypes = {
   showAutomationId: _react.PropTypes.string,
   hideAutomationId: _react.PropTypes.string,
   showTealeafId: _react.PropTypes.string,
-  hideTealeafId: _react.PropTypes.string
+  hideTealeafId: _react.PropTypes.string,
+  showHidePassword: _react.PropTypes.bool
 };
 
 Password.defaultProps = {
   showAutomationId: "password-show-btn",
   hideAutomationId: "password-hide-btn",
   showTealeafId: "password-show-btn",
-  hideTealeafId: "password-hide-btn"
+  hideTealeafId: "password-hide-btn",
+  showHidePassword: false
 };

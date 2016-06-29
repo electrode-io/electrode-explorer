@@ -30,9 +30,9 @@ var _heading = require("@walmart/wmreact-base/lib/components/heading");
 
 var _heading2 = _interopRequireDefault(_heading);
 
-var _nortonLogo = require("@walmart/wmreact-iconography/lib/components/norton-logo");
+var _nortonLogoGrey = require("@walmart/wmreact-iconography/lib/components/norton-logo-grey");
 
-var _nortonLogo2 = _interopRequireDefault(_nortonLogo);
+var _nortonLogoGrey2 = _interopRequireDefault(_nortonLogoGrey);
 
 var _button = require("@walmart/wmreact-interactive/lib/components/button");
 
@@ -163,22 +163,11 @@ var ResetPassword = function (_React$Component) {
     }
   };
 
-  ResetPassword.prototype._renderEmail = function _renderEmail() {
-    var email = this.props.fields.email;
-
-
-    return _react2.default.createElement(_field2.default, {
-      field: email,
-      type: "hidden" });
-  };
-
   ResetPassword.prototype._renderAlertOrHeader = function _renderAlertOrHeader() {
     var _this2 = this;
 
-    var _props2 = this.props;
-    var email = _props2.fields.email;
-    var _props2$error = _props2.error;
-    var error = _props2$error === undefined ? {} : _props2$error;
+    var _props$error = this.props.error;
+    var error = _props$error === undefined ? {} : _props$error;
 
     var defaultAlert = defaultMessage;
     var errorObj = !(0, _isEmpty2.default)(error) && _alertMessageMap2.default.getAlert(error.code) || {};
@@ -187,8 +176,6 @@ var ResetPassword = function (_React$Component) {
 
     var alertType = _ref.alertType;
     var message = _ref.message;
-    var _ref$altMessageText = _ref.altMessageText;
-    var altMessageText = _ref$altMessageText === undefined ? "" : _ref$altMessageText;
     var formDisplay = this.state.formDisplay;
 
     if (!formDisplay) {
@@ -197,13 +184,8 @@ var ResetPassword = function (_React$Component) {
         null,
         _react2.default.createElement(
           _heading2.default.H4,
-          null,
+          { className: "heading" },
           alertType === "success" ? message : defaultAlert.message
-        ),
-        _react2.default.createElement(
-          "p",
-          { className: (0, _classnames2.default)("font-semibold", "email-label") },
-          email.value
         )
       );
     }
@@ -220,23 +202,55 @@ var ResetPassword = function (_React$Component) {
       }),
       _react2.default.createElement(
         _heading2.default.H4,
-        null,
+        { className: "heading" },
         alertType === "success" ? message : defaultAlert.message
-      ),
-      _react2.default.createElement(
+      )
+    );
+  };
+
+  ResetPassword.prototype._renderEmail = function _renderEmail() {
+    var _this3 = this;
+
+    var _props2 = this.props;
+    var email = _props2.fields.email;
+    var _props2$error = _props2.error;
+    var error = _props2$error === undefined ? {} : _props2$error;
+
+    var defaultAlert = defaultMessage;
+    var errorObj = !(0, _isEmpty2.default)(error) && _alertMessageMap2.default.getAlert(error.code) || {};
+
+    var _ref2 = !(0, _isEmpty2.default)(errorObj) ? errorObj : defaultAlert;
+
+    var _ref2$altMessageText = _ref2.altMessageText;
+    var altMessageText = _ref2$altMessageText === undefined ? "" : _ref2$altMessageText;
+    var formDisplay = this.state.formDisplay;
+
+
+    var ret = [_react2.default.createElement(_field2.default, {
+      field: email,
+      type: "hidden" })];
+
+    if (!formDisplay) {
+      ret.push(_react2.default.createElement(
         "p",
         { className: (0, _classnames2.default)("font-semibold", "email-label") },
         email.value
-      ),
-      _react2.default.createElement(
-        "span",
-        {
-          onClick: function onClick(ev) {
-            return _this2._navigateBasedOnTarget(ev);
-          } },
-        altMessageText || defaultAlert.altMessageText
-      )
-    );
+      ));
+      return ret;
+    }
+    ret.push(_react2.default.createElement(
+      "p",
+      { className: (0, _classnames2.default)("font-semibold", "email-label") },
+      email.value
+    ), _react2.default.createElement(
+      "span",
+      {
+        onClick: function onClick(ev) {
+          return _this3._navigateBasedOnTarget(ev);
+        } },
+      altMessageText || defaultAlert.altMessageText
+    ));
+    return ret;
   };
 
   ResetPassword.prototype._renderPassword = function _renderPassword() {
@@ -294,13 +308,12 @@ var ResetPassword = function (_React$Component) {
   };
 
   ResetPassword.prototype._renderForm = function _renderForm() {
-    var _this3 = this;
+    var _this4 = this;
 
     var _props5 = this.props;
     var
     //Config
     onSignInRequested = _props5.onSignInRequested;
-    var showNortonLogo = _props5.showNortonLogo;
     var passcode = _props5.fields.passcode;
     var submitting = _props5.submitting;
     var submitSuccess = _props5.submitSuccess;
@@ -314,14 +327,16 @@ var ResetPassword = function (_React$Component) {
       "form",
       {
         onSubmit: function onSubmit(evt) {
-          if (_this3.props.submitting || _this3.props.submitSuccess) {
+          if (_this4.props.submitting || _this4.props.submitSuccess) {
             evt.preventDefault();
             return false;
           }
-          return _this3.handleSubmit(evt);
+          return _this4.handleSubmit(evt);
         },
-        method: "post"
+        method: "post",
+        className: "form-box"
       },
+      this._renderEmail(),
       _react2.default.createElement(_field2.default, {
         label: "Verification code",
         placeholder: "Verification code",
@@ -331,16 +346,10 @@ var ResetPassword = function (_React$Component) {
         tealeafId: tealeaf.passcodeInput }),
       this._renderPassword(),
       this.props.showPasswordStrength && _react2.default.createElement(_passwordStrength2.default, { strength: this.props.fields.passwordStrength.value }),
-      showNortonLogo && _react2.default.createElement(
-        "div",
-        { className: "pull-right norton-wrapper" },
-        _react2.default.createElement(_nortonLogo2.default, null)
-      ),
       _react2.default.createElement(
         "p",
         { className: "remember-password" },
-        "Remember your old password?",
-        _react2.default.createElement("br", null),
+        "Remember your old password? ",
         _react2.default.createElement(
           _button2.default,
           {
@@ -373,7 +382,9 @@ var ResetPassword = function (_React$Component) {
   };
 
   ResetPassword.prototype.render = function render() {
-    var tokenRequested = this.props.tokenRequested;
+    var _props6 = this.props;
+    var tokenRequested = _props6.tokenRequested;
+    var showNortonLogo = _props6.showNortonLogo;
     var formDisplay = this.state.formDisplay;
 
     return _react2.default.createElement(
@@ -381,8 +392,12 @@ var ResetPassword = function (_React$Component) {
       { className: "ResetPassword" },
       _react2.default.createElement(_spinner2.default, { loading: tokenRequested }),
       this._renderAlertOrHeader(),
-      this._renderEmail(),
       formDisplay && this._renderForm(),
+      formDisplay && showNortonLogo && _react2.default.createElement(
+        "div",
+        { className: "norton-wrapper" },
+        _react2.default.createElement(_nortonLogoGrey2.default, { grey: false })
+      ),
       _react2.default.createElement(
         "div",
         { className: (0, _classnames2.default)({ "hide-content": formDisplay }) },

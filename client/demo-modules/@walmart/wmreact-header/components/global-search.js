@@ -48,6 +48,10 @@ var _collectorContext = require("@walmart/wmreact-analytics/lib/backplane/collec
 
 var _collectorContext2 = _interopRequireDefault(_collectorContext);
 
+var _get = require("lodash/get");
+
+var _get2 = _interopRequireDefault(_get);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /**
@@ -135,6 +139,11 @@ var GlobalSearch = function (_Component) {
       // recalculate the elements
       typeaheadResult.init();
       typeaheadResult.reRenderLastState();
+    }
+
+    var mwebTypeaheadObject = (0, _get2.default)(window, "_wml.MWEB_TYPEAHEAD");
+    if (mwebTypeaheadObject && typeof mwebTypeaheadObject.Typeahead === "function") {
+      mwebTypeaheadObject.init();
     }
     /*eslint-enable no-undef*/
   };

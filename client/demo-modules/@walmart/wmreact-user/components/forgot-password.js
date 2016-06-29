@@ -26,9 +26,9 @@ var _heading = require("@walmart/wmreact-base/lib/components/heading");
 
 var _heading2 = _interopRequireDefault(_heading);
 
-var _nortonLogo = require("@walmart/wmreact-iconography/lib/components/norton-logo");
+var _nortonLogoGrey = require("@walmart/wmreact-iconography/lib/components/norton-logo-grey");
 
-var _nortonLogo2 = _interopRequireDefault(_nortonLogo);
+var _nortonLogoGrey2 = _interopRequireDefault(_nortonLogoGrey);
 
 var _alert = require("@walmart/wmreact-forms/lib/components/alert");
 
@@ -47,10 +47,6 @@ var _config2 = _interopRequireDefault(_config);
 var _alertMessageMap = require("./common/alert-message-map");
 
 var _alertMessageMap2 = _interopRequireDefault(_alertMessageMap);
-
-var _classnames = require("classnames");
-
-var _classnames2 = _interopRequireDefault(_classnames);
 
 var _field = require("./common/field");
 
@@ -102,8 +98,7 @@ var ForgotPassword = function (_React$Component) {
     return _react2.default.createElement(
       "p",
       { className: "remember-password" },
-      "Remember your old password?",
-      _react2.default.createElement("br", null),
+      "Remember your old password? ",
       _react2.default.createElement(
         _button2.default,
         {
@@ -126,7 +121,6 @@ var ForgotPassword = function (_React$Component) {
   ForgotPassword.prototype._renderVerificationLink = function _renderVerificationLink() {
     var _props = this.props;
     var onResetPasswordRequested = _props.onResetPasswordRequested;
-    var showNortonLogo = _props.showNortonLogo;
     var email = _props.fields.email;
     var alreadyHaveBtn = _props.automation.alreadyHaveBtn;
     var alreadyHaveCode = _props.tealeaf.alreadyHaveCode;
@@ -134,7 +128,7 @@ var ForgotPassword = function (_React$Component) {
 
     return _react2.default.createElement(
       "p",
-      { className: (0, _classnames2.default)("verification-code-wrapper", { "has-norton-logo": showNortonLogo }) },
+      { className: "verification-code-wrapper" },
       _react2.default.createElement(
         _button2.default,
         {
@@ -163,15 +157,13 @@ var ForgotPassword = function (_React$Component) {
 
     var errorObj = !(0, _isEmpty2.default)(error) && _alertMessageMap2.default.getAlert(error.code) || {};
 
-    var _ref = !(0, _isEmpty2.default)(errorObj) ? errorObj : {};
+    var alertType = errorObj.alertType;
+    var message = errorObj.message;
 
-    var alertType = _ref.alertType;
-    var message = _ref.message;
+    var _ref = !(0, _isEmpty2.default)(compromisedErr) ? compromisedErr : {};
 
-    var _ref2 = !(0, _isEmpty2.default)(compromisedErr) ? compromisedErr : {};
-
-    var compromisedAlertType = _ref2.alertType;
-    var compromisedMessage = _ref2.message;
+    var compromisedAlertType = _ref.alertType;
+    var compromisedMessage = _ref.message;
     var isBot = captcha.isBot;
     var CF_IS_BOT = _captcha.CAPTCHA_STATES.CF_IS_BOT;
     var IS_BOT_RESOLVED = _captcha.CAPTCHA_STATES.IS_BOT_RESOLVED;
@@ -187,7 +179,7 @@ var ForgotPassword = function (_React$Component) {
         isBlock: true }),
       _react2.default.createElement(
         _heading2.default.H4,
-        null,
+        { className: "heading" },
         titleText
       )
     );
@@ -207,13 +199,20 @@ var ForgotPassword = function (_React$Component) {
     }));
   };
 
+  ForgotPassword.prototype._renderBottomInfo = function _renderBottomInfo() {
+    var showNortonLogo = this.props.showNortonLogo;
+
+    return showNortonLogo ? _react2.default.createElement(
+      "div",
+      { className: "norton-wrapper" },
+      _react2.default.createElement(_nortonLogoGrey2.default, { grey: false })
+    ) : null;
+  };
+
   ForgotPassword.prototype._renderForm = function _renderForm() {
     var _this2 = this;
 
     var _props4 = this.props;
-    var
-    //Config
-    showNortonLogo = _props4.showNortonLogo;
     var email = _props4.fields.email;
     var defaultEmail = _props4.defaultEmail;
     var submitting = _props4.submitting;
@@ -234,7 +233,8 @@ var ForgotPassword = function (_React$Component) {
           }
           return _this2.handleSubmit(evt);
         },
-        method: "post"
+        method: "post",
+        className: "form-box"
       },
       _react2.default.createElement(
         "p",
@@ -243,18 +243,12 @@ var ForgotPassword = function (_React$Component) {
       ),
       _react2.default.createElement(_field2.default, {
         field: email,
-        type: "email",
         label: "Email address",
         placeholder: "Email address",
         automationId: automation.emailInput,
         tealeafId: tealeaf.emailInput,
         defaultValue: defaultEmail }),
       this.props.onSignInRequested && this._renderSignInLink(),
-      showNortonLogo && _react2.default.createElement(
-        "div",
-        { className: "pull-right norton-wrapper" },
-        _react2.default.createElement(_nortonLogo2.default, null)
-      ),
       this.props.onResetPasswordRequested && this._renderVerificationLink(),
       _react2.default.createElement(
         _button2.default,
@@ -284,6 +278,7 @@ var ForgotPassword = function (_React$Component) {
       { className: "ForgotPassword" },
       this._renderAlertOrHeader(),
       showForm && this._renderForm(),
+      showForm && this._renderBottomInfo(),
       !showForm && this._renderBotEmail(),
       this.props.children
     );
