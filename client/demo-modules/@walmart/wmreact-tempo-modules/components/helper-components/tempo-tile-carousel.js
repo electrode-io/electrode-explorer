@@ -1,7 +1,7 @@
 "use strict";
 
 exports.__esModule = true;
-exports._getCategoryTileHeight = exports._getItemTileHeight = exports._setTileOptionProps = exports._setOffToFalse = undefined;
+exports._isTileVisible = exports._getCategoryTileHeight = exports._getItemTileHeight = exports._setTileOptionProps = exports._setOffToFalse = undefined;
 
 var _classCallCheck2 = require("babel-runtime/helpers/classCallCheck");
 
@@ -23,6 +23,10 @@ var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactDom = require("react-dom");
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
 var _classnames = require("classnames");
 
 var _classnames2 = _interopRequireDefault(_classnames);
@@ -40,6 +44,10 @@ var _featuredElementCarousel2 = _interopRequireDefault(_featuredElementCarousel)
 var _collectorContext = require("@walmart/wmreact-analytics/lib/backplane/collector-context");
 
 var _collectorContext2 = _interopRequireDefault(_collectorContext);
+
+var _fireDataEvent = require("@walmart/wmreact-analytics/lib/helpers/fire-data-event");
+
+var _fireDataEvent2 = _interopRequireDefault(_fireDataEvent);
 
 var _moduleHeader = require("./module-header");
 
@@ -168,6 +176,14 @@ var _getCategoryTileHeight = exports._getCategoryTileHeight = function _getCateg
   return TILE_BASE_HEIGHT + TILE_TEXT_LINE_HEIGHT * titleLines;
 };
 
+// determine if a particular tile is contained inside the carousel frame
+var _isTileVisible = exports._isTileVisible = function _isTileVisible(frameBoundingRect, tileBoundingRect, isVertical) {
+  if (isVertical) {
+    return tileBoundingRect.bottom <= frameBoundingRect.bottom && tileBoundingRect.top >= frameBoundingRect.top;
+  }
+  return tileBoundingRect.left >= frameBoundingRect.left && tileBoundingRect.right <= frameBoundingRect.right;
+};
+
 var TempoTileCarousel = function (_Component) {
   (0, _inherits3.default)(TempoTileCarousel, _Component);
 
@@ -179,8 +195,10 @@ var TempoTileCarousel = function (_Component) {
     _this.state = {
       lazyLoadIndex: props.isMobile ? 6 : 8
     };
+    _this.analyticsIds = []; // track rendered products or categories for analytics
 
     _this._loadTiles = _this._loadTiles.bind(_this);
+    _this._fireModuleView = _this._fireModuleView.bind(_this);
     return _this;
   }
 
@@ -191,6 +209,7 @@ var TempoTileCarousel = function (_Component) {
     var themeTextColor = _ref2.themeTextColor;
 
     if (firstTile && !vertical) {
+      this.analyticsIds.push(null);
       var props = (0, _extends3.default)({
         themeButton: (0, _extends3.default)({
           buttonTextColor: themeTextColor,
@@ -204,6 +223,8 @@ var TempoTileCarousel = function (_Component) {
   };
 
   TempoTileCarousel.prototype._renderItemTiles = function _renderItemTiles(props, lazyLoadIndex, automationId, tileOptionProps) {
+    var _this2 = this;
+
     // eslint-disable-line max-params, max-len
     var _props$moduleData = props.moduleData;
     var configs = _props$moduleData.configs;
@@ -222,11 +243,14 @@ var TempoTileCarousel = function (_Component) {
       moduleId: moduleId
     }, tileOptionProps);
 
+    // reset instance variable
+    this.analyticsIds = [];
     var tiles = this._renderFirstTile(vertical, configs, automationId) || [];
     var renderedTileIndex = tiles.length;
 
     products.forEach(function (product) {
       if (product.canAddToCart) {
+        _this2.analyticsIds.push(product.id.productId);
         if (lazyLoadIndex !== null && renderedTileIndex >= lazyLoadIndex) {
           tiles.push(null);
         } else {
@@ -244,6 +268,8 @@ var TempoTileCarousel = function (_Component) {
   };
 
   TempoTileCarousel.prototype._renderCategoryTiles = function _renderCategoryTiles(props, lazyLoadIndex, automationId) {
+    var _this3 = this;
+
     var _props$moduleData2 = props.moduleData;
     var configs = _props$moduleData2.configs;
     var _props$moduleData2$co = _props$moduleData2.configs;
@@ -258,12 +284,15 @@ var TempoTileCarousel = function (_Component) {
       isMobile: isMobile
     };
 
+    // reset instance variable
+    this.analyticsIds = [];
     var tiles = this._renderFirstTile(vertical, configs, automationId) || [];
     var renderedTileIndex = tiles.length;
 
     categories.forEach(function (category) {
       // don't render tiles with no image or link
       if ((0, _categoryTileHelpers2.default)(category)) {
+        _this3.analyticsIds.push(category.link.uid);
         if (lazyLoadIndex !== null && renderedTileIndex >= lazyLoadIndex) {
           tiles.push(null);
         } else {
@@ -290,27 +319,89 @@ var TempoTileCarousel = function (_Component) {
     }
   };
 
-  TempoTileCarousel.prototype.render = function render() {
+  // count number of slides that are currently visible for analytics
+
+
+  TempoTileCarousel.prototype._getVisibleTileCount = function _getVisibleTileCount(isVertical) {
+    var carouselNode = _reactDom2.default.findDOMNode(this.refs.carousel);
+    var carouselFrameNode = carouselNode.querySelector(".slider-frame");
+    var carouselTiles = carouselFrameNode.querySelectorAll(".slider-slide");
+    var frameBoundingRect = carouselFrameNode.getBoundingClientRect();
+
+    var visibleTileCount = 0;
+    for (var index = 0; index < carouselTiles.length; index++) {
+      var tileNode = carouselTiles.item(index);
+      if (_isTileVisible(frameBoundingRect, tileNode.getBoundingClientRect(), isVertical)) {
+        ++visibleTileCount;
+      } else if (visibleTileCount) {
+        // after all visible tiles have been counted stop iteration
+        break;
+      }
+    }
+    return visibleTileCount;
+  };
+
+  // used to stub fireDataEvent in tests
+
+
+  TempoTileCarousel.prototype._fireDataEventWrapper = function _fireDataEventWrapper(data) {
+    return (0, _fireDataEvent2.default)(this, "module_view", data);
+  };
+
+  // fire analytics event with required data on page of tiles
+
+
+  TempoTileCarousel.prototype._fireModuleView = function _fireModuleView(index) {
     var _props = this.props;
-    var _props$moduleData3 = _props.moduleData;
-    var _props$moduleData3$co = _props$moduleData3.configs;
-    var title = _props$moduleData3$co.title;
-    var titleColor = _props$moduleData3$co.titleColor;
-    var themeColor = _props$moduleData3$co.themeColor;
-    var themeImage = _props$moduleData3$co.themeImage;
-    var seeAllLink = _props$moduleData3$co.seeAllLink;
-    var seeAllLinkHexCode = _props$moduleData3$co.seeAllLinkHexCode;
-    var products = _props$moduleData3$co.products;
-    var tiles = _props$moduleData3$co.tiles;
-    var tileOptions = _props$moduleData3$co.tileOptions;
-    var titleAlignment = _props$moduleData3$co.titleAlignment;
-    var moduleId = _props$moduleData3.moduleId;
-    var type = _props$moduleData3.type;
-    var dataAutomationId = _props.dataAutomationId;
+    var moduleId = _props.moduleData.moduleId;
     var vertical = _props.vertical;
-    var className = _props.className;
-    var isMobile = _props.isMobile;
-    var zoneId = _props.zoneId;
+
+    var visibleTileCount = this._getVisibleTileCount(vertical);
+    var page = Math.floor(index / visibleTileCount) + 1;
+    var hasFirstTile = this.analyticsIds[0] === null;
+    var idIndex = index;
+    var totalResults = this.analyticsIds.length;
+
+    // skip first tile for analytics data
+    if (hasFirstTile) {
+      if (index === 0) {
+        idIndex = 1;
+      }
+      totalResults--;
+    }
+    var visibleResults = this.analyticsIds.slice(idIndex, index + visibleTileCount);
+
+    var plData = {
+      pn: page,
+      or: visibleResults,
+      ni: visibleResults.length,
+      tr: totalResults
+    };
+
+    this._fireDataEventWrapper({ moduleId: moduleId, plData: plData });
+  };
+
+  TempoTileCarousel.prototype.render = function render() {
+    var _props2 = this.props;
+    var _props2$moduleData = _props2.moduleData;
+    var _props2$moduleData$co = _props2$moduleData.configs;
+    var title = _props2$moduleData$co.title;
+    var titleColor = _props2$moduleData$co.titleColor;
+    var themeColor = _props2$moduleData$co.themeColor;
+    var themeImage = _props2$moduleData$co.themeImage;
+    var seeAllLink = _props2$moduleData$co.seeAllLink;
+    var seeAllLinkHexCode = _props2$moduleData$co.seeAllLinkHexCode;
+    var products = _props2$moduleData$co.products;
+    var tiles = _props2$moduleData$co.tiles;
+    var tileOptions = _props2$moduleData$co.tileOptions;
+    var titleAlignment = _props2$moduleData$co.titleAlignment;
+    var moduleId = _props2$moduleData.moduleId;
+    var type = _props2$moduleData.type;
+    var dataAutomationId = _props2.dataAutomationId;
+    var vertical = _props2.vertical;
+    var className = _props2.className;
+    var isMobile = _props2.isMobile;
+    var zoneId = _props2.zoneId;
 
     // Don't bother rendering if no products or categories
 
@@ -361,7 +452,7 @@ var TempoTileCarousel = function (_Component) {
     var CAROUSEL_PROPS = vertical ? (0, _extends3.default)({}, VERTICAL_CAROUSEL_PROPS) : (0, _extends3.default)({}, HORIZONTAL_CAROUSEL_PROPS);
     return _react2.default.createElement(
       _collectorContext2.default,
-      { moduleId: moduleId, zoneId: zoneId },
+      { moduleId: moduleId, zoneId: zoneId, ref: "carousel" },
       _react2.default.createElement(
         _featuredElementCarousel2.default,
         (0, _extends3.default)({
@@ -371,7 +462,8 @@ var TempoTileCarousel = function (_Component) {
           vertical: vertical
         }, wrapperProps, CAROUSEL_PROPS, {
           header: _react2.default.createElement(_moduleHeader2.default, headerProps),
-          beforeSlide: this._loadTiles }),
+          beforeSlide: this._loadTiles,
+          afterSlide: this._fireModuleView }),
         products ? this._renderItemTiles(this.props, lazyLoadIndex, newAutomationId, tileOptionProps) : this._renderCategoryTiles(this.props, lazyLoadIndex, newAutomationId)
       )
     );
@@ -445,6 +537,10 @@ TempoTileCarousel.defaultProps = {
   dataAutomationId: "",
   className: "",
   zoneId: 0
+};
+
+TempoTileCarousel.contextTypes = {
+  analytics: _react.PropTypes.object
 };
 
 exports.default = TempoTileCarousel;

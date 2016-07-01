@@ -22,6 +22,10 @@ var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactDom = require("react-dom");
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
 var _collectorContext = require("@walmart/wmreact-analytics/lib/backplane/collector-context");
 
 var _collectorContext2 = _interopRequireDefault(_collectorContext);
@@ -83,6 +87,11 @@ var MultiStoryPOVResponsive = function (_Component) {
     this._fireModuleView(0);
   };
 
+  MultiStoryPOVResponsive.prototype._isVisible = function _isVisible() {
+    var carouselNode = _reactDom2.default.findDOMNode(this.refs.carousel);
+    return carouselNode.getBoundingClientRect().top >= 0;
+  };
+
   // used to stub fireDataEvent in tests
 
 
@@ -91,6 +100,10 @@ var MultiStoryPOVResponsive = function (_Component) {
   };
 
   MultiStoryPOVResponsive.prototype._fireModuleView = function _fireModuleView(index) {
+    if (!this._isVisible()) {
+      return;
+    }
+
     // only fire event for slide that hasn't been seen yet
     if (this.moduleViewFired[index]) {
       return;
@@ -200,6 +213,7 @@ var MultiStoryPOVResponsive = function (_Component) {
         _react2.default.createElement(
           _carousel2.default,
           (0, _extends3.default)({
+            ref: "carousel",
             autoplay: autoPlay,
             wrapAround: true,
             autoplayInterval: 5000
