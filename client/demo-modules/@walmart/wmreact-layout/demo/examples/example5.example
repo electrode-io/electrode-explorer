@@ -1,0 +1,5 @@
+<Layout medium-sizes={[3,6,3]} x-small={1} padded={true}>
+  <div style={{background:'#ccc',padding:'1rem'}}>Left</div>
+  <div style={{background:'#aaa',padding:'1rem'}}>Content</div>
+  <div style={{background:'#ccc',padding:'1rem'}}>Right</div>
+</Layout>

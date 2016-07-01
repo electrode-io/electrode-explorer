@@ -1,0 +1,177 @@
+@require "~@walmart/wmreact-layout/src/styles/layout";
+
+$footer-height = 40px;
+
+a, .btn-fake-link {
+  color: $blue;
+  text-decoration: none;
+}
+
+a:hover,
+.btn-fake-link:hover,
+a:focus,
+.btn-fake-link:focus {
+  color: $blue-hover;
+}
+
+.arrow-link:after {
+  content: "";
+  display: inline-block;
+  margin-left: 10px;
+  border: 4px solid transparent;
+  border-left-color: $blue;
+  transition: .3s ease transform;
+  transform-origin: 2px 4px;
+  vertical-align: middle;
+}
+
+.arrow-link:hover:after {
+  border-left-color: $blue-secondary;
+}
+
+.arrow-link.active:after {
+  border-top-color: $blue-secondary;
+  border-left-color: transparent;
+  transform: rotate(90deg);
+}
+
+.arrow-link-before:before {
+  content: "";
+  display: inline-block;
+  margin-right: 10px;
+  border: 4px solid transparent;
+  border-right-color: $black;
+  transition: .3s ease transform;
+  transform-origin: 2px 4px;
+  vertical-align: middle;
+}
+
+.arrow-link-before:hover:before {
+  border-right-color:$blue-secondary;
+}
+
+.arrow-link-before.active:before {
+  border-top-color: $blue-secondary;
+  border-right-color: transparent;
+  transform: rotate(90deg);
+}
+
+.dropdown-link {
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+.dropdown-link:after {
+  content: "";
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin: 0 0 0 5px;
+  border: 4px solid transparent;
+  border-top-color: $yellow;
+  transition: .3s ease transform;
+  transform-origin: center 2px;
+  vertical-align: middle;
+}
+
+.dropdown-link:hover:after {
+  transform: rotate(-180deg);
+}
+
+.zeus-header {
+  position: relative;
+  padding: 8px 2em;
+  background: $blue;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, .2);
+  color: $yellow;
+}
+
+.zeus-header a,
+.zeus-header .dropdown-link {
+  color: $white;
+}
+
+.zeus-header .container {
+  padding: 0 30px 0 40px;
+}
+
+
+.zeus-header-logo {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.zeus-header-logo img {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.zeus-header-logo h1 {
+  display: inline-block;
+  margin: 0 0 0 7px;
+  color: $white;
+
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.zeus-footer {
+  margin: auto;
+  padding: .5em;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: 1024px;
+  min-height: $footer-height;
+  background-color: $blue-light;
+}
+
+.zeus-footer-container {
+  padding-left: 10px;
+}
+
+.zeus-footer-left {
+  color: $grey-medium;
+  font-size: .8rem;
+}
+
+.zeus-footer-right {
+  text-align: right;
+  line-height: 15px;
+}
+
+.zeus-footer-right .zeus-footer-left-content {
+  display: inline-block;
+  font-size: .8rem;
+  padding-right: 20px;
+}
+
+
+.zeus-footer-right .zeus-footer-right-content {
+  display: inline-block;
+  font-size: .8rem;
+  padding-right: 20px;
+}
+
+@media only screen and (max-width: 544px) {
+  .zeus-header img { /* body */
+    width: 130px;
+  }
+
+  .zeus-header h1 { /* body */
+    font-size: 1.2rem;
+  }
+}
+
+.wmicon-spark {
+  color: $yellow;
+}
+
+.body-wrapper {
+  margin-bottom: $footer-height;
+}

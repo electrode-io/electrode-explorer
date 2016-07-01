@@ -1,0 +1,6 @@
+<div>
+  <Link href="#">Base Link</Link>
+  <Link href="#" arrow={true}>Arrow Link</Link>
+  <Link href="#" active={true}>Active Link</Link>
+  <Link href="#" dropdown={true}>Dropdown Link</Link>
+</div>

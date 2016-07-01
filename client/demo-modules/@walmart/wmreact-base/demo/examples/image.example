@@ -1,0 +1,10 @@
+<div>
+  <Image src="http://placehold.it/1000x1000" size={30}/>
+  <Image src="http://placehold.it/1000x1000" size={45}/>
+  <Image src="http://placehold.it/1000x1000" size={50}/>
+  <Image src="http://placehold.it/1000x1000" size={60}/>
+  <Image src="http://placehold.it/1000x1000" size={100}/>
+  <Image src="http://placehold.it/1000x1000" size={125}/>
+  <Image src="http://placehold.it/1000x1000" size={150}/>
+  <Image src="http://placehold.it/1000x1000" size={180}/>
+</div>

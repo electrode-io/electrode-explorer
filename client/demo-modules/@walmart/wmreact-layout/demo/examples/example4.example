@@ -1,0 +1,39 @@
+<MediaSelector mode="hide">
+  <div visibleWidths={['small']}>Currently in small</div>
+  <div visibleWidths={['medium']}>Currently in medium</div>
+  <div visibleWidths={['large']}>Currently in large</div>
+  <div visibleWidths={['x-large']}>Currently in x-large</div>
+  <div visibleWidths={['xx-large']}>Currently in xx-large</div>
+  <hr/>
+
+  <div visibleAbove='small'>visibleAbove: Visible in Medium and above</div>
+  <div visibleAbove='medium'>visibleAbove: Visible in Large and above</div>
+  <hr/>
+
+  <div visibleAtOrAbove='medium'>visibleAtOrAbove: Visible in Medium and above</div>
+  <div visibleAtOrAbove='large'>visibleAtOrAbove: Visible in Large and above</div>
+  <hr/>
+
+  <div visibleBelow='medium'>visibleBelow: Visible in Small</div>
+  <div visibleBelow='large'>visibleBelow: Visible in Small and Medium</div>
+  <hr/>
+
+  <div visibleAtOrBelow='small'>visibleAtOrBelow: Visible in Small</div>
+  <div visibleAtOrBelow='medium'>visibleAtOrBelow: Visible in Small and Medium</div>
+  <hr/>
+
+  <div hiddenAbove='small'>hiddenAbove: Visible in Small</div>
+  <div hiddenAbove='medium'>hiddenAbove: Visible in Small and Medium</div>
+  <hr/>
+
+  <div hiddenAtOrAbove='medium'>hiddenAtOrAbove: Visible in Small</div>
+  <div hiddenAtOrAbove='large'>hiddenAtOrAbove: Visible in Small and Medium</div>
+  <hr/>
+
+  <div hiddenBelow='medium'>hiddenBelow: Visible above Small</div>
+  <div hiddenBelow='large'>hiddenBelow: Visible above Medium</div>
+  <hr/>
+
+  <div hiddenAtOrBelow='medium'>hiddenAtOrAbove: Visible in Large</div>
+  <div hiddenAtOrBelow='large'>hiddenAtOrAbove: Visible above Large</div>
+</MediaSelector>

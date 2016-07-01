@@ -1,0 +1,13 @@
+<div>
+  <h4>Arrange</h4>
+  <Arrange>
+    <Arrange.Fill>Fill</Arrange.Fill>
+    <Arrange.Fit>Fit</Arrange.Fit>
+  </Arrange>
+  <h4>Arrange Fit All</h4>
+  <Arrange.FitAll>
+    <div style={{background: '#ccc', padding: '1rem'}}>A</div>
+    <div style={{background: '#aaa', padding: '1rem'}}>B</div>
+    <div style={{background: '#ccc', padding: '1rem'}}>C</div>
+  </Arrange.FitAll>
+</div>
