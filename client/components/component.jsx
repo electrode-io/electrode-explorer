@@ -42,6 +42,11 @@ export default class Component extends React.Component {
         const passingScope = { React, process };
 
         imports && imports.forEach((imp) => {
+          if ((/\./).test(imp.ref)) {
+            // Don't pass sub-properties in scope
+            return;
+          }
+
           try {
             passingScope[imp.ref] = require(`../demo-modules/${meta.name}/${imp.path}.js`).default;
           } catch (e) {
