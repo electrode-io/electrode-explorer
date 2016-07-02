@@ -1,0 +1,239 @@
+{
+  "library": "@walmart/wmreact-analytics",
+  "components": [
+    {
+      "methods": [],
+      "props": {
+        "onEvent": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        },
+        "context": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/backplane/analytics-provider.jsx",
+      "description": "Wraps an app to provide analytics services throughout.",
+      "examples": "```jsx\n<AnalyticsProvider onEvent={(evt) => console.log(evt)}>\n  <YourApp />\n</AnalyticsProvider>\n```",
+      "component": "AnalyticsProvider",
+      "import": "{AnalyticsProvider}",
+      "hasProps": true
+    },
+    {
+      "methods": [],
+      "props": {},
+      "fileName": "./src/backplane/collector-context.jsx",
+      "description": "Provides a mechanism to percolate more context information down\ninto the subtree.",
+      "examples": "```jsx\n<CollectorContext productId={123213}>\n  <YourApp />\n</CollectorContext>\n```",
+      "component": "CollectorContext",
+      "import": "{CollectorContext}",
+      "hasProps": false
+    },
+    {
+      "methods": [
+        {
+          "name": "_wrap",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "depth",
+              "type": {
+                "name": "number",
+                "nullable": true
+              }
+            },
+            {
+              "name": "overrides",
+              "type": {
+                "name": "Object",
+                "alias": "Object"
+              }
+            },
+            {
+              "name": "comp",
+              "type": {
+                "name": "Object",
+                "alias": "Object"
+              }
+            },
+            {
+              "name": "ind",
+              "type": {
+                "name": "number",
+                "nullable": true
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        }
+      ],
+      "props": {
+        "maxDepth": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "null",
+            "computed": false
+          },
+          "description": ""
+        }
+      },
+      "fileName": "./src/collectors/event-collector.jsx",
+      "description": "Wraps an app to provide analytics services throughout.",
+      "examples": "```jsx\n<EventCollector onClick>\n  <button onClick={() => alert(1)}>Click me!</button>\n</EventCollector>\n```",
+      "component": "EventCollector",
+      "import": "{EventCollector}",
+      "hasProps": true
+    },
+    {
+      "methods": [],
+      "props": {},
+      "fileName": "./src/collectors/exception-collector.jsx",
+      "description": "Catches any exceptions.",
+      "examples": "```jsx\n<ExceptionCollector>\n  <button onClick={() => foo/bar}>Click me for an exceptional experience!</button>\n</ExceptionCollector>\n```",
+      "component": "ExceptionCollector",
+      "import": "{ExceptionCollector}",
+      "hasProps": false
+    },
+    {
+      "methods": [
+        {
+          "name": "_createEventHandler",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "extra",
+              "type": {
+                "name": "Object",
+                "alias": "Object"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "Function"
+            }
+          }
+        }
+      ],
+      "props": {},
+      "fileName": "./src/collectors/raw-event-collector.jsx",
+      "description": "Listens for web events in the children and posts them to the analytics event stream.",
+      "examples": "```jsx\n<RawEventCollector onClick>\n  <YourApp />\n</RawEventCollector>\n```",
+      "component": "RawEventCollector",
+      "import": "{RawEventCollector}",
+      "hasProps": false
+    },
+    {
+      "displayName": "WaypointCollector",
+      "methods": [
+        {
+          "name": "_onEnter",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "child",
+              "type": {
+                "name": "ReactElement",
+                "alias": "ReactElement"
+              }
+            },
+            {
+              "name": "waypoint",
+              "type": {
+                "name": "Object",
+                "alias": "Object"
+              }
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_fireEvent",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "eventType",
+              "type": {
+                "name": "string"
+              }
+            },
+            {
+              "name": "child",
+              "type": {
+                "name": "ReactElement",
+                "alias": "ReactElement"
+              }
+            },
+            {
+              "name": "waypoint",
+              "type": {
+                "name": "Object",
+                "alias": "Object"
+              }
+            }
+          ],
+          "returns": null
+        }
+      ],
+      "props": {
+        "onEnter": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": "Additional callback to call after analytics event"
+        },
+        "throttleHandler": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "(cb) => throttle(cb, 100)",
+            "computed": false
+          },
+          "description": "Method for throttling the scroll event handling"
+        },
+        "eventType": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"waypoint\"",
+            "computed": false
+          },
+          "description": "Type of the event to send to the processor"
+        }
+      },
+      "fileName": "./src/collectors/waypoint-collector.jsx",
+      "description": "Posts events to the analytics stream when a component is scrolled into view.\n\nWill forward all props to `react-waypoint`. See the documentation for supported\nprops - https://github.com/brigade/react-waypoint/blob/master/README.md#prop-types",
+      "examples": "```jsx\n<WaypointCollector topOffset={10} bottomOffset={0} onEnter={() => console.log(\"App entered\")}>\n  <YourApp />\n</WaypointCollector>\n```",
+      "component": "WaypointCollector",
+      "import": "{WaypointCollector}",
+      "hasProps": true
+    }
+  ]
+}

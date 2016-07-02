@@ -1,0 +1,270 @@
+{
+  "library": "@walmart/wmreact-navigation",
+  "components": [
+    {
+      "displayName": "Breadcrumbs",
+      "props": {
+        "mini": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "True if we should apply the mini CSS"
+        },
+        "automationId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "Optional automation ID"
+        },
+        "hidden": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/breadcrumbs.jsx",
+      "description": "Breadcrumbs control.",
+      "examples": "```jsx\n<Breadcrumbs automationId=\"demo-breadcrumbs\">\n  <a>Breadcrumb 1</a>\n  <a>Breadcrumb 2</a>\n  <a>Breadcrumb 3</a>\n</Breadcrumbs>\n```",
+      "component": "Breadcrumbs",
+      "import": "{Breadcrumbs}",
+      "playground": [
+        {
+          "title": "Breadcrumbs",
+          "flags": {},
+          "code": "<Breadcrumbs automationId=\"demo-breadcrumbs\">\n  <a>Breadcrumb 1</a>\n  <a>Breadcrumb 2</a>\n  <a>Breadcrumb 3</a>\n</Breadcrumbs>\n"
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "Subnav",
+      "props": {
+        "staticPage": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "If a page is static, add `staticPage` to set a fixed\n    width of 1024px to the subnav. This maintains correct\n    styling if a browser is more narrow than 1024px and the\n    user scrolls to the right."
+        },
+        "withContainer": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "Adds a container element inside the subnav for proper\n    display when the element should span the entire width\n    of the page."
+        },
+        "automationId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "If a component user or author needs a subnav to differentiate\n    itself for automation purposes, we accept an\n    externally-supplied automationId."
+        },
+        "hidden": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/subnav.jsx",
+      "description": "Subnav control.",
+      "examples": "```jsx\n<Subnav automationId=\"demo-subnav\">\n  <Subnav.Item href=\"#foo\" current={true} childCount={3} automationId=\"subnav-0\">\n    Item 1\n  </Subnav.Item>\n\n  <Subnav.Item href=\"#bar\" current={false} childCount={3} automationId=\"subnav-1\">\n    Item 2\n  </Subnav.Item>\n\n  <Subnav.Item href=\"#baz\" current={false} childCount={3} automationId=\"subnav-2\">\n    Item 3\n  </Subnav.Item>\n</Subnav>\n```",
+      "component": "Subnav",
+      "import": "{Subnav}",
+      "playground": [
+        {
+          "title": "Subnav",
+          "flags": {},
+          "code": "<Subnav automationId=\"demo-subnav\">\n  <Subnav.Item href=\"#foo\" current={true}\n    childCount={3} automationId=\"subnav-0\">\n    Item 1\n  </Subnav.Item>\n\n  <Subnav.Item href=\"#bar\" current={false}\n    childCount={3} automationId=\"subnav-1\">\n    Item 2\n  </Subnav.Item>\n\n  <Subnav.Item href=\"#baz\" current={false}\n    childCount={3} automationId=\"subnav-2\">\n    Item 3\n  </Subnav.Item>\n</Subnav>\n"
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "Subnav.Item",
+      "props": {
+        "title": {
+          "type": {
+            "name": "node"
+          },
+          "required": false,
+          "description": "Item title"
+        },
+        "childCount": {
+          "type": {
+            "name": "number"
+          },
+          "required": true,
+          "defaultValue": {
+            "value": "1",
+            "computed": false
+          },
+          "description": "The index"
+        },
+        "current": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "True if this is the current item"
+        },
+        "onClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "function(event: Object): void {}",
+            "computed": false
+          },
+          "description": "onClick callback"
+        },
+        "href": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"#\"",
+            "computed": false
+          },
+          "description": "The href attribute for the link"
+        },
+        "automationId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "An optional automation ID"
+        },
+        "hidden": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/subnav-item.jsx",
+      "description": "Subnav child item.",
+      "examples": "```jsx\n<Subnav.Item href=\"#foo\" current={true} childCount={3} automationId=\"subnav-0\">\n  Item 1\n</Subnav.Item>\n```",
+      "component": "Subnav.Item",
+      "import": "{Subnav}",
+      "playground": [
+        {
+          "title": "Subnav Item",
+          "flags": {},
+          "code": "<Subnav.Item href=\"#foo\" current={true} childCount={3} automationId=\"subnav-0\">\n  Item 1\n</Subnav.Item>\n"
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "Tabs",
+      "props": {
+        "automationId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "If a component user or author needs a tab control to\n    differentiate itself for automation purposes, we\n    accept an externally-supplied automationId."
+        },
+        "hidden": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/tabs.jsx",
+      "description": "Tabs container.",
+      "examples": "```jsx\n<Tabs style={{minWidth: '100%'}} automationId=\"demo-tabs\">\n  <Tabs.Item title=\"First\">\n    <p>First Tab!</p>\n  </Tabs.Item>\n  <Tabs.Item title=\"Second\">\n    <p>Second Tab!</p>\n  </Tabs.Item>\n</Tabs>\n```",
+      "component": "Tabs",
+      "import": "{Tabs}",
+      "playground": [
+        {
+          "title": "Tabs Container",
+          "flags": {},
+          "code": "<Tabs style={{minWidth: '100%'}} automationId=\"demo-tabs\">\n  <Tabs.Item title=\"First\">\n    <p>First Tab!</p>\n  </Tabs.Item>\n  <Tabs.Item title=\"Second\">\n    <p>Second Tab!</p>\n  </Tabs.Item>\n</Tabs>\n"
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "Tab.Item",
+      "props": {
+        "title": {
+          "type": {
+            "name": "node"
+          },
+          "required": true,
+          "description": "The title"
+        },
+        "hidden": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/tabs-item.jsx",
+      "description": "Tabs child item.",
+      "examples": "```jsx\n<Tabs.Item title=\"First\">\n  <p>First Tab!</p>\n</Tabs.Item>\n```",
+      "component": "Tabs.Item",
+      "import": "{Tabs}",
+      "playground": [
+        {
+          "title": "Tabs Item",
+          "flags": {},
+          "code": "<Tabs.Item title=\"First\">\n  <p>First Tab!</p>\n</Tabs.Item>\n"
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "props": {
+        "url": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "description": ""
+        },
+        "name": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/back-link.jsx",
+      "hasProps": true
+    }
+  ]
+}

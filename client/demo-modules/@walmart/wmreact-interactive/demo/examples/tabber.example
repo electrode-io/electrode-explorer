@@ -1,0 +1,25 @@
+<Tabber activeTabClass="active" initialActiveTab={0}>
+  <Tabber.Controls>
+    <Tabber.Control>
+      <Button badge={true} badgeAlt={true}>
+        Tab 1
+      </Button>
+    </Tabber.Control>
+
+    <Tabber.Control>
+      <Button badge={true} badgeAlt={true} className="m-margin-left">
+        Tab 2
+      </Button>
+    </Tabber.Control>
+  </Tabber.Controls>
+
+  <Tabber.Content className="m-margin-top" autoHeight>
+    <Tabber.Section>
+      <p>Tab 1 content</p>
+    </Tabber.Section>
+
+    <Tabber.Section>
+      <p>Tab 2 other content</p>
+    </Tabber.Section>
+  </Tabber.Content>
+</Tabber>

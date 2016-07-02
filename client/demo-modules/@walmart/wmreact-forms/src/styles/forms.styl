@@ -1,0 +1,1875 @@
+@require "~@walmart/wmreact-layout/src/styles/layout";
+@require "~@walmart/wmreact-base/src/styles/base";
+
+/* ==========================================================================
+   Variables
+   ========================================================================== */
+
+/* Option */
+$option-color = {
+  standard: {
+    text: $grey-dark,
+    icon-active: $white,
+    bg: $white,
+    bg-active: $green,
+    border: $grey-cool,
+    border-hover: $green
+    border-active: $green,
+    border-error: $red
+  },
+
+  form-control: {
+    text: $blue,
+    border-hover: $blue-secondary // @stylint ignore
+  }
+}
+
+/* Radio */
+$radio-color = {
+  bg: $blue,
+  border-hover: $blue-secondary
+}
+
+/*!
+Form Label
+*/
+
+$tenant-form-label() {
+  .form-label {
+    &.disabled {
+      color: $grey-medium;
+    }
+  }
+}
+
+$tenant-form-label-instructional() {
+  .form-label-instructional {
+    color: $grey-medium;
+  }
+}
+
+/*!
+Form Control
+*/
+
+$tenant-form-control() {
+  .form-control {
+    background-color: $white;
+
+    &:disabled,
+    &.disabled {
+      border-color: $grey-light;
+
+      color: $grey-medium;
+    }
+
+    &:hover,
+    &:focus {
+      border-color: $blue-secondary;
+    }
+
+    if ($isAndroid() is true) {
+      padding-right: 0;
+      padding-left: 0;
+      border-width: 0 0 1px;
+    }
+
+    if ($isHybrid() is true) {
+      border-color: $hybrid-grey-very-light;
+    } else {
+      border-color: $grey-cool;
+      border-radius: 4px;
+    }
+  }
+}
+
+/*!
+Option
+*/
+
+$tenant-option() {
+  &:before {
+    border-radius: 3px;
+  }
+}
+
+/*!
+Alert
+*/
+
+$tenant-alert-color = {
+  text: $black,
+  success: $green,
+  success-bg: lighten($green, 85%),
+  warning: $yellow,
+  warning-bg: lighten($yellow, 85%),
+  error: $red,
+  error-bg: lighten($red, 85%)
+}
+
+$tenant-alert() {
+  .alert {
+    border-radius: 4px;
+  }
+}
+
+/*!
+Radio
+.radio-alt - Alternate variant.
+Styleguide 13.7
+*/
+
+$tenant-radio-alt() {
+  .radio-alt {
+    label:hover:before,
+    .radio-content:hover:before {
+      border-color: $green;
+    }
+
+    input:checked + label:after,
+    input:checked + .radio-content:after {
+      background: $green;
+    }
+
+    // IE7 and IE8 Compatibility
+    &.selected label:before,
+    &.selected .radio-content:before {
+      .lt-ie9 & {
+        background: $green;
+        // zoom: 1 is necessary to prevent Stylus from grouping mixin output.
+        zoom: 1;
+      }
+    }
+  }
+}
+
+/* ==========================================================================
+   Legend
+   ========================================================================== */
+
+legend {
+  margin: 12px 0;
+
+  color: $orange;
+  font-size: 20px;
+}
+
+/* ==========================================================================
+   Labels
+   ========================================================================== */
+
+label {
+  font-size: 14px;
+}
+
+.label-bold {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.form-label {
+  display: block;
+  margin: 10px 0 0;
+}
+
+$tenant-form-label();
+
+$tenant-form-label-instructional();
+
+.form-label-help-icon {
+  font-size: 16px;
+  vertical-align: 1px;
+}
+
+ul.error-label {
+  padding: 0;
+  list-style-type: none;
+}
+
+.error-label {
+  margin: 3px 0 0;
+
+  color: $red;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/*!
+Form Control
+
+Styles text inputs for default form usage. Inputs should always be used
+with a `label` element that describes the input. For general usage, the
+`.form-control` should be nested in a `label.form-label`. This will add a
+visible label above the input.
+
+In some cases, you can use placeholder text on the `.form-control` input in
+place of a visible label (see the "Credit Card" example below). In these
+cases, a label should still be used for screen reader accessibility. To do
+so, nest a `.form-control` inside a `label` element (with no `.form-label`
+class), and wrap the label text in a `span.visuallyhidden` so that it is
+available for screen readers but not visible to sighted users.
+
+If for some reason you cannot nest the `.form-control` in a `label`, place
+the `label` directly before the `.form-control`, give the `.form-control` a
+unique ID, and add a `for` attribute that references the ID to the `label`.
+If you are using placeholder text in this case, apply the `.visuallyhidden`
+class directly to the `label`, rather than to a `span` inside it.
+
+To apply disabled styles to a `.form-control` and `.form-label`, add the
+`disabled` attribute to the `.form-control` and the `.disabled` class to the
+label.
+
+Styleguide 13.1
+*/
+
+$form-control-margin = 15px;
+$form-control-height = 40px;
+$form-control-mini-height = 30px;
+
+if ($isAndroid() is true) {
+  $form-control-height = 34px;
+  $form-control-mini-height = 24px;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  height: $form-control-height;
+  margin: $form-control-margin 0 0;
+  padding: 0 10px 0;
+  border: 1px solid;
+
+  // Subtract 2px to account for top and bottom border
+  line-height: (@height - 2);
+  background-color: $white;
+  font-size: 16px;
+
+  if ($isAndroid() is true) {
+    padding-top: 4px;
+  }
+
+  label + &,
+  .form-label & {
+    margin-top: 0;
+  }
+
+  label.visuallyhidden + & {
+    margin-top: $form-control-margin;
+  }
+
+  &:focus {
+    outline: none;
+
+    if ($isWeb() is true) {
+      box-shadow: inset 2px 2px 6px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  &:disabled,
+  &.disabled {
+    cursor: default;
+
+    if ($isWeb() is true) {
+      background: #f1f1f1;
+    }
+  }
+
+  &.error {
+    border-color: $red;
+  }
+}
+
+$tenant-form-control();
+
+/*!
+Mini Form Control
+
+Styleguide 13.1.1
+*/
+
+.form-control-mini {
+  height: $form-control-mini-height;
+
+  font-size: 16px;
+  line-height: @height;
+
+  if ($isAndroid() is true) {
+    padding-top: 0;
+  }
+}
+
+input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/*!
+Float Label Form Control
+
+When there is no visible label above the input, use the float label
+form control, which follows the
+[Float Label Pattern](http://bradfrost.com/blog/post/float-label-pattern/).
+
+The `.FloatLabel-text` element acts both as a placeholder and a label.
+In older browsers, it acts only as a label.
+
+To use the Float Label pattern, include the `float-label.js` jQuery plugin and
+initialize it on elements that should include this behavior:
+`$(".js-float-label-example").floatLabel();`
+
+Styleguide 13.1.2
+*/
+
+$FloatLabel ?= {
+  placeholder: {
+    top: 0.8em,
+    left: 12px,
+    text: $grey-light,
+    font-size: 1.1em
+  },
+  label: {
+    top: -0.5em,
+    left: 1em,
+    bg: $white,
+    text: $grey-medium,
+    text-focus: $blue-secondary-active,
+    font-size: 0.9em,
+    padding: 0.25em // @stylint ignore
+  }
+}
+
+if ($isIos() is true) {
+  $FloatLabel.placeholder.left = 10px;
+  $FloatLabel.placeholder.text = $hybrid-grey-light;
+
+  $FloatLabel.label.padding = 0;
+  $FloatLabel.label.bg = transparent;
+  $FloatLabel.label.top = 6px;
+  $FloatLabel.label.left = $FloatLabel.placeholder.left;
+  $FloatLabel.label.font-size = 12px;
+} else if ($isAndroid() is true) {
+  $FloatLabel.placeholder.top = 0.65em;
+  $FloatLabel.placeholder.left = 0;
+  $FloatLabel.label.bg = transparent;
+
+  $FloatLabel.label.padding = 0;
+  $FloatLabel.label.bg = transparent;
+  $FloatLabel.label.top = -8px;
+  $FloatLabel.label.left = $FloatLabel.placeholder.left;
+}
+
+// Adapted from http://codepen.io/psorowka/full/JrKbE
+@keyframes float-labels {
+  // Do not move while fading out
+  from {
+    wmzindex("negative");
+
+    top: $FloatLabel.placeholder.top;
+    left: $FloatLabel.placeholder.left;
+
+    color: $FloatLabel.placeholder.text;
+    font-size: $FloatLabel.placeholder.font-size;
+    line-height: 1;
+    opacity: 1;
+  }
+  // Fade out
+  30% {
+    top: $FloatLabel.placeholder.top;
+    left: $FloatLabel.placeholder.left;
+
+    font-size: $FloatLabel.placeholder.font-size;
+    line-height: 1;
+    opacity: 0;
+  }
+  // Reduce font-size and move left
+  50% {
+    top: $FloatLabel.placeholder.top;
+    left: $FloatLabel.label-left;
+
+    font-size: $FloatLabel.label.font-size;
+    opacity: 0;
+  }
+  // Then, fade in as shifting up
+  to {
+    wmzindex("basic");
+
+    top: $FloatLabel.label.top;
+    left: $FloatLabel.label.left;
+
+    font-size: $FloatLabel.label.font-size;
+    opacity: 1;
+  }
+}
+
+.FloatLabel {
+  position: relative;
+
+  display: block;
+  width: 100%;
+
+  .validation-group {
+    margin-top: 0;
+  }
+
+  if ($isIos() is true) {
+    background-color: $white;
+
+    .error-label {
+      display: none !important;
+    }
+  } else {
+    margin-top: 15px;
+  }
+}
+
+if ($isIos() is true) {
+  .FloatLabel + .FloatLabel:before {
+    wmzindex("basic");
+
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 10px;
+
+    display: block;
+    border-top: 1px solid #efefef;
+  }
+}
+
+/* Default position of the text is at the top of the control,
+   acting as a label.
+
+   1. Avoids a bug that sometimes pauses the animation
+ */
+.FloatLabel-text {
+  wmzindex("basic"); /* 1 */
+
+  position: absolute;
+  top: $FloatLabel.label.top;
+  left: $FloatLabel.label.left;
+
+  padding-right: $FloatLabel.label.padding;
+  padding-left: $FloatLabel.label.padding;
+
+  background-color: $FloatLabel.label.bg;
+  color: $FloatLabel.label.text;
+  font-size: $FloatLabel.label.font-size;
+  line-height: 1;
+
+  animation: float-labels 300ms none ease-out;
+  animation-play-state: running !important; /* 1 */
+
+  .form-label-instructional {
+    color: inherit !important;
+    opacity: 0.8;
+  }
+}
+
+/* Form-control for FloatLabel
+
+   1. Do not add top margin, so label appears over top border
+ */
+.FloatLabel-control {
+  wmzindex("none");
+
+  margin-top: 0 !important; /* 1 */
+
+  if ($isIos() is true) {
+    padding-top: 16px;
+    border: 0;
+
+    font-size: 13px;
+    line-height: 1.2;
+  }
+
+  &:focus {
+    box-shadow: none;
+  }
+
+  if ($isWeb() is true) {
+    &:disabled,
+    &.disabled {
+      background: #f1f1f1 !important;
+    }
+  }
+}
+
+// Ugly magic number hack to adjust for line height + spacing differences on
+// textarea.
+if ($isIos() is true) {
+  textarea.FloatLabel-control {
+    padding-top: 19px;
+  }
+}
+
+.FloatLabel {
+  if ($isWeb() is true) {
+    /* When control is in focus or is disabled,
+       match the color of the label to its state
+     */
+    &.is-focused,
+    &:hover {
+      .FloatLabel-text {
+        color: $FloatLabel.label.text-focus;
+      }
+    }
+  }
+
+  &.disabled .FloatLabel-text {
+    color: $FloatLabel.label.text;
+
+    if ($isWeb() is true) {
+      /* Change background color to match disabled background color */
+      &:before {
+        wmzindex("negative");
+
+        content: "";
+
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        width: 100%;
+        border-bottom: 0.5em solid #f1f1f1;
+      }
+    }
+  }
+
+  /* The .is-empty class is assigned to empty inputs with JS.
+     Position the text to act as a placeholder.
+   */
+  &.is-empty .FloatLabel-text {
+    top: $FloatLabel.placeholder.top;
+    left: $FloatLabel.placeholder.left;
+
+    padding: 0;
+
+    color: $FloatLabel.placeholder.text;
+    font-size: $FloatLabel.placeholder.font-size;
+    animation: none;
+    pointer-events: none;
+  }
+
+  /* When there is no .is-empty class and the input is in focus,
+     style the label color for non-JS/older browsers.
+   */
+  &:not(.is-empty):focus .FloatLabel-text {
+    color: $FloatLabel.label.text-focus;
+  }
+}
+
+/*!
+Validation Markers
+
+Styleguide 13.2
+*/
+
+.validation-marker {
+  display: inline-block;
+  vertical-align: middle;
+
+  font-size: 16px;
+
+  &:before {
+    walmarticons();
+
+    font-size: 16px;
+    line-height: 1;
+  }
+
+  .form-inline & {
+    margin-left: 4px;
+  }
+}
+
+.validation-marker-success {
+  color: $green;
+
+  +ifWalmarticons() {
+    &:before {
+      wmicon("ok");
+    }
+  }
+}
+
+.validation-marker-error {
+  color: $red;
+
+  +ifWalmarticons() {
+    &:before {
+      wmicon("exclamation-circle");
+    }
+  }
+}
+
+.validation-group {
+  position: relative;
+
+  display: inline-block;
+  width: 100%;
+  margin-top: $form-control-margin;
+
+  line-height: 1.5;
+
+  .validation-marker {
+    position: absolute;
+    top: 0;
+    right: 10px;
+
+    height: $form-control-height;
+    line-height: @height;
+  }
+
+  .form-control {
+    margin-top: 0;
+    padding-right: 34px;
+  }
+
+  label + &,
+  .form-label & {
+    margin-top: 0;
+  }
+
+  label.visuallyhidden + & {
+    margin-top: $form-control-margin;
+  }
+}
+
+.validation-group-mini {
+  .validation-marker {
+    height: $form-control-mini-height;
+    line-height: @height;
+  }
+}
+
+/*!
+Form Inline
+
+Styleguide 13.3
+*/
+
+.form-inline {
+  .form-control,
+  .btn,
+  label,
+  .validation-group {
+    display: inline-block;
+    width: auto;
+    margin: 0 0 0 8px;
+
+    vertical-align: middle;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  label.visuallyhidden + .validation-group,
+  label.visuallyhidden + .form-control {
+    margin-top: 0;
+  }
+
+  label.visuallyhidden:first-child + .validation-group {
+    margin-left: 0;
+  }
+}
+
+// TODO: Fix validation markers for date-picker and chooser
+// https://jira.walmart.com/browse/USFERL-1267
+.date-picker, .chooser {
+  & ~ .validation-marker {
+    display: none;
+  }
+}
+
+/*!
+Form Flex
+
+Deprecated: This component is deprecated. Do not use it in old or new
+projects. Pages using it may break at any time.
+
+See "Form Arrange" for an alternative to this component.
+
+Styleguide 13.4
+*/
+
+.form-flex {
+  position: relative;
+
+  .form-flex-wrapper {
+    padding-right: 70px;
+  }
+
+  .btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  label.visuallyhidden + .validation-group,
+  label.visuallyhidden + .form-control {
+    margin-top: 0;
+  }
+}
+
+/*!
+Form Arrange
+
+A form variant for use in conjunction with the `.arrange` layout component.
+Add the class `.form-arrange` to the `.arrange` element to remove all
+vertical margin from form components and add default horizontal form
+padding between `.arrange-fill` and `.arrange-fit` components.
+
+Use the `.form-arrange-compact` modifier class to cut the horizontal padding
+in half.
+
+Use the `.form-arrange-margin` modifier class to add standard vertical margin
+to the top of the component.
+
+.form-arrange-compact - Compact version.
+.form-arrange-margin - Version with vertical margin.
+
+Styleguide 13.4.1
+*/
+
+.form-arrange {
+  white-space: nowrap;
+
+  label,
+  .form-label,
+  .form-control,
+  .validation-group {
+    margin-top: 0;
+  }
+
+  .arrange-fill,
+  .arrange-fit {
+    padding-left: 16px;
+
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+}
+
+.form-arrange-compact {
+  .arrange-fill,
+  .arrange-fit {
+    padding-left: 8px;
+  }
+}
+
+.form-arrange-margin {
+  margin-top: 16px;
+}
+
+$tenant-form-arrange-nested();
+
+/*!
+Option
+
+.option-form-control - For use in forms.
+.option-checkout - For use on checkout pages.
+.option-small - Small variant.
+
+Styleguide 13.6
+*/
+
+$option-checkbox-offset = 4px;
+
+// Active styles must be a mixin instead of an extendable placeholder selector
+// because they are applied on selectors with :checked. Browsers that don't
+// support :checked throw out the entire comma separated selector generated with
+// @extend.
+option-active() {
+  &:before {
+    +ifWalmarticons() {
+      wmicon("ok");
+    }
+
+    border-color: $option-color.standard.border-active;
+
+    background: $option-color.standard.bg-active;
+    color: $option-color.standard.icon-active;
+  }
+}
+
+$option {
+  float: left;
+  padding-top: $option-checkbox-offset;
+
+  color: $option-color.standard.text;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+  vertical-align: middle;
+
+  &:before {
+    +ifWalmarticons() {
+      walmarticons();
+
+      content: "\00a0";
+    }
+
+    float: left;
+    width: 22px;
+    height: @width;
+    margin: -($option-checkbox-offset) 6px 0 0;
+    border: 1px solid $option-color.standard.border;
+
+    background-color: $option-color.standard.bg;
+    color: $option-color.standard.bg;
+    font-size: 16px;
+    line-height: @height;
+    text-align: center;
+  }
+
+  &:hover {
+    &:before {
+      border-color: $option-color.standard.border-hover;
+    }
+  }
+
+  &.validation-error:before {
+    border-color: $option-color.standard.border-error !important;
+  }
+
+  $tenant-option();
+}
+
+.option {
+  clearfix();
+
+  display: block;
+  margin: 16px 0 0;
+
+  label {
+    @extend $option;
+  }
+
+  input {
+    @extend .visuallyhidden;
+
+    &:checked {
+      & + label,
+      & + .option-content {
+        option-active();
+      }
+    }
+  }
+
+  // IE8 + IE7 Compatibility
+  &.selected {
+    label,
+    .option-content {
+      option-active();
+    }
+  }
+}
+
+.option-content {
+  @extend $option;
+}
+
+$option-small-checkbox-offset = 1px;
+
+.option-small {
+  label,
+  .option-content {
+    padding-top: $option-small-checkbox-offset;
+
+    &:before {
+      width: 16px;
+      height: @width;
+      margin-top: -($option-small-checkbox-offset);
+
+      line-height: @height;
+    }
+  }
+}
+
+option-form-control-active() {
+  &:before {
+    border-color: $grey-light;
+
+    background: $white;
+    color: $option-color.form-control.text;
+  }
+
+  &:hover:before {
+    border-color: $option-color.form-control.border-hover;
+  }
+}
+
+.option-form-control {
+  label,
+  .option-content {
+    font-weight: 400;
+
+    &:hover:before {
+      border-color: $option-color.form-control.border-hover;
+    }
+  }
+
+  input:checked {
+    & + label,
+    & + .option-content {
+      option-form-control-active();
+    }
+  }
+
+  // IE8 + IE7 Compatibility
+  &.selected {
+    label,
+    .option-content {
+      option-form-control-active();
+    }
+  }
+}
+
+option-checkout-active() {
+  &:before {
+    color: $orange;
+  }
+
+  &:hover:before {
+    border-color: $orange-hover;
+  }
+}
+
+.option-checkout {
+  @extend .option-form-control;
+
+  label,
+  .option-content {
+    &:hover:before {
+      border-color: $orange-hover;
+    }
+  }
+
+  input:checked {
+    & + label,
+    & + .option-content {
+      option-checkout-active();
+    }
+  }
+
+  // IE7 and IE8 Compatibility
+  &.selected {
+    label,
+    .option-content {
+      option-checkout-active();
+    }
+  }
+}
+
+/*!
+Vertically Centered Option
+
+By default, option checkboxes are aligned with the top line of label text.
+Use the `.option-valign` modifier for option text that should be vertically
+centered regardless of line length.
+
+Styleguide 13.6.1
+*/
+
+.option-valign {
+  min-height: 24px;
+
+  label,
+  .option-content {
+    position: relative;
+
+    padding: 0 0 0 30px;
+
+    &:before {
+      absolute-center-v();
+
+      left: 0;
+    }
+  }
+
+  &.option-small {
+    min-height: 18px;
+
+    label,
+    .option-content {
+      padding-left: 24px;
+    }
+  }
+}
+
+/*!
+Radio
+*/
+
+$radio-offset = 2px;
+
+// Active styles must be a mixin instead of an extendable placeholder selector
+// because they are applied on selectors with :checked. Browsers that don't
+// support :checked throw out the entire comma separated selector generated with
+// @extend.
+radio-active() {
+  &:after {
+    content: "\00a0";
+
+    background: $radio-color.bg;
+  }
+
+  .lt-ie9 &:before {
+    content: "\00a0";
+
+    background: $radio-color.bg;
+  }
+}
+
+$radio {
+  position: relative;
+
+  float: left;
+  padding-top: $radio-offset;
+
+  color: $grey-dark;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1.2;
+  vertical-align: middle;
+
+  .radio-heading {
+    display: block;
+  }
+
+  .radio-desc {
+    color: $grey-medium;
+  }
+
+  &:before {
+    content: "";
+    position: relative;
+
+    float: left;
+    width: 18px;
+    height: @width;
+    margin: -($radio-offset) 8px 0 0;
+    border: 1px solid $grey-cool;
+    border-radius: 50%;
+
+    background-color: $white;
+  }
+
+  &:after {
+    content: "";
+
+    position: absolute;
+    top: 3px;
+    left: @top;
+
+    display: block;
+    width: 14px;
+    height: @width;
+    border-radius: 50%;
+  }
+
+  &:hover {
+    &:before {
+      border-color: $radio-color.border-hover;
+    }
+  }
+
+  &.validation-error:before {
+    border-color: $red;
+  }
+}
+
+.radio {
+  clearfix();
+
+  display: block;
+  margin: 16px 0 0;
+
+  label {
+    @extend $radio;
+  }
+
+  input {
+    @extend .visuallyhidden;
+
+    &:checked + label,
+    &:checked + .radio-content {
+      radio-active();
+    }
+  }
+
+  // IE7 and IE8 Compatibility
+  &.selected label,
+  &.selected .radio-content {
+    radio-active();
+    // zoom: 1 is necessary to prevent Stylus from grouping mixin output.
+    zoom: 1;
+  }
+}
+
+.radio-content {
+  @extend $radio;
+}
+
+$tenant-radio-alt();
+
+/*!
+Radio Option Tile
+
+The radio option tile can contain as much content as needed. Their
+widths are flexible and can be controlled with a (responsive) container.
+There are three modifier classes available:
+
+- `.radio-tile-no-borders`
+- `.radio-tile-valign-top`
+- `.radio-tile-valign-bottom`
+
+.radio-tile-no-borders - tile without borders
+.radio-tile-valign-top - align checkmark to top
+.radio-tile-valign-bottom - align checkmark to bottom
+
+Styleguide 13.8
+*/
+
+
+// Active styles must be a mixin instead of an extendable placeholder selector
+// because they are applied on selectors with :checked. Browsers that don't
+// support :checked throw out the entire comma separated selector generated with
+// @extend.
+
+radio-tile-active() {
+  border-color: $orange;
+
+  box-shadow: 0 0 0 1px $orange;
+
+  .radio-tile-icon:before {
+    +ifWalmarticons() {
+      wmicon("ok");
+    }
+
+    border-color: $orange;
+
+    background: $orange;
+  }
+}
+
+$radio-tile-content {
+  font-smoothing();
+  to-rem(font-size, 12px);
+
+  position: relative;
+
+  display: block;
+  padding: 13px 15px 15px;
+  border: 1px solid $grey-cool;
+  border-radius: 4px;
+
+  background: $white;
+  color: $grey-dark;
+  cursor: pointer;
+  font-weight: 700;
+  line-height: 1.3;
+
+  &:hover {
+    border-color: $blue-secondary;
+  }
+
+  &.selected {
+    radio-tile-active();
+  }
+}
+
+.radio-tile-icon {
+  display: table-cell;
+  width: 1%;
+
+  vertical-align: middle;
+
+  &:before {
+    +ifWalmarticons() {
+      walmarticons();
+
+      content: "\00a0";
+    }
+
+    display: inline-block;
+    width: 22px;
+    height: @width;
+    // Additional 1px to compensate for border width
+    margin-top: -1px;
+    margin-bottom: -1px;
+    border: 1px solid $grey-cool;
+    border-radius: 50%;
+
+    background-color: $white;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: $white;
+    font-size: 16px;
+    line-height: @height;
+  }
+}
+
++breakpoint($screen-l) {
+  $radio-tile-content {
+    to-rem(font-size, 14px);
+  }
+}
+
+.radio-tile {
+  // Position relative keeps the visuallyhidden `input` element inside the
+  // bounds of the tile, preventing window scrolling bugs when radio tiles are
+  // used inside scrollable containers.
+  position: relative;
+
+  margin-top: 15px;
+  display: block;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  .radio-tile-content {
+    @extend $radio-tile-content;
+
+    .wmicon {  // Add base style
+      margin-right: -4px;
+
+      color: $blue;
+      font-size: 1.25em;
+    }
+  }
+
+  input {
+    &:checked + .radio-tile-content {
+      radio-tile-active();
+      .radio-tile-primary-alt {
+        color: $orange;
+      }
+      .wmicon {  // Add active style
+        color: $orange;
+      }
+    }
+  }
+
+  // IE7 and IE8 Compatibility
+  &.selected {
+    radio-tile-active();
+  }
+}
+
+.radio-tile-no-borders {
+  .radio-tile-content {
+    padding: 0;
+    border: none;
+
+    &.selected {
+      border: none;
+
+      box-shadow: none;
+    }
+  }
+
+  input {
+    &:checked + .radio-tile-content {
+      border: none;
+
+      box-shadow: none;
+    }
+  }
+}
+
+.radio-tile-caret {  // Add caret style
+  margin-bottom: 20px;
+
+  input {
+    &:checked + .radio-tile-content:before {
+      content: '';
+      position: absolute;
+      bottom: -16px;
+      left: calc(50% - 16px);
+
+      display: block;
+      width: 0;
+      height: 0;
+      border-top: 16px solid $orange;
+      border-right: 16px solid transparent;
+      border-left: 16px solid transparent;
+    }
+
+    &:checked + .radio-tile-content:after {
+      content: '';
+      position: absolute;
+      bottom: -13px;
+      left: calc(50% - 13px);
+
+      display: block;
+      width: 0;
+      height: 0;
+      border-top: 13px solid $white;
+      border-right: 13px solid transparent;
+      border-left: 13px solid transparent;
+    }
+  }
+}
+
+.radio-tile-valign-top {
+  .radio-tile-icon, .radio-tile-primary {
+    vertical-align: top;
+  }
+}
+
+.radio-tile-valign-bottom {
+  .radio-tile-icon, .radio-tile-primary {
+    vertical-align: bottom;
+  }
+}
+
+.radio-tile-header {
+  position: relative;
+
+  display: table;
+  width: 100%;
+}
+
+.radio-tile-primary {
+  display: table-cell;
+  width: 100%;
+  padding-left: 12px;
+
+  color: $grey-medium;
+  vertical-align: middle;
+}
+
+.radio-tile-primary-alt {
+  color: $blue;
+  font-weight: 600;
+}
+
+.radio-tile-aside {
+  float: right;
+  display: block;
+  width: 100px;
+  margin: 10px 0 0;
+
+  color: $grey-medium;
+  line-height: 1;
+
+  b {
+    display: block;
+    margin-top: 2px;
+
+    color: $grey-dark;
+    font-size: 16px;
+  }
+}
+
+.radio-tile-heading {
+  display: block;
+
+  .price-display {
+    margin-right: 5px;
+
+    color: $black;
+    font-size: 25px;
+    font-weight: 700;
+    vertical-align: baseline;
+
+    .sup {
+      margin: 0;
+
+      font-size: 14px;
+      vertical-align: 7px;
+    }
+  }
+}
+
+.radio-tile-heading-alt {
+  margin-bottom: 2px;
+
+  font-size: 24px;
+  text-transform: uppercase;
+
+  .sub {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: none;
+  }
+}
+
+.radio-tile-footer {
+  display: block;
+  margin-top: 8px;
+  padding-top: 12px;
+  padding-bottom: 4px;
+  border-top: 1px solid $grey-light;
+
+  font-size: 16px;
+  line-height: 1;
+}
+
+.radio-tile-footer-alt {
+  padding-bottom: 2px;
+  padding-left: 38px;
+
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+/*!
+Mini Radio Option Tile
+
+.radio-tile-width - variant with tile width of 154px
+
+Styleguide 13.8.1
+*/
+
+.radio-tile-mini .radio-tile-content {
+  padding: 10px;
+}
+
+.radio-tile-width .radio-tile-content {
+  width: 129px;
+}
+
+.radio-tile-narrow-gutter {
+  margin: 0 -4px;  // Leave room for box-shadow in active state
+
+  & > .arrange-fit,
+  & > .arrange-fill {
+    padding: 0 5px;
+  }
+}
+
+/*!
+Radio Option
+
+Deprecated: This component is deprecated. Do not use it in old or new
+projects. Pages using it may break at any time.
+
+See "Radio Option Tile" for an alternative to this component.
+
+Styleguide 13.9
+*/
+
+// Active styles must be a mixin instead of an extendable placeholder selector
+// because they are applied on selectors with :checked. Browsers that don't
+// support :checked throw out the entire comma separated selector generated with
+// @extend.
+radio-option-active() {
+  border-color: $orange;
+
+  box-shadow: 0 0 0 1px $orange;
+  color: $orange;
+
+  &:before {
+    +ifWalmarticons() {
+      wmicon("ok");
+    }
+
+    border-color: $orange;
+
+    background: $orange;
+  }
+}
+
+$radio-option {
+  clearfix();
+  font-smoothing();
+
+  display: block;
+  padding: 0 0 0 10px;
+  border: 1px solid $grey-cool;
+  border-radius: 4px;
+
+  background: $white;
+  color: $blue;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+
+  &:hover {
+    border-color: $blue-secondary;
+  }
+
+  &:before {
+    +ifWalmarticons() {
+      walmarticons();
+
+      content: "\00a0";
+    }
+
+    display: inline-block;
+    width: 22px;
+    height: @width;
+    margin-right: 8px;
+    border: 1px solid $grey-cool;
+    border-radius: 50%;
+
+    background-color: $white;
+    color: $white;
+    font-size: 16px;
+    line-height: @height;
+  }
+
+  &.selected {
+    radio-option-active();
+  }
+}
+
+.radio-option-list {
+  padding: 0;
+  list-style: none;
+
+  font-size: 0;
+}
+
+.radio-option {
+  display: inline-block;
+  height: 44px;
+  width: 129px;
+  margin: 0 0 0 5px;
+
+  // Subtract 2px to account for top and bottom border
+  line-height: (@height - 2);
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  label {
+    @extend $radio-option;
+  }
+
+  input {
+    @extend .visuallyhidden;
+
+    &:checked + label {
+      radio-option-active();
+    }
+  }
+
+  // IE7 and IE8 Compatibility
+  &.selected label {
+    radio-option-active();
+  }
+}
+
+radio-option-condensed() {
+  width: auto;
+
+  label {
+    padding-left: 7px;
+    padding-right: 7px;
+
+    &:before {
+      display: none;
+    }
+  }
+}
+
+.radio-option-condensed-s {
+  +breakpoint($screen-m-max, "max") {
+    radio-option-condensed();
+  }
+}
+
+/*!
+Expanded Radio Option
+
+Deprecated: This component is deprecated. Do not use it in old or new
+projects. Pages using it may break at any time.
+
+See "Radio Option Tile" for an alternative to this component.
+
+Styleguide 13.9.1
+*/
+
+// Active styles must be a mixin instead of an extendable placeholder selector
+// because they are applied on selectors with :checked. Browsers that don't
+// support :checked throw out the entire comma separated selector generated with
+// @extend.
+radio-expanded-active() {
+  padding: 11px 13px 13px;
+  border: 3px solid $orange;
+
+  .radio-expanded-content:before {
+    +ifWalmarticons() {
+      wmicon("ok");
+    }
+
+    border-color: $orange;
+
+    background: $orange;
+  }
+}
+
+$radio-expanded {
+  font-smoothing();
+  to-rem(font-size, 12px);
+
+  position: relative;
+
+  display: block;
+  width: 100%;
+  padding: 13px 15px 15px;
+  border: 1px solid $grey-cool;
+  border-radius: 4px;
+
+  background: $white;
+  color: $grey-dark;
+  cursor: pointer;
+  font-weight: 700;
+  line-height: 1.3;
+
+  &:hover {
+    border-color: $blue-secondary;
+  }
+
+  .radio-expanded-content:before {
+    +ifWalmarticons() {
+      walmarticons();
+
+      content: "\00a0";
+    }
+
+    position: absolute;
+    top: 50%;
+    left: 0;
+
+    display: inline-block;
+    width: 22px;
+    height: @width;
+    // Additional 1px to compensate for border width
+    margin-top: -(@width / 2) - 1;
+    border: 1px solid $grey-cool;
+    border-radius: 50%;
+
+    background-color: $white;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: $white;
+    font-size: 16px;
+    line-height: @height;
+  }
+
+  &.selected {
+    radio-expanded-active();
+  }
+}
+
++breakpoint($screen-l) {
+  $radio-expanded {
+    to-rem(font-size, 14px);
+  }
+}
+
+.radio-expanded {
+  margin-top: 15px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  label {
+    @extend $radio-expanded;
+  }
+
+  input {
+    @extend .visuallyhidden;
+
+    &:checked + label {
+      radio-expanded-active();
+    }
+  }
+
+  // IE7 and IE8 Compatibility
+  &.selected label {
+    radio-expanded-active();
+  }
+}
+
+.radio-expanded-content {
+  clearfix();
+
+  position: relative;
+
+  display: table;
+  width: 100%;
+}
+
+.radio-expanded-primary {
+  display: table-cell;
+  padding-left: 36px;
+
+  color: $grey-medium;
+  vertical-align: middle;
+}
+
+.radio-expanded-aside {
+  float: right;
+  display: block;
+  width: 100px;
+  margin: 10px 0 0;
+
+  color: $grey-medium;
+  line-height: 1;
+
+  b {
+    display: block;
+    margin-top: 2px;
+
+    color: $grey-dark;
+    font-size: 16px;
+  }
+}
+
+.radio-expanded-heading {
+  display: block;
+
+  .price-display {
+    margin-right: 5px;
+
+    color: $black;
+    font-size: 25px;
+    font-weight: 700;
+    vertical-align: baseline;
+
+    .sup {
+      margin: 0;
+
+      font-size: 14px;
+      vertical-align: 7px;
+    }
+  }
+}
+
+.radio-expanded-heading-alt {
+  margin-bottom: 2px;
+
+  font-size: 24px;
+  text-transform: uppercase;
+
+  .sub {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: none;
+  }
+}
+
+.radio-expanded-footer {
+  display: block;
+  margin-top: 8px;
+  padding-top: 12px;
+  padding-bottom: 4px;
+  border-top: 1px solid $grey-light;
+
+  font-size: 16px;
+  line-height: 1;
+}
+
+.radio-expanded-footer-alt {
+  padding-bottom: 2px;
+  padding-left: 38px;
+
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+/*!
+Alert
+
+.alert-error - For error messages.
+.alert-success - For success messages.
+.alert-warning - For warning messages.
+.alert-error.alert-block - A block level alert.
+.alert-error.alert-above-form - For use when the alert should be displayed above a form.
+
+Styleguide 13.10
+*/
+
+.alert {
+  font-smoothing();
+
+  display: none;
+  padding: 8px 10px;
+  border: 1px solid;
+
+  color: $tenant-alert-color.text;
+  font-size: 14px;
+  font-weight: 600;
+
+  &.active {
+    display: inline-block;
+  }
+}
+
+$tenant-alert();
+
+.alert-block {
+  margin-top: 24px;
+
+  &.active {
+    display: block;
+  }
+}
+
+.alert-error {
+  border-color: $tenant-alert-color.error;
+
+  background: $tenant-alert-color.error-bg;
+}
+
+.alert-success {
+  border-color: $tenant-alert-color.success;
+
+  background: $tenant-alert-color.success-bg;
+}
+
+.alert-warning {
+  border-color: $tenant-alert-color.warning;
+
+  background: $tenant-alert-color.warning-bg;
+}
+
+.alert-above-form {
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.status-message {
+  padding: 8px 0 0;
+  font-size: 16px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+
+  > span {
+    display: block;
+  }
+}
+
+/* ==========================================================================
+   TextArea Placeholder
+   ========================================================================== */
+
+.textarea-container {
+  position: relative;
+
+  .textarea-placeholder {
+    position: absolute;
+    top: 34px;
+    left: 11px;
+
+    color: $placeholder;
+  }
+}

@@ -8,7 +8,8 @@ export default class Component extends React.Component {
     this.state = {
       meta: {},
       usage: [],
-      demo: null
+      demo: null,
+      error: null
     };
   }
 
@@ -30,13 +31,14 @@ export default class Component extends React.Component {
           const demo = require(`../demo-modules/${meta.name}/demo/demo.jsx`);
           this.setState({ demo });
         } catch (e) {
-          console.log(`error in require demo in ${meta.name}`);
+          console.log(`Error require demo in ${meta.name}`);
+          this.setState({error: <div>This component does not have demo.</div>});
         }
       });
   }
 
   render() {
-    const { meta, usage, demo } = this.state;
+    const { meta, usage, demo, error } = this.state;
 
     return (
       <div>
@@ -55,7 +57,8 @@ export default class Component extends React.Component {
             </div>}
           </span>
         </h2>
-        {demo && <demo.default/>}
+        { demo && <demo.default/> }
+        { error && <error/> }
       </div>
     );
   }

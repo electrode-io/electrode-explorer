@@ -1,0 +1,56 @@
+.variant {
+  to-rem(font-size, 14px);
+  position: relative;
+
+  display: inline-block;
+  width: $variant-size;
+  height: @width;
+  margin: 10px 0 0 10px;
+  padding: 0;
+  border: 1px solid $variant-color.border;
+  border-radius: $variant-swatch-radius.default;
+
+  background: $variant-color.bg;
+  color: $variant-color.text;
+  cursor: pointer;
+  font-weight: 600;
+  // 2px difference accounts for border-top/bottom
+  line-height: (@width - 2);
+  text-align: center;
+  vertical-align: middle;
+
+  &:hover,
+  &:focus {
+    border-color: $variant-color.border-active;
+
+    color: $variant-color.text-hover;
+    outline: none;
+  }
+
+  &.selected {
+    variant-active();
+  }
+
+  &.disabled,
+  &.variant-unavailable,
+  &.disabled.selected,
+  &.variant-unavailable.selected {
+    @extend $variant-disabled;
+  }
+
+  &.disabled,
+  &.variant-unavailable {
+    &:hover {
+      box-shadow: none;
+    }
+  }
+
+  &.disabled.selected,
+  &.variant-unavailable.selected {
+    box-shadow: $variant-box-shadow;
+
+    &:hover {
+      border-color: $variant-color.border-active;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+var TrayExample = React.createClass({
+  showTray() {
+    this.refs.tray.openTray();
+  },
+  render() {
+  return (
+      <div>
+        <Tray ref="tray"
+          isOpen={false}>
+          <h1>Hi!</h1>
+        </Tray>
+        <a href="javascript:void(0)" onClick={this.showTray}>
+          Show Tray
+        </a>
+      </div>
+    )
+  }
+});
+
+React.render(<TrayExample/>, mountNode);

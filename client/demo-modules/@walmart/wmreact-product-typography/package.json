@@ -1,0 +1,104 @@
+{
+  "_args": [
+    [
+      {
+        "name": "@walmart/wmreact-product-typography",
+        "raw": "@walmart/wmreact-product-typography",
+        "rawSpec": "",
+        "scope": "@walmart",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/cshi1/githome/portal"
+    ]
+  ],
+  "_from": "@walmart/wmreact-product-typography@latest",
+  "_id": "@walmart/wmreact-product-typography@4.2.3",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/@walmart/wmreact-product-typography",
+  "_nodeVersion": "4.3.0",
+  "_npmUser": {
+    "email": "jjensen@walmart.com",
+    "name": "jjensen"
+  },
+  "_npmVersion": "3.9.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "@walmart/wmreact-product-typography",
+    "raw": "@walmart/wmreact-product-typography",
+    "rawSpec": "",
+    "scope": "@walmart",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/@walmart/wmreact-product-card",
+    "/@walmart/wmreact-product-higher-order-components",
+    "/@walmart/wmreact-product-offers"
+  ],
+  "_resolved": "https://npme.walmart.com/@/@walmart/wmreact-product-typography/_attachments/wmreact-product-typography-4.2.3.tgz",
+  "_shasum": "77bcd228a686dee6e54c1c17f3854f3c9067143e",
+  "_shrinkwrap": null,
+  "_spec": "@walmart/wmreact-product-typography",
+  "_where": "/Users/cshi1/githome/portal",
+  "author": {
+    "name": "Ben Bayard"
+  },
+  "dependencies": {
+    "@walmart/automation-utils": "^3.0.0",
+    "@walmart/wmreact-base": "^7.0.1",
+    "@walmart/wmreact-interactive": "^7.0.2",
+    "@walmart/wmreact-layout": "^7.0.3",
+    "@walmart/wmreact-product-descriptors": "^4.1.1",
+    "classnames": "^2.2.3",
+    "exenv": "^1.2.0",
+    "lodash": "^4.11.0",
+    "react-text-truncate": "^0.6.1"
+  },
+  "description": "Typography components for the Product and related pages.",
+  "devDependencies": {
+    "@walmart/electrode-archetype-react-component": "^9.0.2",
+    "@walmart/electrode-archetype-react-component-dev": "^9.0.2",
+    "@walmart/electrode-docgen": "^1.0.0",
+    "@walmart/lithe-extras": "^2.2.1",
+    "builder": "^2.9.1",
+    "component-playground": "^1.2.0",
+    "object-assign": "^4.0.0",
+    "react": "^0.14.8",
+    "react-dom": "^0.14.8"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "77bcd228a686dee6e54c1c17f3854f3c9067143e",
+    "tarball": "https://npme.walmart.com/@/@walmart/wmreact-product-typography/_attachments/wmreact-product-typography-4.2.3.tgz"
+  },
+  "gitHead": "77e4f81186a8fdfbcffd6ca5938ea8a1ff5988c2",
+  "license": "UNLICENSED",
+  "main": "lib/index.js",
+  "maintainers": [
+    {
+      "email": "jhuang0@walmartlabs.com",
+      "name": "jhuang"
+    }
+  ],
+  "name": "@walmart/wmreact-product-typography",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "https://gecgithub01.walmart.com/react/product-typography"
+  },
+  "scripts": {
+    "demo": "builder run generate && builder run server-dev",
+    "demo-iso": "builder run dev-iso",
+    "generate": "npm run generate-metadata && npm run generate-documentation",
+    "generate-documentation": "electrode-docgen --package ./package.json --src ./src --markdown components.md",
+    "generate-metadata": "electrode-docgen --package ./package.json --src ./src --metadata components.json",
+    "prepublish": "builder run npm:prepublish",
+    "preversion": "builder run test",
+    "test": "builder run check-cov"
+  },
+  "version": "4.2.3"
+}

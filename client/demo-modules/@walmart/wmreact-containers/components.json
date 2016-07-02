@@ -1,0 +1,1588 @@
+{
+  "library": "@walmart/wmreact-containers",
+  "description": "A set of container components for hydra based UI",
+  "title": "Containers",
+  "components": [
+    {
+      "displayName": "Expander",
+      "methods": [
+        {
+          "name": "_onExpand",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "e",
+              "type": {
+                "name": "Object",
+                "alias": "Object"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        }
+      ],
+      "props": {
+        "expanded": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "True if the container is expanded"
+        },
+        "expandText": {
+          "type": {
+            "name": "node"
+          },
+          "required": false,
+          "description": "The text for the expand control"
+        },
+        "hidden": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/expander.jsx",
+      "description": "An expandable/contractable container.",
+      "examples": "```jsx\n<Expander expandText=\"Expand\">\n  <h1>Expanded!</h1>\n</Expander>\n```",
+      "component": "Expander",
+      "import": "{Expander}",
+      "playground": [
+        {
+          "title": "Expander",
+          "flags": {},
+          "code": "<Expander expandText=\"Expand\">\n  <h1>Expanded!</h1>\n</Expander>\n"
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "Flyout",
+      "methods": [
+        {
+          "name": "_isTouchDevice",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_documentClick",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "e",
+              "type": {
+                "name": "Object",
+                "alias": "Object"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_resetDocumentClickHandlers",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "active",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_onStateChangeCallback",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_onCloseButtonClick",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "ev",
+              "type": {
+                "name": "Object",
+                "alias": "Object"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_onTrigger",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "ev",
+              "type": {
+                "name": "Object",
+                "alias": "Object"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_handleLinkNav",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "e",
+              "type": {
+                "name": "Object",
+                "alias": "Object"
+              }
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_navigateWindow",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "url",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_positionFlyout",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_mouseEnter",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_mouseLeave",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_addDirectionAndAlign",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "Object"
+            }
+          }
+        },
+        {
+          "name": "_renderCloseButton",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "closeButton",
+              "type": {
+                "name": "boolean"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_getBackdrop",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_renderTrigger",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{triggerText, trigger}",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        }
+      ],
+      "props": {
+        "onActiveChange": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": "Event triggered when the flyout toggles hidden shown state."
+        },
+        "trigger": {
+          "type": {
+            "name": "node"
+          },
+          "required": false,
+          "description": "The trigger control"
+        },
+        "triggerText": {
+          "type": {
+            "name": "node"
+          },
+          "required": false,
+          "description": "The trigger text if you just want a button"
+        },
+        "direction": {
+          "type": {
+            "name": "enum",
+            "value": [
+              {
+                "value": "\"left\"",
+                "computed": false
+              },
+              {
+                "value": "\"right\"",
+                "computed": false
+              },
+              {
+                "value": "\"top\"",
+                "computed": false
+              },
+              {
+                "value": "\"bottom\"",
+                "computed": false
+              },
+              {
+                "value": "\"center\"",
+                "computed": false
+              }
+            ]
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"right\"",
+            "computed": false
+          },
+          "description": "The direction that the flyout should come from"
+        },
+        "size": {
+          "type": {
+            "name": "enum",
+            "value": [
+              {
+                "value": "\"narrow\"",
+                "computed": false
+              },
+              {
+                "value": "\"wide\"",
+                "computed": false
+              },
+              {
+                "value": "\"extrawide\"",
+                "computed": false
+              },
+              {
+                "value": "\"fluid\"",
+                "computed": false
+              }
+            ]
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"wide\"",
+            "computed": false
+          },
+          "description": "The size of the flyout"
+        },
+        "align": {
+          "type": {
+            "name": "enum",
+            "value": [
+              {
+                "value": "\"left\"",
+                "computed": false
+              },
+              {
+                "value": "\"right\"",
+                "computed": false
+              },
+              {
+                "value": "\"center\"",
+                "computed": false
+              }
+            ]
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "null",
+            "computed": false
+          },
+          "description": "The alignment of the flyout"
+        },
+        "block": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "Whether to render as a block element (apply the \"flyout-block\" class)"
+        },
+        "active": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "null",
+            "computed": false
+          },
+          "description": "True if the flyout is shown. If not set, component defaults to using internal state control."
+        },
+        "closeButton": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "True if we should render a close button within the flyout"
+        },
+        "closeOnClickOut": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "true",
+            "computed": false
+          },
+          "description": "True if we should close the flyout if the user clicks outside of it"
+        },
+        "hover": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "To display on hover pass in true"
+        },
+        "hoverTimeout": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "To display on hover pass in true"
+        },
+        "disableTouchLinksOnly": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "true",
+            "computed": false
+          },
+          "description": "To make the flyout toggle prevent default on touch devices only"
+        },
+        "onTriggerElementClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": "An additional click handler hook for the passed in trigger element"
+        },
+        "hidden": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/flyout.jsx",
+      "description": "A flyout container.",
+      "examples": "```jsx\n<Flyout triggerText=\"Fly it out!\" direction=\"top\">\n  <h1>It flew out!</h1>\n</Flyout>\n```",
+      "component": "Flyout",
+      "import": "{Flyout}",
+      "playground": [
+        {
+          "title": "Flyout",
+          "flags": {},
+          "code": "<Flyout triggerText=\"Fly it out!\" direction=\"top\">\n  <h1>It flew out!</h1>\n</Flyout>\n"
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "Meter",
+      "methods": [],
+      "props": {
+        "percent": {
+          "type": {
+            "name": "number"
+          },
+          "required": true,
+          "description": "The percent to show"
+        },
+        "hidden": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/meter.jsx",
+      "description": "A simple meter.",
+      "examples": "```jsx\n<div style={{height: 100}}>\n  <Meter percent={50}/>\n  <Meter.PercentageCircle percent={50}/>\n</div>\n```",
+      "component": "Meter",
+      "import": "{Meter}",
+      "playground": [
+        {
+          "title": "Meter",
+          "flags": {},
+          "code": "<div style={{height: 100}}>\n  <Meter percent={50}/>\n  <Meter.PercentageCircle percent={50}/>\n</div>\n"
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "MeterCircle",
+      "methods": [],
+      "props": {
+        "percent": {
+          "type": {
+            "name": "number"
+          },
+          "required": true,
+          "description": ""
+        },
+        "hidden": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/meter-circle.jsx",
+      "description": "A percentage circle type meter.",
+      "examples": "```jsx\n<Meter.PercentageCircle percent={50}/>\n```",
+      "component": "Meter.PercentageCircle",
+      "import": "{Meter}",
+      "playground": [
+        {
+          "title": "Meter",
+          "flags": {},
+          "code": "<div style={{minHeight:100}}>\n  <Meter.PercentageCircle percent={50}/>\n</div>\n"
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "Modal",
+      "methods": [
+        {
+          "name": "show",
+          "docblock": "Shows the dialog",
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          },
+          "description": "Shows the dialog"
+        },
+        {
+          "name": "hide",
+          "docblock": "Hides the dialog",
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          },
+          "description": "Hides the dialog"
+        },
+        {
+          "name": "_onBackdropClick",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        }
+      ],
+      "props": {
+        "active": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": ""
+        },
+        "padded": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "True if this should be padded"
+        },
+        "fixed": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "True if the dialog is fixed"
+        },
+        "onClose": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": "Set callback on Component"
+        }
+      },
+      "fileName": "./src/components/modal.jsx",
+      "description": "Modal dialog component.",
+      "examples": "```jsx\nvar ModalExample = React.createClass({\n  showModal() {\n    this.refs.modal.show();\n  },\n  render() {\n  return (\n      <div>\n        <Modal ref=\"modal\" fixed={true}>\n          <h1>Hi!</h1>\n        </Modal>\n        <a href=\"javascript:void(0)\" onClick={this.showModal}>\n          Show Modal\n        </a>\n      </div>\n    )\n  }\n});\n\nReact.render(<ModalExample/>, mountNode);\n```",
+      "component": "Modal",
+      "import": "{Modal}",
+      "synonym": [
+        "dialog"
+      ],
+      "playground": [
+        {
+          "title": "Modal",
+          "flags": {
+            "noRenderFalse": true
+          },
+          "code": "var ModalExample = React.createClass({\n  showModal() {\n    this.refs.modal.show();\n  },\n  render() {\n  return (\n      <div>\n        <Modal ref=\"modal\" fixed={true} style={{width: \"50%\"}}>\n          <h1>Hi!</h1>\n        </Modal>\n        <a href=\"javascript:void(0)\" onClick={this.showModal}>\n          Show Modal\n        </a>\n      </div>\n    )\n  }\n});\n\nReact.render(<ModalExample/>, mountNode);\n"
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "ResponsiveFlyoutSlidePanel",
+      "methods": [
+        {
+          "name": "_toggleSlidePanel",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_renderSlidePanel",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "props",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderFlyout",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "props",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        }
+      ],
+      "props": {
+        "flyoutClassName": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "classes for flyout"
+        },
+        "slidepanelClassName": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "classes for slidepanel"
+        },
+        "trigger": {
+          "type": {
+            "name": "element"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "<span className=\"HelpFlyout-trigger\">\n  <i className=\"wmicon wmicon-help\"></i>\n</span>",
+            "computed": false
+          },
+          "description": "element that will spawn modal onClick"
+        },
+        "flyoutOnly": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "Only Render Flyout, disable slidepanel"
+        },
+        "slidepanelOnly": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "Only Render slidepanel, disable flyout"
+        },
+        "showFlyout": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "Used to hide and show flyout on page load"
+        },
+        "flyoutDirection": {
+          "type": {
+            "name": "enum",
+            "value": [
+              {
+                "value": "\"left\"",
+                "computed": false
+              },
+              {
+                "value": "\"right\"",
+                "computed": false
+              },
+              {
+                "value": "\"top\"",
+                "computed": false
+              },
+              {
+                "value": "\"bottom\"",
+                "computed": false
+              },
+              {
+                "value": "\"center\"",
+                "computed": false
+              }
+            ]
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"right\"",
+            "computed": false
+          },
+          "description": "direction for flyout only"
+        },
+        "flyoutSize": {
+          "type": {
+            "name": "enum",
+            "value": [
+              {
+                "value": "\"narrow\"",
+                "computed": false
+              },
+              {
+                "value": "\"wide\"",
+                "computed": false
+              },
+              {
+                "value": "\"extrawide\"",
+                "computed": false
+              },
+              {
+                "value": "\"fluid\"",
+                "computed": false
+              }
+            ]
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"wide\"",
+            "computed": false
+          },
+          "description": "size for flyout only"
+        }
+      },
+      "fileName": "./src/components/responsive-flyout-slidepanel.jsx",
+      "description": "ResponsiveFlyoutSlidePanel renders flyout for desktop and slidepanel for mobile",
+      "examples": "```jsx\n<ResponsiveFlyoutSlidePanel\n  flyoutDirection=\"right\"\n  flyoutSize=\"wide\"\n  trigger={(<span className=\"HelpFlyout-trigger\">\n          <i className=\"wmicon wmicon-help hide-content-max-m\"></i>\n          <span className=\"hide-content-m\">Help trigger mobile</span>\n        </span>)}\n>\n  <div>Flyout content goes here</div>\n</ResponsiveFlyoutSlidePanel>",
+      "hasProps": true
+    },
+    {
+      "methods": [
+        {
+          "name": "show",
+          "docblock": "Shows the alert",
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          },
+          "description": "Shows the alert"
+        },
+        {
+          "name": "hide",
+          "docblock": "Hides the alert",
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          },
+          "description": "Hides the alert"
+        },
+        {
+          "name": "_onBackdropClick",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        }
+      ],
+      "props": {
+        "active": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "True if the alert is active"
+        },
+        "buttons": {
+          "type": {
+            "name": "node"
+          },
+          "required": false,
+          "description": "The buttons to show at the base of the alert"
+        }
+      },
+      "fileName": "./src/components/modal-alert.jsx",
+      "description": "Alert dialog.",
+      "component": "Modal.Alert",
+      "import": "{Modal}",
+      "hasProps": true
+    },
+    {
+      "displayName": "Modal.Confirm",
+      "methods": [
+        {
+          "name": "show",
+          "docblock": "Shows the dialog",
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          },
+          "description": "Shows the dialog"
+        },
+        {
+          "name": "hide",
+          "docblock": "Hides the dialog",
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          },
+          "description": "Hides the dialog"
+        }
+      ],
+      "props": {
+        "onOK": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {/*no-op*/}",
+            "computed": false
+          },
+          "description": "Event handler for the OK button"
+        }
+      },
+      "fileName": "./src/components/modal-confirm.jsx",
+      "description": "Confirm dialog.",
+      "component": "Modal.Confirm",
+      "import": "{Modal}",
+      "hasProps": true
+    },
+    {
+      "displayName": "Modal.Tray",
+      "methods": [
+        {
+          "name": "show",
+          "docblock": "Shows the tray",
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          },
+          "description": "Shows the tray"
+        },
+        {
+          "name": "hide",
+          "docblock": "Hides the tray",
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          },
+          "description": "Hides the tray"
+        },
+        {
+          "name": "_onBackdropClick",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        }
+      ],
+      "props": {
+        "active": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "True if the tray is open"
+        }
+      },
+      "fileName": "./src/components/modal-tray.jsx",
+      "description": "Tray dialog.",
+      "component": "Modal.Tray",
+      "import": "{Modal}",
+      "hasProps": true
+    },
+    {
+      "displayName": "Separator",
+      "methods": [],
+      "props": {
+        "type": {
+          "type": {
+            "name": "enum",
+            "value": [
+              {
+                "value": "\"normal\"",
+                "computed": false
+              },
+              {
+                "value": "\"heavy\"",
+                "computed": false
+              },
+              {
+                "value": "\"alt\"",
+                "computed": false
+              },
+              {
+                "value": "\"dotted\"",
+                "computed": false
+              }
+            ]
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"normal\"",
+            "computed": false
+          },
+          "description": "The type of separator"
+        },
+        "hidden": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/separator.jsx",
+      "description": "A seperator component.",
+      "examples": "```jsx\n<Separator/>\n```\n\nAnd some variations:\n\n```jsx\n<Separator type=\"heavy\"/>\n<Separator type=\"alt\"/>\n<Separator type=\"dotted\"/>\n```",
+      "component": "Separator",
+      "import": "{Separator}",
+      "playground": [
+        {
+          "title": "Separator",
+          "flags": {},
+          "code": "<div>\n  <Separator/>\n  <Separator type=\"heavy\"/>\n  <Separator type=\"alt\"/>\n  <Separator type=\"dotted\"/>\n</div>\n"
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "Shelf",
+      "methods": [],
+      "props": {
+        "hidden": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "True if the shelf is hidden"
+        },
+        "threeCol": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "true",
+            "computed": false
+          },
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/shelf.jsx",
+      "description": "A shelf component.",
+      "examples": "```jsx\n<Shelf>This is a Shelf</Shelf>\n```",
+      "component": "Shelf",
+      "import": "{Shelf}",
+      "playground": [
+        {
+          "title": "Shelf",
+          "flags": {},
+          "code": "<Shelf>This is a Shelf</Shelf>\n"
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "SlidePanel",
+      "methods": [
+        {
+          "name": "_getDefaultHeader",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "btnText",
+              "type": null
+            },
+            {
+              "name": "btnClass",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_getComponentClasses",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{className, direction, active}",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "string"
+            }
+          }
+        },
+        {
+          "name": "toggleSlidePanel",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_getSlidePanelStyles",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{backgroundColor}",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "Object"
+            }
+          }
+        }
+      ],
+      "props": {
+        "active": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": ""
+        },
+        "direction": {
+          "type": {
+            "name": "enum",
+            "value": [
+              {
+                "value": "\"top\"",
+                "computed": false
+              },
+              {
+                "value": "\"right\"",
+                "computed": false
+              },
+              {
+                "value": "\"bottom\"",
+                "computed": false
+              },
+              {
+                "value": "\"left\"",
+                "computed": false
+              }
+            ]
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"right\"",
+            "computed": false
+          },
+          "description": "The direction of the panel"
+        },
+        "backgroundColor": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"#fff\"",
+            "computed": false
+          },
+          "description": "The background color"
+        },
+        "header": {
+          "type": {
+            "name": "any"
+          },
+          "required": false,
+          "description": "The header of the panel"
+        },
+        "onClose": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": "Set callback on Component"
+        },
+        "btnText": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "Change default button text"
+        },
+        "btnClass": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "Any additional btn style classes"
+        }
+      },
+      "fileName": "./src/components/slidepanel.jsx",
+      "description": "A slide panel.",
+      "examples": "```jsx\nvar SlidePanelExample = React.createClass({\n  _toggleSlidePanel() {\n    var slidePanel = this.refs.jsSlidePanel;\n    slidePanel.toggleSlidePanel();\n  },\n  render() {\n    return(<div>\n      <button type=\"button\" onClick={this._toggleSlidePanel} >Open Slide Panel</button>\n      <SlidePanel ref=\"jsSlidePanel\" direction=\"right\">\n        &nbsp;Slide panel content goes here.\n      </SlidePanel>\n      </div>)\n  }\n});\n\nReact.render(<SlidePanelExample/>, mountNode);\n```",
+      "component": "SlidePanel",
+      "import": "{SlidePanel}",
+      "playground": [
+        {
+          "title": "SlidePanel",
+          "flags": {
+            "noRenderFalse": true
+          },
+          "code": "var SlidePanelExample = React.createClass({\n  _toggleSlidePanel() {\n    var slidePanel = this.refs.jsSlidePanel;\n    slidePanel.toggleSlidePanel();\n  },\n  render() {\n    return(<div>\n      <button type=\"button\" onClick={this._toggleSlidePanel} >Open Slide Panel</button>\n      <SlidePanel ref=\"jsSlidePanel\" direction=\"right\" onClose={() => console.log(\"foo\")}>\n        &nbsp;Slide panel content goes here.\n      </SlidePanel>\n      </div>)\n  }\n});\n\nReact.render(<SlidePanelExample/>, mountNode);\n"
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "methods": [
+        {
+          "name": "_renderSpinner",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        }
+      ],
+      "props": {
+        "loading": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "True if we should show the spinner to indicate loading"
+        },
+        "timeout": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "description": "Time in milliseconds before the spinner appears"
+        },
+        "fixed": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "True if the spinner should take the entire screen (display fixed)"
+        }
+      },
+      "fileName": "./src/components/spinner.jsx",
+      "description": "Spinner component.",
+      "examples": "```jsx\nvar SpinnerExample = React.createClass({\n  render() {\n    return(\n      <Flyout triggerText='Click' direction='top'>\n        <div className='spinner-demo'>\n          <Spinner loading={true} fixed={false}/>\n        </div>\n      </Flyout>)\n  }\n});\n\nReact.render(<SpinnerExample/>, mountNode);\n```",
+      "component": "Spinner",
+      "import": "{Spinner}",
+      "synonym": [
+        "loading"
+      ],
+      "playground": [
+        {
+          "title": "Spinner",
+          "flags": {
+            "noRenderFalse": true
+          },
+          "code": "var SpinnerExample = React.createClass({\n  render() {\n    return(\n      <Flyout triggerText='Click' direction='top'>\n        <div className='spinner-demo'>\n          <Spinner loading={true} fixed={false}/>\n        </div>\n      </Flyout>)\n  }\n});\n\nReact.render(<SpinnerExample/>, mountNode);\n"
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "Tray",
+      "methods": [
+        {
+          "name": "openTray",
+          "docblock": "Opens the tray",
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          },
+          "description": "Opens the tray"
+        },
+        {
+          "name": "closeTray",
+          "docblock": "Closes the tray",
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          },
+          "description": "Closes the tray"
+        },
+        {
+          "name": "renderButtons",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "ReactElement",
+              "nullable": true
+            }
+          }
+        }
+      ],
+      "props": {
+        "isOpen": {
+          "type": {
+            "name": "bool"
+          },
+          "required": true,
+          "description": "This is required, and is what triggers the tray showing and hidding"
+        },
+        "cancelButtonText": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"Cancel\"",
+            "computed": false
+          },
+          "description": "Optional text for \"Cancel\" button (or left button)"
+        },
+        "cancelButtonClass": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": "CSS class for the cancel button"
+        },
+        "doneButtonText": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"Done\"",
+            "computed": false
+          },
+          "description": "Optional text for \"Done\" button (or right button)"
+        },
+        "doneButtonClass": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": "CSS class for the done button"
+        },
+        "trayHeaderClass": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": "CSS class for the tray header"
+        },
+        "trayContentClass": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": "CSS class for the tray content"
+        },
+        "header": {
+          "type": {
+            "name": "node"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "null",
+            "computed": false
+          },
+          "description": "The header node"
+        },
+        "hideButtons": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "True if we should hide both buttons"
+        },
+        "hideDoneButton": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "True if we should hide the done button"
+        },
+        "hideCancelButton": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "True if we should hide the cancel button"
+        },
+        "scrollable": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "True if this is scrollable"
+        },
+        "onCancel": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": "Optional function that \"Cancel\" button will call"
+        },
+        "onDone": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": "Optional function that \"Done\" button will call"
+        },
+        "hidden": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "True if the tray is hidden"
+        }
+      },
+      "fileName": "./src/components/tray.jsx",
+      "description": "Tray container component.",
+      "examples": "```jsx\nvar TrayExample = React.createClass({\n  showTray() {\n    this.refs.tray.openTray();\n  },\n  render() {\n  return (\n      <div>\n        <Tray ref=\"tray\"\n          isOpen={false}>\n          <h1>Hi!</h1>\n        </Tray>\n        <a href=\"javascript:void(0)\" onClick={this.showTray}>\n          Show Tray\n        </a>\n      </div>\n    )\n  }\n});\n\nReact.render(<TrayExample/>, mountNode);\n```",
+      "component": "Tray",
+      "import": "{Tray}",
+      "playground": [
+        {
+          "title": "Tray",
+          "flags": {
+            "noRenderFalse": true
+          },
+          "code": "var TrayExample = React.createClass({\n  showTray() {\n    this.refs.tray.openTray();\n  },\n  render() {\n  return (\n      <div>\n        <Tray ref=\"tray\"\n          isOpen={false}>\n          <h1>Hi!</h1>\n        </Tray>\n        <a href=\"javascript:void(0)\" onClick={this.showTray}>\n          Show Tray\n        </a>\n      </div>\n    )\n  }\n});\n\nReact.render(<TrayExample/>, mountNode);\n"
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "Well",
+      "methods": [],
+      "props": {
+        "padded": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "true",
+            "computed": false
+          },
+          "description": "True if the well should be padded"
+        },
+        "filled": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "True if the well should be filled"
+        },
+        "below": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "True if the well should be below"
+        },
+        "hidden": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/well.jsx",
+      "description": "Well container component.",
+      "examples": "```jsx\n<Well padded={true}>\n  <p>Well</p>\n</Well>\n```",
+      "component": "Well",
+      "import": "{Well}",
+      "playground": [
+        {
+          "title": "Well",
+          "flags": {},
+          "code": "<Well padded={true}>\n  <p>Well</p>\n</Well>\n"
+        }
+      ],
+      "hasProps": true
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+<Radio.Group name="test">
+  <Radio.Button group="demo">
+    Radio 1
+  </Radio.Button>
+  <Radio.Button group="demo">
+    Radio 2
+  </Radio.Button>
+</Radio.Group>

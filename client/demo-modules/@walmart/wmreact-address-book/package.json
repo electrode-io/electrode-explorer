@@ -1,0 +1,103 @@
+{
+  "_args": [
+    [
+      {
+        "name": "@walmart/wmreact-address-book",
+        "raw": "@walmart/wmreact-address-book",
+        "rawSpec": "",
+        "scope": "@walmart",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/cshi1/githome/portal"
+    ]
+  ],
+  "_from": "@walmart/wmreact-address-book@latest",
+  "_id": "@walmart/wmreact-address-book@2.1.7",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/@walmart/wmreact-address-book",
+  "_nodeVersion": "4.4.0",
+  "_npmUser": {
+    "email": "npme@example.com",
+    "name": "sarumu8"
+  },
+  "_npmVersion": "3.8.2",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "@walmart/wmreact-address-book",
+    "raw": "@walmart/wmreact-address-book",
+    "rawSpec": "",
+    "scope": "@walmart",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://npme.walmart.com/@/@walmart/wmreact-address-book/_attachments/wmreact-address-book-2.1.7.tgz",
+  "_shasum": "2e6e7083513f9995bf7366067cb8e63ed27ed192",
+  "_shrinkwrap": null,
+  "_spec": "@walmart/wmreact-address-book",
+  "_where": "/Users/cshi1/githome/portal",
+  "author": {
+    "email": "schebykin@walmartlabs.com",
+    "name": "Sergey Chebykin"
+  },
+  "dependencies": {
+    "@walmart/wmreact-base": "^7.0.0",
+    "@walmart/wmreact-forms": "^5.0.0",
+    "@walmart/wmreact-interactive": "^7.0.2",
+    "@walmart/wmreact-stateless-fields": "^2.0.0",
+    "classnames": "^2.2.0",
+    "lodash": "^4.11.0",
+    "underscore": "^1.8.3"
+  },
+  "description": "An Atlas Address Book React application and components",
+  "devDependencies": {
+    "@walmart/electrode-archetype-react-component": "^9.2.0",
+    "@walmart/electrode-archetype-react-component-dev": "^9.2.0",
+    "@walmart/electrode-docgen": "^1.0.0",
+    "@walmart/lithe-extras": "^2.5.0",
+    "@walmart/redux-address-book": "latest",
+    "builder": "^2.10.1",
+    "component-playground": "^1.2.0",
+    "react": "^0.14.8",
+    "react-dom": "^0.14.8",
+    "redux": "^3.0.4",
+    "redux-logger": "^2.0.4",
+    "redux-thunk": "^2.1.0"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "2e6e7083513f9995bf7366067cb8e63ed27ed192",
+    "tarball": "https://npme.walmart.com/@/@walmart/wmreact-address-book/_attachments/wmreact-address-book-2.1.7.tgz"
+  },
+  "gitHead": "a226384e73a25d8d29f54ef1232c6ced41b94421",
+  "license": "private",
+  "main": "lib/index.js",
+  "maintainers": [
+    {
+      "email": "sergey.chebykin@gmail.com",
+      "name": "schebyk"
+    }
+  ],
+  "name": "@walmart/wmreact-address-book",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git@gecgithub01.walmart.com:react/address-book.git"
+  },
+  "scripts": {
+    "demo": "builder run generate && builder run server-dev",
+    "demo-iso": "builder run dev-iso",
+    "generate": "npm run generate-metadata && npm run generate-documentation",
+    "generate-documentation": "electrode-docgen --package ./package.json --src ./src --markdown components.md",
+    "generate-metadata": "electrode-docgen --package ./package.json --src ./src --metadata components.json",
+    "prepublish": "builder run npm:prepublish",
+    "preversion": "builder run test",
+    "test": "builder run check-cov"
+  },
+  "version": "2.1.7"
+}

@@ -1,0 +1,16 @@
+var SlidePanelExample = React.createClass({
+	_toggleSlidePanel() {
+		var slidePanel = this.refs.jsSlidePanel;
+    slidePanel.toggleSlidePanel();
+	},
+  render() {
+    return(<div>
+    	<button type="button" onClick={this._toggleSlidePanel} >Open Slide Panel</button>
+      <SlidePanel ref="jsSlidePanel" direction="right" onClose={() => console.log("foo")}>
+        &nbsp;Slide panel content goes here.
+      </SlidePanel>
+      </div>)
+  }
+});
+
+React.render(<SlidePanelExample/>, mountNode);

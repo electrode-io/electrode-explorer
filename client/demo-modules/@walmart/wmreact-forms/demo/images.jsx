@@ -1,0 +1,20 @@
+module.exports = {
+  "Alert": require("./images/Alert.png"),
+  "CreditCardNumber": require("./images/CreditCardNumber.png"),
+  "DOB": require("./images/DOB.png"),
+  "Email": require("./images/Email.png"),
+  "Field": require("./images/Field.png"),
+  "FirstName": require("./images/FirstName.png"),
+  "FullName": require("./images/FullName.png"),
+  "LastName": require("./images/LastName.png"),
+  "Message": require("./images/Message.png"),
+  "Option": require("./images/Option.png"),
+  "Options": require("./images/Options.png"),
+  "PasswordExisting": require("./images/PasswordExisting.png"),
+  "PasswordWithConfirmation": require("./images/PasswordWithConfirmation.png"),
+  "Phone": require("./images/Phone.png"),
+  "Radio": require("./images/Radio.png"),
+  "RadioTile": require("./images/RadioTile.png"),
+  "StoreNumber": require("./images/StoreNumber.png"),
+  "ZipCode": require("./images/ZipCode.png")
+};

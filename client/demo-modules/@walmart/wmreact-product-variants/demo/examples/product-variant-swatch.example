@@ -1,0 +1,49 @@
+<ProductVariantSwatch
+  selectedVariantId="actual_color-arcticwhite"
+  selectedVariantName="Arctic White"
+  onVariantClick={(ev)=>{console.log(ev.currentTarget.dataset.variantId);}}
+  onVariantMouseLeave={(ev)=>{console.log(ev.currentTarget.dataset.variantId);}}
+  onVariantMouseEnter={(ev)=>{console.log(ev.currentTarget.dataset.variantId);}}
+  variants={[
+    {
+      id: "actual_color-greyplaid",
+      name: "Grey Plaid",
+      selected:false,
+      swatchImageUrl: "http://dummyimage.com/60x60/7766EE/fff",
+      status: "out of stock"
+    },{
+      id: "actual_color-greyplaid1",
+      name: "Grey Plaid1",
+      selected:false,
+      swatchImageUrl: "http://dummyimage.com/60x60/448899/fff",
+      status: "out of stock"
+    },{
+      id: "actual_color-greyplaid2",
+      name: "Grey Plaid2",
+      selected:false,
+      swatchImageUrl: "http://dummyimage.com/60x60/EECCAA/fff",
+      status: "out of stock"
+    },{
+      id: "actual_color-greyplaid3",
+      name: "Grey Plaid4",
+      selected:false,
+      swatchImageUrl: "http://dummyimage.com/60x60/22FF99/fff",
+      status: "out of stock"
+    },{
+      id: "actual_color-greyplaid4",
+      name: "Grey Plaid4",
+      selected:false,
+      swatchImageUrl: "http://dummyimage.com/60x60/5599AA/fff",
+      status: "out of stock"
+    },{
+      id: "actual_color-greyplaid5",
+      name: "Grey Plaid5",
+      selected:false,
+      swatchImageUrl: "http://dummyimage.com/60x60/223344/fff",
+      status: "out of stock"
+    }, {
+      id: "actual_color-arcticwhite",
+      name: "Arctic White",
+      selected:true,
+      swatchImageUrl: "http://dummyimage.com/60x60/667788/fff",
+      status: "in stock"}]}/>

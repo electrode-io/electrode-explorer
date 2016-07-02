@@ -1,0 +1,868 @@
+// @from @walmart/hydra/src/tenants/walmart/base/buttons.styl
+
+/*!
+Standard Buttons
+*/
+
+$btn-color = {
+  standard: {
+    bg: $blue,
+    bg-hover: $blue-hover,
+    bg-active: $blue-active,
+    text: $white
+    },
+  inverse: { // @stylint ignore
+    bg: $white, // @stylint ignore
+    bg-active: $white, // @stylint ignore
+    border: $grey-light,
+    border-hover: $blue-secondary, // @stylint ignore
+    text: $blue // @stylint ignore
+  },
+  primary: { // @stylint ignore
+    bg: $orange, // @stylint ignore
+    bg-hover: $orange-hover, // @stylint ignore
+    bg-active: $orange-active, // @stylint ignore
+    text: $white // @stylint ignore
+  }
+}
+
+if ($isHybrid() is true) {
+  $btn-color.standard.bg = $hybrid-blue-bright;
+  $btn-color.standard.bg-active = $hybrid-blue-bright-active;
+
+  $btn-color.primary.bg = $hybrid-orange;
+  $btn-color.primary-bg-active = $hybrid-orange-active;
+
+  $btn-color.inverse.text = #666;
+  $btn-color.inverse.bg = $hybrid-grey-ultralight;
+  $btn-color.inverse.bg-active = #d5d5d5;
+}
+
+$tenant-btn() {
+  .btn {
+    if ($isHybrid() is true) {
+      border-radius: 2px;
+
+      background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.1)); // @stylint ignore
+
+      &:active {
+        background-image: none;
+      }
+    } else {
+      border-radius: 4px;
+    }
+
+    if ($isIos() is true) {
+      font-weight: 400;
+    } else if ($isAndroid() is true) {
+      font-weight: 500;
+    }
+  }
+}
+
+/*!
+Progress Buttons
+*/
+
+$tenant-btn-progress-spinner() {
+  .btn-progress-spinner {
+    &:before {
+      border-radius: 4px;
+    }
+  }
+}
+
+/*!
+Voting Buttons
+*/
+
+$btn-vote-color = {
+  bg: $blue-pale,
+  bg-active: $blue,
+  border: $blue-pale,
+  border-active: $blue,
+  text: $blue,
+  text-active: $white
+}
+
+$tenant-btn-vote() {
+  .btn-vote {
+    border-radius: 50px;
+  }
+}
+
+/*!
+Badge Buttons
+
+.btn-badge-alt - Alternate variant.
+
+Styleguide 7.5
+*/
+
+$btn-badge-color = {
+  bg: $blue-pale,
+  bg-hover: $blue-pale-hover,
+  bg-active: $blue-place-active,
+  border: none,
+  border-hover: none,
+  text: $grey-dark,
+  text-hover: $grey-dark
+}
+
+$tenant-btn-badge() {
+  .btn-badge {
+    border-radius: 50px;
+  }
+
+  .btn-badge-alt {
+    border: solid 1px $grey-cool;
+
+    line-height: 0;
+
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      background: transparent;
+    }
+
+    &:hover,
+    &:focus {
+      border-color: $green;
+    }
+
+    &.active,
+    &:active {
+      padding: 0 13px;
+      border: solid 2px $green;
+    }
+  }
+}
+
+/*!
+Badge Button Groups
+
+.btn-badge-alt - Alternate variant.
+
+Styleguide 7.5.1
+*/
+
+.btn-badge-group {
+  font-size: 0;
+
+  .btn-badge {
+    width: 110px;
+    margin-left: 2px;
+    padding: 0;
+    border-radius: 0;
+
+    &:first-child {
+      margin-left: 0;
+      border-radius: 50px 0 0 50px;
+    }
+
+    &:last-child {
+      border-radius: 0 50px 50px 0;
+    }
+  }
+}
+
+/*!
+Delete Buttons
+*/
+
+$btn-delete-color = {
+  text: $blue,
+  border-hover: $blue-secondary
+}
+
+// @from @walmart/hydra/src/common/base/buttons.styl
+
+/*!
+Standard Buttons
+
+.btn-inverse - Inverse version.
+.btn-primary - Highlighted version.
+.btn-compact - Compact version.
+.btn-mini - Mini version.
+.btn-large - Large version.
+
+Styleguide 7.1
+*/
+
+// @stylint off
+$btn-color ?= { //
+  standard: {
+    bg: #aaa,
+    bg-hover: #bbb,
+    bg-active: #999,
+    text: #fff
+  },
+  inverse: {
+    bg: #fff,
+    bg-active: #fff,
+    border: #ccc,
+    border-hover: #aaa,
+    text: #444 // @stylint ignore
+  },
+  primary: {
+    bg: #333,
+    bg-hover: #555,
+    bg-active: #333,
+    text: #fff // @stylint ignore
+  }
+}
+// @stylint on
+
+.btn {
+  font-smoothing();
+
+  display: inline-block;
+  height: 38px; // @from atlas.css
+  padding: 0 34px; // @from atlas.css
+  border: 0;
+
+  background-color: $btn-color.standard.bg;
+
+  font-size: 16px;
+  font-weight: 700; // @from atlas.css
+  line-height: 1;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap; // @from atlas.css
+
+  // Any property that may change by state should smoothly transition
+  transition-property: background-color, opacity, border-color, color;
+  transition-duration: 120ms;
+  transition-timing-function: ease-out;
+
+  &,
+  &:hover,
+  &:focus,
+  &:visited {
+    color: $btn-color.standard.text;
+    outline: none;
+  }
+
+  if ($isWeb() is true) {
+    &:hover,
+    &:focus {
+      background-color: $btn-color.standard.bg-hover;
+    }
+  }
+
+  &:active {
+    background-color: $btn-color.standard.bg-active;
+  }
+
+  &:disabled {
+    background-color: $btn-color.standard.bg;
+    cursor: default;
+    opacity: .5;
+  }
+}
+
+$tenant-btn();
+
+.btn-inverse {
+  if ($isWeb() is true) {
+    border: 1px solid $btn-color.inverse.border;
+    font-size: 15px; // @from atlas.css
+    font-weight: 600;
+  }
+
+  &,
+  &:hover,
+  &:focus,
+  &:visited,
+  &:active {
+    background-color: $btn-color.inverse.bg;
+    color: $btn-color.inverse.text;
+  }
+
+  if ($isWeb() is true) {
+    &:hover,
+    &:focus {
+      border-color: $btn-color.inverse.border-hover;
+    }
+
+    &:active {
+      border-color: $btn-color.inverse.border;
+    }
+  }
+
+  &:active {
+    background-color: $btn-color.inverse.bg-active;
+  }
+
+  &:disabled {
+    border-color: $btn-color.inverse.border;
+
+    background-color: $btn-color.inverse.bg;
+  }
+}
+
+.btn-primary {
+  background-color: $btn-color.primary.bg;
+
+  &,
+  &:hover,
+  &:focus,
+  &:visited {
+    color: $btn-color.primary.text;
+  }
+
+  if ($isWeb() is true) {
+    &:hover,
+    &:focus {
+      background-color: $btn-color.primary.bg-hover;
+    }
+  }
+
+  &:active {
+    background-color: $btn-color.primary.bg-active;
+  }
+
+  &:disabled {
+    background-color: $btn-color.primary.bg-hover;
+  }
+}
+
+.btn-compact {
+  padding-right: 16px;
+  padding-left: 16px;
+}
+
+// @from atlas.css
+.btn-compact {
+  padding: 0 16px;
+}
+
+.btn-tight {
+  padding-right: $xs-spacing;
+  padding-left: $xs-spacing;
+}
+
+.btn-mini {
+  padding: 8px 20px 9px;
+
+  font-size: 13px;
+}
+
+// @from atlas.css
+.btn-mini {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+  height: 26px;
+  padding: 0 20px;
+}
+
+.btn-large {
+  font-size: 20px;
+}
+
+
+
+
+/*!
+Progress Buttons
+
+Use to indicate that an action is in progress after a user clicks a button.
+To use, add the `.btn-progress-spinner` elements (see code sample) to a
+`.btn` element's markup, then add the `.btn-progress` class. Typically, the
+button should be disabled as well.
+
+A common JavaScript module is available that handles this behavior and
+creates the additional elements in the `button` if necessary. This is the
+preferred way to use the component. See `progress-btn.js`.
+
+.btn-inverse - Inverse variant.
+.btn-primary - Primary variant.
+.btn-mini - Mini variant.
+.btn-mini.btn-inverse - Inverse mini variant.
+.btn-mini.btn-primary - Primary mini variant.
+
+Styleguide 7.2.
+*/
+
+$zoom-duration = .25s;
+$spin-duration = 1.5s;
+
+.btn-progress {
+  position: relative;
+
+  overflow: hidden;
+
+  &:disabled {
+    opacity: 1;
+  }
+
+  .btn-progress-spinner {
+    display: block;
+
+    animation: zoom-inverse $zoom-duration ease-out forwards;
+  }
+}
+
+.btn-progress-spinner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  display: none;
+
+  // Hide button content under pseudo-element.
+  // When we drop IE8 + IE9 compatibility, we can set the text color to
+  // `transparent` for the same effect.
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    background-color: $btn-color.standard.bg;
+
+    .btn-inverse & {
+      background-color: $btn-color.inverse.bg;
+    }
+
+    .btn-primary & {
+      background-color: $btn-color.primary.bg;
+    }
+  }
+}
+
+$tenant-btn-progress-spinner();
+
+.btn-progress-spinner-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  width: 1em;
+  height: @width;
+  margin: auto;
+
+  animation: spin-clockwise $spin-duration $zoom-duration linear infinite;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-size: 28px;
+}
+
+.no-cssanimations .btn-progress-spinner-icon:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  display: block;
+
+  background-image: url("/static/img/btn-spinner-empty-point.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.btn-mini {
+  .btn-progress-spinner-icon {
+    font-size: 20px;
+  }
+}
+
+.no-cssanimations .btn-mini .btn-progress-spinner-icon:after {
+  background-image: url("/static/img/btn-spinner-mini-empty-point.gif");
+}
+
+// Deprecated, please use `.btn-fake-link`
+
+.btn-link {
+  font-smoothing("off");
+
+  height: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+
+  font-size: 14px;
+  font-weight: 400;
+  line-height: inherit;
+
+  &,
+  &:hover,
+  &:focus {
+    background: transparent;
+    color: $blue;
+  }
+
+  &:disabled {
+    background: transparent;
+    color: $blue;
+    opacity: 1;
+  }
+}
+
+/*!
+Button Links
+
+UI controls without a meaningful `href` should be built with `button`
+elements, regardless of styling. If a `button` needs to look like a normal
+link and needs to be used inline with text, use `.btn-fake-link` to remove
+`button` styles.
+
+For more information, see
+http://formidablelabs.com/blog/2014/05/08/anchors-buttons-and-accessibility/
+
+Styleguide 7.3
+*/
+
+.btn-fake-link {
+  font-smoothing("inherit");
+
+  @extend $standard-link;
+
+  padding: 0;
+  border: none;
+
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  outline: none;
+
+  // Any property that may change by state should smoothly transition
+  transition-property: color;
+  transition-duration: 120ms;
+  transition-timing-function: ease-out;
+
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: underline;
+  }
+}
+
+/*!
+Flat Buttons
+
+UI controls without a meaningful `href` should be built with `button`
+elements, regardless of styling. If a `button` needs to look more like a
+normal link but IS NOT used inline with text, use `.btn-flat`.
+
+For more information, see
+http://formidablelabs.com/blog/2014/05/08/anchors-buttons-and-accessibility/
+
+Styleguide 7.3
+*/
+
+.btn-flat {
+  border: none;
+  background-color: rgba($black, 0);
+  color: $blue;
+
+  // Any property that may change by state should smoothly transition
+  transition-property: background-color;
+  transition-duration: 120ms;
+  transition-timing-function: ease-out;
+
+  &:hover,
+  &:focus {
+    color: $blue;
+    background-color: rgba($black, 0.1);
+  }
+
+  &:active {
+    color: $blue;
+    background-color: rgba($black, 0.2);
+  }
+
+  &:disabled {
+    background-color: rgba($black, 0);
+    color: rgba($blue, 0.5);
+  }
+}
+
+/*!
+Voting Buttons
+
+Styleguide 7.4
+*/
+
+$btn-vote-color ?= {
+  bg: #ccc,
+  bg-active: #333,
+  border: #ccc,
+  border-active: #333,
+  text: #333,
+  text-active: #fff
+}
+
+.btn-vote {
+  width: 70px;
+  height: 30px;
+  border: 1px solid;
+  padding: 0 0 0 15px;
+
+  font-size: 14px;
+  font-weight: 600;
+  line-height: @height - 2;
+  text-align: left;
+
+  &,
+  &:focus {
+    border-color: $btn-vote-color.border;
+
+    background-color: $btn-vote-color.bg;
+    color: $btn-vote-color.text;
+  }
+
+  &:active, &:hover {
+    border-color: $btn-vote-color.border-active;
+
+    background-color: $btn-vote-color.bg-active;
+    color: $btn-vote-color.text-active;
+  }
+}
+
+$tenant-btn-vote();
+
+$btn-vote-icon {
+  position: relative;
+
+  display: inline-block;
+  width: 18px;
+  height: @width;
+
+  background-repeat: no-repeat;
+  font-size: 15px;
+  vertical-align: top;
+
+  +ifWalmarticons() {
+    &:before {
+      walmarticons();
+    }
+  }
+}
+
+.btn-vote-up {
+  @extend $btn-vote-icon;
+
+  margin-bottom: 4px;
+
+  +ifWalmarticons() {
+    &:before {
+      wmicon("thumbs-alt-up");
+    }
+  }
+}
+
+.btn-vote-down {
+  @extend $btn-vote-icon;
+
+  top: 1px;
+
+  background-position: -18px 0;
+
+  +ifWalmarticons() {
+    &:before {
+      wmicon("thumbs-alt-down");
+    }
+  }
+}
+
+.btn-vote-group {
+  .btn-vote {
+    margin-left: 10px;
+  }
+}
+
+.btn-vote-count {
+  margin-left: 1px;
+
+  color: $grey-medium;
+  font-size: 14px;
+  font-weight: 400;
+  vertical-align: middle;
+}
+
+.btn-vote-heading {
+  font-size: 14px;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+/*!
+Badge Buttons
+*/
+
+$btn-badge-color ?= {
+  bg: $blue-pale,
+  bg-hover: $blue-pale-hover,
+  bg-active: $blue-place-active,
+  border: none,
+  border-hover: none,
+  text: $grey-dark,
+  text-hover: $grey-dark
+}
+
+.btn-badge {
+  height: 30px;
+  padding: 0 14px;
+  border: $btn-badge-color.border;
+
+  background: $btn-badge-color.bg;
+  color: $btn-badge-color.text;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: @height;
+
+  &:hover,
+  &:focus {
+    background: $btn-badge-color.bg-hover;
+    color: $btn-badge-color.text-hover;
+    // TODO: Sync up with global UX about focus states to get something better looking that is still
+    // usable. (Potentially just changing the hover colors to make them more clear).
+    outline: none;
+  }
+
+  &.active,
+  &:active {
+    background: $btn-badge-color.bg-active;
+  }
+
+  span {
+    color: $blue;
+    font-weight: 400;
+  }
+}
+
+$tenant-btn-badge();
+
+/*!
+Delete Buttons
+
+Styleguide 7.6
+*/
+.btn-delete {
+  display: block;
+  width: 2.5em;
+  padding: .5em;
+  border: 1px solid $grey-light;
+  border-radius: 50%;
+
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+
+  &,
+  &:hover,
+  &:focus,
+  &:visited,
+  &:active {
+    background: $white;
+    color: $btn-delete-color.text;
+  }
+
+  &:hover,
+  &:focus {
+    border-color: $btn-delete-color.border-hover;
+  }
+
+  &:active {
+    border-color: $grey-light;
+  }
+
+  &:disabled {
+    border-color: $grey-light;
+
+    background-color: $white;
+  }
+}
+
+/*!
+Close Buttons
+
+Styleguide 7.7
+*/
+
+.btn-close {
+  width: 18px;
+  height: @width;
+  padding: 0 0 1px;
+  border: 0;
+  border-radius: 50%;
+
+  font-size: 13px;
+  line-height: 0;
+  text-align: center;
+
+  &,
+  &:hover,
+  &:focus,
+  &:visited,
+  &:active {
+    background: $grey-cool;
+    color: $white;
+  }
+}
+
+/*!
+Responsive Block Buttons
+
+Used to create buttons that fill the entire available horizontal space, up to or starting
+from a specified breakpoint. Above or below that breakpoint, the button will revert to the
+default `.btn` styling of `display: inline-block` and `width: auto`. Most commonly used
+for narrow breakpoints. The default class `.btn-block` should be applied to buttons that should be always full width.
+
+.btn-block - Default block version at all screen sizes.
+.btn-block-xs - Full width starting at the `xs` breakpoint.
+.btn-block-s - Full width starting at the `s` breakpoint.
+.btn-block-m - Full width starting at the `m` breakpoint.
+.btn-block-l - Full width starting at the `l` breakpoint.
+.btn-block-max-xs -  Full width up to the `xs` breakpoint.
+.btn-block-max-s -  Full width up to the `s` breakpoint.
+.btn-block-max-m -  Full width up to the `m` breakpoint.
+.btn-block-max-l -  Full width up to the `l` breakpoint.
+
+Styleguide 7.8
+*/
+
+generate-btn-block($suffix = null, $type = "min") {
+  $suffixString = "";
+
+  if $suffix {
+    $suffixString = "-" + $suffix;
+  }
+
+  if $suffix and $type is "max" {
+    $suffixString = "-max" + $suffixString;
+  }
+
+  .btn-block{$suffixString} {
+    display: block;
+    width: 100%;
+  }
+}
+
+// Generate default .btn-block
+generate-btn-block();
+
+// Media query versions. Loops through our major breakpoints.
+for $size in $responsive-breakpoint-sizes {
+  +breakpoint($responsive-breakpoint-sizes[$size]) {
+    generate-btn-block($size);
+  }
+}
+
+for $size in $responsive-breakpoint-max-sizes {
+  +breakpoint($responsive-breakpoint-max-sizes[$size], "max") {
+    generate-btn-block($size, "max");
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "_args": [
+    [
+      {
+        "name": "@walmart/wmreact-product-buttons",
+        "raw": "@walmart/wmreact-product-buttons",
+        "rawSpec": "",
+        "scope": "@walmart",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/cshi1/githome/portal"
+    ]
+  ],
+  "_from": "@walmart/wmreact-product-buttons@latest",
+  "_id": "@walmart/wmreact-product-buttons@8.0.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/@walmart/wmreact-product-buttons",
+  "_nodeVersion": "4.4.5",
+  "_npmUser": {
+    "email": "lhsieh@walmartlabs.com",
+    "name": "lhsieh1"
+  },
+  "_npmVersion": "3.9.5",
+  "_phantomChildren": {
+    "@walmart/react-utils": "4.0.0",
+    "@walmart/wmreact-base": "7.1.0",
+    "@walmart/wmreact-interactive": "7.4.0",
+    "@walmart/wmreact-layout": "7.2.0",
+    "agentkeepalive": "2.2.0",
+    "bluebird": "2.10.2",
+    "classnames": "2.2.5",
+    "exenv": "1.2.1",
+    "flowtip": "4.0.0",
+    "lodash": "4.13.1",
+    "node-fetch": "1.5.3",
+    "uuid": "2.0.2",
+    "whatwg-fetch": "0.11.1"
+  },
+  "_requested": {
+    "name": "@walmart/wmreact-product-buttons",
+    "raw": "@walmart/wmreact-product-buttons",
+    "rawSpec": "",
+    "scope": "@walmart",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/@walmart/wmreact-product-card",
+    "/@walmart/wmreact-product-offers"
+  ],
+  "_resolved": "https://npme.walmart.com/@/@walmart/wmreact-product-buttons/_attachments/wmreact-product-buttons-8.0.0.tgz",
+  "_shasum": "f78176a60bd45c0a92ecf840a2de82f29f9ad499",
+  "_shrinkwrap": null,
+  "_spec": "@walmart/wmreact-product-buttons",
+  "_where": "/Users/cshi1/githome/portal",
+  "author": {
+    "name": "Ben Bayard"
+  },
+  "dependencies": {
+    "@walmart/automation-utils": "^3.0.1",
+    "@walmart/electrode-fetch": "^6.0.0",
+    "@walmart/wmreact-base": "^7.0.1",
+    "@walmart/wmreact-containers": "^10.0.5",
+    "@walmart/wmreact-interactive": "^7.2.1",
+    "@walmart/wmreact-layout": "^7.1.2",
+    "@walmart/wmreact-product-inputs": "^3.0.0",
+    "@walmart/wmreact-stateless-fields": "^2.1.2",
+    "@walmart/wmreact-validation": "^3.1.0",
+    "classnames": "^2.0.0",
+    "exenv": "^1.2.0",
+    "fecha": "^2.1.0"
+  },
+  "description": "A collection of button components to be used on the product and related pages.",
+  "devDependencies": {
+    "@walmart/electrode-archetype-react-component": "^9.0.2",
+    "@walmart/electrode-archetype-react-component-dev": "^9.0.2",
+    "@walmart/electrode-docgen": "^1.0.0",
+    "@walmart/lithe-extras": "^2.2.1",
+    "babel-plugin-transform-class-properties": "^6.10.2",
+    "builder": "^2.10.1",
+    "component-playground": "^1.2.0",
+    "object-assign": "^4.0.1",
+    "react": "^0.14.8",
+    "react-dom": "^0.14.8",
+    "redux": "^3.0.4",
+    "redux-thunk": "^2.1.0"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "f78176a60bd45c0a92ecf840a2de82f29f9ad499",
+    "tarball": "https://npme.walmart.com/@/@walmart/wmreact-product-buttons/_attachments/wmreact-product-buttons-8.0.0.tgz"
+  },
+  "gitHead": "f4d01d4a01537040d031ba5c924eb80dd113cbf1",
+  "main": "lib/index.js",
+  "maintainers": [
+    {
+      "email": "jhuang0@walmartlabs.com",
+      "name": "jhuang"
+    }
+  ],
+  "name": "@walmart/wmreact-product-buttons",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "https://gecgithub01.walmart.com/react/product-buttons"
+  },
+  "scripts": {
+    "demo": "builder run generate && builder run server-dev",
+    "demo-iso": "builder run dev-iso",
+    "generate": "npm run generate-metadata && npm run generate-documentation",
+    "generate-documentation": "electrode-docgen --package ./package.json --src ./src --markdown components.md",
+    "generate-metadata": "electrode-docgen --package ./package.json --src ./src --metadata components.json",
+    "prepublish": "builder run npm:prepublish",
+    "preversion": "builder run test",
+    "test": "builder run check-cov"
+  },
+  "version": "8.0.0"
+}

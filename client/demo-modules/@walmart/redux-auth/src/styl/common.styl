@@ -1,0 +1,45 @@
+.SignIn, .SignUp {
+  h2 {
+    margin: 0;
+  }
+
+  .alert {
+    margin: $s-spacing 0;
+  }
+
+  a, .btn {
+    display: block;
+    margin-top: $s-spacing;
+  }
+
+  //Override default option styling rules to handle:
+  //Long text label and softer font weight
+  .option label {
+    &:before {
+      position: absolute;
+    }
+
+    span {
+      display: inline-block;
+      margin-left: $l-spacing;
+
+      font-weight: 400;
+    }
+  }
+
+  .form-control.show-hide {
+    padding-right: 70px;
+  }
+
+  .show-hide-toggle {
+    position: absolute;
+    top: 11px;
+    right: 12px;
+
+    color: $blue;
+  }
+
+  .validation-marker + .show-hide-toggle {
+    right: 28px;
+  }
+}

@@ -1,0 +1,3 @@
+<AddToListRegistryFlyoutContent heading="Add item to:"
+  onListItemSelected={(type) => console.log(type)}
+  listItems={[{name: "Baby registry", type: "BR"}, {name: "Wedding registry", type: "WR"}]}/>

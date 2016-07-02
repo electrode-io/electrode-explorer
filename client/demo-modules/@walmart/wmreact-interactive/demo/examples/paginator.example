@@ -1,0 +1,23 @@
+<div>
+  <Paginator total={5} current={0}/>
+  <Paginator.PaginatorList total={50} current={0}/>
+  <Paginator.Carousel total={5} current={0}/>
+  <Paginator.Hairline direction="next"/>
+  <Paginator.Hairline direction="prev"/>
+  <Paginator.Hairline direction="up"/>
+  <Paginator.Hairline direction="down"/>
+  <Paginator
+    next={{url:"page=24"}}
+    previous={{url:"page=26"}}
+    pages={[
+      {page:1,selected:false},
+      {gap:true},
+      {page:23,selected:false},
+      {page:24,selected:false},
+      {page:25,selected:true},
+      {page:26,selected:false},
+      {page:27,selected:false},
+      {gap:true},
+      {page:50,selected:false}
+    ]}/>
+</div>

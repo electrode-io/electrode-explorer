@@ -1,0 +1,184 @@
+{
+  "library": "@walmart/wmreact-table",
+  "components": [
+    {
+      "description": "",
+      "methods": [
+        {
+          "name": "renderColumnGroupClass",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "columnClass",
+              "type": null
+            },
+            {
+              "name": "index",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "renderColumnGroup",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        }
+      ],
+      "props": {
+        "light": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": ""
+        },
+        "colGroupClasses": {
+          "type": {
+            "name": "array"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "[]",
+            "computed": false
+          },
+          "description": ""
+        },
+        "striped": {
+          "type": {
+            "name": "enum",
+            "value": [
+              {
+                "value": "\"odd\"",
+                "computed": false
+              },
+              {
+                "value": "\"even\"",
+                "computed": false
+              }
+            ]
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/table.jsx",
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "methods": [],
+      "props": {},
+      "fileName": "./src/components/table-row.jsx",
+      "hasProps": false
+    },
+    {
+      "description": "",
+      "methods": [],
+      "props": {
+        "rowSpan": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "1",
+            "computed": false
+          },
+          "description": ""
+        },
+        "colSpan": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "1",
+            "computed": false
+          },
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/table-header.jsx",
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "methods": [],
+      "props": {
+        "alt": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/table-head.jsx",
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "methods": [],
+      "props": {
+        "rowSpan": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "1",
+            "computed": false
+          },
+          "description": ""
+        },
+        "colSpan": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "1",
+            "computed": false
+          },
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/table-cell.jsx",
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "methods": [],
+      "props": {
+        "rowSpan": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "description": ""
+        },
+        "colSpan": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/table-body.jsx",
+      "hasProps": true
+    }
+  ]
+}

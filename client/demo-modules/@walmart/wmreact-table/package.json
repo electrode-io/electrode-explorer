@@ -1,0 +1,91 @@
+{
+  "_args": [
+    [
+      {
+        "name": "@walmart/wmreact-table",
+        "raw": "@walmart/wmreact-table",
+        "rawSpec": "",
+        "scope": "@walmart",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/cshi1/githome/portal"
+    ]
+  ],
+  "_from": "@walmart/wmreact-table@latest",
+  "_id": "@walmart/wmreact-table@3.0.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/@walmart/wmreact-table",
+  "_nodeVersion": "4.2.6",
+  "_npmUser": {
+    "email": "dstevens@walmartlabs.com",
+    "name": "dsteve7"
+  },
+  "_npmVersion": "3.7.2",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "@walmart/wmreact-table",
+    "raw": "@walmart/wmreact-table",
+    "rawSpec": "",
+    "scope": "@walmart",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/@walmart/wmreact-product-descriptors"
+  ],
+  "_resolved": "https://npme.walmart.com/@/@walmart/wmreact-table/_attachments/wmreact-table-3.0.0.tgz",
+  "_shasum": "cd568c7a86f6fd30061e40f7d77bfe497e672701",
+  "_shrinkwrap": null,
+  "_spec": "@walmart/wmreact-table",
+  "_where": "/Users/cshi1/githome/portal",
+  "author": {
+    "name": "mpfiste"
+  },
+  "dependencies": {},
+  "description": "> Before getting started, please make sure you read the [React Developer Guide](https://gecgithub01.walmart.com/react/react-dev-guide)!",
+  "devDependencies": {
+    "@walmart/electrode-archetype-react-component": "^9.0.0",
+    "@walmart/electrode-archetype-react-component-dev": "^9.0.0",
+    "@walmart/electrode-docgen": "^1",
+    "@walmart/lithe-extras": "^2.3.0",
+    "builder": "^2.9.1",
+    "component-playground": "^1.2.0",
+    "object-assign": "^4.0.0"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "cd568c7a86f6fd30061e40f7d77bfe497e672701",
+    "tarball": "https://npme.walmart.com/@/@walmart/wmreact-table/_attachments/wmreact-table-3.0.0.tgz"
+  },
+  "gitHead": "f1bf7be66ccbcee99e0f060681c0fefceb582868",
+  "license": "UNLICENSED",
+  "main": "lib/index.js",
+  "maintainers": [
+    {
+      "email": "npme@example.com",
+      "name": "mpfiste"
+    }
+  ],
+  "name": "@walmart/wmreact-table",
+  "optionalDependencies": {},
+  "private": false,
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git://gecgithub01.walmart.com/react/table.git"
+  },
+  "scripts": {
+    "demo": "builder run generate && builder run server-dev",
+    "demo-iso": "builder run dev-iso",
+    "generate": "npm run generate-metadata && npm run generate-documentation",
+    "generate-documentation": "electrode-docgen --package ./package.json --src ./src --markdown components.md",
+    "generate-metadata": "electrode-docgen --package ./package.json --src ./src --metadata components.json",
+    "prepublish": "builder run npm:prepublish",
+    "preversion": "builder run test",
+    "test": "builder run check-cov"
+  },
+  "version": "3.0.0"
+}

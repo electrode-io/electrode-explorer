@@ -1,0 +1,29 @@
+<LegalAddToCartButton legalPromptStatus="PROMPT"/>
+
+const StateFulLegalAddToCartButtonExample = React.createClass({
+  getInitialState: function() {
+    return {legalPromptStatus: "NOT_YET_ACCEPTED"}
+  },
+
+  _setStatus(status) {
+    console.log(status);
+    this.setState({legalPromptStatus: status});
+  },
+
+  render: function() {
+    return (
+      <LegalAddToCartButton
+        legalPromptStatus={this.state.legalPromptStatus}
+        onClick={() => {this._setStatus("PROMPT")}}
+        onMoreInfoClicked={() => {this._setStatus("MORE_INFO")}}
+        onMoreInfoClosed={() => {this._setStatus("NOT_YET_ACCEPTED")}}
+        onAcceptClicked={() => {this._setStatus("ACCEPTED")}}
+        onDeclineClicked={() => {this._setStatus("DECLINE")}}
+        onFlyoutClosed={() => {this._setStatus("NOT_YET_ACCEPTED")}}
+        addToCartProps={{onAddToCart: ()=>{console.log("Item added to cart")}}}
+        />
+    );
+  }
+});
+
+React.render(<StateFulLegalAddToCartButtonExample/>, mountNode);

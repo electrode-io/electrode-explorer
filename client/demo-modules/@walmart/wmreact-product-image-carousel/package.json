@@ -1,0 +1,92 @@
+{
+  "_args": [
+    [
+      {
+        "name": "@walmart/wmreact-product-image-carousel",
+        "raw": "@walmart/wmreact-product-image-carousel",
+        "rawSpec": "",
+        "scope": "@walmart",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/cshi1/githome/portal"
+    ]
+  ],
+  "_from": "@walmart/wmreact-product-image-carousel@latest",
+  "_id": "@walmart/wmreact-product-image-carousel@3.2.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/@walmart/wmreact-product-image-carousel",
+  "_nodeVersion": "4.2.4",
+  "_npmUser": {
+    "email": "npme@example.com",
+    "name": "nkatak1"
+  },
+  "_npmVersion": "3.8.2",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "@walmart/wmreact-product-image-carousel",
+    "raw": "@walmart/wmreact-product-image-carousel",
+    "rawSpec": "",
+    "scope": "@walmart",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://npme.walmart.com/@/@walmart/wmreact-product-image-carousel/_attachments/wmreact-product-image-carousel-3.2.0.tgz",
+  "_shasum": "fc652ac941c2c0d462555810f65fba6262cfb073",
+  "_shrinkwrap": null,
+  "_spec": "@walmart/wmreact-product-image-carousel",
+  "_where": "/Users/cshi1/githome/portal",
+  "author": "",
+  "dependencies": {
+    "@walmart/wmreact-base": "^7.0.1",
+    "@walmart/wmreact-carousel": "^3.2.1",
+    "@walmart/wmreact-interactive": "^7.1.1",
+    "@walmart/wmreact-layout": "^7.1.0",
+    "classnames": "^2.2.0"
+  },
+  "description": "Product image carousel",
+  "devDependencies": {
+    "@walmart/electrode-archetype-react-component": "^9.2.0",
+    "@walmart/electrode-archetype-react-component-dev": "^9.2.0",
+    "@walmart/electrode-docgen": "^1.0.0",
+    "builder": "^2.9.1",
+    "component-playground": "^1.2.0",
+    "object-assign": "^4.1.0"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "fc652ac941c2c0d462555810f65fba6262cfb073",
+    "tarball": "https://npme.walmart.com/@/@walmart/wmreact-product-image-carousel/_attachments/wmreact-product-image-carousel-3.2.0.tgz"
+  },
+  "gitHead": "93ef6e521ee6e6e40e2c30c3b01c8b48f5ce83cf",
+  "license": "UNLICENSED",
+  "main": "lib/index.js",
+  "maintainers": [
+    {
+      "email": "ukatakam@walmartlabs.com",
+      "name": "ukataka"
+    }
+  ],
+  "name": "@walmart/wmreact-product-image-carousel",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git://gecgithub01.walmart.com:react/product-image-carousel.git"
+  },
+  "scripts": {
+    "check-cov": "builder run lint && builder run test-frontend",
+    "demo": "builder run generate && builder run server-dev",
+    "generate": "builder run generate-metadata && builder run generate-documentation && builder run generate-demo",
+    "generate-demo": "electrode-docgen --package package.json --src src/components --demo demo",
+    "generate-documentation": "electrode-docgen --package ./package.json --src ./src --markdown components.md",
+    "generate-metadata": "electrode-docgen --package ./package.json --src ./src --metadata components.json",
+    "prepublish": "builder run build-lib",
+    "test": "builder run check-cov"
+  },
+  "version": "3.2.0"
+}

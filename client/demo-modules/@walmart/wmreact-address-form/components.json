@@ -1,0 +1,181 @@
+{
+  "library": "@walmart/wmreact-address-form",
+  "components": [
+    {
+      "description": "",
+      "displayName": "AddressForm",
+      "methods": [
+        {
+          "name": "receivedNewAddressProps",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "nextProps",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "getAddress",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "invalidateFields",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "response",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "setGlobalError",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "response",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "onError",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "response",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "onSuccess",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "response",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "validateForm",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "renderFormFields",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        }
+      ],
+      "props": {
+        "pureRender": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": ""
+        },
+        "validationUrl": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "onValidationStart": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "successHandler": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "errorHandler": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "address1": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "address2": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "city": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "state": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "zipCode": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "forceMobileView": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/address-form.jsx",
+      "hasProps": true
+    }
+  ]
+}

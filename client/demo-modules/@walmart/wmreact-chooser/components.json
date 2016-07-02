@@ -1,0 +1,131 @@
+{
+  "library": "@walmart/wmreact-chooser",
+  "description": "A chooser component library",
+  "components": [
+    {
+      "displayName": "Chooser",
+      "props": {
+        "chooserName": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "description": "Name of the chooser"
+        },
+        "defaultValue": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "The default value"
+        },
+        "placeholderText": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "The text that shows up when no items are selected."
+        },
+        "typeaheadDelay": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "description": "Passed though to RadonSelect, time in MS before the typeahead appears. Default 1000"
+        },
+        "fixedWidth": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "Style property, adds chooser-fixed-width class to component."
+        },
+        "isAlt": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "Style property, adds chooser-alt class to component."
+        },
+        "isBlock": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "Style property, adds chooser-block class to component."
+        },
+        "isRounded": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "Style property, adds chooser-rounded class to component."
+        },
+        "isMini": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "Style property, adds chooser-rounded and chooser-rounded-mini class to component."
+        },
+        "onChange": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": "Called on a change."
+        },
+        "onBlur": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": "Called on focus."
+        },
+        "automationId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "An automation ID for magellan"
+        }
+      },
+      "fileName": "./src/components/chooser.jsx",
+      "description": "Chooser component, this component is a shim or proxy component around `RadonSelect`",
+      "examples": "Here is a simple example:\n\n```jsx\n<Chooser\n  placeholderText=\"Select an option\">\n  <Chooser.Option value=\"Demo1\">Demo 1</Chooser.Option>\n  <Chooser.Option value=\"Demo2\">Demo 2</Chooser.Option>\n</Chooser>\n```",
+      "import": "Chooser",
+      "component": "Chooser",
+      "synonym": [
+        "dropdown",
+        "drop-down",
+        "select"
+      ],
+      "playground": [
+        {
+          "title": "Chooser",
+          "flags": {},
+          "code": "<div>\n  <h4>Simple chooser</h4>\n  <Chooser chooserName=\"chooser1\"\n    placeholderText=\"Select an option\">\n    <Chooser.Option value=\"Demo1\">Demo 1</Chooser.Option>\n    <Chooser.Option value=\"Demo2\">Demo 2</Chooser.Option>\n  </Chooser>\n  <h4>Chooser with React element as children</h4>\n  <Chooser chooserName=\"chooser2\"\n    placeholderText=\"Select an option\">\n    <Chooser.Option value=\"Demo1\"><h1 style={{margin:\"0px\"}}>Demo1</h1></Chooser.Option>\n    <Chooser.Option value=\"Demo2\"><h1 style={{margin:\"0px\"}}>Demo 2</h1></Chooser.Option>\n  </Chooser>\n</div>\n"
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "Chooser.Option",
+      "props": {
+        "value": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "description": "The value of the option"
+        }
+      },
+      "fileName": "./src/components/chooser-option.jsx",
+      "description": "A chooser option",
+      "import": "Chooser",
+      "component": "Chooser.Option",
+      "references": "Chooser",
+      "hasProps": true
+    }
+  ]
+}

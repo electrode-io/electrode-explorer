@@ -1,0 +1,1667 @@
+{
+  "library": "@walmart/wmreact-product-buttons",
+  "description": "A collection of button components to be used on the product and related pages.",
+  "components": [
+    {
+      "displayName": "PreorderFlyoutContent",
+      "methods": [
+        {
+          "name": "_getComponentClasses",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{className}",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "string"
+            }
+          }
+        },
+        {
+          "name": "_renderFormattedDateComponent",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{preorderInfo: {preorderDate}, autoId}",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_getStatusLabel",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{preorderInfo: {streetDateType, preorderDate}}",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "string"
+            }
+          }
+        },
+        {
+          "name": "_hasPreorderDate",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{preorderInfo: {preorderDate}}",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "boolean"
+            }
+          }
+        }
+      ],
+      "props": {
+        "autoId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": "Used for generating unique automation id's"
+        },
+        "preorderInfo": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "streetDateType": {
+                "name": "enum",
+                "value": [
+                  {
+                    "value": "SHIP_BY_TYPE",
+                    "computed": true
+                  },
+                  {
+                    "value": "ARRIVE_BY_TYPE",
+                    "computed": true
+                  }
+                ],
+                "required": false
+              },
+              "preorderDate": {
+                "name": "number",
+                "required": false
+              }
+            }
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "{\n  streetDateType: SHIP_BY_TYPE,\n  preorderDate: undefined\n}",
+            "computed": false
+          },
+          "description": "The date it ships and tye type of preorder it is."
+        }
+      },
+      "fileName": "./src/components/preorder-flyout-content.jsx",
+      "description": "A PreorderFlyoutContent component. Displayed when the product is preorder eligible.\n\n For example this is how we use this component.\n\n ```jsx\n<PreorderFlyoutContent/>\n ```",
+      "import": "{PreorderFlyoutContent}",
+      "flags": "noVisibleRender",
+      "component": "PreorderFlyoutContent",
+      "playground": [
+        {
+          "title": "PreorderFlyoutContent",
+          "flags": {},
+          "code": "<PreorderFlyoutContent/>\n "
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "ZipCodeSearch",
+      "methods": [
+        {
+          "name": "onSubmit",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "event",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "isValidZip",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "val",
+              "type": null
+            }
+          ],
+          "returns": null
+        }
+      ],
+      "props": {
+        "zipCode": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": "Current customer zipcode"
+        },
+        "onLocationUpdate": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": "The callback handler for updating the customer zip"
+        }
+      },
+      "fileName": "./src/components/zipcode-search.jsx",
+      "description": "The ZipCode search component.\n For example this is how we use this component.\n ```jsx\n <ZipCodeSearch\n  zipCode=\"83713\"\n  className=\"prod-zipcode-search\"\n  onLocationUpdate={(event)=>{console.log(event)}}\n />\n ```",
+      "hasProps": true
+    },
+    {
+      "displayName": "ProductHelpFlyoutButton",
+      "methods": [],
+      "props": {
+        "content": {
+          "type": {
+            "name": "element"
+          },
+          "required": false,
+          "description": "The content of the flyout."
+        },
+        "flyoutPosition": {
+          "type": {
+            "name": "enum",
+            "value": [
+              {
+                "value": "\"left\"",
+                "computed": false
+              },
+              {
+                "value": "\"right\"",
+                "computed": false
+              },
+              {
+                "value": "\"top\"",
+                "computed": false
+              },
+              {
+                "value": "\"bottom\"",
+                "computed": false
+              }
+            ]
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"left\"",
+            "computed": false
+          },
+          "description": "The position of the flyout."
+        },
+        "flyoutSize": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"wide\"",
+            "computed": false
+          },
+          "description": "The size of the flyout."
+        },
+        "flyoutHover": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "Whether to show the flyout on hover"
+        },
+        "flyoutCloseButton": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "Whether to show a close button on the flyout"
+        },
+        "helpIconsClass": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"wmicon wmicon-help\"",
+            "computed": false
+          },
+          "description": "Additional classes for help icon button."
+        }
+      },
+      "fileName": "./src/components/product-help-flyout-button.jsx",
+      "description": "A simple button with help icon and a flyout to show the\n help text\n\n For example this is how we use this component.\n\n ```jsx\n <ProductHelpFlyoutButton\n   helpIconsClass=\"wmicon wmicon-help u-textBlue\"\n   flyoutPosition=\"right\"\n   flyoutSize=\"wide\"\n   content={<span>Hello!!!</span>}/>\n ```",
+      "import": "{ProductHelpFlyoutButton}",
+      "flags": "noVisibleRender",
+      "component": "ProductHelpFlyoutButton",
+      "playground": [
+        {
+          "title": "ProductHelpFlyoutButton",
+          "flags": {},
+          "code": " <ProductHelpFlyoutButton\n   helpIconsClass=\"wmicon wmicon-help u-textBlue\"\n   flyoutPosition=\"right\"\n   flyoutSize=\"wide\"\n   content={<span>Hello!!!</span>}/>\n "
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "methods": [
+        {
+          "name": "_renderButtonComponent",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "isLoading",
+              "type": null
+            },
+            {
+              "name": "onClick",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_onAcceptClicked",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{addToCartProps, onAcceptClicked}",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_renderDeclineContent",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderLegalPromptContent",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{\n    onDeclineClicked,\n    onMoreInfoClicked\n  }",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderAsTray",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "props",
+              "type": null
+            },
+            {
+              "name": "content",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_onFlyoutClosed",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "active",
+              "type": {
+                "name": "boolean"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_renderAsFlyout",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "props",
+              "type": null
+            },
+            {
+              "name": "content",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderPrompt",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "props",
+              "type": null
+            },
+            {
+              "name": "content",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        }
+      ],
+      "props": {
+        "legalPromptStatus": {
+          "defaultValue": {
+            "value": "\"ACCEPTED\"",
+            "computed": false
+          }
+        },
+        "onClick": {
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          }
+        },
+        "onMoreInfoClicked": {
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          }
+        },
+        "onMoreInfoClosed": {
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          }
+        },
+        "onAcceptClicked": {
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          }
+        },
+        "onDeclineClicked": {
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          }
+        },
+        "onFlyoutClosed": {
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          }
+        }
+      },
+      "composes": [
+        "./legal-prompt-proptype"
+      ],
+      "fileName": "./src/components/add-to-cart-with-legal-flyout.jsx",
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "displayName": "AddToRegistryFlyoutContent",
+      "methods": [],
+      "props": {
+        "heading": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"Add item to:\"",
+            "computed": false
+          },
+          "description": "Title for the container"
+        },
+        "listItems": {
+          "type": {
+            "name": "arrayOf",
+            "value": {
+              "name": "shape",
+              "value": {
+                "type": {
+                  "name": "string",
+                  "description": "Type of list or registry",
+                  "required": true
+                },
+                "name": {
+                  "name": "string",
+                  "description": "Name of the list or registry",
+                  "required": true
+                }
+              }
+            }
+          },
+          "required": true,
+          "description": "List of items"
+        },
+        "onListItemSelected": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": "Callback to handle list or registry selection"
+        }
+      },
+      "fileName": "./src/components/add-to-list-registry-flyout-content.jsx",
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "displayName": "SubmapModal",
+      "methods": [
+        {
+          "name": "_isFirstNameValid",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_isLastNameValid",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_isEmailValid",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_getFirstName",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_getLastName",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_getEmail",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_onContinue",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_renderResponsiveModalContent",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "isMobile",
+              "type": null
+            },
+            {
+              "name": "onClose",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_renderMobileHeader",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "onClose",
+              "type": null
+            }
+          ],
+          "returns": null
+        }
+      ],
+      "props": {
+        "active": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "Used to hide and show modal"
+        },
+        "onContinue": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": "Used to submit the from"
+        },
+        "onClose": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": "Used to close modal"
+        }
+      },
+      "fileName": "./src/components/product-submap-modal.jsx",
+      "hasProps": true
+    },
+    {
+      "displayName": "LegalFlyoutContent",
+      "methods": [
+        {
+          "name": "_renderDeclineContent",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_onDecline",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_renderAcceptButton",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "onAcceptClicked",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderDeclineButton",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "onDeclineClicked",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderMoreInfoButton",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "onMoreInfoClicked",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderCTASection",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{onAcceptClicked, onMoreInfoClicked, onDeclineClicked}",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_getContentClassNames",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "className",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "string"
+            }
+          }
+        },
+        {
+          "name": "_renderLegalContent",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{className,\n    onAcceptClicked,\n    onMoreInfoClicked,\n    onDeclineClicked\n  }",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        }
+      ],
+      "props": {
+        "decline": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "Prop that decides whether to render decline content or not"
+        },
+        "onAcceptClicked": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": "Callback when yes button is clicked"
+        },
+        "onMoreInfoClicked": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": "Callback when more info is clicked"
+        },
+        "onDeclineClicked": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": "Callback when no button is clicked"
+        }
+      },
+      "fileName": "./src/components/product-legal-flyout-content.jsx",
+      "description": "This component renders the content inside legal flyout.\nThe component also handles the case when the legal warning is declined.\n\n For example this is how we use this component.\n\n ```jsx\n <LegalFlyoutContent onAcceptClicked={() => {console.log(\"accept clicked\")}}/>\n ```",
+      "import": "{LegalFlyoutContent}",
+      "flags": "noVisibleRender",
+      "component": "LegalFlyoutContent",
+      "playground": [
+        {
+          "title": "LegalFlyoutContent",
+          "flags": {},
+          "code": " <LegalFlyoutContent onAcceptClicked={() => {console.log(\"accept clicked\")}}/>\n "
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "displayName": "StatelessAddToRegistryButton",
+      "methods": [],
+      "props": {
+        "status": {
+          "type": {
+            "name": "enum",
+            "value": [
+              {
+                "value": "\"INITIALIZED\"",
+                "computed": false
+              },
+              {
+                "value": "\"LOADING\"",
+                "computed": false
+              },
+              {
+                "value": "\"PROMPT\"",
+                "computed": false
+              }
+            ]
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"INITIALIZED\"",
+            "computed": false
+          },
+          "description": "Prop that describes the current state of the button"
+        },
+        "listItems": {
+          "type": {
+            "name": "arrayOf",
+            "value": {
+              "name": "shape",
+              "value": {
+                "type": {
+                  "name": "string",
+                  "description": "Type of list or registry",
+                  "required": true
+                },
+                "name": {
+                  "name": "string",
+                  "description": "Name of the list or registry",
+                  "required": true
+                }
+              }
+            }
+          },
+          "required": false,
+          "description": "List of items"
+        },
+        "onListItemSelected": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": "Callback to handle list or registry selection"
+        },
+        "onClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": "Callback to handle onClick on Add to registry button"
+        },
+        "onPromptClose": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": "Callback to handle close of prompt"
+        }
+      },
+      "fileName": "./src/components/add-to-registry-button.jsx",
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "methods": [],
+      "props": {
+        "submapModalStatus": {
+          "defaultValue": {
+            "value": "\"INACTIVE\"",
+            "computed": false
+          }
+        },
+        "onClick": {
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          }
+        },
+        "onModalClosed": {
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          }
+        },
+        "onContinue": {
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          }
+        }
+      },
+      "fileName": "./src/components/add-to-cart-with-submap-checkout.jsx",
+      "hasProps": true
+    },
+    {
+      "displayName": "MoreInfoModal",
+      "methods": [],
+      "props": {
+        "active": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "true",
+            "computed": false
+          },
+          "description": "Prop used to open close modal"
+        },
+        "onClose": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": "Callback executed when modal closed"
+        }
+      },
+      "fileName": "./src/components/legal-more-info-modal.jsx",
+      "description": "This component renders more info modal on medium and above breakpoints\nand renders the content as a slidepanel in smaller breakpoints.\nSet the active prop to either show or hide this component\n\n For example this is how we use this component.\n\n ```jsx\n <MoreInfoModal active={true}/>\n ```",
+      "import": "{MoreInfoModal}",
+      "flags": "noVisibleRender",
+      "component": "MoreInfoModal",
+      "playground": [
+        {
+          "title": "MoreInfoModal",
+          "flags": {},
+          "code": " <MoreInfoModal active={true}/>\n "
+        }
+      ],
+      "return": "MoreInfoModal",
+      "param": "for the component",
+      "hasProps": true
+    },
+    {
+      "displayName": "ProductInvalidPrompt",
+      "methods": [],
+      "props": {},
+      "fileName": "./src/components/product-invalid-prompt.jsx",
+      "description": "A ProductInvalidPrompt component. Displays a generic invalid prompt in the primary cta component.\n\n For example this is how we use this component.\n\n ```jsx\n<ProductInvalidPrompt/>\n ```",
+      "import": "{ProductInvalidPrompt}",
+      "flags": "noVisibleRender",
+      "component": "ProductInvalidPrompt",
+      "playground": [
+        {
+          "title": "ProductInvalidPrompt",
+          "flags": {},
+          "code": "<ProductInvalidPrompt/>\n "
+        }
+      ],
+      "hasProps": false
+    },
+    {
+      "displayName": "ProductPrimaryCTA",
+      "methods": [
+        {
+          "name": "_getComponentClasses",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{className}",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "string"
+            }
+          }
+        },
+        {
+          "name": "_getLayoutSizesByBreakpoint",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "layoutSizes",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "Array",
+              "elements": [
+                {
+                  "name": "number"
+                }
+              ],
+              "raw": "Array<number>"
+            }
+          }
+        },
+        {
+          "name": "_getQuantityLabel",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "label",
+              "type": {
+                "name": "string"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "string"
+            }
+          }
+        },
+        {
+          "name": "_getLayoutSizes",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{showQuantity, isAValidOffer, layoutSizes}",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "Array",
+              "elements": [
+                {
+                  "name": "number"
+                }
+              ],
+              "raw": "Array<number>"
+            }
+          }
+        },
+        {
+          "name": "_onQuantityChange",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "name": "number"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_onAddToCart",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_renderQuantityComponent",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{quantityOptions, quantityLabel}",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderInvalidPrompt",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderOutofStockButton",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{\n  onNotifyBackInStock,\n  onCloseNotifyFlyout,\n  flyoutDirection,\n  actionStatus,\n  autoId\n}",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderPreorderFlyoutContent",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{preorderInfo, autoId}",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderPreOrderButton",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "props",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderAddToCartButton",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{\n  addedQuantity,\n  maxAddQuantity,\n  onCloseAddedToCartFlyout,\n  actionStatus,\n  autoId,\n  legalPromptProps,\n  isSubmapCheckout,\n  submapProps\n}",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_isInStock",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "availabilityStatus",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "boolean"
+            }
+          }
+        },
+        {
+          "name": "_renderCTAByStatus",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "props",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_canUseDOM",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_getButtonLabel",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "availabilityStatus",
+              "type": null
+            },
+            {
+              "name": "preorder",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "string"
+            }
+          }
+        },
+        {
+          "name": "_renderCTAComponent",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "props",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        }
+      ],
+      "props": {
+        "availabilityStatus": {
+          "type": {
+            "name": "enum",
+            "computed": true,
+            "value": "Object.keys(availabilityStatuses)"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "availabilityStatuses.IN_STOCK",
+            "computed": true
+          },
+          "description": "The availability status of the product."
+        },
+        "addedQuantity": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "description": "The number of items have been added to cart"
+        },
+        "maxAddQuantity": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "description": "The limit number of the items that could be added to cart"
+        },
+        "actionStatus": {
+          "type": {
+            "name": "enum",
+            "value": [
+              {
+                "value": "IN_PROGRESS",
+                "computed": true
+              },
+              {
+                "value": "ADDED_TO_CART",
+                "computed": true
+              },
+              {
+                "value": "ADD_TO_CART_ERROR",
+                "computed": true
+              },
+              {
+                "value": "IN_STOCK_ALERT_SENT",
+                "computed": true
+              }
+            ]
+          },
+          "required": false,
+          "description": "The status of the action resulting from clicking the CTA"
+        },
+        "preorder": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "If this product is avaialble for preorder"
+        },
+        "preorderInfo": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "streetDateType": {
+                "name": "enum",
+                "value": [
+                  {
+                    "value": "\"SHIP_BY\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"ARRIVE_BY\"",
+                    "computed": false
+                  }
+                ],
+                "required": false
+              },
+              "preorderDate": {
+                "name": "number",
+                "required": false
+              }
+            }
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "{}",
+            "computed": false
+          },
+          "description": "The date it ships and tye type of preorder it is."
+        },
+        "onAddToCart": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => { /*no-op*/ }",
+            "computed": false
+          },
+          "description": "The callback handler for adding to cart."
+        },
+        "onCloseAddedToCartFlyout": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => { /*no-op*/ }",
+            "computed": false
+          },
+          "description": "The callback handler for closing the Added to Cart flyout."
+        },
+        "onAddToList": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => { /*no-op*/ }",
+            "computed": false
+          },
+          "description": "The callback handler for adding to list."
+        },
+        "onNotifyBackInStock": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => { /*no-op*/ }",
+            "computed": false
+          },
+          "description": "The callback handler for signing up to be notified when a product is\n   back in stock."
+        },
+        "onCloseNotifyFlyout": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => { /*no-op*/ }",
+            "computed": false
+          },
+          "description": "When notify flyout closes."
+        },
+        "onQuantityChange": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => { /*no-op*/ }",
+            "computed": false
+          },
+          "description": "The callback handler for the quantity button."
+        },
+        "showQuantity": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "true",
+            "computed": false
+          },
+          "description": "Set this to true if you dont want the component to render the\n   quantity dropdown."
+        },
+        "quantityOptions": {
+          "type": {
+            "name": "array"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "[1]",
+            "computed": false
+          },
+          "description": "An array of quantity options/values."
+        },
+        "quantityLabel": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "label text for quantity"
+        },
+        "isAValidOffer": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "true",
+            "computed": false
+          },
+          "description": "determines if the current state offer is invalid.\n   We use this flags to render an invalid state when a\n   invalid variant combo is selected."
+        },
+        "isSubmapCheckout": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "determine which variation of add-to-cart button to show.\n   if true, show submapAddToCartButton"
+        },
+        "autoId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": "Used for generating unique automation id's"
+        },
+        "layoutSizes": {
+          "type": {
+            "name": "arrayOf",
+            "value": {
+              "name": "number"
+            }
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "[6, 6]",
+            "computed": false
+          },
+          "description": "The default col sizes for quantity and cta buttons"
+        },
+        "flyoutDirection": {
+          "type": {
+            "name": "enum",
+            "value": [
+              {
+                "value": "\"left\"",
+                "computed": false
+              },
+              {
+                "value": "\"right\"",
+                "computed": false
+              },
+              {
+                "value": "\"top\"",
+                "computed": false
+              },
+              {
+                "value": "\"bottom\"",
+                "computed": false
+              },
+              {
+                "value": "\"center\"",
+                "computed": false
+              }
+            ]
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"left\"",
+            "computed": false
+          },
+          "description": "The direction in which the email alert form flyout appears"
+        },
+        "flyoutSize": {
+          "type": {
+            "name": "enum",
+            "value": [
+              {
+                "value": "\"narrow\"",
+                "computed": false
+              },
+              {
+                "value": "\"wide\"",
+                "computed": false
+              },
+              {
+                "value": "\"extrawide\"",
+                "computed": false
+              },
+              {
+                "value": "\"fluid\"",
+                "computed": false
+              }
+            ]
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"wide\"",
+            "computed": false
+          },
+          "description": "The width of the flyout"
+        },
+        "legalPromptProps": {
+          "type": {
+            "name": "shape",
+            "value": "unknown"
+          },
+          "required": false,
+          "description": "Legal prompt props"
+        },
+        "submapProps": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "description": "submap modal/slide panel props"
+        }
+      },
+      "fileName": "./src/components/product-primary-cta.jsx",
+      "description": "The product primary cta sections. Displays a\n - Primary cta button like, Add to cart, Let me know,\n  Preorder, Add to List (in case the product is out of stock)\n  Cell coverage etc.\n\n For example this is how we use this component.\n\n ```jsx\n <ProductPrimaryCTA availabilityStatus=\"IN_STOCK\"\n    showQuantity={true}\n    quantityOptions= {[1, 2, 3, 4, 5]}/>\n ```",
+      "import": "{ProductPrimaryCTA}",
+      "flags": "noVisibleRender",
+      "component": "ProductPrimaryCTA",
+      "playground": [
+        {
+          "title": "ProductPrimaryCTA",
+          "flags": {},
+          "code": " <ProductPrimaryCTA availabilityStatus=\"IN_STOCK\"\n   showQuantity={true}\n   quantityOptions= {[1, 2, 3, 4, 5]}/>\n "
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "methods": [
+        {
+          "name": "_getComponentClasses",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "className",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "string"
+            }
+          }
+        }
+      ],
+      "props": {
+        "value": {
+          "type": {
+            "name": "number"
+          },
+          "required": true,
+          "description": ""
+        },
+        "format": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "description": ""
+        },
+        "timezone": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"UTC\"",
+            "computed": false
+          },
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/formatted-date.jsx",
+      "description": "This component will be removed! It is meant to be replaced.\n By ReactIntl",
+      "hasProps": true
+    }
+  ]
+}

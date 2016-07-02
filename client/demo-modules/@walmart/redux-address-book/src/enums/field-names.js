@@ -1,0 +1,14 @@
+export const firstName = "firstName";
+export const addressId = "addressId";
+export const id = "id";
+export const lastName = "lastName";
+export const addressLineOne = "addressLineOne";
+export const addressLineTwo = "addressLineTwo";
+export const city = "city";
+export const country = "country";
+export const state = "state";
+export const phone = "phone";
+export const postalCode = "postalCode";
+export const sendTextUpdates = "sendTextUpdates";
+export const countryCode = "countryCode";
+export const isDefault = "isDefault";

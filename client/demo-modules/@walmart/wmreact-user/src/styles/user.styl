@@ -1,0 +1,230 @@
+@require "~@walmart/wmreact-base/src/styles/base";
+@require "~@walmart/wmreact-containers/src/styles/containers";
+@require "~@walmart/wmreact-forms/src/styles/forms";
+@require "~@walmart/wmreact-iconography/src/styles/iconography";
+@require "~@walmart/wmreact-interactive/src/styles/interactive";
+
+.SignIn, .SignUp, .ForgotPassword, .ResetPassword {
+  $font-size-signin-small = 14px;
+  $font-size-signin-smaller = 12px;
+
+  .heading-d {
+    margin: 0;
+  }
+
+  .heading-a, .heading-b, .heading-c, .heading-d, .forgot-password-btn-link, .sub-heading {
+    line-height: 1;
+  }
+
+  .signup-subtitle {
+    margin-top: $s-spacing;
+  }
+
+  .alert {
+    margin: $s-spacing 0;
+  }
+
+  .forgot-password-btn-link {
+    margin-top: $s-spacing;
+    font-size: $font-size-signin-small;
+  }
+
+  .privacy-policy-container {
+    margin-top: 8px;
+    font-size: $font-size-signin-small;
+    @media (min-width: $breakpoint-s) {
+      margin-top: 0;
+    }
+  }
+  .verification-code-wrapper {
+    margin: $xs-spacing 0 0 0;
+  }
+  .verification-code-wrapper.has-norton-logo {
+    margin-right: 90px;
+  }
+  .verification-code {
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  .email-code-text, .remember-password {
+    margin: $s-spacing 0 0 0;
+  }
+
+  .remember-password {
+    font-size: $font-size-signin-small;
+  }
+
+  .remember-me {
+    font-size: 14px;
+  }
+
+  .privacy-policy-signup-text {
+    margin-top: $m-spacing;
+    font-size: $font-size-signin-smaller;
+    a {
+      white-space: nowrap;
+    }
+  }
+
+  // Override default option styling rules to handle:
+  // Long text label and softer font weight
+  .option label {
+    position: relative;
+    font-size: 12px;
+    &:before {
+      position: absolute;
+      top: 50%;
+      margin-top: -11px;
+    }
+
+    > span {
+      display: inline-block;
+      margin-left: $l-spacing;
+
+      font-weight: 400;
+    }
+  }
+
+  .form-control.show-hide {
+    padding-right: 70px;
+  }
+
+  .btn {
+    margin-top: $m-spacing;
+    &.l-margin-top {
+      margin-top: $l-spacing;
+    }
+  }
+
+  .signup-btn, .signin-btn {
+    margin-top: 19px;
+    +breakpoint($breakpoint-m) {
+      margin-top: 22px;
+    }
+  }
+
+  .show-hide-toggle {
+    position: absolute;
+    top: 11px;
+    right: 12px;
+
+    color: $blue;
+  }
+
+  .validation-marker + .show-hide-toggle {
+    right: 28px;
+  }
+
+  .norton-wrapper {
+    margin-top: 26px;
+    +breakpoint($breakpoint-m) {
+      margin-top: 55px;
+    }
+    table {
+      margin: auto;
+      .norton-icon {
+        width: 73.5px;
+        opacity: 0.45;
+      }
+    }
+  }
+
+  .bot-message {
+    margin-bottom: $m-spacing;
+    margin-top: $m-spacing;
+  }
+
+  .form-label {
+    margin-top: $m-spacing;
+  }
+
+  .bottom-info-wrap .action-btn {
+    font-size: 17px;
+  }
+}
+
+.ForgotPassword .js-reset-password-link {
+  color: inherit;
+  cursor: text;
+}
+
+.ForgotPassword .alert p {
+  margin-top: 8px;
+}
+
+.ResetPassword {
+  position: relative;
+  .email-label {
+    margin: $s-spacing 0;
+  }
+}
+
+.SignIn {
+  .btn {
+    margin-top: 32px;
+  }
+}
+
+.SignUp, .ForgotPassword, .ResetPassword {
+  .forgot-password-btn-link {
+    float: left;
+  }
+}
+
+.SignUp, .ResetPassword {
+  .strength-bar {
+    width: 300px;
+  }
+
+  .password-strength {
+    margin-top: 15px;
+    background-color: #5cb85c;
+  }
+
+  .password-strength-20 {
+    width: 20%;
+    height: 25px;
+  }
+
+  .password-strength-40 {
+    width: 40%;
+    height: 25px;
+  }
+
+  .password-strength-60 {
+    width: 60%;
+    height: 25px;
+  }
+
+  .password-strength-80 {
+    width: 80%;
+    height: 25px;
+  }
+
+  .password-strength-100 {
+    width: 100%;
+    height: 25px;
+  }
+
+  .strength-bar {
+    margin-top: 7px;
+  }
+
+  .strength-bar-1, .strength-bar-2 {
+    background-color: #800000;
+  }
+
+  .strength-bar-3 {
+    background-color: #FFA000;
+  }
+
+  .strength-bar-4, .strength-bar-5 {
+    background-color: #5cb85c;
+  }
+
+  .password-hint {
+    margin-top: 3px;
+    font-size: 14px;
+  }
+}

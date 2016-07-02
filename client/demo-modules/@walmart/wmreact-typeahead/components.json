@@ -1,0 +1,169 @@
+{
+  "library": "@walmart/wmreact-typeahead",
+  "components": [
+    {
+      "description": "",
+      "displayName": "TypeaheadField",
+      "methods": [
+        {
+          "name": "_onSelectOption",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "value",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_onArrowNavigation",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "value",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_onResetVal",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "value",
+              "type": null
+            }
+          ],
+          "returns": null
+        }
+      ],
+      "props": {
+        "onSelectOption": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "onResetVal": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "onArrowNavigation": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "onChange": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "list": {
+          "type": {
+            "name": "array"
+          },
+          "required": false,
+          "description": ""
+        },
+        "manualMode": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "hidden": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/typeahead.jsx",
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "displayName": "TypeaheadListItem",
+      "methods": [
+        {
+          "name": "toggleHover",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "onMouseEnter",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "ev",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "onMouseLeave",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "ev",
+              "type": null
+            }
+          ],
+          "returns": null
+        }
+      ],
+      "props": {
+        "onMouseEnter": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "onMouseLeave": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "selected": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "query": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/typeahead-list-item.jsx",
+      "hasProps": true
+    }
+  ]
+}

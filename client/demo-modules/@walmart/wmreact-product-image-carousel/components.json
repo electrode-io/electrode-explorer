@@ -1,0 +1,181 @@
+{
+  "library": "@walmart/wmreact-product-image-carousel",
+  "description": "Product image carousel",
+  "components": [
+    {
+      "displayName": "ProductImage",
+      "methods": [
+        {
+          "name": "renderHeroImageCarousel",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{\n  activeIndex, handleClick, images\n}",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "renderAltImageCarousel",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{\n  images,\n  handleHover,\n  handleClick,\n  activeIndex,\n  lastIndex,\n  onSlideChange,\n  hasVideo,\n  videoThumb\n}",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_hasImages",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "images",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_hasMainImage",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "image",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_getPrimaryImage",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{images, primaryImage, activeIndex}",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_handleHeroImageClick",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        }
+      ],
+      "props": {
+        "images": {
+          "type": {
+            "name": "array"
+          },
+          "required": true,
+          "defaultValue": {
+            "value": "[]",
+            "computed": false
+          },
+          "description": "An array of product alt images."
+        },
+        "primaryImage": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": "An array of product alt images."
+        },
+        "handleHover": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "handleClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "handleHeroImageClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "onSlideChange": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "activeIndex": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "0",
+            "computed": false
+          },
+          "description": ""
+        },
+        "lastIndex": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "0",
+            "computed": false
+          },
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/product-image.jsx",
+      "description": "Displays a list of product images for a given product. See below for how this component renders\n at each breakpoint.\n - breakpoint-xs: Primary image as a carousel, no center mode, no alt images\n - breakpoint-s: Primary image as a carousel, center mode, no alt images\n - breakpoint-m: Single primary image, all alt images as horizontal carousel.\n  Display up to 4 carousel images per page.\n - breakpoint-l and above:  Single primary image, all alt images as vertical carousel.\n  Display up to 5 carousel images per page.\n\n\n For example this is how we use this component.\n\n ```jsx\n <ProductImage images={imageArray}/>\n ```",
+      "import": "{ProductImage}",
+      "flags": "noVisibleRender",
+      "component": "ProductImage",
+      "playground": [
+        {
+          "title": "ProductImage",
+          "flags": {},
+          "code": " <ProductImage images={[\n    {\n      thumb: \"http://i5.walmartimages.com/dfw/dce07b8c-c448/\" +\n      \"k2-_8f9cf353-40ac-44ad-9446-7f88f6ce6c53.v4.jpg\",\n      main: \"http://i5.walmartimages.com/dfw/dce07b8c-1f75/\" +\n      \"k2-_92d75473-2262-4b2d-92b0-ed2a4df937de.v4.jpg\",\n      alt: \"Test Image\"\n    },\n    {\n      thumb: \"http://i5.walmartimages.com/dfw/dce07b8c-5c41/\" +\n      \"k2-_defcc89d-84e8-4dde-b7aa-03de2c6f1986.v1.jpg\",\n      main: \"http://i5.walmartimages.com/dfw/dce07b8c-6f25/\" +\n      \"k2-_091169c1-97a9-4afc-8b26-5d766c9a92f0.v1.jpg\",\n      alt: \"Test Image\"\n    },\n    {\n      thumb: \"http://i5.walmartimages.com/dfw/dce07b8c-c448\" +\n      \"/k2-_8f9cf353-40ac-44ad-9446-7f88f6ce6c53.v4.jpg\",\n      main: \"http://i5.walmartimages.com/dfw/dce07b8c-1f75/\" +\n      \"k2-_92d75473-2262-4b2d-92b0-ed2a4df937de.v4.jpg\",\n      alt: \"Test Image\"\n    },\n    {\n      thumb: \"http://i5.walmartimages.com/dfw/dce07b8c-5c41/\" +\n      \"k2-_defcc89d-84e8-4dde-b7aa-03de2c6f1986.v1.jpg\",\n      main: \"http://i5.walmartimages.com/dfw/dce07b8c-6f25/\" +\n      \"k2-_091169c1-97a9-4afc-8b26-5d766c9a92f0.v1.jpg\",\n      alt: \"Test Image\"\n    },\n    {\n      thumb: \"http://i5.walmartimages.com/dfw/dce07b8c-c448/\" +\n      \"k2-_8f9cf353-40ac-44ad-9446-7f88f6ce6c53.v4.jpg\",\n      main: \"http://i5.walmartimages.com/dfw/dce07b8c-1f75/\" +\n      \"k2-_92d75473-2262-4b2d-92b0-ed2a4df937de.v4.jpg\",\n      alt: \"Test Image\"\n    },\n    {\n      thumb: \"http://i5.walmartimages.com/dfw/dce07b8c-5c41/\" +\n      \"k2-_defcc89d-84e8-4dde-b7aa-03de2c6f1986.v1.jpg\",\n      main: \"http://i5.walmartimages.com/dfw/dce07b8c-6f25/\" +\n      \"k2-_091169c1-97a9-4afc-8b26-5d766c9a92f0.v1.jpg\",\n      alt: \"Test Image\"\n    }\n  ]}/>\n "
+        }
+      ],
+      "hasProps": true
+    }
+  ]
+}

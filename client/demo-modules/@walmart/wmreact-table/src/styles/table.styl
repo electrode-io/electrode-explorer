@@ -1,0 +1,143 @@
+// From @walmart/hydra/src/common/base/components.styl
+
+$table-color ?= {
+  bg-alt: #ccc
+}
+
+
+
+/*!
+Tables
+
+Control the width of each column with the `<colgroup>` and `<col>` elements.
+To make a column take up only as much room as it needs, add the
+`.table-size-fit` class to the corresponding `<col>` element.
+To make a column take up all the remaining space, use `.table-size-fill`.
+
+.table-striped-odd - alternate the background color of each row starting with the first row.
+.table-striped-even - alternate the background color of each row starting with the second row.
+.table-striped-light-odd - a variant for lighter colored stripes starting with the first row.
+.table-striped-light-even - a variant for lighter colored stripes starting with the second row.
+
+Styleguide 8.16
+*/
+
+.table {
+  margin: 20px 0 0 0;
+  min-width: 100%;
+  padding: 0;
+  border-bottom: 2px solid $blue-light;
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  color: $grey-dark;
+  font-size: 14px;
+}
+
+.table td {
+  padding: 7px 15px;
+}
+
+.table td:first-child {
+  padding-left: 30px;
+  white-space: nowrap;
+}
+
+.table td:last-child {
+  padding-right: 30px;
+}
+
+.table tr:last-child td {
+  padding-bottom: 9px;
+}
+
+.table-size-fit {
+  width: 1%;
+}
+
+.table-size-fill {
+  width: 100%;
+}
+
+.table-striped-even tr:nth-child(even) td {
+  background-color: $table-color.bg-alt;
+}
+
+.table-striped-odd tr:nth-child(odd) td {
+  background-color: $table-color.bg-alt;
+}
+
+.table-striped-light-even tr:nth-child(even) td {
+  background-color: $table-color.bg-alt-light;
+}
+
+.table-striped-light-odd tr:nth-child(odd) td {
+  background-color: $table-color.bg-alt-light;
+}
+
+.table-first-col-font-alt td:first-child,
+.table-font-alt-cell {
+  color: $grey-medium;
+  font-weight: 400;
+}
+
+/*!
+Tables with column headers
+
+Styleguide 8.16.1
+*/
+
+.table-header {
+  border-top: 2px solid $table-color.bg-alt;
+}
+
+.table-header td {
+  padding: 7px 10px;
+}
+
+.table-header td:first-child {
+  padding-left: 20px;
+}
+
+.table-header td:last-child {
+  padding-right: 20px;
+}
+
+.table-header th,
+.table-header-cell {
+  padding: 6px 10px;
+
+  color: $black;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.table-header th:first-child {
+  padding-left: 20px;
+}
+
+.table-header th:last-child {
+  padding-right: 20px;
+}
+
+/*!
+Tables with column and row headers
+
+Styleguide 8.16.2
+*/
+
+.table-header-alt {
+  border-collapse: separate;
+}
+
+.table-header-alt th,
+.table-header-alt-cell {
+  padding: 7px 20px;
+  border-top: 2px solid $white;
+  border-right: 2px solid $white;
+
+  background-color: $table-color.bg-alt;
+  font-weight: 700;
+  text-align: center;
+}
+

@@ -1,0 +1,13 @@
+[ignore]
+lib
+.*/react-dom/*
+.*/fbjs/*
+.*/fixtures/*
+
+[include]
+./src/
+./node_modules/@walmart/
+
+[libs]
+
+[options]

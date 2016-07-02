@@ -1,0 +1,4 @@
+ <ProductPrimaryCTA availabilityStatus="IN_STOCK"
+   showQuantity={true}
+   showLegalFlyout
+   quantityOptions= {[1, 2, 3, 4, 5]}/>

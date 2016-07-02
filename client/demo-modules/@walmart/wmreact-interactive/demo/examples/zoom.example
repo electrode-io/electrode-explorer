@@ -1,0 +1,4 @@
+<div>
+  <Zoom zoomIn={true}/>
+  <Zoom zoomOut={true}/>
+</div>

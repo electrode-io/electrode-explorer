@@ -1,0 +1,8 @@
+<Tabber.Simple>
+  <div title="Foo">
+    Foo!
+  </div>
+  <div title="Bar">
+    Bar!
+  </div>
+</Tabber.Simple>

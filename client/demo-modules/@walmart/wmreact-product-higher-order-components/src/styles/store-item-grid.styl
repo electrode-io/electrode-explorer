@@ -1,0 +1,19 @@
+.store-item-grid > div {
+  border-bottom: 1px solid $grey-very-light;
+}
+
+.store-item-grid > :nth-child(odd) {
+  border-right: 1px solid $grey-very-light;
+}
+
++breakpoint($breakpoint-m) {
+  .store-item-grid > :not(:nth-child(4n+4)) {
+    border-right: 1px solid $grey-very-light;
+  }
+}
+
++breakpoint($breakpoint-l) {
+  .store-item-grid > :nth-child(n) {
+    border-width: 0;
+  }
+}

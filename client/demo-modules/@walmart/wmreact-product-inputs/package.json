@@ -1,0 +1,96 @@
+{
+  "_args": [
+    [
+      {
+        "name": "@walmart/wmreact-product-inputs",
+        "raw": "@walmart/wmreact-product-inputs",
+        "rawSpec": "",
+        "scope": "@walmart",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/cshi1/githome/portal"
+    ]
+  ],
+  "_from": "@walmart/wmreact-product-inputs@latest",
+  "_id": "@walmart/wmreact-product-inputs@3.1.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/@walmart/wmreact-product-inputs",
+  "_nodeVersion": "4.4.0",
+  "_npmUser": {
+    "email": "apham@walmartlabs.com",
+    "name": "apham"
+  },
+  "_npmVersion": "3.8.2",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "@walmart/wmreact-product-inputs",
+    "raw": "@walmart/wmreact-product-inputs",
+    "rawSpec": "",
+    "scope": "@walmart",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/@walmart/wmreact-product-buttons"
+  ],
+  "_resolved": "https://npme.walmart.com/@/@walmart/wmreact-product-inputs/_attachments/wmreact-product-inputs-3.1.0.tgz",
+  "_shasum": "0e45d9fca7c80137912f0ad718b9fddb40781c97",
+  "_shrinkwrap": null,
+  "_spec": "@walmart/wmreact-product-inputs",
+  "_where": "/Users/cshi1/githome/portal",
+  "author": "",
+  "dependencies": {
+    "@walmart/automation-utils": "^3.0.0",
+    "@walmart/wmreact-chooser": "^4.0.0",
+    "classnames": "^2.2.0",
+    "lodash": "^4.5.0"
+  },
+  "description": "A quantity dropdown used in product page.",
+  "devDependencies": {
+    "@walmart/chai-shallowly": "^1.1.0",
+    "@walmart/electrode-archetype-react-component": "^9.0.2",
+    "@walmart/electrode-archetype-react-component-dev": "^9.0.2",
+    "@walmart/electrode-docgen": "^1",
+    "builder": "^2.9.1",
+    "component-playground": "^1.2.0",
+    "enzyme": "^2.3.0",
+    "object-assign": "^4.0.1",
+    "react": "^0.14.8",
+    "react-dom": "^0.14.8"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "0e45d9fca7c80137912f0ad718b9fddb40781c97",
+    "tarball": "https://npme.walmart.com/@/@walmart/wmreact-product-inputs/_attachments/wmreact-product-inputs-3.1.0.tgz"
+  },
+  "gitHead": "96ee5dc66cb75f73b68bb351863967e76fa6b00e",
+  "license": "UNLICENSED",
+  "main": "lib/index.js",
+  "maintainers": [
+    {
+      "email": "ukatakam@walmartlabs.com",
+      "name": "ukataka"
+    }
+  ],
+  "name": "@walmart/wmreact-product-inputs",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git://gecgithub01.walmart.com/react/product-inputs.git"
+  },
+  "scripts": {
+    "check-cov": "builder run lint && builder run test-cov",
+    "demo": "builder run generate && builder run server-dev",
+    "generate": "builder run generate-metadata && builder run generate-documentation && builder run generate-demo",
+    "generate-demo": "electrode-docgen --package ./package.json --src src/components --demo demo",
+    "generate-documentation": "electrode-docgen --package ./package.json --src ./src --markdown components.md",
+    "generate-metadata": "electrode-docgen --package ./package.json --src ./src --metadata components.json",
+    "prepublish": "builder run build-lib",
+    "test": "builder run check-cov"
+  },
+  "version": "3.1.0"
+}

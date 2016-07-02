@@ -1,0 +1,5 @@
+{
+  "library": "@walmart/wmredux-member-register",
+  "description": "Redux component for login registration and related logic",
+  "components": []
+}

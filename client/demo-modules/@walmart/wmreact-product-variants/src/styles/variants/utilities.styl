@@ -1,0 +1,52 @@
+$variant-disabled {
+  overflow: hidden;
+
+  background: $variant-color.bg;
+  cursor: default;
+  color: $variant-color.text;
+
+  &:hover,
+  &:focus {
+    border-color: $variant-color.border;
+
+    color: $variant-color.text;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: -7px;
+    bottom: @top;
+    left: -1px;
+
+    display: block;
+    margin-left: 50%;
+    border-right: 3px solid $grey-medium;
+
+    transform: rotate(45deg);
+  }
+}
+
+// Active styles must be a mixin instead of an extendable placeholder selector
+// because they are applied on selectors with :checked. Browsers that don't
+// support :checked throw out the entire comma separated selector generated with
+// @extend.
+variant-active() {
+  border-color: $variant-color.border-active;
+
+  background: $variant-color.bg-active;
+
+  &,
+  &:hover,
+  &:focus {
+    color: $variant-color.text-active;
+  }
+
+  .variants-swatches & {
+    background: $variant-color.bg;
+
+    if ($variant-options.swatch-outline) {
+      box-shadow: $variant-box-shadow;
+    }
+  }
+}

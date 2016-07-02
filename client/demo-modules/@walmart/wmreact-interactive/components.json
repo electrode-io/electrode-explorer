@@ -1,0 +1,863 @@
+{
+  "library": "@walmart/wmreact-interactive",
+  "description": "Base level ineractive components for the Hydra UI.",
+  "title": "Interactive",
+  "components": [
+    {
+      "displayName": "Button",
+      "methods": [],
+      "props": {
+        "arrowlink": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "True if this is an arrow link"
+        },
+        "fakelink": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "True if this is an fake link"
+        },
+        "compact": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "True if this is a compact button"
+        },
+        "disabled": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "True if this is disabled"
+        },
+        "inverse": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "True if this should be inverse"
+        },
+        "mini": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "True if this is a mini button"
+        },
+        "block": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "True if this is a block button"
+        },
+        "primary": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "True if this is an primary button"
+        },
+        "badge": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "True if this is an badge button"
+        },
+        "badgeAlt": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "True if this is an altbadge button"
+        },
+        "active": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "True if this is actve"
+        },
+        "vote": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "True if this is a vote button"
+        },
+        "spinner": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "True if this should show a spinner"
+        },
+        "remove": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "True if this is an remove button"
+        },
+        "icon": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "The icon to show in the button"
+        },
+        "textIcon": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "The text icon to show in the button"
+        },
+        "type": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"button\"",
+            "computed": false
+          },
+          "description": "The button type"
+        },
+        "onClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": "The click handler"
+        },
+        "automationId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"button\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "tealeafId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"button\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "dropdown": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "True if this is a dropdown button"
+        },
+        "hidden": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/button.jsx",
+      "description": "A button wrapper",
+      "examples": "```jsx\n<Button>\n  Foo\n</Button>\n```\n\nA mini button:\n\n```jsx\n<Button mini={true}>Mini Button</Button>\n```\n\nA fake link button:\n\n```jsx\n<Button fakelink={true}>Fake Link Button</Button>\n```\n\nA dropdown button:\n\n```jsx\n<Button dropdown={true}>Dropdown-Style Button</Button>\n```\n\nA disabled button:\n\n```jsx\n<Button disabled={true}>Disabled Button</Button>\n```\n\nA button that extends across the entire block:\n\n```jsx\n<Button block={true}>Block Button</Button>\n```\n\nA primary button:\n\n```jsx\n<Button primary={true}>Primary Button</Button>\n```\n\nA badge button:\n\n```jsx\n<Button badge={true}>Badge Button</Button>\n```\n\nAn inverse button:\n\n```jsx\n<Button inverse={true}>Inverse Button</Button>\n```\n\nA button with an arrow link:\n\n```jsx\n<Button arrowlink={true}>Arrow Link Button</Button>\n```\n\nA remove button with an icon:\n\n```jsx\n<Button icon='remove' remove={true} />\n```\n\nCustom styled button:\n\n```jsx\n<Button style={{\n  backgroundColor: \"#8b67a5\",\n  color: \"#fff\"\n}}>Custom Styled Button</Button>\n```",
+      "component": "Button",
+      "return": "Element tree",
+      "param": [
+        "Props",
+        "Context"
+      ],
+      "import": "{Button}",
+      "playground": [
+        {
+          "title": "",
+          "flags": {},
+          "code": "<div>\n  <div><Button>Base Button</Button></div><br/>\n  <div><Button mini={true}>Mini Button</Button></div><br/>\n  <div><Button disabled={true}>Disabled Button</Button></div><br/>\n  <div><Button block={true}>Block Button</Button></div><br/>\n  <div><Button primary={true}>Primary Button</Button></div><br/>\n  <div><Button inverse={true}>Inverse Button</Button></div><br />\n  <div>\n    <Button style={{\n      backgroundColor: \"#8b67a5\",\n      color: \"#fff\"\n      }}\n    >Custom Styled Button</Button>\n  </div>\n</div>\n"
+        },
+        {
+          "title": "Fake link",
+          "flags": {},
+          "code": "<Button fakelink={true}>Fake Link Button</Button>\n"
+        },
+        {
+          "title": "Drop down",
+          "flags": {},
+          "code": "<Button dropdown={true}>Dropdown-Style Button</Button>\n"
+        },
+        {
+          "title": "Badge",
+          "flags": {},
+          "code": "<Button badge={true}>Badge Button</Button>\n"
+        },
+        {
+          "title": "Arrow link",
+          "flags": {},
+          "code": "<Button arrowlink={true}>Arrow Link Button</Button>\n"
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "Revealer",
+      "methods": [
+        {
+          "name": "_afterAnimation",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "normalizeHeight",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "checkVisibilityAndResize",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "contentHeight",
+              "type": {
+                "name": "number"
+              }
+            },
+            {
+              "name": "contentWidth",
+              "type": {
+                "name": "number"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "toggleOpen",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "event",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        }
+      ],
+      "props": {
+        "baseHeight": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "100",
+            "computed": false
+          },
+          "description": "The base height of the container"
+        },
+        "border": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "true",
+            "computed": false
+          },
+          "description": "True if we should display a border above the button"
+        },
+        "buttonClosedText": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"Show more\"",
+            "computed": false
+          },
+          "description": "Text to be displayed within the button when closed"
+        },
+        "buttonOpenText": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"Show less\"",
+            "computed": false
+          },
+          "description": "Text to be displayed within the button when open"
+        },
+        "defaultOpen": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "True if the revealer should start open"
+        },
+        "disableClose": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "True the revealer should not be closeable"
+        },
+        "fakeLink": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "true",
+            "computed": false
+          },
+          "description": "True if we should display button as a fake link"
+        },
+        "inverse": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "True if we should display the inverse button"
+        }
+      },
+      "fileName": "./src/components/revealer.jsx",
+      "description": "A revelear component",
+      "examples": "```jsx\n<Revealer baseHeight={100} defaultOpen={false} disableClose={true}>\n  Foo\n</Revealer>\n```",
+      "component": "Revealer",
+      "import": "{Revealer}",
+      "playground": [
+        {
+          "title": "Revealer",
+          "flags": {},
+          "code": "<Revealer baseHeight={100} defaultOpen={false} disableClose={true}>\n  <ul>\n    <li>Item one</li>\n    <li>Item two</li>\n    <li>Item three</li>\n    <li>Item four</li>\n    <li>Item five</li>\n    <li>Item six</li>\n    <li>Item seven</li>\n    <li>Item eight</li>\n    <li>Item nine</li>\n    <li>Item ten</li>\n  </ul>\n</Revealer>\n"
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "methods": [
+        {
+          "name": "_addDocClickListener",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_removeDocClickListener",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_handleDocClick",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "ev",
+              "type": {
+                "name": "Object",
+                "alias": "Object"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_closeTabs",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "setActiveTab",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "tabRef",
+              "type": {
+                "name": "number"
+              }
+            },
+            {
+              "name": "event",
+              "type": {
+                "name": "Object",
+                "alias": "Object"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_addActiveTab",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "component",
+              "type": {
+                "name": "ReactElement",
+                "alias": "ReactElement"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        }
+      ],
+      "props": {
+        "initialActiveTab": {
+          "type": {
+            "name": "number"
+          },
+          "required": true,
+          "defaultValue": {
+            "value": "0",
+            "computed": false
+          },
+          "description": "The intially active tab"
+        },
+        "activeTabClass": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "defaultValue": {
+            "value": "\"is-active\"",
+            "computed": false
+          },
+          "description": "The class to apply to the active tab"
+        },
+        "initiallyClosed": {
+          "type": {
+            "name": "bool"
+          },
+          "required": true,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "True if tabber starts out initially closed"
+        },
+        "closeable": {
+          "type": {
+            "name": "bool"
+          },
+          "required": true,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "True if the Tabber is closeable"
+        },
+        "closeOnDocClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": "True if we should close on a document click outside the tabber"
+        }
+      },
+      "fileName": "./src/components/tabber.jsx",
+      "description": "Tabber component",
+      "examples": "```jsx\n<Tabber activeTabClass=\"active\" initialActiveTab={0}>\n  <Tabber.Controls>\n    <Tabber.Control>\n      <Button badge={true} badgeAlt={true}>\n        Tab 1\n      </Button>\n    </Tabber.Control>\n\n    <Tabber.Control>\n      <Button badge={true} badgeAlt={true} className=\"m-margin-left\">\n        Tab 2\n      </Button>\n    </Tabber.Control>\n  </Tabber.Controls>\n\n  <Tabber.Content className=\"m-margin-top\" autoHeight>\n    <Tabber.Section>\n      <p>Tab 1 content</p>\n    </Tabber.Section>\n\n    <Tabber.Section>\n      <p>Tab 2 other content</p>\n    </Tabber.Section>\n  </Tabber.Content>\n</Tabber>\n```",
+      "component": "Tabber",
+      "import": "{Tabber}",
+      "references": "Tabber",
+      "playground": [
+        {
+          "title": "Tabber",
+          "flags": {},
+          "code": "<Tabber activeTabClass=\"active\" initialActiveTab={0}>\n  <Tabber.Controls>\n    <Tabber.Control>\n      <Button badge={true} badgeAlt={true}>\n        Tab 1\n      </Button>\n    </Tabber.Control>\n\n    <Tabber.Control>\n      <Button badge={true} badgeAlt={true} className=\"m-margin-left\">\n        Tab 2\n      </Button>\n    </Tabber.Control>\n  </Tabber.Controls>\n\n  <Tabber.Content className=\"m-margin-top\" autoHeight>\n    <Tabber.Section>\n      <p>Tab 1 content</p>\n    </Tabber.Section>\n\n    <Tabber.Section>\n      <p>Tab 2 other content</p>\n    </Tabber.Section>\n  </Tabber.Content>\n</Tabber>\n"
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "Tabber.Content",
+      "methods": [
+        {
+          "name": "cancelAnimation",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_startTween",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_displayActive",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "section",
+              "type": {
+                "name": "ReactElement",
+                "alias": "ReactElement"
+              }
+            },
+            {
+              "name": "i",
+              "type": {
+                "name": "number"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement",
+              "nullable": true
+            }
+          }
+        },
+        {
+          "name": "_getHeight",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "number"
+            }
+          }
+        },
+        {
+          "name": "_getStyle",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "Object"
+            }
+          }
+        }
+      ],
+      "props": {
+        "autoHeight": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "True if we should adjust to auto height"
+        },
+        "activeTab": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "description": "True if this is the active tab"
+        },
+        "easingType": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"easeInOutQuad\"",
+            "computed": false
+          },
+          "description": "The easing function we should use on opening"
+        },
+        "autoHeightSpeed": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "400",
+            "computed": false
+          },
+          "description": "The speed of the height change"
+        }
+      },
+      "fileName": "./src/components/tabber-content.jsx",
+      "description": "The content section of a Tabber",
+      "component": "Tabber.Content",
+      "import": "{Tabber}",
+      "references": "Tabber",
+      "hasProps": true
+    },
+    {
+      "methods": [],
+      "props": {
+        "activeTabClass": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "isActive": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "handleControlClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/tabber-control.jsx",
+      "description": "The control for a Tabber",
+      "component": "Tabber.Control",
+      "import": "{Tabber}",
+      "references": "Tabber",
+      "hasProps": true
+    },
+    {
+      "methods": [],
+      "props": {},
+      "fileName": "./src/components/tabber-section.jsx",
+      "description": "A child section of a Tabber",
+      "component": "Tabber.Controls",
+      "import": "{Tabber}",
+      "references": "Tabber",
+      "hasProps": false
+    },
+    {
+      "methods": [
+        {
+          "name": "_addChildRefs",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "control",
+              "type": {
+                "name": "ReactElement",
+                "alias": "ReactElement"
+              }
+            },
+            {
+              "name": "i",
+              "type": {
+                "name": "number"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        }
+      ],
+      "props": {
+        "setActiveTab": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": "Event handler for setting the active tab"
+        },
+        "activeTab": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "description": "The active tab number"
+        },
+        "activeTabClass": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "The CSS class to apply to the active tab"
+        }
+      },
+      "fileName": "./src/components/tabber-controls.jsx",
+      "description": "The controls section of Tabber",
+      "component": "Tabber.Controls",
+      "import": "{Tabber}",
+      "references": "Tabber",
+      "hasProps": true
+    },
+    {
+      "methods": [],
+      "props": {
+        "initialActiveTab": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "description": "The number of the initially active tab"
+        }
+      },
+      "fileName": "./src/components/tabber-simple.jsx",
+      "description": "A simple Tabber wrapper",
+      "examples": "```jsx\n<Tabber.Simple>\n  <div title=\"Foo\">\n    Foo!\n  </div>\n  <div title=\"Bar\">\n    Bar!\n  </div>\n</Tabber.Simple>\n```",
+      "component": "Tabber.Simple",
+      "import": "{Tabber}",
+      "references": "Tabber",
+      "playground": [
+        {
+          "title": "Tabber.Simple",
+          "flags": {},
+          "code": "<Tabber.Simple>\n  <div title=\"Foo\">\n    Foo!\n  </div>\n  <div title=\"Bar\">\n    Bar!\n  </div>\n</Tabber.Simple>\n"
+        }
+      ],
+      "hasProps": true
+    }
+  ]
+}

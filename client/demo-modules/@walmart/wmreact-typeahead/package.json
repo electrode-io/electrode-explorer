@@ -1,0 +1,94 @@
+{
+  "_args": [
+    [
+      {
+        "name": "@walmart/wmreact-typeahead",
+        "raw": "@walmart/wmreact-typeahead",
+        "rawSpec": "",
+        "scope": "@walmart",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/cshi1/githome/portal"
+    ]
+  ],
+  "_from": "@walmart/wmreact-typeahead@latest",
+  "_id": "@walmart/wmreact-typeahead@3.1.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/@walmart/wmreact-typeahead",
+  "_nodeVersion": "4.2.6",
+  "_npmUser": {
+    "email": "npme@example.com",
+    "name": "ananava"
+  },
+  "_npmVersion": "3.8.7",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "@walmart/wmreact-typeahead",
+    "raw": "@walmart/wmreact-typeahead",
+    "rawSpec": "",
+    "scope": "@walmart",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://npme.walmart.com/@/@walmart/wmreact-typeahead/_attachments/wmreact-typeahead-3.1.0.tgz",
+  "_shasum": "9756dae6ed12f81c3b9d2deb549b3713f1be16f8",
+  "_shrinkwrap": null,
+  "_spec": "@walmart/wmreact-typeahead",
+  "_where": "/Users/cshi1/githome/portal",
+  "author": {
+    "name": "kwheel2"
+  },
+  "dependencies": {
+    "@walmart/wmreact-analytics": "^4.0.1",
+    "@walmart/wmreact-forms": "^5.0.5",
+    "@walmart/wmreact-validation": "^3.0.0",
+    "radon-typeahead": "~0.1.0"
+  },
+  "description": "> Before getting started, please make sure you read the [React Developer Guide](https://gecgithub01.walmart.com/react/react-dev-guide)!",
+  "devDependencies": {
+    "@walmart/electrode-archetype-react-component": "^9.2.1",
+    "@walmart/electrode-archetype-react-component-dev": "^9.2.1",
+    "@walmart/electrode-docgen": "^1.0.0",
+    "@walmart/lithe-extras": "^2.8.0",
+    "builder": "^2.10.1",
+    "component-playground": "^1.2.0"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "9756dae6ed12f81c3b9d2deb549b3713f1be16f8",
+    "tarball": "https://npme.walmart.com/@/@walmart/wmreact-typeahead/_attachments/wmreact-typeahead-3.1.0.tgz"
+  },
+  "gitHead": "c9a2aa4bdcfec706e2706e96c4738158e9d8046c",
+  "license": "UNLICENSED",
+  "main": "lib/index.js",
+  "maintainers": [
+    {
+      "email": "ken.wheeler@walmartlabs.com",
+      "name": "kwheel2"
+    }
+  ],
+  "name": "@walmart/wmreact-typeahead",
+  "optionalDependencies": {},
+  "private": false,
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git://gecgithub01.walmart.com/react/typeahead.git"
+  },
+  "scripts": {
+    "demo": "builder run generate && builder run server-dev",
+    "demo-iso": "builder run dev-iso",
+    "generate": "npm run generate-metadata && npm run generate-documentation",
+    "generate-documentation": "electrode-docgen --package ./package.json --src ./src --markdown components.md",
+    "generate-metadata": "electrode-docgen --package ./package.json --src ./src --metadata components.json",
+    "prepublish": "builder run npm:prepublish",
+    "preversion": "builder run test",
+    "test": "builder run check-cov"
+  },
+  "version": "3.1.0"
+}

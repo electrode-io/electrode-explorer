@@ -1,0 +1,58 @@
+.ProductDelivery {
+
+  .ProductDelivery-delivery-date {
+    to-rem(font-size, 14px);
+    color: $black;
+  }
+
+  .ProductDelivery-msg {
+    color: $grey-dark;
+    line-height: 1.3;
+  }
+
+  .ProductDelivery-upSell {
+    to-rem(font-size, 12px);
+  }
+
+  .ProductDelivery-store {
+    to-rem(font-size, 14px);
+  }
+
+  .ProductDelivery-msg-separator {
+    to-rem(font-size, 14px);
+  }
+
+  .ProductDelivery-pickup-icon {
+    color: $green;
+  }
+
+  .ProductDelivery-pickup-msg {
+    to-rem(font-size, 14px);
+    color: $green;
+    margin-left: $xxs-spacing;
+  }
+
+  .ProductDelivery-pickup-msg::before {
+    margin-right: $xxs-spacing;
+  }
+
+  &.responsive-product-delivery {
+    .ProductDelivery-delivery-date {
+      +breakpoint($breakpoint-m) {
+        to-rem(font-size, 22px);
+      }
+    }
+
+    .ProductDelivery-msg-separator {
+      +breakpoint($breakpoint-m) {
+        to-rem(font-size, 16px);
+      }
+    }
+
+    .ProductDelivery-pickup-msg {
+      +breakpoint($breakpoint-m) {
+        to-rem(font-size, 16px);
+      }
+    }
+  }
+}

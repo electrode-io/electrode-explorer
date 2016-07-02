@@ -1,0 +1,28 @@
+class SubmapModalExample extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = { active: false };
+    this._onClose = this._onClose.bind(this);
+  }
+
+  _onClose() {
+    this.setState({ active: false });
+  }
+
+  render() {
+    return (
+      <div>
+        <SubmapModal
+          active={this.state.active}
+          onClose={this._onClose}
+        />
+        <a onClick={() => {
+          this.setState({ active: true });
+        }}>Show</a>
+      </div>
+    );
+  }
+}
+
+React.render(<SubmapModalExample/>, mountNode);

@@ -1,0 +1,82 @@
+
+/*!
+Spinner
+The loading spinner can be used standalone or with a `.spinner-backdrop`
+wrapper, which adds a semi-transparent white backdrop.
+.spinner-small - A small spinner variant.
+.spinner-mini - A mini spinner variant.
+Styleguide 8.9
+*/
+
+/* Overrides moved from container.styl */
+.spinner {
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2255%22%20height%3D%2255%22%20viewBox%3D%220%200%2055.015%2055.016%22%3E%3Cpath%20opacity%3D%22.12%22%20fill%3D%22%23010101%22%20d%3D%22M54.592%2022.733C52.397%2010.295%2041.602.748%2029.002.043c-12.448-.7-24.19%207.51-27.808%2019.447-3.67%2012.12%201.614%2025.483%2012.566%2031.83%2010.828%206.282%2024.908%204.25%2033.573-4.766%206.04-6.287%208.766-15.234%207.26-23.82zM48.66%2035.207C44.453%2046.7%2031.32%2052.87%2019.81%2048.657%208.183%2044.427%202.04%2031.034%206.482%2019.475%2010.822%208.18%2023.822%202.192%2035.206%206.357%2046.712%2010.55%2052.853%2023.7%2048.66%2035.207c-.454%201.238.443-1.22%200%200z%22%2F%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M49.803%2014.637C46.02%208.102%2039.417%203.46%2031.98%202.147l-.26%201.476c8.44%201.488%2015.638%207.54%2018.583%2015.588l1.41-.51c-.518-1.42-1.162-2.77-1.91-4.06z%22%2F%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+}
+
+.spinner-demo {
+  position: relative;
+  width: 270px;
+  height: 200px;
+}
+
+.spinner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  width: 1em;
+  height: @width;
+  margin: auto;
+
+  animation: spin-clockwise 1.5s linear 0s infinite;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  font-size: 55px;
+}
+
+.spinner-small {
+  font-size: 28px;
+}
+
+.spinner-mini {
+  font-size: 20px;
+}
+
+.no-cssanimations .spinner:after {
+  content: "";
+
+  display: block;
+  width: 100%;
+  height: @width;
+
+  background-image: url("//i5.walmartimages.com/dfw/63fd9f59-7ec1/k2-_29b3ff4e-51f9-4fe1-b991-0e2ecd71d80f.v1.gif");
+}
+
+.no-cssanimations .spinner-small:after {
+  background-image: url("//i5.walmartimages.com/dfw/63fd9f59-6d47/k2-_25f436c1-4a79-4a85-8d47-d3d9e1b2ffb8.v1.gif");
+}
+
+.no-cssanimations .spinner-mini:after {
+  background-image: url("//i5.walmartimages.com/dfw/63fd9f59-cb38/k2-_c64da396-3251-4aea-b5c6-154258b2bf59.v1.gif");
+}
+
+.spinner-backdrop {
+  wmzindex("spinner-backdrop");
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  // Use a png with the same values as the below `rgba` for browsers that don't support rgba
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVQIHWP4vx8AAsABvxAEKVEAAAAASUVORK5CYII=");
+  background: rgba(255, 255, 255, .75);
+}
+
+.spinner-backdrop-fixed {
+  position: fixed;
+}

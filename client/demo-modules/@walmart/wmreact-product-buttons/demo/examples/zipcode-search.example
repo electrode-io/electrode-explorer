@@ -1,0 +1,5 @@
+<ZipCodeSearch
+ zipCode="22201"
+ className="prod-zipcode-search"
+ onLocationUpdate={(event)=>{console.log(event)}}
+/>

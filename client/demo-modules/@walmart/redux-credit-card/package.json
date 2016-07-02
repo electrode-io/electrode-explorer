@@ -1,0 +1,108 @@
+{
+  "_args": [
+    [
+      {
+        "name": "@walmart/redux-credit-card",
+        "raw": "@walmart/redux-credit-card",
+        "rawSpec": "",
+        "scope": "@walmart",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/cshi1/githome/portal"
+    ]
+  ],
+  "_from": "@walmart/redux-credit-card@latest",
+  "_id": "@walmart/redux-credit-card@7.0.3",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/@walmart/redux-credit-card",
+  "_nodeVersion": "4.2.2",
+  "_npmUser": {
+    "email": "npme@example.com",
+    "name": "pbondes"
+  },
+  "_npmVersion": "3.6.0",
+  "_phantomChildren": {
+    "isomorphic-fetch": "2.2.1"
+  },
+  "_requested": {
+    "name": "@walmart/redux-credit-card",
+    "raw": "@walmart/redux-credit-card",
+    "rawSpec": "",
+    "scope": "@walmart",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://npme.walmart.com/@/@walmart/redux-credit-card/_attachments/redux-credit-card-7.0.3.tgz",
+  "_shasum": "0b0709235c728daa418d3c91fdb74de0aeeb2eeb",
+  "_shrinkwrap": null,
+  "_spec": "@walmart/redux-credit-card",
+  "_where": "/Users/cshi1/githome/portal",
+  "author": "",
+  "dependencies": {
+    "@walmart/electrode-docgen": "0.0.19",
+    "@walmart/redux-address-book": "^0.3.0",
+    "@walmart/wmreact-credit-card": "^9.0.0",
+    "bind-effect": "^0.2.0",
+    "builder": "^2.8.0",
+    "component-playground": "^1.2.0",
+    "little-loader": "^0.1.0",
+    "lodash": "^4.13.1",
+    "react-redux": "^4.0.6",
+    "redux": "^3.0.4",
+    "redux-actions": "^0.8.0",
+    "redux-effects": "^0.4.0",
+    "redux-effects-fetch": "^0.3.3",
+    "redux-multi": "^0.1.10",
+    "redux-thunk": "^1.0.3"
+  },
+  "description": "credit-card",
+  "devDependencies": {
+    "@walmart/electrode-archetype-react-component": "^9.0.2",
+    "@walmart/electrode-archetype-react-component-dev": "^9.0.2",
+    "@walmart/lithe-extras": "^2.11.1",
+    "@walmart/wmreact-react-demo-shared": "^1.0.7",
+    "babel-eslint": "^4.1.3",
+    "eslint": "^1.5.1",
+    "eslint-config-defaults": "^6.0.0",
+    "eslint-plugin-filenames": "^0.1.2",
+    "eslint-plugin-react": "^3.4.2",
+    "imports-loader": "^0.6.5"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "0b0709235c728daa418d3c91fdb74de0aeeb2eeb",
+    "tarball": "https://npme.walmart.com/@/@walmart/redux-credit-card/_attachments/redux-credit-card-7.0.3.tgz"
+  },
+  "gitHead": "00fb004b6c2c19f00452fc9a912dc73f86041f7c",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "maintainers": [
+    {
+      "email": "pbondesson@walmartlabs.com",
+      "name": "pbondes"
+    }
+  ],
+  "name": "@walmart/redux-credit-card",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git@gecgithub01.walmart.com:redux/credit-card.git"
+  },
+  "scripts": {
+    "build": "builder run build-lib",
+    "check-cov": "builder run lint && builder run test-frontend",
+    "demo": "builder run generate && builder run server-dev",
+    "generate": "npm run generate-metadata && npm run generate-documentation",
+    "generate-documentation": "electrode-docgen --package ./package.json --src ./src --markdown components.md",
+    "generate-metadata": "electrode-docgen --package ./package.json --src ./src --metadata components.json",
+    "prepublish": "builder run build-lib",
+    "test": "builder run check-cov"
+  },
+  "version": "7.0.3"
+}

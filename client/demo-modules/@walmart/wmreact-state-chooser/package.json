@@ -1,0 +1,94 @@
+{
+  "_args": [
+    [
+      {
+        "name": "@walmart/wmreact-state-chooser",
+        "raw": "@walmart/wmreact-state-chooser",
+        "rawSpec": "",
+        "scope": "@walmart",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/cshi1/githome/portal"
+    ]
+  ],
+  "_from": "@walmart/wmreact-state-chooser@latest",
+  "_id": "@walmart/wmreact-state-chooser@2.0.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/@walmart/wmreact-state-chooser",
+  "_nodeVersion": "4.2.6",
+  "_npmUser": {
+    "email": "dstevens@walmartlabs.com",
+    "name": "dsteve7"
+  },
+  "_npmVersion": "3.7.2",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "@walmart/wmreact-state-chooser",
+    "raw": "@walmart/wmreact-state-chooser",
+    "rawSpec": "",
+    "scope": "@walmart",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/@walmart/wmreact-address-form"
+  ],
+  "_resolved": "https://npme.walmart.com/@/@walmart/wmreact-state-chooser/_attachments/wmreact-state-chooser-2.0.0.tgz",
+  "_shasum": "c98435c041870e126af1a6c88322748088096398",
+  "_shrinkwrap": null,
+  "_spec": "@walmart/wmreact-state-chooser",
+  "_where": "/Users/cshi1/githome/portal",
+  "author": {
+    "name": "mpfiste@walmart.com"
+  },
+  "dependencies": {
+    "@walmart/wmreact-analytics": "^4.0.0",
+    "@walmart/wmreact-chooser": "^4.0.0",
+    "@walmart/wmreact-layout": "^7.0.2",
+    "classnames": "^2.0.0",
+    "object-assign": "^4.0.0",
+    "radon-select": "^1.0.0"
+  },
+  "description": "> Before getting started, please make sure you read the [React Developer Guide](https://gecgithub01.walmart.com/react/react-dev-guide)!",
+  "devDependencies": {
+    "@walmart/electrode-archetype-react-component": "^9.0.2",
+    "@walmart/electrode-archetype-react-component-dev": "^9.0.2",
+    "@walmart/lithe-extras": "^2.2.3",
+    "builder": "^2.9.1",
+    "component-playground": "^1.2.0"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "c98435c041870e126af1a6c88322748088096398",
+    "tarball": "https://npme.walmart.com/@/@walmart/wmreact-state-chooser/_attachments/wmreact-state-chooser-2.0.0.tgz"
+  },
+  "gitHead": "676f124c4813f47280c349bb8437c691ce4342e1",
+  "license": "UNLICENSED",
+  "main": "lib/index.js",
+  "maintainers": [
+    {
+      "email": "smelnicki@walmart.com",
+      "name": "smelnic"
+    }
+  ],
+  "name": "@walmart/wmreact-state-chooser",
+  "optionalDependencies": {},
+  "private": false,
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git://gecgithub01.walmart.com/react/state-chooser.git"
+  },
+  "scripts": {
+    "build": "builder run build-lib",
+    "demo": "builder run server-dev",
+    "hot": "builder run server-hot",
+    "prepublish": "builder run build",
+    "preversion": "builder run test",
+    "test": "builder run check-cov && builder run cov-frontend"
+  },
+  "version": "2.0.0"
+}

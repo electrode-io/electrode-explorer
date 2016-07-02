@@ -1,1 +1,1 @@
-{"meta":{"name":"@walmart/wmreact-typeahead","github":"https://gecgithub01.walmart.com/react/typeahead/","version":"3.1.0"},"imports":[{"path":"components/typeahead"},{"path":"components/typeahead-list-item"}],"components":[],"usage":["https://gecgithub01.walmart.com/react/showcase-thor"]}
+{"meta":{"name":"@walmart/wmreact-typeahead","github":"https://gecgithub01.walmart.com/react/typeahead/","version":"3.1.0"},"usage":["https://gecgithub01.walmart.com/react/showcase-thor"]}

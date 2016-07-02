@@ -45,6 +45,7 @@
     "@walmart/wmreact-analytics": "^4.0.0",
     "@walmart/wmreact-base": "^7.0.0",
     "@walmart/wmreact-containers": "^11.0.0",
+    "@walmart/wmreact-react-demo-shared": "^1.0.7",
     "autoprefixer-stylus": "^0.9.1",
     "babel-cli": "^6.5.1",
     "babel-core": "^6.5.1",

@@ -1,0 +1,18 @@
+<ProductOffer
+  price={100.99}
+  minPrice={100}
+  maxPrice={1000.00}
+  minWasPrice={200}
+  maxWasPrice={1200}
+  displayRange
+  currency="$"
+  savingsPrice={12.00}
+  wasPrice={110.99}
+  unitPrice="89.7¢ / oz"
+  availabilityStatus="OUT_OF_STOCK"
+  shippable={true}
+  pickupable={true}
+  pickupToday={true}
+  freeShippingThresholdPrice={35}
+  priceFlags={["clearance", "rollback"]}
+  preorder={true}/>

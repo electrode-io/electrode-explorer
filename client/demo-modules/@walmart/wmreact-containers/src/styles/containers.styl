@@ -1,0 +1,67 @@
+@require "~@walmart/wmreact-layout/src/styles/layout";
+@require "~@walmart/wmreact-base/src/styles/base";
+@require "~@walmart/wmreact-interactive/src/styles/interactive";
+
+// Hydra ports
+@require "./expander";
+@require "./flyout";
+@require "./meter";
+@require "./spinner";
+@require "./modal";
+@require "./separator";
+@require "./shelf";
+@require "./tray";
+@require "./well";
+
+@require "./slidepanel";
+@require "./flyout-magic";
+
+.modal-alert .modal-message {
+  margin: 40px 30px 0;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.modal-alert .modal-alert-actions {
+  text-align: right;
+  padding: 1rem;
+}
+
+.tray-wrapper {
+  .x-small-margin-top {
+    @media(max-width: $breakpoint-s-px - 1) {
+      margin-top: 10px;
+    }
+  }
+}
+
+.flyout-backdrop {
+  display: none;
+}
+
+.flyout-trigger {
+  wmzindex("basic");
+
+  position: relative;
+}
+
+.flyout-center {
+  .flyout-modal {
+    top: 50%;
+  }
+
+  .flyout-modal,
+  .flyout-align-caret {
+    &:before {
+      display: none;
+    }
+  }
+}
+
+.flyout-align-center, .flyout-align-bottom {
+  .flyout-modal {
+    left: 50%;
+    right: auto;
+    margin-left: 0;
+  }
+}

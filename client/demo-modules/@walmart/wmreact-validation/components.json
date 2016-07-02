@@ -1,0 +1,192 @@
+{
+  "library": "@walmart/wmreact-validation",
+  "components": [
+    {
+      "description": "",
+      "displayName": "Input",
+      "props": {
+        "inputName": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "validationType": {
+          "type": {
+            "name": "custom",
+            "raw": "function(props, propName) {\n  // If it's not a function and not a string that corresponds to a validator, it's not valid\n  if (typeof props[propName] !== \"function\" &&\n    typeof validators[props[propName]] === \"undefined\") {\n    return new Error(\"validationType must be a function or a validator name\");\n  }\n}"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"legaltext\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "validationParams": {
+          "type": {
+            "name": "any"
+          },
+          "required": false,
+          "description": ""
+        },
+        "isRequiredField": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "true",
+            "computed": false
+          },
+          "description": ""
+        },
+        "errorLabel": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "defaultValue": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "placeholderText": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "inputType": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"text\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "mask": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "isDisabled": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": ""
+        },
+        "isLocked": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": ""
+        },
+        "lockedClassName": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "isMini": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": ""
+        },
+        "showPlaceholder": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": ""
+        },
+        "automationId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "undefined",
+            "computed": true
+          },
+          "description": ""
+        },
+        "onChange": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "onBlur": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "onFocus": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/input.jsx",
+      "hasProps": true
+    }
+  ]
+}

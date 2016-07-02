@@ -1,0 +1,79 @@
+.ReviewHistogram {
+  width: 85%;
+  border: none;
+  overflow: visible;
+  position: relative;
+  padding: 4px 8px 0 0;
+
+  line-height: 16px;
+  to-rem(font-size, 14px);
+  background-color: $white;
+
+  .Meter {
+    height: 10px;
+    position: relative;
+    overflow: hidden;
+    width: 90px;
+    height: 10px;
+    border-radius: $meter.radius;
+    background: $grey-light;
+  }
+
+  .MeterBar {
+    display: block;
+    height: 100%;
+    background: $yellow;
+  }
+
+  .MeterInline {
+    display: inline-block;
+  }
+
+  .Histogram {
+    position: relative;
+    display: inline-block;
+
+    margin: 0 6px 0 6px;
+    height: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+
+    +breakpoint($breakpoint-m) {
+      height: 10px;
+      width: 190px;
+    }
+  }
+}
+
+.RatingFilter {
+  margin: 7px 0;
+  color: $black;
+  cursor: default;
+  pointer-events: none;
+
+  &.active {
+    @extend .font-normal;
+
+    +breakpoint($breakpoint-m) {
+      font-weight: 600;
+    }
+  }
+
+  +breakpoint($breakpoint-m) {
+    cursor: pointer;
+    margin: 6px 0;
+    color: $blue;
+    pointer-events: visible;
+  }
+}
+
+.RatingFilter.is-greyed {
+  color: $black;
+  cursor: default;
+  pointer-events: none;
+
+  +breakpoint($breakpoint-m) {
+    color: $grey-light;
+  }
+}
+

@@ -1,0 +1,9 @@
+<div>
+  <ProductsBOT>
+    <ProductsBOT.Row><div className="foo">Node Module 1</div></ProductsBOT.Row>
+    <ProductsBOT.Row><div className="foo">Node Module 2</div></ProductsBOT.Row>
+    <ProductsBOT.Row showBottomBorder={false}><div className="foo">Node Module 3</div></ProductsBOT.Row>
+    <ProductsBOT.Row showBottomBorder={false}><div className="foo">Node Module 4</div></ProductsBOT.Row>
+    <ProductsBOT.Row colored><div className="foo">Node Module 5</div></ProductsBOT.Row>
+  </ProductsBOT>
+</div>

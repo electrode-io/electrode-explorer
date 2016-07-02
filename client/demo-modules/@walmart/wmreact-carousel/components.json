@@ -1,0 +1,125 @@
+{
+  "library": "@walmart/wmreact-carousel",
+  "description": "A carousel component for Hydra UI",
+  "title": "Carousel",
+  "components": [
+    {
+      "methods": [],
+      "props": {
+        "header": {
+          "type": {
+            "name": "node"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "null",
+            "computed": false
+          },
+          "description": "Header to be rendered inside customized area"
+        },
+        "staticTile": {
+          "type": {
+            "name": "node"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "null",
+            "computed": false
+          },
+          "description": "Static tile to be rendered, doesn't rotate with children"
+        },
+        "staticTileWidth": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "defaultValue": {
+            "value": "\"200px\"",
+            "computed": false
+          },
+          "description": "Static tile width"
+        },
+        "backgroundColor": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"transparent\"",
+            "computed": false
+          },
+          "description": "CSS background-color property to be set on carousel wrapper"
+        },
+        "backgroundImage": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "null",
+            "computed": false
+          },
+          "description": "CSS background-image property to be set on carousel wrapper"
+        },
+        "framePadding": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"0\"",
+            "computed": false
+          },
+          "description": "Padding of carousel, also pads static tile"
+        },
+        "dataModuleType": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": "Required for Tempo modules and automation tests"
+        },
+        "dataModuleId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": "Required for Tempo modules and automation tests"
+        },
+        "dataAutomationId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": "Required for automation tests"
+        }
+      },
+      "fileName": "./src/components/featured-element-carousel.jsx",
+      "description": "Responsive Carousel with option of static tile, background color and background image",
+      "examples": "```jsx\n<FeaturedElementCarousel style={{marginBottom: 40}}\n  cellSpacing={20}\n  staticTile={\n    <div style={{background:'#ccc',padding:'4rem', textAlign: 'center'}}>A</div>\n  }\n  backgroundColor=\"#fe9\">\n  <div style={{background:'#aaa',padding:'4rem', textAlign: 'center'}}>B</div>\n  <div style={{background:'#ccc',padding:'4rem', textAlign: 'center'}}>C</div>\n  <div style={{background:'#ccc',padding:'4rem', textAlign: 'center'}}>D</div>\n  <div style={{background:'#aaa',padding:'4rem', textAlign: 'center'}}>E</div>\n  <div style={{background:'#ccc',padding:'4rem', textAlign: 'center'}}>F</div>\n</FeaturedElementCarousel>\n```\n\nIt takes all arguments that carousel takes.",
+      "component": "FeaturedElementCarousel",
+      "import": "Carousel",
+      "playground": [
+        {
+          "title": "Carousel",
+          "flags": {},
+          "code": "<FeaturedElementCarousel style={{marginBottom: 40}}\n  framePadding=\"40\"\n  cellSpacing={20}\n  header={<h3 style={{lineHeight: \"50px\"}}>Example title</h3>}\n  staticTile={<div style={{background:'#ccc',padding:'4rem', textAlign: 'center'}}>Static</div>}\n  backgroundColor=\"hotpink\"\n  responsive={[\n    {\n      selectors: ['x-small','small'],\n      settings: {\n        slidesToShow: 1,\n        slidesToScroll: 1\n      }\n    },\n    {\n      selectors: ['medium','large'],\n      settings: {\n        slidesToShow: 2,\n        slidesToScroll: 2\n      }\n    },\n    {\n      selectors: ['x-large'],\n      settings: {\n        slidesToShow: 3,\n        slidesToScroll: 3\n      }\n    }\n  ]}>\n  <div style={{background:'#ccc',padding:'4rem', textAlign: 'center'}}>A</div>\n  <div style={{background:'#aaa',padding:'4rem', textAlign: 'center'}}>B</div>\n  <div style={{background:'#ccc',padding:'4rem', textAlign: 'center'}}>C</div>\n  <div style={{background:'#aaa',padding:'4rem', textAlign: 'center'}}>D</div>\n  <div style={{background:'#ccc',padding:'4rem', textAlign: 'center'}}>E</div>\n</FeaturedElementCarousel>\n"
+        }
+      ],
+      "returns": "returns Stateless FeaturedElementCarousel component",
+      "hasProps": true
+    }
+  ]
+}
