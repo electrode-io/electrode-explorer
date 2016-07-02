@@ -24,9 +24,14 @@ export default class Component extends React.Component {
       .then((res) => {
         const meta = res.meta || {};
         const usage = res.usage || [];
-        const demo = require(`../demo-modules/${meta.name}/demo/demo.jsx`);
+        this.setState({ meta, usage });
 
-        this.setState({ demo, meta, usage });
+        try {
+          const demo = require(`../demo-modules/${meta.name}/demo/demo.jsx`);
+          this.setState({ demo });
+        } catch (e) {
+          console.log(`error in require demo in ${meta.name}`);
+        }
       });
   }
 
