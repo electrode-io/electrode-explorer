@@ -1,8 +1,0 @@
----
-extends:
-  - "defaults/configurations/walmart/es6-react"
-globals:
-  document: false
-rules:
-  "complexity": 0
-  "max-len": 0
