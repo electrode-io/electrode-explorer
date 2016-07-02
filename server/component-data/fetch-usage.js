@@ -38,6 +38,8 @@ const fetchUsage = (meta) => {
         }
       });
 
+      results.sort();
+
       return resolve(results);
     });
   });

@@ -1,67 +1,37 @@
 import React from "react";
-import assign from "object-assign";
 import { fetchJSON } from "@walmart/electrode-fetch";
 import ExecutionEnvironment from "exenv";
-
-let Playground;
 
 export default class Component extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      examples: [],
       meta: {},
-      passingScope: {},
-      usage: []
+      usage: [],
+      demo: null
     };
   }
 
-  componentDidMount() {
-    Playground = require("component-playground").default;
-  }
-
   componentWillMount() {
-    const { org, repo } = this.props.params;
-    const host = ExecutionEnvironment.canUseDOM ?
-      window.location.origin :
-      "http://localhost:3000";
+    if (!ExecutionEnvironment.canUseDOM) {
+      return;
+    }
 
-    return fetchJSON(`${host}/portal/data/${org}/${repo}.json`)
+    const { org, repo } = this.props.params;
+    const host = window.location.origin;
+    const url = `${host}/portal/data/${org}/${repo}.json`;
+    return fetchJSON(url)
       .then((res) => {
         const meta = res.meta || {};
-        const imports = res.imports || [];
         const usage = res.usage || [];
-        const examples = this.state.examples;
+        const demo = require(`../demo-modules/${meta.name}/demo/demo.jsx`);
 
-        res.components && res.components.forEach((r) => {
-          examples.push({
-            title: r.title,
-            code: r.examples[0].code
-          });
-        });
-        const passingScope = { React, process };
-
-        imports && imports.forEach((imp) => {
-          if ((/\./).test(imp.ref)) {
-            // Don't pass sub-properties in scope
-            return;
-          }
-
-          try {
-            passingScope[imp.ref] = require(`../demo-modules/${meta.name}/${imp.path}.js`).default;
-          } catch (e) {
-            passingScope[imp.ref] = require(`../demo-modules/${meta.name}/${imp.path}/index.js`).default;
-          }
-        });
-        this.setState({
-          examples, meta, passingScope, usage
-        });
+        this.setState({ demo, meta, usage });
       });
   }
 
   render() {
-    const { examples, meta, passingScope, usage } = this.state;
-    const localScope = assign(passingScope, this.props.scope || {});
+    const { meta, usage, demo } = this.state;
 
     return (
       <div>
@@ -80,17 +50,7 @@ export default class Component extends React.Component {
             </div>}
           </span>
         </h2>
-        <h3><a href={meta.githubUrl}>{meta.githubUrl}</a></h3>
-        {examples && examples.map((e) => {
-          return (
-            <div>
-              <h4>{e.title}</h4>
-              <Playground codeText={e.code}
-                scope={assign(localScope, e.extraScope || {})}
-              />
-            </div>
-          );
-        })}
+        {demo && <demo.default/>}
       </div>
     );
   }
