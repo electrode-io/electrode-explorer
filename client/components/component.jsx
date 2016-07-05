@@ -39,7 +39,6 @@ export default class Component extends React.Component {
 
   render() {
     const { meta, usage, demo, error } = this.state;
-
     return (
       <div>
         <h2 className="portal-title">
@@ -57,7 +56,7 @@ export default class Component extends React.Component {
             </div>}
           </span>
         </h2>
-        { demo && <demo.default/> }
+        { typeof demo !== "undefined" && demo && <demo.default/> }
         { error && <error/> }
       </div>
     );
