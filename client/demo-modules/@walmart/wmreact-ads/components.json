@@ -1,0 +1,86 @@
+{
+  "library": "@walmart/wmreact-ads",
+  "description": "Midas react ads component",
+  "components": [
+    {
+      "description": "",
+      "displayName": "WpaModule",
+      "methods": [
+        {
+          "name": "_renderWpaModule",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "props",
+              "type": null
+            }
+          ],
+          "returns": null
+        }
+      ],
+      "props": {
+        "adaptedData": {
+          "type": {
+            "name": "object"
+          },
+          "required": true,
+          "description": ""
+        },
+        "onRendered": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "onAjaxRender": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "onRenderCallback": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/wpa-module.jsx",
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "methods": [],
+      "props": {
+        "id": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "description": ""
+        },
+        "ads": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "description": ""
+        },
+        "isMobile": {
+          "type": {
+            "name": "custom",
+            "raw": "PropTypes.boolean"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/ads.jsx",
+      "hasProps": true
+    }
+  ]
+}

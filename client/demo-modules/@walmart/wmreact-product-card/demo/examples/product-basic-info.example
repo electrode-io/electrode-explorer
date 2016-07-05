@@ -1,0 +1,17 @@
+<ProductBasicInfo
+  title="Apple iPad mini 2 16GB Wifi"
+  imageUrl="http://i5.walmartimages.com/dfw/dce07b8c-cc1b/k2-_ddfe92b5-b5b2-489a-bf63-5fe7e2839a2a.v5.jpg"
+  usItemId="1521"
+  selectedVariant={[
+    {
+      name: "Space Grey",
+      isImageSwatch: true,
+      swatchImageUrl: "http://placekitten.com/g/40/40"
+    },
+    {
+      name: "Large",
+      isImageSwatch: false
+    }
+  ]}
+  price={{value: 229, currency: "$"}}
+/>

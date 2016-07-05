@@ -1,0 +1,622 @@
+{
+  "library": "@walmart/wmreact-sams-footer",
+  "description": "sams-footer",
+  "components": [
+    {
+      "displayName": "Footer",
+      "methods": [
+        {
+          "name": "_signup",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_renderEmailSignupZone",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{emailSignup, isMobile}",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderSocialIconsZone",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{isMobile}",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderGlobalFooterZone",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{isMobile, pathToAssets}",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderLegalLinksZone",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{isMobile}",
+              "type": null
+            }
+          ],
+          "returns": null
+        }
+      ],
+      "props": {
+        "isMobile": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "check mobile device"
+        },
+        "copyrightText": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "defaultValue": {
+            "value": "\"© SamsClub, Inc.\"",
+            "computed": false
+          },
+          "description": "Copyright text"
+        },
+        "referenceId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": "Customer reference Id"
+        },
+        "emailSignup": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "loading": {
+                "name": "bool",
+                "required": false
+              },
+              "emailId": {
+                "name": "string",
+                "required": false
+              },
+              "didInvalidate": {
+                "name": "bool",
+                "required": false
+              },
+              "showModal": {
+                "name": "bool",
+                "required": false
+              },
+              "emailExclusions": {
+                "name": "string",
+                "required": false
+              },
+              "emailInfoText": {
+                "name": "string",
+                "required": false
+              }
+            }
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "{\n  loading: false,\n  emailId: \"\",\n  didInvalidate: false,\n  showModal: false\n}",
+            "computed": false
+          },
+          "description": "Emailsignup info"
+        },
+        "onBootstrap": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": "The first action dispatched"
+        },
+        "onEmailSubmitted": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "onModalClose": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "quimbyData": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "description": "quimbyData is the result of tempo-core calls to quimby stored in redux"
+        },
+        "pathToAssets": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": "Path to opinion lab assets"
+        },
+        "emailSignupUrl": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"/ajax/footer-email\"",
+            "computed": false
+          },
+          "description": "Url for email signup"
+        }
+      },
+      "fileName": "./src/components/sams-footer.jsx",
+      "description": "This component displays the footer on page",
+      "hasProps": true
+    },
+    {
+      "displayName": "Copyright",
+      "methods": [],
+      "props": {
+        "isMobile": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "check mobile device"
+        },
+        "moduleData": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "type": {
+                "name": "string",
+                "required": false
+              },
+              "moduleId": {
+                "name": "string",
+                "required": false
+              },
+              "configs": {
+                "name": "shape",
+                "value": {
+                  "icons": {
+                    "name": "array",
+                    "required": true
+                  },
+                  "copyrightText": {
+                    "name": "string",
+                    "required": false
+                  }
+                },
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "defaultValue": {
+            "value": "{\n  type: \"\",\n  moduleId: \"\",\n  configs: {\n    icons: [],\n    copyrightText: \"\"\n  }\n}",
+            "computed": false
+          },
+          "description": "Tempo module Data"
+        },
+        "autoId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": "Used for generating unique automation id's"
+        }
+      },
+      "fileName": "./src/components/sams-copyright.jsx",
+      "description": "This component displays the GlobalSocialIcons with a\nHigher Order Function wrapped around it called Copyright.",
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "methods": [],
+      "props": {
+        "moduleData": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "type": {
+                "name": "string",
+                "required": false
+              },
+              "moduleId": {
+                "name": "string",
+                "required": false
+              },
+              "configs": {
+                "name": "shape",
+                "value": {
+                  "legalLinks": {
+                    "name": "array",
+                    "required": false
+                  }
+                },
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/legal-links.jsx",
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "displayName": "GlobalFooter",
+      "methods": [],
+      "props": {
+        "isMobile": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": ""
+        },
+        "moduleData": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "type": {
+                "name": "string",
+                "required": false
+              },
+              "moduleId": {
+                "name": "string",
+                "required": false
+              },
+              "configs": {
+                "name": "shape",
+                "value": {
+                  "membershipSection": {
+                    "name": "object",
+                    "required": false
+                  },
+                  "aboutSection": {
+                    "name": "object",
+                    "required": false
+                  },
+                  "ordersSection": {
+                    "name": "array",
+                    "required": false
+                  },
+                  "helpSection": {
+                    "name": "object",
+                    "required": false
+                  }
+                },
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "defaultValue": {
+            "value": "{\n  type: \"\",\n  moduleId: \"\",\n  configs: {\n    membershipSection: {},\n    aboutSection: {},\n    ordersSection: {},\n    helpSection: {}\n  }\n}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "autoId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "pathToAssets": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/global-footer.jsx",
+      "hasProps": true
+    },
+    {
+      "displayName": "GlobalEmailSignup",
+      "methods": [
+        {
+          "name": "_handleFormSubmit",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "ev",
+              "type": {
+                "name": "Object",
+                "alias": "Object"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_renderHeader",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{ campaignId, headerColor, header, emailInfoText, link, autoId }",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderSignupModal",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{\n  showModal, emailId, emailInfoText, emailExclusions, autoId, moduleData, onModalClose, isMobile\n}",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement",
+              "nullable": true
+            }
+          }
+        },
+        {
+          "name": "_renderEmailForm",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{ autoId, loading, emailExclusions }",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        }
+      ],
+      "props": {
+        "isMobile": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "check mobile device"
+        },
+        "moduleData": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "type": {
+                "name": "string",
+                "required": false
+              },
+              "moduleId": {
+                "name": "string",
+                "required": false
+              },
+              "configs": {
+                "name": "shape",
+                "value": {
+                  "campaignId": {
+                    "name": "string",
+                    "required": false
+                  },
+                  "emailInfoText": {
+                    "name": "string",
+                    "required": false
+                  },
+                  "emailExclusions": {
+                    "name": "string",
+                    "required": false
+                  },
+                  "headerColor": {
+                    "name": "string",
+                    "required": false
+                  },
+                  "header": {
+                    "name": "string",
+                    "required": true
+                  },
+                  "link": {
+                    "name": "shape",
+                    "value": {
+                      "linkText": {
+                        "name": "string",
+                        "required": true
+                      },
+                      "clickThrough": {
+                        "name": "shape",
+                        "value": {
+                          "value": {
+                            "name": "string",
+                            "required": true
+                          }
+                        },
+                        "required": false
+                      }
+                    },
+                    "required": false
+                  }
+                },
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "defaultValue": {
+            "value": "{\n  type: \"\",\n  moduleId: \"\",\n  configs: {\n    campaignId: \"\",\n    emailInfoText: \"\",\n    emailExclusions: \"\",\n    headerColor: \"\",\n    header: \"\",\n    link: {\n      linkText: \"\",\n      clickThrough: {\n        value: \"\"\n      }\n    }\n  }\n}",
+            "computed": false
+          },
+          "description": "Tempo module Data"
+        },
+        "showModal": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "Show modal with customer Email"
+        },
+        "onModalClose": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": "Callback trigger on modal close."
+        },
+        "onEmailSubmitted": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": "Pass value of the email box to set showModal"
+        },
+        "autoId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": "Used for generating unique automation id's"
+        },
+        "emailId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "loading": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "didInvalidate": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/global-email-signup.jsx",
+      "description": "This component displays the form to user\nto signup for marketing emails at walmart.com",
+      "hasProps": true
+    }
+  ]
+}

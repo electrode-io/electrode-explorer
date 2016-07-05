@@ -177,7 +177,7 @@ export default React.createClass({
       "address-form-preferred-address-wrapper pull-left";
 
     const cancelFormClass = "cancel-address-form btn btn-link btn-block-max-s " +
-      "btn-fake-link-large pull-right-s";
+      "btn-fake-link-large cancel-btn pull-right-s";
 
     const {fields: {isDefault}} = this.props;
 

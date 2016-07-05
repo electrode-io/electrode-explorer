@@ -1,0 +1,29 @@
+@require "~@walmart/wmreact-forms/src/styles/forms";
+
+.zero-results-message {
+  position: relative;
+  padding: 13px 48px;
+  margin: 0 20px;
+
+  &:before {
+    walmarticons();
+    wmicon("exclamation-circle");
+
+    display: block;
+    position: absolute;
+    left: 13px;
+
+    color: $yellow;
+    font-size: 25px;
+    line-height: 1;
+  }
+
+  ul {
+    margin: 9px 0;
+    padding-left: 1em;
+
+    color: $grey-medium;
+    font-size: 13px;
+    line-height: 20px;
+  }
+}

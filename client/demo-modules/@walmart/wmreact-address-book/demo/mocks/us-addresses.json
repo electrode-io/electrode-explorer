@@ -1,0 +1,67 @@
+[
+  {
+    "id": "f6ed2d56-ddf3-4363-a17e-fbbcaa59e014",
+    "addressId": "f6ed2d56-ddf3-4363-a17e-fbbcaa59e011",
+    "firstName": "Angela",
+    "lastName": "Nicholas",
+    "addressLineOne": "3601 Fremont Ave N.",
+    "addressLineTwo": "Suite 302",
+    "city": "Redmond",
+    "state": "AL",
+    "postalCode": "98101",
+    "phone": "(333) 333-3333",
+    "isDefault": true
+  },
+  {
+    "id": "00bf6779-e90d-452e-9221-875e52ec2836",
+    "addressId": "f6ed2d56-ddf3-4363-a17e-fbbcaa59e012",
+    "firstName": "Eric",
+    "lastName": "Baer",
+    "addressLineOne": "3602 Fremont Ave N.",
+    "addressLineTwo": null,
+    "city": "Bellevue",
+    "state": "AK",
+    "postalCode": "98102",
+    "phone": "(222) 222-2222",
+    "isDefault": false
+  },
+  {
+    "id": "00e86c85-aeca-4a74-891f-9c88f83d5db4",
+    "addressId": "f6ed2d56-ddf3-4363-a17e-fbbcaa59e013",
+    "firstName": "Per",
+    "lastName": "Nilsson",
+    "addressLineOne": "3603 Fremont Ave N.",
+    "addressLineTwo": null,
+    "city": "Woodinville",
+    "state": "AZ",
+    "postalCode": "98103",
+    "phone": "(999) 999-9999",
+    "isDefault": false
+  },
+  {
+    "id": "21afef3f-b1be-45ef-9f34-985439a152b9",
+    "addressId": "f6ed2d56-ddf3-4363-a17e-fbbcaa59e014",
+    "firstName": "Robert",
+    "lastName": "Gerstenberger",
+    "addressLineOne": "3604 Fremont Ave N.",
+    "addressLineTwo": null,
+    "city": "Seattle",
+    "state": "AR",
+    "postalCode": "98104",
+    "phone": "(888) 888-8888",
+    "isDefault": false
+  },
+  {
+    "id": "3da03747-fb71-45c2-81c9-18019b9a1fe4",
+    "addressId": "f6ed2d56-ddf3-4363-a17e-fbbcaa59e015",
+    "firstName": "Dale",
+    "lastName": "Bustad",
+    "addressLineOne": "3605 Fremont Ave N.",
+    "addressLineTwo": null,
+    "city": "Bothell",
+    "state": "CA",
+    "postalCode": "98105",
+    "phone": "(777) 777-7777",
+    "isDefault": false
+  }
+]

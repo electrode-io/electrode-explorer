@@ -1,0 +1,20 @@
+.header-Header {
+  .header-GlobalSecondaryNav {
+    +breakpoint($breakpoint-l) {
+      margin-left: 193px;
+    }
+
+    +breakpoint($breakpoint-xl) {
+      margin-left: 188px;
+    }
+
+    // Fix layout thrashing due to FOUT when
+    // webfonts are loading.
+    a {
+      .wf-loading & {
+        to-rem(font-size, 15px);
+        letter-spacing: -0.2px;
+      }
+    }
+  }
+}

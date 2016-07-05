@@ -1,0 +1,868 @@
+{
+  "library": "@walmart/wmreact-member-register",
+  "description": "react user register components",
+  "components": [
+    {
+      "description": "",
+      "displayName": "SignUp",
+      "methods": [
+        {
+          "name": "handleOnFieldValueChange",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "event",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "renderEmail",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "renderPassword",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "renderNewsletter",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "handleSubmit",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "evt",
+              "type": null
+            }
+          ],
+          "returns": null
+        }
+      ],
+      "props": {
+        "defaultEmail": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "btnText": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"Create your account\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "setUpAccountText": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"Let's set up your online account\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "passwordText": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"Your password must be between 6 and 12 characters.\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "btnPrimary": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "true",
+            "computed": false
+          },
+          "description": ""
+        },
+        "newsletter": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "true",
+            "computed": false
+          },
+          "description": ""
+        },
+        "newsletterText": {
+          "type": {
+            "name": "node"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "<span className=\"email-letter-text\">\n  Email me about savings and updates.\n</span>",
+            "computed": false
+          },
+          "description": ""
+        },
+        "userFirstName": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "userLastName": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "membershipId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "lockEmail": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "subtitleText": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"Membership # \"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "showSignIn": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "true",
+            "computed": false
+          },
+          "description": ""
+        },
+        "showSubtitle": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": ""
+        },
+        "onSignUp": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        },
+        "handleResponse": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        },
+        "handleSubmit": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        },
+        "fields": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "email": {
+                "name": "object",
+                "required": true
+              },
+              "password": {
+                "name": "object",
+                "required": true
+              },
+              "newsletter": {
+                "name": "object",
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "description": ""
+        },
+        "error": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "submitting": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "showLabels": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "initializeForm": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        },
+        "automation": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "emailInput": {
+                "name": "string",
+                "required": false
+              },
+              "passwordInput": {
+                "name": "string",
+                "required": false
+              },
+              "newsletterCheckbox": {
+                "name": "string",
+                "required": false
+              },
+              "submitBtn": {
+                "name": "string",
+                "required": false
+              },
+              "signInBtn": {
+                "name": "string",
+                "required": false
+              },
+              "passwordShowBtn": {
+                "name": "string",
+                "required": false
+              },
+              "passwordHideBtn": {
+                "name": "string",
+                "required": false
+              }
+            }
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "{\n  emailInput: \"signup-email-input\",\n  passwordInput: \"signup-password-input\",\n  newsletterCheckbox: \"signup-newsletter-checkbox\",\n  submitBtn: \"signup-submit-btn\",\n  signInBtn: \"signup-sign-in-btn\"\n}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "tealeaf": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "emailInput": {
+                "name": "string",
+                "required": false
+              },
+              "passwordInput": {
+                "name": "string",
+                "required": false
+              },
+              "newsletterCheckbox": {
+                "name": "string",
+                "required": false
+              },
+              "submitBtn": {
+                "name": "string",
+                "required": false
+              },
+              "passwordShowBtn": {
+                "name": "string",
+                "required": false
+              },
+              "passwordHideBtn": {
+                "name": "string",
+                "required": false
+              }
+            }
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "{\n  emailInput: \"signup-email-input\",\n  passwordInput: \"signup-password-input\",\n  newsletterCheckbox: \"signup-newsletter-checkbox\",\n  submitBtn: \"signup-submit-btn\"\n}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "headingElement": {
+          "type": {
+            "name": "union",
+            "value": [
+              {
+                "name": "string"
+              },
+              {
+                "name": "func"
+              }
+            ]
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "Heading.H4",
+            "computed": true
+          },
+          "description": ""
+        },
+        "titleText": {
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          }
+        }
+      },
+      "fileName": "./src/components/sign-up.jsx",
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "displayName": "RegisterMembership",
+      "methods": [
+        {
+          "name": "_toggle",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "evt",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_handleSubmit",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "evt",
+              "type": null
+            }
+          ],
+          "returns": null
+        }
+      ],
+      "props": {
+        "headerTitle": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "description": ""
+        },
+        "promoText": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "digitText": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "matchText": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "btnPrimary": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "true",
+            "computed": false
+          },
+          "description": ""
+        },
+        "signInRoute": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "description": ""
+        },
+        "alreadyMemberText": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "fields": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "membershipNum": {
+                "name": "object",
+                "required": true
+              },
+              "lastName": {
+                "name": "object",
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "description": ""
+        },
+        "error": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "description": ""
+        },
+        "onMemberRegister": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        },
+        "handleResponse": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        },
+        "handleSubmit": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        },
+        "submitting": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "captchaAvailable": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "captcha": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "isBot": {
+                "name": "number",
+                "required": false
+              }
+            }
+          },
+          "required": false,
+          "description": ""
+        },
+        "initializeForm": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        },
+        "automation": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "memberShipInput": {
+                "name": "string",
+                "required": false
+              },
+              "continueBtn": {
+                "name": "string",
+                "required": false
+              },
+              "signInBtn": {
+                "name": "string",
+                "required": false
+              }
+            }
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "{\n  memberShipInput: \"membership-number-input\",\n  signInBtn: \"membership-sign-in-btn\",\n  continueBtn: \"continue-membership-btn\"\n}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "tealeaf": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "memberShipInput": {
+                "name": "string",
+                "required": false
+              },
+              "signInBtn": {
+                "name": "string",
+                "required": false
+              },
+              "continueBtn": {
+                "name": "string",
+                "required": false
+              }
+            }
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "{\n  memberShipInput: \"membership-number-input\",\n  signInBtn: \"membership-sign-in-btn\",\n  continueBtn: \"continue-membership-btn\"\n}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "headingElement": {
+          "type": {
+            "name": "union",
+            "value": [
+              {
+                "name": "string"
+              },
+              {
+                "name": "func"
+              }
+            ]
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "Heading.H4",
+            "computed": true
+          },
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/register-membership.jsx",
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "displayName": "CompleteAccountRegistered",
+      "methods": [
+        {
+          "name": "_toggle",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "evt",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_handleSubmit",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "evt",
+              "type": null
+            }
+          ],
+          "returns": null
+        }
+      ],
+      "props": {
+        "headerTitle": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "btnText": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"Continue\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "emailText": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "email": {
+                "name": "string",
+                "required": true
+              },
+              "text": {
+                "name": "string",
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "description": ""
+        },
+        "digitText": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "matchText": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "defaultEmail": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "btnPrimary": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "true",
+            "computed": false
+          },
+          "description": ""
+        },
+        "onCompleteMemberRegister": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        },
+        "initializeForm": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        },
+        "handleSubmit": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        },
+        "handleResponse": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        },
+        "submitting": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "fields": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "membershipNum": {
+                "name": "object",
+                "required": true
+              },
+              "password": {
+                "name": "object",
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "description": ""
+        },
+        "error": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "description": ""
+        },
+        "captchaAvailable": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "captcha": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "isBot": {
+                "name": "number",
+                "required": false
+              }
+            }
+          },
+          "required": false,
+          "description": ""
+        },
+        "automation": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "memberShipInput": {
+                "name": "string",
+                "required": false
+              },
+              "continueBtn": {
+                "name": "string",
+                "required": false
+              },
+              "passwordInput": {
+                "name": "string",
+                "required": false
+              },
+              "passwordShowBtn": {
+                "name": "string",
+                "required": false
+              },
+              "passwordHideBtn": {
+                "name": "string",
+                "required": false
+              }
+            }
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "{\n  memberShipInput: \"complete-membership-input\",\n  passwordInput: \"complete-account-password-input\",\n  continueBtn: \"complete-continue-membership-btn\",\n  passwordShowBtn: \"complete-password-show\",\n  passwordHideBtn: \"complete-password-hide\"\n}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "tealeaf": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "memberShipInput": {
+                "name": "string",
+                "required": false
+              },
+              "continueBtn": {
+                "name": "string",
+                "required": false
+              },
+              "passwordInput": {
+                "name": "string",
+                "required": false
+              },
+              "passwordShowBtn": {
+                "name": "string",
+                "required": false
+              },
+              "passwordHideBtn": {
+                "name": "string",
+                "required": false
+              }
+            }
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "{\n  memberShipInput: \"membership-number-input\",\n  signInBtn: \"membership-sign-in-btn\",\n  continueBtn: \"continue-membership-btn\",\n  passwordShowBtn: \"complete-password-show\",\n  passwordHideBtn: \"complete-password-hide\"\n}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "headingElement": {
+          "type": {
+            "name": "union",
+            "value": [
+              {
+                "name": "string"
+              },
+              {
+                "name": "func"
+              }
+            ]
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "Heading.H4",
+            "computed": true
+          },
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/register-account-completion.jsx",
+      "hasProps": true
+    }
+  ]
+}

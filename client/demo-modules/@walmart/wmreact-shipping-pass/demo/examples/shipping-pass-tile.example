@@ -1,0 +1,4 @@
+<ShippingPassTile
+  dataAutomationId="shipping-pass-tile"
+  shippingPassEligible={() => {return true}}
+/>

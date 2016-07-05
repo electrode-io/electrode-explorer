@@ -1,0 +1,118 @@
+<CreditCards
+  cards={[{
+    lastFour:"1111",
+    firstName:"John",
+    lastName:"Snow",
+    cardExpiryDate:"2020-07-01",
+    cardType:"AMEX",
+    id:"1",
+    addressLineOne: "860 w california ave",
+    city: "sunnyvale",
+    state: "CA",
+    postalCode: "94086",
+    phone: "8123823828"
+
+  },
+  {
+    lastFour:"2222",
+    firstName:"John",
+    lastName:"Snow",
+    cardExpiryDate:"2018-01-01",
+    cardType:"VISA",
+    id:"2",
+    addressLineOne: "860 w california ave",
+    city: "sunnyvale",
+    state: "CA",
+    postalCode: "94086",
+    phone: "8123823828"
+
+  },{
+        lastFour:"1111",
+        firstName:"John",
+        lastName:"Snow",
+        cardExpiryDate:"2020-07-01",
+        cardType:"AMEX",
+        id:"1",
+        addressLineOne: "860 w california ave",
+        city: "sunnyvale",
+        state: "CA",
+        postalCode: "94086",
+        phone: "8123823828"
+
+      },
+      {
+        lastFour:"2222",
+        firstName:"John",
+        lastName:"Snow",
+        cardExpiryDate:"2018-01-01",
+        cardType:"VISA",
+        id:"2",
+        addressLineOne: "860 w california ave",
+        city: "sunnyvale",
+        state: "CA",
+        postalCode: "94086",
+        phone: "8123823828"
+
+      },{
+            lastFour:"1111",
+            firstName:"John",
+            lastName:"Snow",
+            cardExpiryDate:"2020-07-01",
+            cardType:"AMEX",
+            id:"1",
+            addressLineOne: "860 w california ave",
+            city: "sunnyvale",
+            state: "CA",
+            postalCode: "94086",
+            phone: "8123823828"
+
+          },
+          {
+            lastFour:"2222",
+            firstName:"John",
+            lastName:"Snow",
+            cardExpiryDate:"2018-01-01",
+            cardType:"VISA",
+            id:"2",
+            addressLineOne: "860 w california ave",
+            city: "sunnyvale",
+            state: "CA",
+            postalCode: "94086",
+            phone: "8123823828"
+
+          },
+          {
+                lastFour:"1111",
+                firstName:"John",
+                lastName:"Snow",
+                cardExpiryDate:"2020-07-01",
+                cardType:"AMEX",
+                id:"1",
+                addressLineOne: "860 w california ave",
+                city: "sunnyvale",
+                state: "CA",
+                postalCode: "94086",
+                phone: "8123823828"
+
+              },
+              {
+                lastFour:"2222",
+                firstName:"John",
+                lastName:"Snow",
+                cardExpiryDate:"2018-01-01",
+                cardType:"VISA",
+                id:"2",
+                addressLineOne: "860 w california ave",
+                city: "sunnyvale",
+                state: "CA",
+                postalCode: "94086",
+                phone: "8123823828"
+
+              }]}
+  onRequestEdit={(id) => console.log(`edit requested for ${id}`)}
+  onAdd={ev => console.log(ev)}
+  truncate
+  onShowAllCards={() => {}}
+  onEdit={ev => console.log(ev)}
+  onDelete={ev => console.log(ev)}
+  />

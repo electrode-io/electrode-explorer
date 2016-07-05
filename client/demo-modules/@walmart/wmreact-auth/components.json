@@ -1,0 +1,333 @@
+{
+  "library": "@walmart/wmreact-auth",
+  "description": "Simple react Sign in and Sign up components",
+  "components": [
+    {
+      "description": "",
+      "displayName": "Auth-SignUp",
+      "methods": [
+        {
+          "name": "_handleSubmit",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "ev",
+              "type": null
+            }
+          ],
+          "returns": null
+        }
+      ],
+      "props": {
+        "alert": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "type": {
+                "name": "enum",
+                "value": [
+                  {
+                    "value": "\"warning\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"error\"",
+                    "computed": false
+                  }
+                ],
+                "required": false
+              },
+              "text": {
+                "name": "custom",
+                "raw": "PropTypes.text",
+                "required": false
+              }
+            }
+          },
+          "required": false,
+          "description": ""
+        },
+        "titleText": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"Sign up\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "btnPrimary": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "true",
+            "computed": false
+          },
+          "description": ""
+        },
+        "btnText": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"Sign up\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "loading": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "firstName": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "true",
+            "computed": false
+          },
+          "description": ""
+        },
+        "lastName": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "true",
+            "computed": false
+          },
+          "description": ""
+        },
+        "newsLetter": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "true",
+            "computed": false
+          },
+          "description": ""
+        },
+        "newsletterText": {
+          "type": {
+            "name": "node"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "<span>\n  Email me about Rollbacks, special pricing, hot new items, gift ideas and more. My email\n  address will only be used as described in the <a\n    href={defaultPrivacyPolicyLink}\n    target=\"_blank\">privacy policy</a>.\n</span>",
+            "computed": false
+          },
+          "description": ""
+        },
+        "defaultEmail": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "lockEmail": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "onSubmit": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "onError": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/sign-up.jsx",
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "displayName": "Auth-SignIn",
+      "methods": [
+        {
+          "name": "_handleSubmit",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "ev",
+              "type": null
+            }
+          ],
+          "returns": null
+        }
+      ],
+      "props": {
+        "alert": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "type": {
+                "name": "enum",
+                "value": [
+                  {
+                    "value": "\"warning\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"error\"",
+                    "computed": false
+                  }
+                ],
+                "required": false
+              },
+              "text": {
+                "name": "custom",
+                "raw": "PropTypes.text",
+                "required": false
+              }
+            }
+          },
+          "required": false,
+          "description": ""
+        },
+        "titleText": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"Sign in\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "btnPrimary": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "true",
+            "computed": false
+          },
+          "description": ""
+        },
+        "btnText": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"Sign in\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "loading": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "defaultEmail": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "lockEmail": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "onSubmit": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "onError": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/sign-in.jsx",
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "displayName": "Auth-LockEmail",
+      "methods": [
+        {
+          "name": "getValue",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "validate",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "args",
+              "type": null
+            }
+          ],
+          "returns": null
+        }
+      ],
+      "props": {
+        "defaultEmail": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "lockEmail": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/lock-email.jsx",
+      "hasProps": true
+    }
+  ]
+}

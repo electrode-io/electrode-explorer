@@ -1,0 +1,146 @@
+{
+  "_args": [
+    [
+      {
+        "name": "@walmart/wmreact-header",
+        "raw": "@walmart/wmreact-header",
+        "rawSpec": "",
+        "scope": "@walmart",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/cshi1/githome/portal"
+    ]
+  ],
+  "_from": "@walmart/wmreact-header@latest",
+  "_id": "@walmart/wmreact-header@12.0.5",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/@walmart/wmreact-header",
+  "_nodeVersion": "4.4.5",
+  "_npmUser": {
+    "email": "npme@example.com",
+    "name": "cshi1"
+  },
+  "_npmVersion": "3.9.6",
+  "_phantomChildren": {
+    "@walmart/canary": "5.1.1",
+    "@walmart/react-utils": "4.0.0",
+    "@walmart/wmreact-analytics": "4.2.0",
+    "@walmart/wmreact-base": "7.1.0",
+    "@walmart/wmreact-interactive": "7.4.0",
+    "@walmart/wmreact-layout": "7.2.0",
+    "agentkeepalive": "2.2.0",
+    "array-find": "1.0.0",
+    "bluebird": "2.10.2",
+    "classnames": "2.2.5",
+    "eventuate": "4.0.0",
+    "exenv": "1.2.1",
+    "flowtip": "4.0.0",
+    "lodash": "4.13.1",
+    "node-fetch": "1.5.3",
+    "uuid": "2.0.2",
+    "whatwg-fetch": "0.11.1"
+  },
+  "_requested": {
+    "name": "@walmart/wmreact-header",
+    "raw": "@walmart/wmreact-header",
+    "rawSpec": "",
+    "scope": "@walmart",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/@walmart/wmreact-sams-header"
+  ],
+  "_resolved": "https://npme.walmart.com/@/@walmart/wmreact-header/_attachments/wmreact-header-12.0.5.tgz",
+  "_shasum": "6f71176152d7b475b9b20822514f029072511390",
+  "_shrinkwrap": null,
+  "_spec": "@walmart/wmreact-header",
+  "_where": "/Users/cshi1/githome/portal",
+  "author": {
+    "name": "jherrington@walmartlabs.com"
+  },
+  "dependencies": {
+    "@walmart/automation-utils": "^3.0.1",
+    "@walmart/canary": "^5.0.0",
+    "@walmart/canary-event-pattern": "^4.0.0",
+    "@walmart/canary-event-sequence": "^3.0.1",
+    "@walmart/electrode-cookies": "^1.1.0",
+    "@walmart/geolocate": "^3.0.0",
+    "@walmart/wmreact-analytics": "^4.0.0",
+    "@walmart/wmreact-base": "^7.0.0",
+    "@walmart/wmreact-containers": "^10.0.0",
+    "@walmart/wmreact-forms": "^5.0.3",
+    "@walmart/wmreact-image-utils": "^2.0.1",
+    "@walmart/wmreact-interactive": "^7.0.2",
+    "@walmart/wmreact-layout": "^7.0.2",
+    "@walmart/wmreact-shipping-pass": "^2.0.1",
+    "@walmart/wmreact-tempo-analytics-utils": "^6.0.0",
+    "@walmart/wmreact-tempo-core": "^6.0.0",
+    "classnames": "^2.2.3",
+    "exenv": "^1.2.0",
+    "jsonp": "^0.2.0",
+    "little-loader": "^0.1.1",
+    "lodash": "^4.5.0",
+    "react-menu-aim": "^1.0.0",
+    "react-redux": "^4.3.0",
+    "react-tween-state": "^0.1.4",
+    "redux": "^3.2.1",
+    "ua-parser-js": "^0.7.10",
+    "uglify-js": "^2.6.2"
+  },
+  "description": "> Before getting started, please make sure you read the [React Developer Guide](https://gecgithub01.walmart.com/react/react-dev-guide)!",
+  "devDependencies": {
+    "@walmart/electrode-archetype-react-component": "^9.0.0",
+    "@walmart/electrode-archetype-react-component-dev": "^9.0.0",
+    "@walmart/electrode-docgen": "^1",
+    "@walmart/lithe-extras": "^2.3.0",
+    "archy": "^1.0.0",
+    "builder": "^2.9.1",
+    "component-playground": "^1.2.0",
+    "interpret": "^1.0.0",
+    "liftoff": "^2.0.3",
+    "lolex": "^1.4.0",
+    "object-assign": "^4.1.0"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "6f71176152d7b475b9b20822514f029072511390",
+    "tarball": "https://npme.walmart.com/@/@walmart/wmreact-header/_attachments/wmreact-header-12.0.5.tgz"
+  },
+  "gitHead": "6bffec51594dc89b1911e00fc98183664d439ffa",
+  "license": "UNLICENSED",
+  "main": "lib/index.js",
+  "maintainers": [
+    {
+      "email": "npme@example.com",
+      "name": "rgerste"
+    }
+  ],
+  "name": "@walmart/wmreact-header",
+  "optionalDependencies": {},
+  "private": false,
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git://gecgithub01.walmart.com/react/header.git"
+  },
+  "scripts": {
+    "build": "builder run build-lib && builder run build-typeahead",
+    "build-typeahead": "babel-node ./build-inline-typeahead.js",
+    "check-cov": "builder run lint && builder run test-frontend",
+    "demo": "builder run server-dev",
+    "demo-typeahead": "webpack-dev-server --port 4000 --config webpack.config.typeahead-desktop.js",
+    "demo-typeahead-mobile": "webpack-dev-server --port 4000 --config webpack.config.typeahead-mobile.js",
+    "generate": "builder run generate-metadata && builder run generate-documentation && builder run generate-demo",
+    "generate-demo": "electrode-docgen --package package.json --src src/components --demo demo",
+    "generate-documentation": "electrode-docgen --package ./package.json --src ./src --markdown components.md",
+    "generate-metadata": "electrode-docgen --package ./package.json --src ./src --metadata components.json",
+    "prepublish": "builder run build",
+    "preversion": "builder run test",
+    "test": "builder run check-cov && builder run cov-frontend"
+  },
+  "version": "12.0.5"
+}

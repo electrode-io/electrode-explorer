@@ -1,0 +1,179 @@
+// @stylint off
+
+$dynamic-price-grid-x = 60px;
+$dynamic-price-grid-y = 30px;
+$dynamic-price-start-x = -330px;
+$dynamic-price-start-y = 41px;
+
+// aliasing
+$shorter-pov-heights = $shorter-pov-sizes.height;
+
+/*
+ * Scaling ratios.
+ * Specs are given for large breakpoint.
+ * Calculate for other breakpoints.
+ */
+
+$pov-scaling-ratio = {
+  short: {
+    xs: ($shorter-pov-heights.xs / $shorter-pov-heights.l),
+    s: ($shorter-pov-heights.s / $shorter-pov-heights.l),
+    m: ($shorter-pov-heights.m / $shorter-pov-heights.l)
+  }
+};
+
+// Mixins
+$scaled-property($prop, $value) {
+  if ($prop == font-size) {
+    to-rem($prop, $value);
+  } else {
+    {$prop}: round($value);
+  }
+}
+
+// Scales the value for other breakpoints.
+$generate-scaled-properties($prop, $value-l, $isShorter) {
+  $ratio = $isShorter ? $pov-scaling-ratio.short : $pov-scaling-ratio.regular;
+
+  $scaled-property($prop, $value-l * $ratio.xs);
+
+  +breakpoint($breakpoint-s) {
+    $scaled-property($prop, $value-l * $ratio.s);
+  }
+
+  +breakpoint($breakpoint-m) {
+    $scaled-property($prop, $value-l * $ratio.m);
+  }
+
+  +breakpoint($breakpoint-l) {
+    $scaled-property($prop, $value-l);
+  }
+}
+
+/*
+ * Generates horizontal and vertical positioning classes
+ */
+$generate-positioning-classes($isShorter) {
+  // horizontal classes
+  for $x in 0 2 3 4 5 6 7 9 {
+    &.dynamic-price-bubble-x-{$x} {
+      $generate-scaled-properties(margin-left,
+        $dynamic-price-start-x + $x * $dynamic-price-grid-x, $isShorter);
+    }
+  }
+
+  // vertical classes
+  for $y in 0 1 2 3 {
+    &.dynamic-price-bubble-y-{$y} {
+      $generate-scaled-properties(top,
+        $dynamic-price-start-y + $y * $dynamic-price-grid-y, $isShorter);
+    }
+  }
+}
+
+/*
+ * Generates css styles for the container bubble
+ */
+$dynamic-price-bubble($isShorter) {
+  .dynamic-price-bubble {
+    $generate-scaled-properties(height, 2 * $dynamic-price-grid-x, $isShorter);
+    $generate-scaled-properties(width, 2 * $dynamic-price-grid-x, $isShorter);
+    wmzindex("basic");
+
+    position: absolute;
+    left: 50%;
+
+    border: solid 2px rgba($white, 0.5);
+    border-radius: 500px !important;
+
+    background-clip: padding-box;
+    color: $white;
+    cursor: pointer; // for IE < 11 which doesn't support pointer-events: none;
+    line-height: 1;
+    pointer-events: none;
+
+    +breakpoint($breakpoint-m) {
+      border-width: 4px;
+    }
+
+    &.dynamic-price-bubble-hidden {
+      border-color: transparent;
+    }
+
+    $generate-positioning-classes($isShorter);
+  }
+}
+
+/*
+ * Generates css styles for the text inside the bubble
+ */
+$dynamic-price-text($isShorter) {
+  .dynamic-price {
+    $generate-scaled-properties(bottom, 25px, $isShorter);
+    $generate-scaled-properties(font-size, $isShorter ? 40px: 48px, $isShorter);
+
+    position: absolute;
+    left: 0;
+
+    width: 100%;
+    color: inherit;
+
+    // overrides for smallest breakpoint
+    +breakpoint($breakpoint-xs-max, "max") {
+      to-rem(font-size, 18px);
+      bottom: 7px;
+    }
+
+    .sup {
+      font-size: 0.5em;
+      vertical-align: 0.65em; // aligns top of numbers
+    }
+  }
+
+  if ($isShorter) {
+    .dynamic-price-bubble-rollback .dynamic-price {
+        $generate-scaled-properties(bottom, 28px, true);
+    }
+  }
+
+  .dynamic-price-text {
+    $generate-scaled-properties(bottom, 68px, $isShorter);
+    $generate-scaled-properties(font-size, 20px, $isShorter);
+
+    position: absolute;
+    left: 0;
+
+    width: 100%;
+
+    // overrides for smallest breakpoint
+    +breakpoint($breakpoint-xs-max, "max") {
+      to-rem(font-size, 10px);
+
+      bottom: 24px;
+
+      .dynamic-price-bubble-rollback & {
+        to-rem(font-size, 9px);
+      }
+    }
+
+    &.dynamic-price-text-was {
+      $generate-scaled-properties(bottom, 16px, $isShorter);
+    }
+  }
+
+  .dynamic-price-text-small {
+    $generate-scaled-properties(font-size, 14px, $isShorter);
+  }
+
+  .dynamic-price-text-manual {
+    width: 80%;
+    left: 10%;
+  }
+}
+
+// Actual mixin to be called from importing file.
+$pov-dynamic-price-bubble($isShorter = false) {
+  $dynamic-price-bubble(true);
+  $dynamic-price-text($isShorter);
+}
+// @stylint on

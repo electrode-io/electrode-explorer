@@ -1,0 +1,96 @@
+{
+  "_args": [
+    [
+      {
+        "name": "@walmart/wmreact-iconography",
+        "raw": "@walmart/wmreact-iconography@^3.2.3",
+        "rawSpec": "^3.2.3",
+        "scope": "@walmart",
+        "spec": ">=3.2.3 <4.0.0",
+        "type": "range"
+      },
+      "/Users/cshi1/githome/portal"
+    ]
+  ],
+  "_from": "@walmart/wmreact-iconography@>=3.2.3 <4.0.0",
+  "_id": "@walmart/wmreact-iconography@3.2.4",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/@walmart/wmreact-iconography",
+  "_nodeVersion": "4.4.5",
+  "_npmUser": {
+    "email": "npme@example.com",
+    "name": "cshi1"
+  },
+  "_npmVersion": "3.9.6",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "@walmart/wmreact-iconography",
+    "raw": "@walmart/wmreact-iconography@^3.2.3",
+    "rawSpec": "^3.2.3",
+    "scope": "@walmart",
+    "spec": ">=3.2.3 <4.0.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/",
+    "/@walmart/wmreact-member",
+    "/@walmart/wmreact-user",
+    "/@walmart/wmredux-member-login/@walmart/wmreact-user"
+  ],
+  "_resolved": "https://npme.walmart.com/@/@walmart/wmreact-iconography/_attachments/wmreact-iconography-3.2.4.tgz",
+  "_shasum": "44f04596a5bb101a5c2f678a8b6f017f86052712",
+  "_shrinkwrap": null,
+  "_spec": "@walmart/wmreact-iconography@^3.2.3",
+  "_where": "/Users/cshi1/githome/portal",
+  "author": {
+    "name": "kwheel2"
+  },
+  "dependencies": {},
+  "description": "Iconography component",
+  "devDependencies": {
+    "@walmart/electrode-archetype-react-component": "^9.2.0",
+    "@walmart/electrode-archetype-react-component-dev": "^9.2.0",
+    "@walmart/electrode-docgen": "^1",
+    "@walmart/lithe-extras": "^2.5.0",
+    "builder": "^2.10.1",
+    "component-playground": "^1.2.0",
+    "object-assign": "^4.1.0",
+    "react": "^0.14.8",
+    "react-dom": "^0.14.8"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "44f04596a5bb101a5c2f678a8b6f017f86052712",
+    "tarball": "https://npme.walmart.com/@/@walmart/wmreact-iconography/_attachments/wmreact-iconography-3.2.4.tgz"
+  },
+  "gitHead": "4de504f7fa00137565d461246b6dff8d533744e0",
+  "license": "UNLICENSED",
+  "main": "lib/index.js",
+  "maintainers": [
+    {
+      "email": "sarumugam0@walmartlabs.com",
+      "name": "sarumu8"
+    }
+  ],
+  "name": "@walmart/wmreact-iconography",
+  "optionalDependencies": {},
+  "private": false,
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git://gecgithub01.walmart.com/react/iconography.git"
+  },
+  "scripts": {
+    "demo": "builder run generate && builder run server-dev",
+    "demo-iso": "builder run dev-iso",
+    "generate": "npm run generate-metadata && npm run generate-documentation",
+    "generate-documentation": "electrode-docgen --package ./package.json --src ./src --markdown components.md",
+    "generate-metadata": "electrode-docgen --package ./package.json --src ./src --metadata components.json",
+    "prepublish": "builder run build-lib",
+    "preversion": "builder run test",
+    "test": "builder run check-cov"
+  },
+  "title": "Iconography",
+  "version": "3.2.4"
+}

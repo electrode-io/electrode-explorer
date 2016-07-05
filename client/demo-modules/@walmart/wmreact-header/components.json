@@ -1,0 +1,3279 @@
+{
+  "library": "@walmart/wmreact-header",
+  "components": [
+    {
+      "methods": [
+        {
+          "name": "_fade",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "props",
+              "type": {
+                "name": "Object"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        }
+      ],
+      "props": {
+        "type": {
+          "type": {
+            "name": "enum",
+            "value": [
+              {
+                "value": "\"fadeIn\"",
+                "computed": false
+              },
+              {
+                "value": "\"fadeOut\"",
+                "computed": false
+              },
+              {
+                "value": "\"none\"",
+                "computed": false
+              }
+            ]
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"none\"",
+            "computed": false
+          },
+          "description": "Type of fade (\"fadeIn\", \"fadeOut\", or \"none\")"
+        },
+        "duration": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "1000",
+            "computed": false
+          },
+          "description": "Duration of the fade in milliseconds"
+        },
+        "callback": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": "Callback to be executed after fade is complete"
+        }
+      },
+      "fileName": "./src/utils/fader.jsx",
+      "description": "A wrapper component for implementing a fade out or fade in.\n\n```jsx\n<Fader type=\"fadeOut\" duration={1000}>\n  <div style={{height: 50, width: 50, background: \"blue\"}}>\n  </div>\n</Fader>\n```",
+      "import": "{Fader}",
+      "flags": "noVisibleRender",
+      "component": "Fader",
+      "playground": [
+        {
+          "title": "Fader",
+          "flags": {},
+          "code": null
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "GlobalEyebrowNavMobile",
+      "methods": [],
+      "props": {
+        "moduleData": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "type": {
+                "name": "string",
+                "required": false
+              },
+              "moduleId": {
+                "name": "string",
+                "required": false
+              },
+              "configs": {
+                "name": "shape",
+                "value": {
+                  "giftCardsMainNav": {
+                    "name": "object",
+                    "required": false
+                  },
+                  "registryMainNav": {
+                    "name": "object",
+                    "required": false
+                  },
+                  "listsMainNav": {
+                    "name": "object",
+                    "required": false
+                  },
+                  "weeklyAdsMainNav": {
+                    "name": "object",
+                    "required": false
+                  },
+                  "orderStatusMainNav": {
+                    "name": "object",
+                    "required": false
+                  },
+                  "customNav": {
+                    "name": "object",
+                    "required": false
+                  },
+                  "customNav2": {
+                    "name": "object",
+                    "required": false
+                  }
+                },
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "defaultValue": {
+            "value": "{\n  type: \"\",\n  moduleId: \"\",\n  configs: {\n    giftCardsMainNav: {},\n    registryMainNav: {},\n    listsMainNav: {},\n    weeklyAdsMainNav: {},\n    orderStatusMainNav: {},\n    customNav: {},\n    customNav2: {}\n  }\n}",
+            "computed": false
+          },
+          "description": "Data for configuring the component. Typically coming from Tempo.\n  Contains information on the URL, link text, and colors to use for the links."
+        },
+        "dataAutomationId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"header-GlobalEyebrowNavMobile\"",
+            "computed": false
+          },
+          "description": "Automation ID base string"
+        }
+      },
+      "fileName": "./src/components/global-eyebrow-nav-mobile.jsx",
+      "description": "This component displays the EyebrowNav in the Offcanvas nav in the header.",
+      "import": "{GlobalEyebrowNavMobile}",
+      "flags": "noVisibleRender",
+      "component": "GlobalEyebrowNavMobile",
+      "playground": [
+        {
+          "title": "GlobalEyeBrowNavMobile\nmoduleData is too long please check examples",
+          "flags": {},
+          "code": "<GlobalEyebrowNavMobile moduleData={{please check examples under demo}}/>\n"
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "GlobalLefthandNav",
+      "methods": [
+        {
+          "name": "_getClassNames",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "className",
+              "type": {
+                "name": "string"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "string"
+            }
+          }
+        },
+        {
+          "name": "_renderToggles",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "open",
+              "type": {
+                "name": "boolean"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderSuperDepts",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "superDepts",
+              "type": {
+                "name": "Array",
+                "elements": [
+                  {
+                    "name": "Object"
+                  }
+                ],
+                "raw": "Array<Object>"
+              }
+            },
+            {
+              "name": "selectedIndex",
+              "type": {
+                "name": "number"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "Array",
+              "elements": [
+                {
+                  "name": "ReactElement"
+                }
+              ],
+              "raw": "Array<ReactElement>"
+            }
+          }
+        },
+        {
+          "name": "_renderLink",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "deptLink",
+              "type": {
+                "name": "Object"
+              }
+            },
+            {
+              "name": "index",
+              "type": {
+                "name": "number"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement",
+              "nullable": true
+            }
+          }
+        },
+        {
+          "name": "_renderPanels",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "departments",
+              "type": {
+                "name": "Array",
+                "elements": [
+                  {
+                    "name": "Object"
+                  }
+                ],
+                "raw": "Array<Object>"
+              }
+            },
+            {
+              "name": "selectedIndex",
+              "type": {
+                "name": "number"
+              }
+            },
+            {
+              "name": "renderDepts",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "Array",
+              "elements": [
+                {
+                  "name": "ReactElement"
+                }
+              ],
+              "raw": "Array<ReactElement>"
+            }
+          }
+        },
+        {
+          "name": "_handleSelectSuperDept",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "selectedNavMenuItem",
+              "type": {
+                "name": "Object"
+              }
+            },
+            {
+              "name": "ev",
+              "type": {
+                "name": "Object"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_setSelectedIndex",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "selectedNavMenuItem",
+              "type": {
+                "name": "Object"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_setOpen",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "ev",
+              "type": {
+                "name": "Object"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_setClosed",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        }
+      ],
+      "props": {
+        "moduleData": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "type": {
+                "name": "string",
+                "required": false
+              },
+              "moduleId": {
+                "name": "string",
+                "required": false
+              },
+              "configs": {
+                "name": "shape",
+                "value": {
+                  "departments": {
+                    "name": "array",
+                    "required": true
+                  }
+                },
+                "required": false
+              }
+            }
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "{\n  type: \"\",\n  moduleId: \"\",\n  configs: {}\n}",
+            "computed": false
+          },
+          "description": "Data for configuring the component. Typically coming from Tempo. Contains department data."
+        },
+        "dataAutomationId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"header-GlobalLefthandNav\"",
+            "computed": false
+          },
+          "description": "Automation ID base string"
+        },
+        "isBot": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "Check for web crawler bots."
+        }
+      },
+      "fileName": "./src/components/global-lefthand-nav.jsx",
+      "description": "The header left hand nav. A navigation menu for going to department and category pages.\n\n ```jsx\n <GlobalLefthandNav moduleData={\n   {\n     type: \"GlobalLefthandNav\",\n     configs: {\n     campaignDepartment: {\n       link: {\n         linkText: \"Daily Savings Center\",\n         title: \"Daily Savings Center\",\n         clickThrough: {\n           type: \"url\",\n           value: \"http://www.walmart.com/Daily-Savings-Center\"\n         },\n         uid: \"QRVQ4o9Q\"\n       },\n       textColor: \"#f42121\",\n       uid: \"HlRFhIjQ\"\n     },\n     departments: [{\n       name: \"Electronics & Office\",\n       link: {\n         alt: \"Electronics & Office\",\n         assetId: \"3781758\",\n         assetName: \"35023-119032-01_INT_86995_Electronics_Flyout_207x460_1219_V1.png\",\n         clickThrough: {\n           type: \"url\",\n           value: \"/browse/electronics/laptops/3944_3951_1089430?cat_id=3944_3951_1089430\"\n         },\n         height: \"460\",\n         src: \"http://i5.walmartimages.com/dfw/4ff9c6c9-8c13/k2-_b6e99a03-22d2-4d5e-8a0f.v1.png\",\n         title: \"Electronics & Office\",\n         width: \"207\",\n         size: \"67492\",\n         contentType: \"image/png\",\n         uid: \"qGxDjh9C\"\n       },\n       departments: [],\n       uid: \"-QBPPMxd\"\n     }, {\n       name: \"Movies, Music & Books\",\n       link: {\n         alt: \"Star Wars\",\n         assetId: \"3785082\",\n         assetName: \"35373-123898_StarWars_FO_207x460_03_V1.png\",\n         clickThrough: {\n           type: \"url\",\n           value: \"/browse/movies-tv/star-wars-movies/4096_1229475\"\n         },\n         height: \"460\",\n         src: \"http://i5.walmartimages.com/dfw/4ff9c6c9-ed89/k2-_f7f94c1b-7778-4605-9b77.v1.png\",\n         title: \"Star Wars\",\n         width: \"207\",\n         size: \"136693\",\n         contentType: \"image/png\",\n         uid: \"Rtp0RJyz\"\n       },\n       departments: [],\n       uid: \"GEEpibG6\"\n     }],\n     optionalDepartment: {\n       link: {\n         linkText: \"See All Departments\",\n         title: \"See All Departments\",\n         clickThrough: {\n           type: \"url\",\n           value: \"http://www.walmart.com/all-departments\"\n         },\n         uid: \"mYLWJn6V\"\n       },\n       uid: \"1MwO8I83\"\n     },\n   },\n   module_id: \"29b9c6f0-28b9-470c-9e65-1b3f09f64083\"\n   }\n }/>\n ```",
+      "import": "{GlobalLefthandNav}",
+      "flags": "noVisibleRender",
+      "component": "GlobalLefthandNav",
+      "playground": [
+        {
+          "title": "GlobalLefthandNav",
+          "flags": {},
+          "code": null
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "GlobalMarketingMessages",
+      "methods": [
+        {
+          "name": "_getClassNames",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "className",
+              "type": {
+                "name": "string"
+              }
+            },
+            {
+              "name": "size",
+              "type": {
+                "name": "string"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "string"
+            }
+          }
+        },
+        {
+          "name": "_fadeOut",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_rotateMessageAndFadeIn",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "messageCount",
+              "type": {
+                "name": "number"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_sustain",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_selectCallback",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "Function"
+            }
+          }
+        },
+        {
+          "name": "_generateMessages",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "messages",
+              "type": {
+                "name": "Array",
+                "elements": [
+                  {
+                    "name": "Object"
+                  }
+                ],
+                "raw": "Array<Object>"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "Array",
+              "elements": [
+                {
+                  "name": "ReactElement"
+                }
+              ],
+              "raw": "Array<ReactElement>"
+            }
+          }
+        }
+      ],
+      "props": {
+        "moduleData": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "type": {
+                "name": "string",
+                "required": false
+              },
+              "moduleId": {
+                "name": "string",
+                "required": false
+              },
+              "configs": {
+                "name": "shape",
+                "value": {
+                  "messages": {
+                    "name": "array",
+                    "required": true
+                  }
+                },
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "description": "Data for configuring the component. Typically coming from Tempo. Contains information on the URL,\n  link text."
+        },
+        "size": {
+          "type": {
+            "name": "enum",
+            "value": [
+              {
+                "value": "\"small\"",
+                "computed": false
+              },
+              {
+                "value": "\"medium\"",
+                "computed": false
+              },
+              {
+                "value": "\"large\"",
+                "computed": false
+              }
+            ]
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"large\"",
+            "computed": false
+          },
+          "description": "True if using the version for the medium breakpoint"
+        },
+        "fadeDuration": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "1000",
+            "computed": false
+          },
+          "description": "How long (in milliseconds) to fade in/out"
+        },
+        "sustainDuration": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "7000",
+            "computed": false
+          },
+          "description": "How long (in milliseconds) at full opactiy"
+        },
+        "dataAutomationId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"header-GlobalMarketingMessages\"",
+            "computed": false
+          },
+          "description": "Automation ID base string"
+        }
+      },
+      "fileName": "./src/components/global-marketing-messages.jsx",
+      "description": "The header marketing message component. Has links customizable by text and url which rotate with a\n fade effect with configurable timing.\n\n ```jsx\n <GlobalMarketingMessages fadeDuration={800} sustainDuration={5000} moduleData={\n   {\n     type: \"GlobalMarketingMessages\",\n     configs: {\n       messages: [\n         {\n           link: {\n             linkText: \"FREE SHIPPING on $50 orders\",\n             title: \"FREE SHIPPING on $50 orders\",\n             clickThrough: {\n               type: \"category\",\n               value: \"/cp/1088989\"\n             },\n             uid: \"Rm-f-ARE\"\n           },\n           uid: \"noSNifYr\",\n         },\n         {\n           link: {\n             linkText: \"FREE in-store pickup\",\n             title: \"FREE in-store pickup\",\n             clickThrough: {\n               type: \"category\",\n               value: \"/cp/1088989\"\n             },\n             uid: \"Hu2fuUAj\"\n           },\n           uid: \"rC4mqJwC\"\n         }, {\n           link: {\n             clickThrough: {\n               type: \"url\",\n               value: \"http://grocery.walmart.com/usd-estore/m/home/anonymouslanding.jsp\"\n             },\n             linkText: \"FREE Walmart Grocery pickup\",\n             title: \"FREE Walmart Grocery Pickup\",\n             uid: \"LAtNdeIe\"\n           },\n           uid: \"tKV0zOCO\"\n         }\n       ],\n     },\n     moduleId: \"8600fadf-4ad5-46d5-aa3c-52c02af51ced\"\n   }\n }/>\n ```",
+      "import": "{GlobalMarketingMessages}",
+      "flags": "noVisibleRender",
+      "component": "GlobalMarketingMessages",
+      "playground": [
+        {
+          "title": "GlobalMarketingMessages",
+          "flags": {},
+          "code": null
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "GlobalSearch",
+      "methods": [
+        {
+          "name": "_getClassNames",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "className",
+              "type": {
+                "name": "string"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "string"
+            }
+          }
+        },
+        {
+          "name": "_renderDropdown",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "selectedCategory",
+              "type": {
+                "name": "string"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "name": "Array",
+                "elements": [
+                  {
+                    "name": "Object"
+                  }
+                ],
+                "raw": "Array<Object>"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderInput",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderTypeaheadDropdown",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderClearInput",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderSubmit",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_getSearchInput",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "string"
+            }
+          }
+        },
+        {
+          "name": "_handleEmptyInput",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "ev",
+              "type": {
+                "name": "Object"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        }
+      ],
+      "props": {
+        "isMobile": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "check mobile device"
+        },
+        "moduleData": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "type": {
+                "name": "string",
+                "required": false
+              },
+              "moduleId": {
+                "name": "string",
+                "required": false
+              },
+              "configs": {
+                "name": "shape",
+                "value": {
+                  "options": {
+                    "name": "array",
+                    "required": true
+                  }
+                },
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "description": "Data for configuring the component. Typically coming from Tempo. Contains on the category ID's\n  and labels to be used in the dropdown."
+        },
+        "selectedCategory": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "null",
+            "computed": false
+          },
+          "description": "Category ID to be initially selected"
+        },
+        "dataAutomationId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"header-GlobalSearch\"",
+            "computed": false
+          },
+          "description": "Automation ID base string"
+        }
+      },
+      "fileName": "./src/components/global-search.jsx",
+      "description": "The Global Search component of the header. Passes moduleData down to the searchdropdown.\n\n ```jsx\n <GlobalSearch moduleData={\n   {\n     type: \"GlobalSearch\",\n     configs: {\n       options: [\n         {\n           label: \"Auto & Tires\",\n           categoryId: \"91083\",\n           uid: \"KZ0ktkHH\"\n         },\n         {\n           label: \"Baby\",\n           categoryId: \"5427\",\n           uid: \"fHCypgFG\"\n         },\n         {\n           label: \"Beauty\",\n           categoryId: \"1085666\",\n           uid: \"whzlG8-N\"\n         },\n         {\n           label: \"Books\",\n           categoryId: \"3920\",\n           uid: \"Prik5hH8\"\n         },\n         {\n           label: \"Cell Phones\",\n           categoryId: \"1105910\",\n           uid: \"oJgACZdH\"\n         },\n         {\n           label: \"Clothing\",\n           categoryId: \"5438\",\n           uid: \"IRVq4Xj2\"\n         },\n         {\n           label: \"Electronics\",\n           categoryId: \"3944\",\n           uid: \"8ojrslW8\"\n         },\n         {\n           label: \"Food\",\n           categoryId: \"976759\",\n           uid: \"88kAZA4B\"\n         }\n       ]\n     },\n     module_id: \"56074e92-06db-4890-b5cd-2f87dc7327c4\"\n   }\n } />\n ```",
+      "import": "{GlobalSearch}",
+      "flags": "noVisibleRender",
+      "component": "GlobalSearch",
+      "playground": [
+        {
+          "title": "GlobalSearch",
+          "flags": {},
+          "code": null
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "Header",
+      "methods": [
+        {
+          "name": "_setOffcanvasNavOpen",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_toggleSearch",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_renderMainNav",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderPrimaryHeader",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderHeader",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_setTypeAheadUrl",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "ReactElement",
+              "nullable": true
+            }
+          }
+        }
+      ],
+      "props": {
+        "isMobile": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "check mobile device"
+        },
+        "isBot": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "check for bots"
+        },
+        "searchExposed": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "true",
+            "computed": false
+          },
+          "description": "True if search should be exposed by default at smaller screen widths."
+        },
+        "selectedCategory": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "null",
+            "computed": false
+          },
+          "description": "Initially selected category ID in the search dropdown on larger screen widths."
+        },
+        "shippingPass": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "True if the shipping pass logo should show on larger screen widths."
+        },
+        "userName": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "null",
+            "computed": false
+          },
+          "description": "First name of the user if signed in. Null otherwise."
+        },
+        "totalItemsCount": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "0",
+            "computed": false
+          },
+          "description": "Total number of items."
+        },
+        "maxCountThreshold": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "99",
+            "computed": false
+          },
+          "description": "The max count value. After totalItemsCount reaches maxCountThreshold,\n  the HeaderCartCount would start displaying the value as\n  (maxCountThreshold+) instead of actual totalItemsCount, for e.g. if maxCountThreshold is 99\n  and totalItemsCount is 100, the component would display the total as 99+ instead of 100.\n  Default value for this is 99."
+        },
+        "storeFinderResponse": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "loading": {
+                "name": "bool",
+                "required": false
+              },
+              "didInvalidate": {
+                "name": "bool",
+                "required": false
+              },
+              "stores": {
+                "name": "shape",
+                "value": "unkown",
+                "required": false
+              }
+            }
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "{\n  loading: false,\n  didInvalidate: false,\n  stores: {}\n}",
+            "computed": false
+          },
+          "description": "Data used to render storefinder panel.\n  This includes the loading and error states and stores data"
+        },
+        "onBootstrap": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": "The first action dispatched"
+        },
+        "onStoreFinderActive": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": "On location change is a action that is called when user's location changes"
+        },
+        "quimbyData": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "description": "quimbyData is the result of tempo-core calls to quimby stored in redux"
+        },
+        "storeFinderUrl": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"/store/ajax/preferred-flyout\"",
+            "computed": false
+          },
+          "description": "Url to fetch nearby stores"
+        },
+        "typeAheadUrl": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": "Url to fetch recomendations in searchbar"
+        }
+      },
+      "fileName": "./src/components/header.jsx",
+      "description": "Global Header component connected to Tempo and Redux\n  ```jsx\n  <StatelessHeader searchExposed={true} totalItemsCount={100} userName=\"Test\" />\n  ```",
+      "import": "{Header}",
+      "flags": "noVisibleRender",
+      "component": "Header",
+      "playground": [
+        {
+          "title": "Header",
+          "flags": {},
+          "code": null
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "HeaderButtonToggle",
+      "methods": [],
+      "props": {
+        "onClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": "Click handler"
+        },
+        "name": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "description": "Name of icon"
+        }
+      },
+      "fileName": "./src/components/header-button-toggle.jsx",
+      "description": "The header button toggle component. Primarily used in the mobile header to expand search or nav.\n\n ```jsx\n <HeaderSearchToggle onClick={() => {}} />\n ```",
+      "import": "{HeaderButtonToggle}",
+      "flags": "noVisibleRender",
+      "component": "HeaderButtonToggle",
+      "playground": [
+        {
+          "title": "HeaderSearchToggle",
+          "flags": {},
+          "code": null
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "HeaderCart",
+      "methods": [],
+      "props": {
+        "totalItemsCount": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "0",
+            "computed": false
+          },
+          "description": "Total number of items."
+        },
+        "maxCountThreshold": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "99",
+            "computed": false
+          },
+          "description": "The max count value. After totalItemsCount reaches maxCountThreshold,\n  the HeaderCartCount would start displaying the value as\n  (maxCountThreshold+) instead of actual totalItemsCount, for e.g. if maxCountThreshold is 99\n  and totalItemsCount is 100, the component would display the total as 99+ instead of 100.\n  Default value for this is 99."
+        },
+        "dataAutomationId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"header-Cart\"",
+            "computed": false
+          },
+          "description": "dataAutomationId for the element."
+        }
+      },
+      "fileName": "./src/components/header-cart.jsx",
+      "description": "A header cart icon component.",
+      "examples": "```jsx\n<HeaderCart totalItemsCount={100}/>\n ```",
+      "component": "HeaderCart",
+      "import": "{HeaderCart}",
+      "references": "HeaderCart",
+      "playground": [
+        {
+          "title": "HeaderCart",
+          "flags": {},
+          "code": " <HeaderCart totalItemsCount={100}/>\n "
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "HeaderCartCount",
+      "methods": [],
+      "props": {
+        "totalItemsCount": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "0",
+            "computed": false
+          },
+          "description": "Total number of items."
+        },
+        "maxCountThreshold": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "99",
+            "computed": false
+          },
+          "description": "The max count value. After totalItemsCount reaches maxCountThreshold,\n    the HeaderCartCount would start displaying the value as\n    (maxCountThreshold+) instead of actual totalItemsCount, for e.g. if maxCountThreshold is 99\n    and totalItemsCount is 100, the component would display the total as 99+ instead of 100.\n    Default value for this is 99."
+        }
+      },
+      "fileName": "./src/components/header-cart-count.jsx",
+      "description": "A header cart count indicator component.",
+      "examples": "```jsx\n<HeaderCartCount totalItemsCount={100}/>\n ```",
+      "component": "HeaderCartCount",
+      "import": "{HeaderCartCount}",
+      "references": "HeaderCartCount",
+      "playground": [
+        {
+          "title": "HeaderCartCount",
+          "flags": {},
+          "code": " <HeaderCartCount totalItemsCount={100}/>\n "
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "HeaderLogo",
+      "methods": [],
+      "props": {
+        "shippingPass": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "shippingPass means there is another\n  shippingPass logo under the primary logo"
+        },
+        "dataAutomationId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"header-Logo\"",
+            "computed": false
+          },
+          "description": "Automation ID base string"
+        }
+      },
+      "fileName": "./src/components/header-logo.jsx",
+      "description": "Walmart Logo component for use in the header.\n  ```jsx\n    <HeaderLogo shippingPass={true} />\n  ```",
+      "import": "{HeaderLogo}",
+      "flags": "noVisibleRender",
+      "component": "HeaderLogo",
+      "playground": [
+        {
+          "title": "HeaderLogo",
+          "flags": {},
+          "code": null
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "LefthandNavPanel",
+      "methods": [
+        {
+          "name": "_getClassNames",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "className",
+              "type": {
+                "name": "string"
+              }
+            },
+            {
+              "name": "show",
+              "type": {
+                "name": "boolean"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "string"
+            }
+          }
+        },
+        {
+          "name": "_renderCategories",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "categories",
+              "type": {
+                "name": "Array",
+                "elements": [
+                  {
+                    "name": "Object"
+                  }
+                ],
+                "raw": "Array<Object>"
+              }
+            },
+            {
+              "name": "prefix",
+              "type": {
+                "name": "string"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "Array",
+              "elements": [
+                {
+                  "name": "ReactElement"
+                }
+              ],
+              "raw": "Array<ReactElement>",
+              "nullable": true
+            }
+          }
+        },
+        {
+          "name": "_getColumns",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "departments",
+              "type": {
+                "name": "Object"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "Object"
+            }
+          }
+        },
+        {
+          "name": "_renderColumns",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "departments",
+              "type": {
+                "name": "Object"
+              }
+            },
+            {
+              "name": "columnClassName",
+              "type": {
+                "name": "string"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "Array",
+              "elements": [
+                {
+                  "name": "ReactElement"
+                }
+              ],
+              "raw": "Array<ReactElement>"
+            }
+          }
+        },
+        {
+          "name": "_getFaderProps",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "show",
+              "type": {
+                "name": "boolean"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "Object"
+            }
+          }
+        },
+        {
+          "name": "_getImageSrc",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{src, height, width}",
+              "type": null
+            },
+            {
+              "name": "loaded",
+              "type": {
+                "name": "boolean"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "string"
+            }
+          }
+        },
+        {
+          "name": "_renderImage",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "link",
+              "type": {
+                "name": "Object"
+              }
+            },
+            {
+              "name": "show",
+              "type": {
+                "name": "boolean"
+              }
+            },
+            {
+              "name": "loaded",
+              "type": {
+                "name": "boolean"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement",
+              "nullable": true
+            }
+          }
+        }
+      ],
+      "props": {
+        "superDept": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "link": {
+                "name": "object",
+                "required": true
+              },
+              "departments": {
+                "name": "array",
+                "required": true
+              }
+            }
+          },
+          "required": false,
+          "description": "Super department data."
+        },
+        "show": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "Toggle to show component."
+        },
+        "dataAutomationId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"header-GlobalLeftHandNav-panel\"",
+            "computed": false
+          },
+          "description": "Automation ID base string"
+        }
+      },
+      "fileName": "./src/components/lefthand-nav-panel.jsx",
+      "description": "The submenu panel subcomponent for the header left hand nav. Has links for departments and\n and categories as well as a lazy loaded promo image for the given super department.\n\n ```jsx\n <LefthandNavPanel show={true} superDept={\n   {\n     name: \"Electronics & Office\",\n     link: {\n       alt: \"Electronics & Office\",\n       assetId: \"3781758\",\n       assetName: \"35023-119032-01_INT_86995_Electronics_Flyout_207x460_1219_V1.png\",\n       clickThrough: {\n         type: \"url\",\n         value: \"/browse/electronics/laptops/3944_3951_1089430?cat_id=3944_3951_1089430\n       },\n       height: \"460\",\n       src: \"http://i5.walmartimages.com/dfw/4ff9c6c9-8c13/k2-_b6e99a03-22d2-4d5e-8a0f.png\",\n       title: \"Electronics & Office\",\n       width: \"207\",\n       size: \"67492\",\n       contentType: \"image/png\",\n       uid: \"qGxDjh9C\"\n     },\n     departments: [{\n       department: {\n         linkText: \"Shop Electronics\",\n         title: \"Shop Electronics\",\n         clickThrough: {\n           type: \"url\",\n           value: \"/cp/Electronics/3944\"\n         },\n         uid: \"p1jc5fJq\"\n       },\n       colNum: \"1\",\n       uid: \"7LhTgYRR\",\n       categories: []\n     }, {\n       department: {\n         linkText: \"TV & Video\",\n         title: \"TV & Video\",\n         clickThrough: {\n           type: \"url\",\n           value: \"/cp/televisions-video/1060825\"\n         },\n         uid: \"pXHzlEyi\"\n       },\n       colNum: \"1\",\n       categories: [{\n         category: {\n           linkText: \"TVs\",\n           title: \"TVs\",\n           clickThrough: {\n             type: \"url\",\n             value: \"/browse/electronics/tvs/3944_1060825_447913\"\n           },\n           uid: \"IwLIj6qT\"\n         },\n         uid: \"OAraUC3y\"\n       }, {\n         category: {\n           linkText: \"DVD & Blu-ray Players \",\n           title: \"DVD & Blu-ray Players \",\n           clickThrough: {\n             type: \"url\",\n             value: \"/browse/electronics/dvd-blu-ray-players/3944_1060825_95987\"\n           },\n           uid: \"F6F3Droh\"\n         },\n         uid: \"0TMGv5cD\"\n       }, {\n         category: {\n           linkText: \"Home Audio & Theater \",\n           title: \"Home Audio & Theater \",\n           clickThrough: {\n             type: \"url\",\n             value: \"/cp/Home-Audio-Theater/77622\"\n           },\n           uid: \"mQER_pBQ\"\n         },\n         uid: \"x76Q43t6\"\n       }],\n       uid: \"P_Qsh1oB\"\n     }, {\n       department: {\n         linkText: \"Portable Audio\",\n         title: \"iPod & Portable Audio\",\n         clickThrough: {\n           type: \"url\",\n           value: \"/cp/ipods-mp3-players/96469\"\n         },\n         uid: \"gSQgXeD8\"\n       },\n       colNum: \"2\",\n       categories: [],\n       uid: \"Hp-IHs5A\"\n     }, {\n       department: {\n         linkText: \"Tips & Advice\",\n         title: \"Tips & Advice\",\n         uid: \"2HNCL1LP\",\n         clickThrough: {\n           type: \"url\",\n           value: \"http://wm15.walmart.com/electronics-resource-center/\"\n         }\n       },\n       colNum: \"3\",\n       categories: [],\n       uid: \"-ko6h6mz\"\n     }],\n     uid: \"-QBPPMxd\"\n   }\n }/>\n\n ```",
+      "import": "{LefthandNavPanel}",
+      "flags": "noVisibleRender",
+      "component": "LefthandNavPanel",
+      "playground": [
+        {
+          "title": "LefthandNavPanel",
+          "flags": {},
+          "code": null
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "MenuAimWrapper",
+      "methods": [],
+      "props": {},
+      "fileName": "./src/utils/menu-aim-wrapper.jsx",
+      "description": "A wrapper component for using the behavior from the react-menu-aim mixin which allows\nfor easier navigation through a dropdown down menu by detecting the mouse direction to infer the\nuser's intent. Assign a ref to wrapper and use the exposed handleMouseEnterRow(index, handler) when\nselecting a menu item.\nhttps://github.com/jasonslyvia/react-menu-aim\n\n```jsx\nMenuAimExample extends React.Component {\n  constructor(props) {\n    super(props);\n\n    this.state = {selected: null};\n    this._setSelected = this._setSelected.bind(this);\n  }\n\n  _setSelected(index) {\n    this.setState({selected: index});\n  }\n\n\n  _selectRow(index) {\n    this.refs.handleMouseEnterRow(index, this._setSelected)\n  }\n\n  render() {\n    return (\n      <MenuAimWrapper ref=\"menuAim\">\n        <ul class=\"menu\">\n          <li onMouseEnter={this._selectRow(0)}></li>\n          <li onMouseEnter={this._selectRow(1)}></li>\n        </ul>\n        <Submenu selectedMenu={this.state.selected} />\n      </MenuAimWrapper>\n    );\n  }\n}\n```",
+      "import": "{MenuAimWrapper}",
+      "flags": "noVisibleRender",
+      "component": "MenuAimWrapper",
+      "playground": [
+        {
+          "title": "MenuAimWrapper",
+          "flags": {},
+          "code": null
+        }
+      ],
+      "hasProps": false
+    },
+    {
+      "description": "",
+      "methods": [
+        {
+          "name": "setAppStoreLanguage",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "lang",
+              "type": {
+                "name": "string"
+              }
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "getMetaNodeContent",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "string"
+            }
+          }
+        },
+        {
+          "name": "parseAppId",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "string"
+            }
+          }
+        },
+        {
+          "name": "setType",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "deviceType",
+              "type": {
+                "name": "signature",
+                "type": "object",
+                "raw": "{type : string, id : string}",
+                "signature": {
+                  "properties": [
+                    {
+                      "key": "type",
+                      "value": {
+                        "name": "string",
+                        "required": true
+                      }
+                    },
+                    {
+                      "key": "id",
+                      "value": {
+                        "name": "string",
+                        "required": true
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "hide",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "show",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "daysToSeconds",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "days",
+              "type": {
+                "name": "number"
+              }
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "close",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "install",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "setCookie",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "name": "string"
+              }
+            },
+            {
+              "name": "daysToExpiration",
+              "type": {
+                "name": "number"
+              }
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "shouldShowBanner",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "boolean"
+            }
+          }
+        },
+        {
+          "name": "getIcon",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "string"
+            }
+          }
+        },
+        {
+          "name": "_renderClient",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_getNavigator",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_getDocument",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        }
+      ],
+      "props": {
+        "daysHidden": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "15",
+            "computed": false
+          },
+          "description": ""
+        },
+        "daysReminder": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "90",
+            "computed": false
+          },
+          "description": ""
+        },
+        "appStoreLanguage": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "button": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"View\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "url": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "storeText": {
+          "type": {
+            "name": "custom",
+            "raw": "PropTypes.objectOf(PropTypes.string)"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "{\n  ios: \"On the App Store\",\n  android: \"In Google Play\",\n  windows: \"In Windows Store\"\n}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "price": {
+          "type": {
+            "name": "custom",
+            "raw": "PropTypes.objectOf(PropTypes.string)"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "{\n  ios: \"Free\",\n  android: \"Free\",\n  windows: \"Free\"\n}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "force": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "type": {
+                "name": "string",
+                "required": true
+              },
+              "id": {
+                "name": "string",
+                "required": true
+              }
+            }
+          },
+          "required": false,
+          "description": ""
+        },
+        "title": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "author": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "hide": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": ""
+        },
+        "dataAutomationId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"header-AppBanner\"",
+            "computed": false
+          },
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/app-banner.jsx",
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "displayName": "GlobalLefthandNavMobile",
+      "methods": [
+        {
+          "name": "_getClassNames",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "className",
+              "type": {
+                "name": "string"
+              }
+            },
+            {
+              "name": "{ expanded, superDept, dept }",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "string"
+            }
+          }
+        },
+        {
+          "name": "_getEntryClassName",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "depth",
+              "type": {
+                "name": "number"
+              }
+            },
+            {
+              "name": "index",
+              "type": {
+                "name": "number",
+                "nullable": true
+              }
+            },
+            {
+              "name": "selected",
+              "type": {
+                "name": "number",
+                "nullable": true
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "string"
+            }
+          }
+        },
+        {
+          "name": "_setSuperDept",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "selectedNavMenuItem",
+              "type": {
+                "name": "Object"
+              }
+            },
+            {
+              "name": "ev",
+              "type": {
+                "name": "Object"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_setDept",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "index",
+              "type": {
+                "name": "number"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_clearDepts",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_toggleExpanded",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_renderLink",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "link",
+              "type": {
+                "name": "Object"
+              }
+            },
+            {
+              "name": "{ depth, shopAll, index }",
+              "type": null
+            },
+            {
+              "name": "prefix",
+              "type": {
+                "name": "string"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderSuperDepts",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "departments",
+              "type": {
+                "name": "Array",
+                "elements": [
+                  {
+                    "name": "Object"
+                  }
+                ],
+                "raw": "Array<Object>"
+              }
+            },
+            {
+              "name": "{ superDept, dept, renderDepts }",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "Array",
+              "elements": [
+                {
+                  "name": "ReactElement"
+                }
+              ],
+              "raw": "Array<ReactElement>"
+            }
+          }
+        },
+        {
+          "name": "_renderDepts",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "departments",
+              "type": {
+                "name": "Array",
+                "elements": [
+                  {
+                    "name": "Object"
+                  }
+                ],
+                "raw": "Array<Object>"
+              }
+            },
+            {
+              "name": "selected",
+              "type": {
+                "name": "number"
+              }
+            },
+            {
+              "name": "prefix",
+              "type": {
+                "name": "string"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "Array",
+              "elements": [
+                {
+                  "name": "ReactElement"
+                }
+              ],
+              "raw": "Array<ReactElement>"
+            }
+          }
+        },
+        {
+          "name": "_renderCategories",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "categories",
+              "type": {
+                "name": "Array",
+                "elements": [
+                  {
+                    "name": "Object"
+                  }
+                ],
+                "raw": "Array<Object>"
+              }
+            },
+            {
+              "name": "prefix",
+              "type": {
+                "name": "string"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "Array",
+              "elements": [
+                {
+                  "name": "ReactElement"
+                }
+              ],
+              "raw": "Array<ReactElement>"
+            }
+          }
+        },
+        {
+          "name": "_renderOptionalDept",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "department",
+              "type": {
+                "name": "Object"
+              }
+            },
+            {
+              "name": "index",
+              "type": {
+                "name": "number"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement",
+              "nullable": true
+            }
+          }
+        },
+        {
+          "name": "_renderBack",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{ superDept }",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement",
+              "nullable": true
+            }
+          }
+        },
+        {
+          "name": "_renderExpander",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{ superDept, expanded }",
+              "type": null
+            }
+          ],
+          "returns": null
+        }
+      ],
+      "props": {
+        "moduleData": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "type": {
+                "name": "string",
+                "required": false
+              },
+              "moduleId": {
+                "name": "string",
+                "required": false
+              },
+              "configs": {
+                "name": "shape",
+                "value": {
+                  "departments": {
+                    "name": "array",
+                    "required": true
+                  }
+                },
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "defaultValue": {
+            "value": "{\n  type: \"\",\n  moduleId: \"\",\n  configs: {}\n}",
+            "computed": false
+          },
+          "description": "Data for configuring the component. Typically coming from Tempo. Contains department data."
+        },
+        "onSuperDeptClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": "Callback to execute after a super department is clicked"
+        },
+        "onBackClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": "Callback to execute after back button is clicked"
+        },
+        "dataAutomationId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"header-GlobalLefthandNavMobile\"",
+            "computed": false
+          },
+          "description": "Automation ID base string"
+        },
+        "isBot": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "Check for web crawler bots."
+        }
+      },
+      "fileName": "./src/components/global-lefthand-nav-mobile.jsx",
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "displayName": "StoreListItem",
+      "methods": [],
+      "props": {
+        "dataAutomationId": {
+          "defaultValue": {
+            "value": "\"storeListItem\"",
+            "computed": false
+          }
+        },
+        "preferred": {
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          }
+        }
+      },
+      "composes": [
+        "../props/store-prop"
+      ],
+      "fileName": "./src/components/store-list-item.jsx",
+      "hasProps": true
+    },
+    {
+      "displayName": "OffcanvasNav",
+      "methods": [
+        {
+          "name": "updateWidth",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "width",
+              "type": {
+                "name": "string"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "setOpen",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_setClosed",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_toggleDeptSelected",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_renderOverlay",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "open",
+              "type": {
+                "name": "boolean"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement",
+              "nullable": true
+            }
+          }
+        },
+        {
+          "name": "_renderUser",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "deptSelected",
+              "type": {
+                "name": "boolean"
+              }
+            },
+            {
+              "name": "userName",
+              "type": {
+                "name": "string"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement",
+              "nullable": true
+            }
+          }
+        },
+        {
+          "name": "_renderSignOut",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "deptSelected",
+              "type": {
+                "name": "boolean"
+              }
+            },
+            {
+              "name": "userName",
+              "type": {
+                "name": "string"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement",
+              "nullable": true
+            }
+          }
+        },
+        {
+          "name": "_renderBottom",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "deptSelected",
+              "type": {
+                "name": "boolean"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement",
+              "nullable": true
+            }
+          }
+        }
+      ],
+      "props": {
+        "isBot": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "Check for web crawler bots."
+        },
+        "userName": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "null",
+            "computed": false
+          },
+          "description": "First name of the user if signed in. Null otherwise."
+        }
+      },
+      "fileName": "./src/components/offcanvas-nav.jsx",
+      "description": "An intermediate component for the header for rendering the offcanvas nav and overlay. Should be\n used inside a TempoWrapper so all modules are populated",
+      "examples": "```jsx\n <OffcanvasNav userName=\"Foo\" />\n ```",
+      "component": "OffcanvasNav",
+      "import": "{OffcanvasNav}",
+      "references": "OffcanvasNav",
+      "playground": [
+        {
+          "title": "OffcanvasNav",
+          "flags": {},
+          "code": null
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "SearchDropdown",
+      "methods": [
+        {
+          "name": "_getClassNames",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "className",
+              "type": {
+                "name": "string"
+              }
+            },
+            {
+              "name": "open",
+              "type": {
+                "name": "boolean"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "string"
+            }
+          }
+        },
+        {
+          "name": "_initializeCategories",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{ options, columnLength }",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_displayCategory",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "string"
+            }
+          }
+        },
+        {
+          "name": "_setCategory",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "categoryId",
+              "type": {
+                "name": "string"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_renderButton",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderOptions",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "options",
+              "type": {
+                "name": "Array",
+                "elements": [
+                  {
+                    "name": "Object"
+                  }
+                ],
+                "raw": "Array<Object>"
+              }
+            },
+            {
+              "name": "column",
+              "type": {
+                "name": "number"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "Array",
+              "elements": [
+                {
+                  "name": "ReactElement"
+                }
+              ],
+              "raw": "Array<ReactElement>"
+            }
+          }
+        },
+        {
+          "name": "_renderColumns",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "columns",
+              "type": {
+                "name": "Array",
+                "elements": [
+                  {
+                    "name": "Array",
+                    "elements": [
+                      {
+                        "name": "Object"
+                      }
+                    ],
+                    "raw": "Array<Object>"
+                  }
+                ],
+                "raw": "Array<Array<Object>>"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "Array",
+              "elements": [
+                {
+                  "name": "Object"
+                }
+              ],
+              "raw": "Array<Object>"
+            }
+          }
+        },
+        {
+          "name": "_setOpen",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "open",
+              "type": {
+                "name": "boolean"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        }
+      ],
+      "props": {
+        "options": {
+          "type": {
+            "name": "array"
+          },
+          "required": true,
+          "description": "Category ID's and labels to be used in the dropdown."
+        },
+        "selectedCategory": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "null",
+            "computed": false
+          },
+          "description": "Category ID to be initially selected"
+        },
+        "columnLength": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "9",
+            "computed": false
+          },
+          "description": "Number of categories in each column."
+        },
+        "dataAutomationId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"header-SearchDropdown\"",
+            "computed": false
+          },
+          "description": "Automation ID base string"
+        }
+      },
+      "fileName": "./src/components/search-dropdown.jsx",
+      "description": "The search dropdown component. Has a dropdown to select a category used when searching.\n\n ```jsx\n <SearchDropdown options={\n   [\n     {\n       label: \"Auto & Tires\",\n       categoryId: \"91083\"\n     },\n     {\n       label: \"Baby\",\n       categoryId: \"5427\"\n     },\n     {\n       label: \"Beauty\",\n       categoryId: \"1085666\"\n     },\n     {\n       label: \"Books\",\n       categoryId: \"3920\"\n     },\n     {\n       label: \"Cell Phones\",\n       categoryId: \"1105910\"\n     },\n     {\n       label: \"Clothing\",\n       categoryId: \"5438\"\n     },\n     {\n       label: \"Electronics\",\n       categoryId: \"3944\"\n     },\n     {\n       label: \"Food\",\n       categoryId: \"976759\"\n     }\n   ]\n } />\n ```",
+      "import": "{SearchDropdown}",
+      "flags": "noVisibleRender",
+      "component": "SearchDropdown",
+      "playground": [
+        {
+          "title": "SearchDropdown",
+          "flags": {},
+          "code": null
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "SearchbarWrapper",
+      "methods": [
+        {
+          "name": "_getClassName",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "open",
+              "type": {
+                "name": "boolean"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "string"
+            }
+          }
+        },
+        {
+          "name": "toggle",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        }
+      ],
+      "props": {
+        "isMobile": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "check mobile device"
+        },
+        "searchExposed": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "true",
+            "computed": false
+          },
+          "description": "True if search should be exposed by default at smaller screen widths."
+        },
+        "selectedCategory": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "null",
+            "computed": false
+          },
+          "description": "Category ID to be initially selected"
+        },
+        "typeAheadUrl": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": "Url to fetch recomendations in searchbar"
+        }
+      },
+      "fileName": "./src/components/searchbar-wrapper.jsx",
+      "description": "An intermediate component for the header for rendering and managing the state of the\n  search bar at mobile breakpoints. Should be used inside a TempoWrapper so all modules are\n  populated.",
+      "examples": "```jsx\n  <SearchbarWrapper searchExposed={true} />\n  ```",
+      "component": "SearchbarWrapper",
+      "import": "{SearchbarWrapper}",
+      "references": "SearchbarWrapper",
+      "playground": [
+        {
+          "title": "SearchbarWrapper",
+          "flags": {},
+          "code": null
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "StoreFinderField",
+      "methods": [
+        {
+          "name": "_renderLocationField",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "dataAutomationId",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderFindButton",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "dataAutomationId",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_getWindow",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "Object"
+            }
+          }
+        },
+        {
+          "name": "_handleLocationSubmit",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "ev",
+              "type": {
+                "name": "Object"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_invalidateField",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "field",
+              "type": null
+            }
+          ],
+          "returns": null
+        }
+      ],
+      "props": {
+        "dataAutomationId": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "flowType": {
+            "name": "string"
+          },
+          "defaultValue": {
+            "value": "\"storeFinderField\"",
+            "computed": false
+          },
+          "description": "Automation id for testing"
+        }
+      },
+      "fileName": "./src/components/store-finder-field.jsx",
+      "description": "This component is used to find stores near your specified location",
+      "import": "{StoreFinderField}",
+      "flags": "noVisibleRender",
+      "component": "StoreFinderField",
+      "playground": [
+        {
+          "title": "StoreFinderField",
+          "flags": {},
+          "code": "<StoreFinderField />\n"
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "StoreFinderFlyout",
+      "methods": [
+        {
+          "name": "_renderStoreFinderFlyout",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "props",
+              "type": {
+                "name": "Object"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderStoreFinderPanel",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "loading",
+              "type": null
+            },
+            {
+              "name": "stores",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderLoadingComponent",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderStoreFinderButton",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{\n  linkData,\n  iconName,\n  index,\n  onStoreFinderActive,\n  dataAutomationId }",
+              "type": null
+            },
+            {
+              "name": "hover",
+              "type": {
+                "name": "boolean"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_onStoreFinderButtonMouseEnter",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "hover",
+              "type": {
+                "name": "boolean"
+              }
+            },
+            {
+              "name": "onStoreFinderActive",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_shouldShowFlyout",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "response",
+              "type": {
+                "name": "Object"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "boolean"
+            }
+          }
+        },
+        {
+          "name": "_isLoading",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "response",
+              "type": {
+                "name": "Object"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "boolean"
+            }
+          }
+        },
+        {
+          "name": "_hasStores",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "response",
+              "type": {
+                "name": "Object"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "boolean"
+            }
+          }
+        },
+        {
+          "name": "_serviceError",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "response",
+              "type": {
+                "name": "Object"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "boolean"
+            }
+          }
+        }
+      ],
+      "props": {
+        "storeFinderResponse": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "loading": {
+                "name": "bool",
+                "required": false
+              },
+              "didInvalidate": {
+                "name": "bool",
+                "required": false
+              },
+              "stores": {
+                "name": "shape",
+                "value": "unkown",
+                "required": false
+              }
+            }
+          },
+          "required": true,
+          "description": "Data used to render storefinder panel.\n  This includes the loading and error states and stores data"
+        },
+        "linkData": {
+          "type": {
+            "name": "object"
+          },
+          "required": true,
+          "description": "Data for configuring the component. Typically coming from Tempo.\n  Contains information on the URL, link text, and colors to use for the links."
+        },
+        "iconName": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"pin\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "index": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "0",
+            "computed": false
+          },
+          "description": ""
+        },
+        "onStoreFinderActive": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": "Callback that is triggered when storefinder flyout is open"
+        },
+        "dataAutomationId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"storeFinderFlyout\"",
+            "computed": false
+          },
+          "description": "automation id for tests"
+        }
+      },
+      "fileName": "./src/components/store-finder-flyout.jsx",
+      "description": "This component is the StoreFinderFlyout. This has three states.\n1) On initial render, it renders as a Link\n2) On hover and during loading in renders a loading Flyout\n3) On service response it renders the flyout with stores near you",
+      "import": "{StoreFinderFlyout}",
+      "flags": "noVisibleRender",
+      "component": "StoreFinderFlyout",
+      "playground": [
+        {
+          "title": "StoreFinderFlyout",
+          "flags": {},
+          "code": "<StoreFinderFlyout\n  storeFinderResponse={check examples}\n  linkData={check examples}\n  iconName=\"pin\"\n  index: 1\n  linkId=\"id\"\n/>\n"
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "StoreList",
+      "methods": [],
+      "props": {
+        "title": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"Stores near you\"",
+            "computed": false
+          },
+          "description": "Tile for the list"
+        },
+        "dataAutomationId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"storeList\"",
+            "computed": false
+          },
+          "description": "dataAutomationId used for testings"
+        }
+      },
+      "fileName": "./src/components/store-list.jsx",
+      "description": "This component displays a store list",
+      "import": "{StoreList}",
+      "flags": "noVisibleRender",
+      "component": "StoreList",
+      "playground": [
+        {
+          "title": "StoreList",
+          "flags": {},
+          "code": "<StoreList dataAutomationId=\"storeList\">\n  <StoreListItem id=\"1234\" name=\"San Bruno\" address=\"850 Cherry Ave\" distance=\"13 mi\"/>\n  <StoreListItem id=\"2031\" name=\"Union City\" address=\"30600 Dyer st\" distance=\"13 mi\"/>\n</StoreList>\n/>\n"
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "StorefinderLink",
+      "methods": [
+        {
+          "name": "_getWindow",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "Object",
+              "nullable": true
+            }
+          }
+        },
+        {
+          "name": "_navigateToUrl",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "url",
+              "type": {
+                "name": "string"
+              }
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_getGeolocatorInstance",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "Object"
+            }
+          }
+        },
+        {
+          "name": "_goToStoreFinder",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "e",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "Promise"
+            }
+          }
+        }
+      ],
+      "props": {
+        "dataAutomationId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"header-StorefinderLink\"",
+            "computed": false
+          },
+          "description": "Automation ID base string"
+        }
+      },
+      "fileName": "./src/components/storefinder-link.jsx",
+      "description": "Store Finder Link component\nComponent is used in mobile header and tries to get the location from the Browser using the\nGeolocate library from @walmart/geolocate when clicked on it\n\nOn resolution of the Promise, component would redirect the browser to:\n- /store/finder?latitude=xxx&longitude=xxx - If we are able to retrieve the geolocation\n- /store/finder - If we are not able to retrieve the geolocation",
+      "class": null,
+      "component": "StorefinderLink",
+      "exports": "StorefinderLink",
+      "import": "{StorefinderLink}",
+      "example": "```jsx\n<StorefinderLink />\n```",
+      "playground": [
+        {
+          "title": "StorefinderLink",
+          "flags": {},
+          "code": "jsx\n<StorefinderLink />\n"
+        }
+      ],
+      "hasProps": true
+    }
+  ]
+}

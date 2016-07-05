@@ -1,0 +1,113 @@
+{
+  "_args": [
+    [
+      {
+        "name": "@walmart/store-finder-carousel",
+        "raw": "@walmart/store-finder-carousel",
+        "rawSpec": "",
+        "scope": "@walmart",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/cshi1/githome/portal"
+    ]
+  ],
+  "_from": "@walmart/store-finder-carousel@latest",
+  "_id": "@walmart/store-finder-carousel@1.1.1",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/@walmart/store-finder-carousel",
+  "_nodeVersion": "4.4.5",
+  "_npmUser": {
+    "email": "npme@example.com",
+    "name": "cshi1"
+  },
+  "_npmVersion": "3.9.6",
+  "_phantomChildren": {
+    "@walmart/automation-utils": "3.0.1",
+    "@walmart/react-utils": "4.0.0",
+    "@walmart/wmreact-analytics": "4.2.0",
+    "@walmart/wmreact-base": "7.1.0",
+    "@walmart/wmreact-interactive": "7.4.0",
+    "@walmart/wmreact-layout": "7.2.0",
+    "classnames": "2.2.5",
+    "exenv": "1.2.1",
+    "flowtip": "4.0.0",
+    "kw-react-tween-state": "0.1.5",
+    "lodash": "4.13.1",
+    "object-assign": "4.0.1"
+  },
+  "_requested": {
+    "name": "@walmart/store-finder-carousel",
+    "raw": "@walmart/store-finder-carousel",
+    "rawSpec": "",
+    "scope": "@walmart",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/@walmart/store-finder-carousel-container"
+  ],
+  "_resolved": "https://npme.walmart.com/@/@walmart/store-finder-carousel/_attachments/store-finder-carousel-1.1.1.tgz",
+  "_shasum": "f64a073b2a2ca6e555e008aa0e5432f7f90c5759",
+  "_shrinkwrap": null,
+  "_spec": "@walmart/store-finder-carousel",
+  "_where": "/Users/cshi1/githome/portal",
+  "bugs": {
+    "url": "https://gecgithub01.walmart.com/react/store-finder-carousel/issues"
+  },
+  "dependencies": {
+    "@walmart/wmreact-base": "^7.0.1",
+    "@walmart/wmreact-carousel": "^3.5.0",
+    "@walmart/wmreact-containers": "^10.0.3",
+    "@walmart/wmreact-forms": "^5.0.5",
+    "@walmart/wmreact-interactive": "^7.0.2",
+    "@walmart/wmreact-layout": "^7.0.2",
+    "classnames": "^2.2.3"
+  },
+  "description": "Carousel for finding nearby stores",
+  "devDependencies": {
+    "@walmart/electrode-archetype-react-component": "^9.0.0",
+    "@walmart/electrode-archetype-react-component-dev": "^9.0.0",
+    "@walmart/electrode-docgen": "^1",
+    "@walmart/lithe-extras": "^2.2.3",
+    "builder": "^2.10.1",
+    "react-redux": "^4.4.5",
+    "redux": "^3.5.1",
+    "redux-thunk": "^2.0.1"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "f64a073b2a2ca6e555e008aa0e5432f7f90c5759",
+    "tarball": "https://npme.walmart.com/@/@walmart/store-finder-carousel/_attachments/store-finder-carousel-1.1.1.tgz"
+  },
+  "gitHead": "bef426fea910bdc92db8272627efd0a4804ea3cb",
+  "homepage": "https://gecgithub01.walmart.com/react/store-finder-carousel",
+  "license": "UNLICENSED",
+  "main": "lib/index.js",
+  "maintainers": [
+    {
+      "email": "DDavidson@walmartlabs.com",
+      "name": "ddavid4"
+    }
+  ],
+  "name": "@walmart/store-finder-carousel",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "https://gecgithub01.walmart.com/react/store-finder-carousel.git"
+  },
+  "scripts": {
+    "demo": "builder run generate && builder run server-dev",
+    "demo-iso": "builder run dev-iso",
+    "generate": "npm run generate-metadata && npm run generate-documentation",
+    "generate-documentation": "electrode-docgen --package ./package.json --src ./src --markdown components.md",
+    "generate-metadata": "electrode-docgen --package ./package.json --src ./src --metadata components.json",
+    "prepublish": "builder run npm:prepublish",
+    "preversion": "builder run test",
+    "test": "builder run check-cov"
+  },
+  "version": "1.1.1"
+}

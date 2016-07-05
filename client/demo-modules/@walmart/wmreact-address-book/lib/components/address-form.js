@@ -234,7 +234,7 @@ exports.default = _react2.default.createClass({
 
     var checkboxClass = "Grid-col u-size-1-2-m option option-form-control " + "address-form-preferred-address-wrapper pull-left";
 
-    var cancelFormClass = "cancel-address-form btn btn-link btn-block-max-s " + "btn-fake-link-large pull-right-s";
+    var cancelFormClass = "cancel-address-form btn btn-link btn-block-max-s " + "btn-fake-link-large cancel-btn pull-right-s";
 
     var isDefault = this.props.fields.isDefault;
 

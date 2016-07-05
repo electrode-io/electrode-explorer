@@ -1,0 +1,96 @@
+{
+  "_args": [
+    [
+      {
+        "name": "@walmart/wmreact-image-utils",
+        "raw": "@walmart/wmreact-image-utils@^2.0.3",
+        "rawSpec": "^2.0.3",
+        "scope": "@walmart",
+        "spec": ">=2.0.3 <3.0.0",
+        "type": "range"
+      },
+      "/Users/cshi1/githome/portal"
+    ]
+  ],
+  "_from": "@walmart/wmreact-image-utils@>=2.0.3 <3.0.0",
+  "_id": "@walmart/wmreact-image-utils@2.0.4",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/@walmart/wmreact-image-utils",
+  "_nodeVersion": "4.4.5",
+  "_npmUser": {
+    "email": "npme@example.com",
+    "name": "cshi1"
+  },
+  "_npmVersion": "3.9.6",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "@walmart/wmreact-image-utils",
+    "raw": "@walmart/wmreact-image-utils@^2.0.3",
+    "rawSpec": "^2.0.3",
+    "scope": "@walmart",
+    "spec": ">=2.0.3 <3.0.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/",
+    "/@walmart/wmreact-ads",
+    "/@walmart/wmreact-category-components",
+    "/@walmart/wmreact-category-components/@walmart/wmreact-product-card",
+    "/@walmart/wmreact-p13n",
+    "/@walmart/wmreact-pov-frame",
+    "/@walmart/wmreact-product-card",
+    "/@walmart/wmreact-product-variants",
+    "/@walmart/wmredux-ads/@walmart/wmreact-ads",
+    "/@walmart/wmredux-ads/@walmart/wmreact-product-variants"
+  ],
+  "_resolved": "https://npme.walmart.com/@/@walmart/wmreact-image-utils/_attachments/wmreact-image-utils-2.0.4.tgz",
+  "_shasum": "1824a8c3746a5f9ff6fce81ee188f21495d22742",
+  "_shrinkwrap": null,
+  "_spec": "@walmart/wmreact-image-utils@^2.0.3",
+  "_where": "/Users/cshi1/githome/portal",
+  "bugs": {
+    "url": "https://gecgithub01.walmart.com/react/image-utils/issues"
+  },
+  "dependencies": {},
+  "description": "A collection of common image utilities used in electrode components and apps",
+  "devDependencies": {
+    "@walmart/electrode-archetype-react-component": "^9.0.2",
+    "@walmart/electrode-archetype-react-component-dev": "^9.0.2",
+    "@walmart/electrode-docgen": "^1",
+    "builder": "^2.9.1"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "1824a8c3746a5f9ff6fce81ee188f21495d22742",
+    "tarball": "https://npme.walmart.com/@/@walmart/wmreact-image-utils/_attachments/wmreact-image-utils-2.0.4.tgz"
+  },
+  "gitHead": "f8cb1236b8249002d2bd119e0c4ba1fc6b864557",
+  "homepage": "https://gecgithub01.walmart.com/react/image-utils",
+  "license": "UNLICENSED",
+  "main": "lib/index.js",
+  "maintainers": [
+    {
+      "email": "npme@example.com",
+      "name": "ajoshi1"
+    }
+  ],
+  "name": "@walmart/wmreact-image-utils",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "https://gecgithub01.walmart.com/react/image-utils.git"
+  },
+  "scripts": {
+    "demo": "builder run generate && builder run server-dev",
+    "demo-iso": "builder run dev-iso",
+    "generate": "npm run generate-metadata && npm run generate-documentation",
+    "generate-documentation": "electrode-docgen --package ./package.json --src ./src --markdown components.md",
+    "generate-metadata": "electrode-docgen --package ./package.json --src ./src --metadata components.json",
+    "prepublish": "builder run build-lib",
+    "preversion": "builder run test",
+    "test": "builder run check-cov"
+  },
+  "version": "2.0.4"
+}

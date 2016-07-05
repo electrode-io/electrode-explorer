@@ -1,0 +1,13 @@
+[ignore]
+lib
+.*/fbjs/*
+.*/fixtures/*
+.*/wmreact-test-helpers/*
+
+[include]
+./src/
+./node_modules/@walmart/
+
+[libs]
+
+[options]

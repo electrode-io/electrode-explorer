@@ -1,0 +1,59 @@
+.ModuleHeader {
+  padding: $s-spacing 0px;
+
+  line-height: 1;
+
+  .wmicon-angle-right {
+    to-rem(font-size, 11px);
+
+    position: relative;
+    top: -2px;
+
+    padding-left: 3px;
+  }
+}
+
+.ModuleHeader-withButton {
+  height: 44px;
+
+  +breakpoint($breakpoint-m) {
+    height: 48px;
+  }
+}
+
+.ModuleHeader-heading {
+  to-rem(font-size, 18px);
+
+  margin-top: 0;
+  max-width: 220px;
+
+  line-height: 20px;
+
+  +breakpoint($breakpoint-s) {
+    max-width: 385px;
+  }
+
+  +breakpoint($breakpoint-m) {
+    to-rem(font-size, 21px);
+
+    max-width: 550px;
+
+    line-height: 24px;
+  }
+
+  &.ModuleHeader-heading-fullWidth {
+    max-width: 100%;
+  }
+}
+
+.ModuleHeader-button {
+  to-rem(font-size, 14px);
+
+  line-height: 20px;
+
+  +breakpoint($breakpoint-m) {
+    to-rem(font-size, 16px);
+
+    line-height: 24px;
+  }
+}

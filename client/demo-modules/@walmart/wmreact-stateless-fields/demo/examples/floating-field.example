@@ -1,0 +1,45 @@
+<div>
+  <FloatingField defaultValue="" label="Name on Card" instructions="(First then Last)" />
+  <FloatingField defaultValue="" label="Email" touched
+    error="Please enter an email address in the format yourname@domain.com"
+  />
+  <FloatingField label="Phone number" value="888-888-8888" disabled />
+  <FloatingField defaultValue="" component="textarea" label="Review" rows={1} />
+  <FloatingField defaultValue="" label="Credit Card" />
+  <FloatingField
+    shouldDisplayValid={() => true}
+    defaultValue="4444-4444-4444-4444"
+    label="Credit Card"
+  />
+  <FloatingField
+    defaultValue=""
+    mask="1111-1111-1111-1111"
+    label="Credit Card"
+    instructions="(This is an uncontrolled component)"
+  />
+  <FloatingField
+    defaultValue=""
+    mask="1111-1111-1111-1111"
+    label="Credit Card with Icon"
+    instructions="(This is an uncontrolled component)"
+    icon={<span style={{background: `url(${visaImage}) 0 0 / 27px`, height:'18px', width: '28px', overflow:'hidden', color:'transparent', border:'1px solid #d9d9d9', borderRadius:'2px'}}>test</span>}
+  />
+  <FloatingField
+    defaultValue=""
+    mask="1111-1111-1111-1111"
+    disabled
+    label="Credit Card with Icon"
+    instructions="(This is an uncontrolled component)"
+    icon={<span style={{background: `url(${visaImage}) 0 0 / 27px`, height:'18px', width: '28px', overflow:'hidden', color:'transparent', border:'1px solid #d9d9d9', borderRadius:'2px'}}>test</span>}
+  />
+  <FloatingField
+    defaultValue=""
+    mask="1111-1111-1111-1111"
+    touched
+    error="Please enter a valid card number"
+    label="Credit Card with Icon"
+    instructions="(This is an uncontrolled component)"
+    icon={<span style={{background: `url(${visaImage}) 0 0 / 27px`, height:'18px', width: '28px', overflow:'hidden', color:'transparent', border:'1px solid #d9d9d9', borderRadius:'2px'}}>test</span>}
+  />
+  <ControlledFloatingMask />
+</div>

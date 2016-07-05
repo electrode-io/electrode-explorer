@@ -1,0 +1,107 @@
+{
+  "_args": [
+    [
+      {
+        "name": "@walmart/wmreact-tempo-modules",
+        "raw": "@walmart/wmreact-tempo-modules",
+        "rawSpec": "",
+        "scope": "@walmart",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/cshi1/githome/portal"
+    ]
+  ],
+  "_from": "@walmart/wmreact-tempo-modules@latest",
+  "_id": "@walmart/wmreact-tempo-modules@3.26.2",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/@walmart/wmreact-tempo-modules",
+  "_nodeVersion": "4.4.5",
+  "_npmUser": {
+    "email": "npme@example.com",
+    "name": "cshi1"
+  },
+  "_npmVersion": "3.9.6",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "@walmart/wmreact-tempo-modules",
+    "raw": "@walmart/wmreact-tempo-modules",
+    "rawSpec": "",
+    "scope": "@walmart",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://npme.walmart.com/@/@walmart/wmreact-tempo-modules/_attachments/wmreact-tempo-modules-3.26.2.tgz",
+  "_shasum": "c9421095a5a37dee7d20251f9414dafc2fbad9ca",
+  "_shrinkwrap": null,
+  "_spec": "@walmart/wmreact-tempo-modules",
+  "_where": "/Users/cshi1/githome/portal",
+  "bugs": {
+    "url": "https://gecgithub01.walmart.com/react/tempo-modules/issues"
+  },
+  "dependencies": {
+    "@walmart/automation-utils": "^3.0.1",
+    "@walmart/wmreact-ads": "^6.0.0",
+    "@walmart/wmreact-analytics": "^4.2.0",
+    "@walmart/wmreact-base": "^7.0.1",
+    "@walmart/wmreact-carousel": "^5.0.2",
+    "@walmart/wmreact-formatters": "^2.0.1",
+    "@walmart/wmreact-image-utils": "^2.0.1",
+    "@walmart/wmreact-interactive": "^7.2.2",
+    "@walmart/wmreact-layout": "^7.1.2",
+    "@walmart/wmreact-product-card": "^11.2.1",
+    "@walmart/wmreact-product-typography": "^4.1.0",
+    "classnames": "^2.2.3",
+    "exenv": "^1.2.1",
+    "html-entities": "^1.2.0",
+    "lodash": "^4.12.0"
+  },
+  "description": "Integration layer for tempo",
+  "devDependencies": {
+    "@walmart/chai-shallowly": "^1.1.0",
+    "@walmart/electrode-archetype-react-component": "^9.2.0",
+    "@walmart/electrode-archetype-react-component-dev": "^9.2.0",
+    "@walmart/electrode-docgen": "^1.0.0",
+    "@walmart/lithe-extras": "^2.7.0",
+    "component-playground": "^1.2.0",
+    "object-assign": "^4.0.1",
+    "redux-thunk": "^2.1.0"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "c9421095a5a37dee7d20251f9414dafc2fbad9ca",
+    "tarball": "https://npme.walmart.com/@/@walmart/wmreact-tempo-modules/_attachments/wmreact-tempo-modules-3.26.2.tgz"
+  },
+  "gitHead": "44f1bb1cf592dba32b245112cae87d87467fd74a",
+  "homepage": "https://gecgithub01.walmart.com/react/tempo-modules",
+  "license": "UNLICENSED",
+  "main": "lib/index.js",
+  "maintainers": [
+    {
+      "email": "dbhakta@walmartlabs.com",
+      "name": "d0bhakt"
+    }
+  ],
+  "name": "@walmart/wmreact-tempo-modules",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "https://gecgithub01.walmart.com/react/tempo-modules.git"
+  },
+  "scripts": {
+    "check-cov": "builder run lint && builder run test-cov",
+    "demo": "builder run generate && builder run server-dev",
+    "generate": "builder run generate-metadata && builder run generate-documentation && builder run generate-demo",
+    "generate-demo": "electrode-docgen --package ./package.json --src src/components --demo demo",
+    "generate-documentation": "electrode-docgen --package ./package.json --src src/components --markdown components.md",
+    "generate-metadata": "electrode-docgen --package ./package.json --src src/components --metadata components.json",
+    "prepublish": "builder run build-lib",
+    "test": "builder run check-cov"
+  },
+  "version": "3.26.2"
+}

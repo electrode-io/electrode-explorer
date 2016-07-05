@@ -1,0 +1,5 @@
+<StoreFinderPanel
+ preferredStores={preferredStores}
+ nearbyStores={nearbyStores}
+ location="San Bruno"
+/>

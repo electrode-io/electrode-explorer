@@ -1,0 +1,16 @@
+<MiniStoryTile
+  isMobile={false}
+  isHidden={false}
+  spot={{
+    image: {
+      alt: "ph",
+      clickThrough: {
+        type: "url",
+        value: "/"
+      },
+      src: "http://ll-us-i5.wal.co/dfw/4ff9c6c9-4f61/k2-_d7c7f588-ff11-41de-89a4-e6188bec9a0d.v1.jpg",
+      title: "ph",
+      width: "433"
+    }
+  }}
+/>

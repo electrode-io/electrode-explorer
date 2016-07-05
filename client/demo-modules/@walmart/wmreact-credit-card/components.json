@@ -1,0 +1,1146 @@
+{
+  "library": "@walmart/wmreact-credit-card",
+  "description": "Credit card components",
+  "components": [
+    {
+      "methods": [
+        {
+          "name": "_createOnAdd",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_createOnEdit",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "card",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_createOnDelete",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "card",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_createOnDeleteModeChange",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "card",
+              "type": null
+            },
+            {
+              "name": "deleteMode",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_save",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "id",
+              "type": null
+            },
+            {
+              "name": "data",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_renderCard",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "card",
+              "type": null
+            },
+            {
+              "name": "index",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_renderAdd",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_editable",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "component",
+              "type": null
+            },
+            {
+              "name": "data",
+              "type": null
+            }
+          ],
+          "returns": null
+        }
+      ],
+      "props": {
+        "cards": {
+          "type": {
+            "name": "arrayOf",
+            "value": {
+              "name": "shape",
+              "value": {
+                "id": {
+                  "name": "string",
+                  "required": true
+                }
+              }
+            }
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "[]",
+            "computed": false
+          },
+          "description": "contains all cards you wish to show"
+        },
+        "onAdd": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": "when set, will enable adding new cards by showing the add-new tile"
+        },
+        "onEdit": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": "when set, will enable the edit of the cards"
+        },
+        "onDelete": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": "when set, will enable the delete button on the cards"
+        },
+        "onRequestEdit": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": "required when either add or edit is to be used"
+        },
+        "onDeleteModeChange": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "cardInDeleteMode": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "cardEdited": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "use in combination with onRequestEdit"
+        },
+        "errors": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "{}",
+            "computed": false
+          },
+          "description": "errors in the form of {cardId: {error_name: \"details\"}}"
+        },
+        "onRequestClearErrors": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": "clear errors by id, onRequestClearErrors(cardId)"
+        },
+        "onValidationChange": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "cardNumberEditable": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "loading": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "fetchInitialData": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "renderHeader": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "adding": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "initSpinner": {
+          "type": {
+            "name": "node"
+          },
+          "required": false,
+          "description": ""
+        },
+        "validationDate": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "description": ""
+        },
+        "truncate": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": ""
+        },
+        "onShowAllCards": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "defaults": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "{}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "bypassAvs": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": ""
+        },
+        "tile": {
+          "type": {
+            "name": "node"
+          },
+          "required": false,
+          "description": ""
+        },
+        "addTile": {
+          "type": {
+            "name": "node"
+          },
+          "required": false,
+          "description": ""
+        },
+        "addressForm": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "fullWidth": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "tealeafIds": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "card": {
+                "name": "object",
+                "required": false
+              },
+              "form": {
+                "name": "object",
+                "required": false
+              },
+              "addCard": {
+                "name": "string",
+                "required": false
+              }
+            }
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "{}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "formActions": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "usePrimaryButtons": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "true",
+            "computed": false
+          },
+          "description": ""
+        },
+        "showExpiredLabel": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "floatingLabels": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/credit-cards.jsx",
+      "description": "A component listing credit cards.\n\n Here is a simple example:\n\n ```jsx\n <CreditCards cards = {[{\n    lastFour:\"1111\",\n    firstName:\"John\",\n    lastName:\"Snow\",\n    cardExpiryDate:\"2020-07-15\",\n    cardType:\"AMEX\",\n    id:\"1\",\n    addressLineOne: \"860 w california ave\",\n    city: \"sunnyvale\",\n    state: \"CA\",\n    postalCode: \"94086\",\n    phone: \"8123823828\"\n  }]} onAdd={(card) => {}} onEdit={({id,card}) => {}} onDelete={({id}) => {}} />\n ```",
+      "component": "CreditCards",
+      "import": "{CreditCards}",
+      "playground": [
+        {
+          "title": "CreditCards",
+          "flags": {},
+          "code": " <CreditCards cards = {[{\n    lastFour:\"1111\",\n    firstName:\"John\",\n    lastName:\"Snow\",\n    cardExpiryDate:\"2020-07-15\",\n    cardType:\"AMEX\",\n    id:\"1\",\n    addressLineOne: \"860 w california ave\",\n    city: \"sunnyvale\",\n    state: \"CA\",\n    postalCode: \"94086\",\n    phone: \"8123823828\"\n  }]} onAdd={(card) => console.log(card)}\n onEdit={({id,card}) => console.log(card)}\n onDelete={({id}) => console.log(id)} />\n "
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "methods": [
+        {
+          "name": "_toggleDeleteMode",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_delete",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_isEditable",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_isExpired",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_hasExpiryDate",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_expires",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_renderCardBody",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_renderExpiryDate",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_renderActions",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_deleteConfirmation",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_viewMode",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        }
+      ],
+      "props": {
+        "index": {
+          "type": {
+            "name": "number"
+          },
+          "required": true,
+          "description": ""
+        },
+        "cardType": {
+          "type": {
+            "name": "enum",
+            "value": [
+              {
+                "value": "\"WMUSGESTORECARD\"",
+                "computed": false
+              },
+              {
+                "value": "\"WMMASTERCARD\"",
+                "computed": false
+              },
+              {
+                "value": "\"MASTERCARD\"",
+                "computed": false
+              },
+              {
+                "value": "\"VISA\"",
+                "computed": false
+              },
+              {
+                "value": "\"AMEX\"",
+                "computed": false
+              },
+              {
+                "value": "\"DISCOVER\"",
+                "computed": false
+              }
+            ]
+          },
+          "required": true,
+          "description": ""
+        },
+        "isTemp": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "cardExpiryDate": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "description": ""
+        },
+        "lastFour": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "description": ""
+        },
+        "firstName": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "description": ""
+        },
+        "lastName": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "description": ""
+        },
+        "onDeleteModeChanged": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "onDelete": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": "when set, the delete action will be enabled"
+        },
+        "onEdit": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": "when set, the edit action will be enabled"
+        },
+        "loading": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "deleting": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "deleteMode": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": ""
+        },
+        "tealeafIds": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "edit": {
+                "name": "string",
+                "required": false
+              },
+              "delete": {
+                "name": "string",
+                "required": false
+              },
+              "deleteConfirmDelete": {
+                "name": "string",
+                "required": false
+              },
+              "deleteConfirmCancel": {
+                "name": "string",
+                "required": false
+              }
+            }
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "{\n  edit: \"edit\",\n  delete: \"delete\",\n  deleteConfirmDelete: \"confirm-delete\",\n  deleteConfirmCancel: \"confirm-cancel\"\n}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "showExpiredLabel": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/credit-card.jsx",
+      "description": "A component for displaying a single credit card.\n\n Here is a simple example:\n\n ```jsx\n <CreditCard\n onDelete={(ev) => console.log(ev)}\n onEdit={(ev) => console.log(ev)}\n cardType=\"VISA\"\n lastFour=\"1111\"\n firstName=\"John\"\n lastName=\"Snow\"\n cardExpiryDate=\"07/17\"\n />\n ```",
+      "component": "CreditCards",
+      "import": "{CreditCards}",
+      "playground": [
+        {
+          "title": "CreditCards",
+          "flags": {},
+          "code": " <CreditCard\n onDelete={(ev) => console.log(ev)}\n onEdit={(ev) => console.log(ev)}\n cardType=\"VISA\"\n lastFour=\"1111\"\n firstName=\"John\"\n lastName=\"Snow\"\n cardExpiryDate=\"07/17\"\n />\n "
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "methods": [
+        {
+          "name": "_creditCardProps",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_addressProps",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "validate",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_save",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "bypassValidation",
+              "type": null
+            },
+            {
+              "name": "overrides",
+              "type": null
+            },
+            {
+              "name": "skipAvs",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_renderErrors",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_renderEditForm",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_updateValidationChange",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "newAddress",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_renderAvsInvalid",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        }
+      ],
+      "props": {
+        "cardNumberEditable": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "index": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "description": ""
+        },
+        "isNew": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "isInitial": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "isEditorActive": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "inEditMode": {
+          "type": {
+            "name": "bool"
+          },
+          "required": true,
+          "description": ""
+        },
+        "avsError": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "description": ""
+        },
+        "onRequestClearErrors": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "onSave": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        },
+        "onValidationChange": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        },
+        "onCancel": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        },
+        "actions": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "primary": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "true",
+            "computed": false
+          },
+          "description": ""
+        },
+        "postalCode": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "addressLineOne": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "addressLineTwo": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "state": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "id": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "city": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "firstName": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "lastName": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "cardExpiryDate": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "validationDate": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "description": ""
+        },
+        "lastFour": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "cardType": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "isTemp": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "phone": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "loading": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "addressForm": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "floatingLabels": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "bypassValidation": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "tealeafIds": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "infoForm": {
+                "name": "object",
+                "required": false
+              },
+              "addressForm": {
+                "name": "object",
+                "required": false
+              },
+              "save": {
+                "name": "string",
+                "required": false
+              },
+              "cancel": {
+                "name": "string",
+                "required": false
+              }
+            }
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "{\n  save: \"save\",\n  cancel: \"cancel\"\n}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "errors": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "delete": {
+                "name": "object",
+                "required": false
+              },
+              "edit": {
+                "name": "object",
+                "required": false
+              }
+            }
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/credit-card-form.jsx",
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "methods": [],
+      "props": {
+        "errorCodes": {
+          "type": {
+            "name": "arrayOf",
+            "value": {
+              "name": "string"
+            }
+          },
+          "required": true,
+          "description": ""
+        },
+        "errorMessages": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/alert-errors.jsx",
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "displayName": "Customer-AddressValidationMessage",
+      "methods": [
+        {
+          "name": "onUseAddressClick",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "addr",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "closeButton",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "text",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "address",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "addr",
+              "type": null
+            },
+            {
+              "name": "noSelect",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "unmatched",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "multipleMatches",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "addresses",
+              "type": null
+            }
+          ],
+          "returns": null
+        }
+      ],
+      "props": {
+        "actions": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "description": ""
+        },
+        "onContinue": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "address": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "description": ""
+        },
+        "embedded": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "loading": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "primary": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "alert": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "description": ""
+        },
+        "invalidAddressError": {
+          "type": {
+            "name": "object"
+          },
+          "required": true,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/address-validation-message.jsx",
+      "hasProps": true
+    }
+  ]
+}

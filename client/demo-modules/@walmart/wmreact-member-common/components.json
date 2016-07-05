@@ -1,0 +1,217 @@
+{
+  "library": "@walmart/wmreact-member-common",
+  "description": "react components",
+  "components": [
+    {
+      "methods": [],
+      "props": {
+        "userMessage": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "description": ""
+        },
+        "btnMessage": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "description": ""
+        },
+        "submitting": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": ""
+        },
+        "automation": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "{// for testing\n  submitBtn: \"register-reclaim-modal-submit-btn\"\n}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "tealeaf": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "{ //for analytics\n  submitBtn: \"register-reclaim-modal-submit-btn\"\n}",
+            "computed": false
+          },
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/register-reclaim-modal.jsx",
+      "description": "Usage:\n<RegisterReclaimModal\n  userMessage=\"Looks like you're already signed in.\"\n  btnMessage=\"Continue shopping\"\n/>",
+      "hasProps": true
+    },
+    {
+      "methods": [],
+      "props": {
+        "notification": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "description": ""
+        },
+        "userMessage": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "description": ""
+        },
+        "btnMessage1": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "description": ""
+        },
+        "btnMessage2": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "description": ""
+        },
+        "submitting": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": ""
+        },
+        "tealeaf": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "{ //for analytics\n  submitBtn1: \"expired-link-pwd-submit-btn\",\n  submitBtn2: \"expired-link-shopping-submit-btn\"\n}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "automation": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "{// for testing\n  submitBtn1: \"expired-link-pwd-submit-btn\",\n  submitBtn2: \"expired-link-shopping-submit-btn\"\n}",
+            "computed": false
+          },
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/expired-link.jsx",
+      "description": "Usage:\n<ExpiredLink\n  notification=\"Your request has expired.\"\n  userMessage=\"Still need to change your password?\"\n  btnMessage1=\"Change password\"\n  btnMessage2=\"Continue shopping\"\n  />",
+      "hasProps": true
+    },
+    {
+      "methods": [],
+      "props": {
+        "mainMessage": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "description": ""
+        },
+        "detailedMessage": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "description": ""
+        },
+        "buttonMessage": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "description": ""
+        },
+        "handleSubmit": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        },
+        "firstName": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "tealeaf": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "{ //for analytics\n  submitBtn: \"acct-confrm-submit-btn\"\n}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "automation": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "{// for testing\n  submitBtn: \"acct-confrm-submit-btn\"\n}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "submitting": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": ""
+        },
+        "handleRedirectTo": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/account-confirmation.jsx",
+      "description": "Usage:\n  <AccountConfirmation\n    mainMessage=\"You're all set!\"\n    detailedMessage='Your account has been updated'\n    buttonMessage=\"Let's go shopping\"\n  />",
+      "hasProps": true
+    }
+  ]
+}

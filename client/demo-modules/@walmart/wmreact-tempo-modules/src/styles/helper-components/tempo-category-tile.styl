@@ -1,0 +1,65 @@
+.TempoCategoryTile-tile {
+  to-rem(font-size, 12px);
+
+  position: relative;
+  width: 100%;
+  padding-top: 12px;
+
+  background: $white;
+  border-radius: 4px;
+  text-align: center;
+  vertical-align: top;
+  white-space: normal;
+
+  +breakpoint($breakpoint-m) {
+    to-rem(font-size, 14px);
+
+    border-radius: 6px;
+  }
+}
+
+.TempoCategoryTile-tile-content {
+  height: 30px;
+  padding: 0;
+
+  text-align: center;
+  vertical-align: top;
+
+  +breakpoint($breakpoint-m) {
+    height: 34px;
+  }
+}
+
+.TempoCategoryTile-tile-img {
+  display: block;
+  margin: 0 auto;
+
+  text-align: center;
+
+    width: 144px;
+    height: @width;
+}
+
+.TempoCategoryTile-tile-linkText {
+  to-rem(font-size, 14px);
+  to-rem(line-height, 16px);
+
+  margin: 0;
+
+  color: $blue;
+
+  +breakpoint($breakpoint-m) {
+    to-rem(font-size, 14px);
+    to-rem(line-height, 17px);
+  }
+}
+
+.TempoCategoryTile-tile-overlay {
+  wmzindex("basic", true);
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}

@@ -1,0 +1,81 @@
+{
+  "library": "@walmart/wmreact-iframe",
+  "description": "iframe",
+  "components": [
+    {
+      "description": "",
+      "methods": [
+        {
+          "name": "setIFrameContent",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "iframeDoc",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "fetchTypekitHref",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "loadImages",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "images",
+              "type": null
+            }
+          ],
+          "returns": null
+        }
+      ],
+      "props": {
+        "iframeId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "markup": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "css": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "moduleId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "moduleType": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/iframe.jsx",
+      "hasProps": true
+    }
+  ]
+}

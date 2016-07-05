@@ -1,0 +1,16 @@
+<Banner
+  moduleType="ValueOfDayMessaging"
+  data={{
+  backgroundColor: "#ddd",
+  mobileImage: {
+    clickThrough: {
+      value: "http://walmart.com"
+    },
+    title: "Image",
+    /*eslint-disable max-len*/
+    src: "http://i5.walmartimages.com/dfw/4ff9c6c9-a732/k2-_3965685c-a835-4eee-b0c9-3154910191f9.v1.jpg",
+    /*eslint-enable max-len*/
+    alt: "Image"
+  }
+}}
+/>

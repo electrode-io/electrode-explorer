@@ -1,0 +1,41 @@
+$zoomButtonFontSize ?= 32px;
+$zoomResetButtonFontSize ?= 24px;
+$zoomButtonWidth ?= 70px;
+$zoomButtonFontHeight ?= 50px;
+$zoomButtonMarginWithReset ?= -110px;
+
+.ZoomControlButtons-container {
+  position: absolute;
+  left: 50%;
+  margin-left: -($zoomButtonWidth);
+  // todo find a better way
+  z-index: 3;
+
+  &.ZoomControlButtons--resetenabled {
+    margin-left: $zoomButtonMarginWithReset;
+  }
+
+  .ZoomControlButtons-zoomin,
+  .ZoomControlButtons-zoomout,
+  .ZoomControlButtons-reset {
+    width: $zoomButtonWidth;
+    height: $zoomButtonFontHeight;
+    padding: 0;
+    border-radius: 0;
+
+    font-size: $zoomButtonFontSize;
+  }
+
+  .ZoomControlButtons-zoomout,
+  .ZoomControlButtons-reset {
+    margin-left: 0;
+  }
+
+  .ZoomControlButtons-reset {
+    width: inherit;
+    padding-left: $s-spacing;
+    padding-right: $s-spacing;
+
+    font-size: $zoomResetButtonFontSize;
+  }
+}

@@ -1,0 +1,190 @@
+{
+  "library": "@walmart/wmreact-shipping-pass",
+  "description": "A collection of common shipping pass components and utilities used in apps",
+  "components": [
+    {
+      "description": "",
+      "displayName": "ShippingPassTile",
+      "methods": [],
+      "props": {
+        "dataAutomationId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"shipping-pass-tile\"",
+            "computed": false
+          },
+          "description": "Automation ID base string"
+        },
+        "shippingPassEligible": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "(): boolean => {\n  return isTargeted() || isSubscribed();\n}",
+            "computed": false
+          },
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/shipping-pass-tile.jsx",
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "displayName": "ShippingPassFlyout",
+      "methods": [
+        {
+          "name": "renderTrigger",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "renderSpBody",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "renderSpFooter",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "onClickSeeDetailsLaunchModal",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        }
+      ],
+      "props": {
+        "spTrialText": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": "Sp prop types for text on flyout"
+        },
+        "spNumberOfShipDays": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "spFulfillmentText": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "spPromotionText": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "seeDetailsText": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "signUpUrl": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "signUpText": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "showShippingPassFlyout": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "Conditions to be fulfilled to display SP flyout"
+        },
+        "onClickSeeDetails": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {/*no-op*/}",
+            "computed": false
+          },
+          "description": "What to do if See details is clicked and you want to extend onClick behavior"
+        }
+      },
+      "fileName": "./src/components/shipping-pass-flyout.jsx",
+      "hasProps": true
+    }
+  ]
+}

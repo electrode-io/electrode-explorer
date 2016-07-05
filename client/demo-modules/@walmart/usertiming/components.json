@@ -1,0 +1,5 @@
+{
+  "library": "@walmart/usertiming",
+  "description": "Polyfill of User Timing API",
+  "components": []
+}

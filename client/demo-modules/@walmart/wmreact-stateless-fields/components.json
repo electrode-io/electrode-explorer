@@ -1,0 +1,13 @@
+{
+  "library": "@walmart/wmreact-stateless-fields",
+  "description": "Form components that leave you in control of your application state.",
+  "components": [
+    {
+      "description": "",
+      "methods": [],
+      "props": {},
+      "fileName": "./src/components/instructions.jsx",
+      "hasProps": false
+    }
+  ]
+}

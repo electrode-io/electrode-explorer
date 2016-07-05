@@ -1,0 +1,192 @@
+{
+  "_args": [
+    [
+      {
+        "name": "@walmart/wmreact-member-login",
+        "raw": "@walmart/wmreact-member-login",
+        "rawSpec": "",
+        "scope": "@walmart",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/cshi1/githome/portal"
+    ]
+  ],
+  "_from": "@walmart/wmreact-member-login@latest",
+  "_id": "@walmart/wmreact-member-login@1.4.3",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/@walmart/wmreact-member-login",
+  "_nodeVersion": "4.4.5",
+  "_npmUser": {
+    "email": "npme@example.com",
+    "name": "cshi1"
+  },
+  "_npmVersion": "3.9.6",
+  "_phantomChildren": {
+    "builder": "2.10.1",
+    "classnames": "2.2.5",
+    "core-js": "1.2.6",
+    "exenv": "1.2.1",
+    "fast-luhn": "1.0.3",
+    "intl-format-cache": "2.0.5",
+    "intl-messageformat": "1.3.0",
+    "intl-relativeformat": "1.3.0",
+    "invariant": "2.2.1",
+    "lodash": "4.13.1",
+    "object-assign": "4.0.1",
+    "react": "0.14.8",
+    "react-dom": "0.14.8",
+    "react-imageloader": "2.1.0",
+    "react-tween-state": "0.1.5"
+  },
+  "_requested": {
+    "name": "@walmart/wmreact-member-login",
+    "raw": "@walmart/wmreact-member-login",
+    "rawSpec": "",
+    "scope": "@walmart",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/@walmart/wmredux-member-login"
+  ],
+  "_resolved": "https://npme.walmart.com/@/@walmart/wmreact-member-login/_attachments/wmreact-member-login-1.4.3.tgz",
+  "_shasum": "5b5f23c82d39bb6edd1cebb73bfb52d628c2fec6",
+  "_shrinkwrap": null,
+  "_spec": "@walmart/wmreact-member-login",
+  "_where": "/Users/cshi1/githome/portal",
+  "bugs": {
+    "url": "https://gecgithub01.walmart.com/react/member-login/issues"
+  },
+  "contributors": [
+    {
+      "email": "scherukupalli@walmartlabs.com",
+      "name": "Sarada Cherukupalli"
+    },
+    {
+      "email": "tshaik@walmartlabs.com",
+      "name": "Thammem Shaik"
+    },
+    {
+      "email": "cdang@walmartlabs.com",
+      "name": "Cory Dang"
+    },
+    {
+      "email": "smaila@walmartlabs.com",
+      "name": "Santhosh Maila"
+    },
+    {
+      "email": "vaksionov@walmartlabs.com",
+      "name": "Viktor Aksionov"
+    },
+    {
+      "email": "mle@walmartlabs.com",
+      "name": "Michael Le"
+    }
+  ],
+  "dependencies": {
+    "@walmart/electrode-archetype-react-component": "^10.0.0",
+    "@walmart/icons-set": "^1.0.0",
+    "@walmart/wmreact-base": "^5.1.0",
+    "@walmart/wmreact-containers": "^8.1.2",
+    "@walmart/wmreact-forms": "^4.0.0",
+    "@walmart/wmreact-iconography": "^2.0.0",
+    "@walmart/wmreact-interactive": "^6.0.3",
+    "@walmart/wmreact-member-common": "^1.0.4",
+    "@walmart/wmreact-user": "^5.0.3",
+    "builder": "^2.10.1",
+    "builder-react-component": "^0.3.3",
+    "classnames": "^2.2.3",
+    "exenv": "^1.2.0",
+    "lodash": "^4.0.0",
+    "react": "^0.14.7",
+    "react-async-script": "^0.5.1",
+    "react-cookie": "^0.4.2",
+    "react-dom": "^0.14.7",
+    "react-google-recaptcha": "^0.5.2",
+    "react-intl": "^2.0.0-rc-1"
+  },
+  "description": "member login react components",
+  "devDependencies": {
+    "@walmart/electrode-archetype-react-component-dev": "^10.0.0",
+    "@walmart/electrode-docgen": "^1",
+    "@walmart/electrode-react-webapp": "^1.1.11",
+    "@walmart/electrode-server": "^1.2.6",
+    "@walmart/lithe-extras": "^2.11.0",
+    "@walmart/router-resolver-engine": "^1.0.0",
+    "@walmart/wmreact-react-demo-shared": "^1.0.0",
+    "@walmart/wmreact-test-helpers": "^0.2.0",
+    "babel-cli": "^6.4.5",
+    "babel-core": "^6.4.0",
+    "babel-eslint": "^4.0.10",
+    "babel-loader": "^6.2.1",
+    "babel-plugin-i18n-id-hashing": "^1.0.0",
+    "babel-plugin-react-intl": "^2.0.0",
+    "babel-plugin-transform-object-rest-spread": "^6.3.13",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "bluebird": "^2.10.1",
+    "builder": "^2.6.0",
+    "bunyan": "^1.5.1",
+    "component-playground": "^1.0.1",
+    "css-loader": "^0.16.0",
+    "file-loader": "^0.8.4",
+    "fs-extra": "^0.26.4",
+    "glob": "^6.0.4",
+    "history": "^1.13.1",
+    "isparta-loader": "^2.0.0",
+    "json-loader": "^0.5.3",
+    "lodash": "^4.5.0",
+    "nodemon": "^1.8.1",
+    "raw-loader": "^0.5.1",
+    "react-hot-loader": "^1.2.8",
+    "react-intl": "2.0.0-beta-2",
+    "react-resolver": "^2.0.5",
+    "react-router": "^1.0.2",
+    "rimraf": "^2.5.1",
+    "style-loader": "^0.12.3",
+    "stylus-loader": "^1.2.1",
+    "url-loader": "^0.5.6",
+    "webpack": "^1.12.13",
+    "webpack-partial": "^1.1.2"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "5b5f23c82d39bb6edd1cebb73bfb52d628c2fec6",
+    "tarball": "https://npme.walmart.com/@/@walmart/wmreact-member-login/_attachments/wmreact-member-login-1.4.3.tgz"
+  },
+  "engines": {
+    "node": "^4.2.6",
+    "npm": "^3.5.3"
+  },
+  "gitHead": "c5ba79dbebf1f1e9dcc66fa188b783031e82d243",
+  "homepage": "https://gecgithub01.walmart.com/react/member-login",
+  "license": "UNLICENSED",
+  "main": "lib/index.js",
+  "maintainers": [
+    {
+      "email": "tly@walmartlabs.com",
+      "name": "tly00"
+    }
+  ],
+  "name": "@walmart/wmreact-member-login",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "https://gecgithub01.walmart.com/react/member-login.git"
+  },
+  "scripts": {
+    "demo": "builder run generate && builder run server-dev",
+    "demo-iso": "builder run dev-iso",
+    "generate": "npm run generate-metadata && npm run generate-documentation",
+    "generate-documentation": "electrode-docgen --package ./package.json --src ./src --markdown components.md",
+    "generate-metadata": "electrode-docgen --package ./package.json --src ./src --metadata components.json",
+    "prepublish": "builder run npm:prepublish",
+    "preversion": "builder run test",
+    "test": "builder run check-cov"
+  },
+  "version": "1.4.3"
+}

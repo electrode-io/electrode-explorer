@@ -13,16 +13,16 @@
     ]
   ],
   "_from": "@walmart/wmreact-address-form@latest",
-  "_id": "@walmart/wmreact-address-form@5.1.0",
+  "_id": "@walmart/wmreact-address-form@5.1.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/@walmart/wmreact-address-form",
-  "_nodeVersion": "4.4.0",
+  "_nodeVersion": "4.4.5",
   "_npmUser": {
-    "email": "apham@walmartlabs.com",
-    "name": "apham"
+    "email": "npme@example.com",
+    "name": "cshi1"
   },
-  "_npmVersion": "3.8.2",
+  "_npmVersion": "3.9.6",
   "_phantomChildren": {},
   "_requested": {
     "name": "@walmart/wmreact-address-form",
@@ -35,8 +35,8 @@
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "https://npme.walmart.com/@/@walmart/wmreact-address-form/_attachments/wmreact-address-form-5.1.0.tgz",
-  "_shasum": "fdc399cb056b139bca9d3e9e45142a7814689a7a",
+  "_resolved": "https://npme.walmart.com/@/@walmart/wmreact-address-form/_attachments/wmreact-address-form-5.1.1.tgz",
+  "_shasum": "f271fcd46a70d141036f2dad6cc0cd672ece9189",
   "_shrinkwrap": null,
   "_spec": "@walmart/wmreact-address-form",
   "_where": "/Users/cshi1/githome/portal",
@@ -65,10 +65,10 @@
   },
   "directories": {},
   "dist": {
-    "shasum": "fdc399cb056b139bca9d3e9e45142a7814689a7a",
-    "tarball": "https://npme.walmart.com/@/@walmart/wmreact-address-form/_attachments/wmreact-address-form-5.1.0.tgz"
+    "shasum": "f271fcd46a70d141036f2dad6cc0cd672ece9189",
+    "tarball": "https://npme.walmart.com/@/@walmart/wmreact-address-form/_attachments/wmreact-address-form-5.1.1.tgz"
   },
-  "gitHead": "80961b413c2625265358e474d46f162a7fe0a988",
+  "gitHead": "85bfc40a016e926ffca70eae55f8eca4e7215674",
   "license": "UNLICENSED",
   "main": "lib/index.js",
   "maintainers": [
@@ -95,5 +95,5 @@
     "preversion": "builder run test",
     "test": "builder run check-cov"
   },
-  "version": "5.1.0"
+  "version": "5.1.1"
 }

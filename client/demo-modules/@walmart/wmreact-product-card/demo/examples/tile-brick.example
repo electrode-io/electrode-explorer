@@ -1,0 +1,10 @@
+<div style={{ width: 190 }} >
+  <Tile.Brick
+    title="Demo Product"
+    imageSrc="http://placehold.it/200x300"
+    price={30}
+    oldPrice={40}
+    stars={{total: 5, count: 3, average: 4}}
+    quantities={[1,2,3,4,5]}
+    />
+</div>

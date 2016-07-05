@@ -1,0 +1,138 @@
+{
+  "_args": [
+    [
+      {
+        "name": "@walmart/wmreact-sams-footer",
+        "raw": "@walmart/wmreact-sams-footer",
+        "rawSpec": "",
+        "scope": "@walmart",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/cshi1/githome/portal"
+    ]
+  ],
+  "_from": "@walmart/wmreact-sams-footer@latest",
+  "_id": "@walmart/wmreact-sams-footer@1.3.2",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/@walmart/wmreact-sams-footer",
+  "_nodeVersion": "4.4.5",
+  "_npmUser": {
+    "email": "npme@example.com",
+    "name": "cshi1"
+  },
+  "_npmVersion": "3.9.6",
+  "_phantomChildren": {
+    "@walmart/canary": "5.1.1",
+    "@walmart/wmreact-analytics": "4.2.0",
+    "array-find": "1.0.0",
+    "eventuate": "4.0.0",
+    "lodash": "4.13.1"
+  },
+  "_requested": {
+    "name": "@walmart/wmreact-sams-footer",
+    "raw": "@walmart/wmreact-sams-footer",
+    "rawSpec": "",
+    "scope": "@walmart",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://npme.walmart.com/@/@walmart/wmreact-sams-footer/_attachments/wmreact-sams-footer-1.3.2.tgz",
+  "_shasum": "4255a6cb99935a5671dfd5137136d2c1c2b07eb8",
+  "_shrinkwrap": null,
+  "_spec": "@walmart/wmreact-sams-footer",
+  "_where": "/Users/cshi1/githome/portal",
+  "bugs": {
+    "url": "https://gecgithub01.walmart.com/react/sams-footer/issues"
+  },
+  "dependencies": {
+    "@walmart/wmreact-footer": "^6.1.0",
+    "@walmart/wmreact-tempo-analytics-utils": "^4.0.0",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7"
+  },
+  "description": "sams-footer",
+  "devDependencies": {
+    "@walmart/electrode-archetype-react-component": "^10.2.0",
+    "@walmart/electrode-archetype-react-component-dev": "^10.2.0",
+    "@walmart/electrode-docgen": "^1",
+    "@walmart/electrode-server": "^1.2.6",
+    "@walmart/lithe-extras": "^2.12.1",
+    "@walmart/router-resolver-engine": "^1.0.0",
+    "@walmart/wmreact-test-helpers": "^0.2.0",
+    "babel-cli": "^6.4.5",
+    "babel-core": "^6.4.0",
+    "babel-eslint": "^4.0.10",
+    "babel-loader": "^6.2.1",
+    "babel-plugin-i18n-id-hashing": "^1.0.0",
+    "babel-plugin-react-intl": "^2.0.0",
+    "babel-plugin-transform-object-rest-spread": "^6.3.13",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "bluebird": "^2.10.1",
+    "builder": "^2.6.0",
+    "bunyan": "^1.5.1",
+    "component-playground": "^1.0.1",
+    "css-loader": "^0.16.0",
+    "file-loader": "^0.8.4",
+    "fs-extra": "^0.26.4",
+    "glob": "^6.0.4",
+    "history": "^1.13.1",
+    "isparta-loader": "^2.0.0",
+    "json-loader": "^0.5.3",
+    "lodash": "^4.5.0",
+    "nodemon": "^1.8.1",
+    "raw-loader": "^0.5.1",
+    "react-hot-loader": "^1.2.8",
+    "react-intl": "2.0.0-beta-2",
+    "react-resolver": "^2.0.5",
+    "react-router": "^1.0.2",
+    "rimraf": "^2.5.1",
+    "style-loader": "^0.12.3",
+    "stylus-loader": "^1.2.1",
+    "url-loader": "^0.5.6",
+    "webpack": "^1.12.13",
+    "webpack-partial": "^1.1.2"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "4255a6cb99935a5671dfd5137136d2c1c2b07eb8",
+    "tarball": "https://npme.walmart.com/@/@walmart/wmreact-sams-footer/_attachments/wmreact-sams-footer-1.3.2.tgz"
+  },
+  "engines": {
+    "node": "^4.2.6",
+    "npm": "^3.5.3"
+  },
+  "gitHead": "238c2dba32867744d030ed0a60856e32f34e1348",
+  "homepage": "https://gecgithub01.walmart.com/react/sams-footer",
+  "license": "UNLICENSED",
+  "main": "lib/index.js",
+  "maintainers": [
+    {
+      "email": "amishra2@walmartlabs.com",
+      "name": "amishr9"
+    }
+  ],
+  "name": "@walmart/wmreact-sams-footer",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "https://gecgithub01.walmart.com/react/sams-footer.git"
+  },
+  "scripts": {
+    "demo": "builder run generate && builder run server-dev",
+    "demo-iso": "builder run dev-iso",
+    "generate": "npm run generate-metadata && npm run generate-documentation",
+    "generate-documentation": "electrode-docgen --package ./package.json --src ./src --markdown components.md",
+    "generate-metadata": "electrode-docgen --package ./package.json --src ./src --metadata components.json",
+    "prepublish": "builder run npm:prepublish",
+    "preversion": "builder run test",
+    "test": "builder run check-cov"
+  },
+  "version": "1.3.2"
+}

@@ -1,0 +1,5 @@
+<StateLessFooter
+  copyrightText="© Walmart Stores, Inc."
+  emailSignup= {{showModal: false, loading: false, didInvalidate: false, emailId: ""}}
+  referenceId="ASWEDF123W"
+  quimbyData={quimbyData} />

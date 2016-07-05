@@ -1,0 +1,59 @@
+@require "./club-locator-popup";
+@require "./find-a-club";
+
+.sams-club-locator {
+  color: #1977d3;
+  display: inline-block;
+  float: right;
+  font-size: 12px;
+  width: 75px;
+  height: 32px;
+  line-height: 14px;
+
+  .locator-title {
+    display: inline-block;
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    +breakpoint($breakpoint-m-max, "max") {
+      display: none;
+    }
+  }
+}
+
+.sams-club-locator .locator-location {
+    display: block;
+}
+
+.sams-club-locator .fly .flyout.flyout-bottom.flyout-align-null.header-GlobalEyebrowNav-flyout.text-left .flyout-trigger.btn {
+    display:none;
+    padding: 0;
+    margin: 0;
+}
+
+.sams-club-locator .find-a-club {
+  position: absolute;
+  margin: 0 auto;
+  top: 116%;
+  left: 50%;
+  transform: translate(-50%);
+
+  max-width: 400px;
+  width: 85vw;
+  height: auto;
+  border-radius: 2px;
+  border:1px solid grey;
+  background-color: #fff;
+  z-index: 2500;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, .29) !important;
+  border-radius: 2px !important;
+}
+
+
+.sams-club-locator .club-results {
+  top: 116%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  position: absolute;
+}

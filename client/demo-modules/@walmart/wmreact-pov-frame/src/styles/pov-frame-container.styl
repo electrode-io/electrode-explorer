@@ -1,0 +1,59 @@
+// Mixins
+$pov-base() {
+  text-align: center;
+
+  &.hidden {
+    visibility: hidden;
+  }
+
+  a {
+    display: block;
+  }
+}
+
+$pov-container($height) {
+  position: relative;
+
+  margin: 0 auto;
+  height: $height.xs;
+
+  overflow: hidden;
+
+  +breakpoint($breakpoint-s) {
+    height: $height.s;
+  }
+
+  +breakpoint($breakpoint-m) {
+    height: $height.m;
+  }
+
+  +breakpoint($breakpoint-l) {
+    height: $height.l;
+  }
+}
+
+$pov-image($height, $width) {
+  img {
+    height: $height.xs;
+    width: $width.xs;
+    max-width: none;
+    margin-left: 50%;
+
+    transform: translateX(-50%);
+
+    +breakpoint($breakpoint-s) {
+      height: $height.s;
+      width: $width.s;
+    }
+
+    +breakpoint($breakpoint-m) {
+      height: $height.m;
+      width: $width.m;
+    }
+
+    +breakpoint($breakpoint-l) {
+      height: $height.l;
+      width: $width.l;
+    }
+  }
+}

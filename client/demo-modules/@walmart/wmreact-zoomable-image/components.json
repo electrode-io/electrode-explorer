@@ -1,0 +1,467 @@
+{
+  "library": "@walmart/wmreact-zoomable-image",
+  "description": "A zoomable image component",
+  "components": [
+    {
+      "description": "",
+      "methods": [],
+      "props": {
+        "zoomInClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": "Callback handler for zoomIn button click event"
+        },
+        "zoomOutClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": "Callback handler for zoomOut button click event"
+        },
+        "resetClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": "Callback handler for reset button click event"
+        },
+        "fullyZoomedOut": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "Boolean indicating if a component is fullyZoomedIn"
+        },
+        "fullyZoomedIn": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "Boolean indicating if a component is fullyZoomedIn"
+        },
+        "enableReset": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "When set to true, display a reset button"
+        },
+        "resetButtonLabel": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "Label for the optional reset button."
+        }
+      },
+      "fileName": "./src/components/zoom-control-buttons.jsx",
+      "hasProps": true
+    },
+    {
+      "displayName": "PannableContainer",
+      "methods": [
+        {
+          "name": "getScrollTop",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "getScrollLeft",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_getElementPanClasses",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        }
+      ],
+      "props": {
+        "width": {
+          "type": {
+            "name": "number"
+          },
+          "required": true,
+          "description": "The width of the container."
+        },
+        "height": {
+          "type": {
+            "name": "number"
+          },
+          "required": true,
+          "description": "The height of the container."
+        },
+        "scrollLeft": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "0",
+            "computed": false
+          },
+          "description": "scrollLeft position of the container"
+        },
+        "scrollTop": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "0",
+            "computed": false
+          },
+          "description": "scrollTop position of the container"
+        },
+        "scrollContentOnUpdate": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "When set to true, scroll the children to the specified\n    scrollLeft and scrollTop upon component update."
+        }
+      },
+      "fileName": "./src/components/pannable-container.jsx",
+      "description": "A component for allowing panning of DOM-elements too large for their container.\nThis component is just a wrapper around the react-element-pan component.\nThis component just adds a componentDidUpdate method to adjust the, scrollLeft\nand scrollTop position.\n```jsx\n<PannableContainer\n  width={300}\n  height={300}>\n  <SpinnerImage\n    style={{display:\"block\", width:500, height:500, maxWidth:\"inherit\"}}\n    src=\"http://i5.walmartimages.com/dfw/dce07b8c-3b27/\nk2-_afa12da1-f17a-4ace-a8ae-8820733e5e0d.v1.jpg\"/>\n</PannableContainer>\n```",
+      "import": "{PannableContainer}",
+      "flags": "noVisibleRender",
+      "component": "PannableContainer",
+      "playground": [
+        {
+          "title": "PannableContainer",
+          "flags": {},
+          "code": "<PannableContainer\n  width={300}\n  height={300}>\n  <SpinnerImage\n    style={{display:\"block\", width:500, height:500, maxWidth:\"inherit\"}}\n    src=\"http://i5.walmartimages.com/dfw/dce07b8c-3b27/\nk2-_afa12da1-f17a-4ace-a8ae-8820733e5e0d.v1.jpg\"/>\n</PannableContainer>\n"
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "SpinnerImage",
+      "methods": [
+        {
+          "name": "_onImageLoad",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_getContainerClasses",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_getMainImageClasses",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_getSpinnerComponent",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{showSpinner}",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_getContainerStyleObject",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_getImageStyleObject",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_getMainImageComponent",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        }
+      ],
+      "props": {
+        "imageWidth": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "450",
+            "computed": false
+          },
+          "description": "The image width."
+        },
+        "imageHeight": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "450",
+            "computed": false
+          },
+          "description": "The image height."
+        },
+        "src": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "description": "The image source."
+        }
+      },
+      "fileName": "./src/components/spinner-image.jsx",
+      "description": "An image component that displays a loading spinner while the image is loading.\n```jsx\n<SpinnerImage style={{\n  width:300,\n  height:300\n}} src=\"http://i5.walmartimages.com/dfw/dce07b8c-3b27/\nk2-_afa12da1-f17a-4ace-a8ae-8820733e5e0d.v1.jpg\"/>\n```",
+      "import": "{SpinnerImage}",
+      "flags": "noVisibleRender",
+      "component": "SpinnerImage",
+      "playground": [
+        {
+          "title": "SpinnerImage",
+          "flags": {},
+          "code": "<SpinnerImage style={{\n  width:300,\n  height:300\n}} src=\"http://i5.walmartimages.com/dfw/dce07b8c-3b27/\nk2-_afa12da1-f17a-4ace-a8ae-8820733e5e0d.v1.jpg\"/>\n"
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "ZoomableImage",
+      "methods": [
+        {
+          "name": "_getInitialStateObj",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{initialWidth, initialHeight}",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_onZoomInClick",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_onZoomOutClick",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_onResetClick",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_getImagePosition",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{currentWidth, currentHeight}",
+              "type": null
+            },
+            {
+              "name": "{viewportWidth, viewportHeight}",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_isFullyZoomedIn",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{ currentWidth, currentHeight }",
+              "type": null
+            },
+            {
+              "name": "{ maxWidth, maxHeight }",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_isFullyZoomedOut",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{ currentWidth, currentHeight }",
+              "type": null
+            },
+            {
+              "name": "{ initialWidth, initialHeight}",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_getZoomControlButtonsComponent",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_getZoomableImageClasses",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        }
+      ],
+      "props": {
+        "viewportWidth": {
+          "type": {
+            "name": "number"
+          },
+          "required": true,
+          "description": "The viewport window width, used for panning the image"
+        },
+        "viewportHeight": {
+          "type": {
+            "name": "number"
+          },
+          "required": true,
+          "description": "The viewport window height, used for panning the image"
+        },
+        "src": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "description": "The src attribite of the image"
+        },
+        "enableZoomControls": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "true",
+            "computed": false
+          },
+          "description": "When set to true displays the zoom control buttons"
+        },
+        "enableReset": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "When set to true dispaly a reset button when zoom controls are enabled"
+        },
+        "maxWidth": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "2000",
+            "computed": false
+          },
+          "description": "The max width that an image can be zoomed in"
+        },
+        "maxHeight": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "2000",
+            "computed": false
+          },
+          "description": "The max height that an image can be zoomed in"
+        },
+        "initialWidth": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "450",
+            "computed": false
+          },
+          "description": "Initial width of the image to be zoomed"
+        },
+        "initialHeight": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "450",
+            "computed": false
+          },
+          "description": "Initial height of the image to be zoomed"
+        },
+        "zoomRatio": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "1000",
+            "computed": false
+          },
+          "description": "The zoom in/ zoom out ratio."
+        }
+      },
+      "fileName": "./src/components/zoomable-image.jsx",
+      "description": "A image component that can be zoomed in or out.\n ```jsx\n <ZoomableImage\n enableZoomControls={true}\n enableReset={true}\n viewportWidth={600}\n viewportHeight={600}\n maxWidth={2000}\n maxHeight={2000}\n initialWidth={600}\n initialHeight={600}\n zoomRatio={1000}\n src=\"http://i5.walmartimages.com/dfw/dce07b8c-3b27/k2-_afa12da1-f17a-4ace-a8ae-8820733e5e0d.v1.jpg\"\n />\n ```",
+      "import": "{ZoomableImage}",
+      "flags": "noVisibleRender",
+      "component": "ZoomableImage",
+      "playground": [
+        {
+          "title": "ZoomableImage",
+          "flags": {},
+          "code": " <ZoomableImage\n enableZoomControls={true}\n enableReset={true}\n viewportWidth={600}\n viewportHeight={600}\n maxWidth={2000}\n maxHeight={2000}\n initialWidth={600}\n initialHeight={600}\n zoomRatio={1000}\n src=\"http://i5.walmartimages.com/dfw/dce07b8c-3b27/k2-_afa12da1-f17a-4ace-a8ae-8820733e5e0d.v1.jpg\"\n />\n "
+        }
+      ],
+      "hasProps": true
+    }
+  ]
+}

@@ -1,0 +1,248 @@
+{
+  "library": "@walmart/wmreact-multi-image-hero",
+  "description": "A hero component containing several images",
+  "components": [
+    {
+      "methods": [],
+      "props": {
+        "decorate": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": ""
+        },
+        "showHeader": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": ""
+        },
+        "details": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "imageUrl": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "description": ""
+        },
+        "title": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "description": ""
+        },
+        "numberComponents": {
+          "defaultValue": {
+            "value": "1",
+            "computed": false
+          }
+        }
+      },
+      "fileName": "./src/components/bundle-image.jsx",
+      "description": "Hero image of a bundle component.",
+      "param": "React properties",
+      "returns": "The rendered component",
+      "examples": "```jsx\n<BundleImage\n  imageUrl=\"test.png\"\n  title=\"Item Title\"\n  numberComponents={5}\n  decorate={true}\n  showHeader={false}\n  />\n```",
+      "component": "BundleImage",
+      "import": "{BundleImage}",
+      "playground": [
+        {
+          "title": "BundleImage",
+          "flags": {},
+          "code": "<BundleImage\n  imageUrl=\"test.png\"\n  title=\"Item Title\"\n  numberComponents={5}\n  decorate={true}\n  showHeader={false}\n  />\n"
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "methods": [],
+      "props": {
+        "separator": {
+          "type": {
+            "name": "element"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "<span className=\"plus-sign display-inline-block\">+</span>",
+            "computed": false
+          },
+          "description": ""
+        },
+        "slidesToShow": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "2.25",
+            "computed": false
+          },
+          "description": ""
+        },
+        "slidesToScroll": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "2",
+            "computed": false
+          },
+          "description": ""
+        },
+        "responsive": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "[\n  {\n    selectors: [\"small\", \"x-small\"],\n    settings: {\n      slidesToShow: 2\n    }\n  },\n  {\n    // Visibility at all breakpoints\n    selectors: [\"medium\", \"large\", \"x-large\", \"xx-large\"]\n  }\n]",
+            "computed": false
+          },
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/carousel-list.jsx",
+      "description": "Carousel of images.",
+      "param": "React properties",
+      "returns": "The rendered component",
+      "examples": "```jsx\n<CarouselList separator={(<span>&amp;,</span>)}\n  slidesToShow={2}\n  slidesToScroll={1}>\n  <div>Item 1</div>\n  <div>Item 2</div>\n</CarouselList>\n```",
+      "component": "CarouselList",
+      "import": "{CarouselList}",
+      "playground": [
+        {
+          "title": "CarouselList",
+          "flags": {},
+          "code": "<CarouselList separator={(<span>&amp;,</span>)}\n  slidesToShow={2}\n  slidesToScroll={1}>\n  <div>Item 1</div>\n  <div>Item 2</div>\n</CarouselList>\n"
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "methods": [],
+      "props": {
+        "separator": {
+          "type": {
+            "name": "element"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "<span className=\"plus-sign display-inline-block\">+</span>",
+            "computed": false
+          },
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/image-list.jsx",
+      "description": "List of images.",
+      "param": "React properties",
+      "returns": "The rendered component",
+      "examples": "```jsx\n<ImageList separator={(<span>&amp;,</span>)}>\n  <div>Item 1</div>\n  <div>Item 2</div>\n</ImageList>\n```",
+      "component": "ImageList",
+      "import": "{ImageList}",
+      "playground": [
+        {
+          "title": "ImageList",
+          "flags": {},
+          "code": "<ImageList separator={(<span>&amp;,</span>)}>\n  <div>Item 1</div>\n  <div>Item 2</div>\n</ImageList>\n"
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "methods": [],
+      "props": {
+        "bundleData": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "bundleType": {
+                "name": "enum",
+                "value": [
+                  {
+                    "value": "\"CHOICE_BUNDLE\"",
+                    "computed": false
+                  },
+                  {
+                    "value": "\"NON_CONFIG\"",
+                    "computed": false
+                  }
+                ],
+                "required": true
+              },
+              "sections": {
+                "name": "arrayOf",
+                "value": {
+                  "name": "shape",
+                  "value": {
+                    "title": {
+                      "name": "string",
+                      "required": true
+                    },
+                    "numberComponents": {
+                      "name": "number",
+                      "required": true
+                    },
+                    "type": {
+                      "name": "enum",
+                      "value": [
+                        {
+                          "value": "\"STANDARD\"",
+                          "computed": false
+                        },
+                        {
+                          "value": "\"REQUIRED\"",
+                          "computed": false
+                        }
+                      ],
+                      "required": true
+                    },
+                    "imageUrl": {
+                      "name": "string",
+                      "required": true
+                    }
+                  }
+                },
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/multi-image-hero.jsx",
+      "description": "Hero component for a bundle containing one or several items",
+      "param": "React properties",
+      "returns": "The rendered component",
+      "examples": "```jsx\n<MultiImageHero bundleData={{\n  bundleType: \"CHOICE_BUNDLE\",\n  sections: [{\n    type: \"STANDARD\",\n    numberComponents: 1,\n    title: \"Thing 1\",\n    imageUrl: \"image.png\"\n  },\n  {\n    type: \"REQUIRED\",\n    numberComponents: 2,\n    title: \"Thing 2\",\n    imageUrl: \"image.png\"\n  }]\n}} />\n\n```",
+      "component": "MultiImageHero",
+      "import": "{MultiImageHero}",
+      "playground": [
+        {
+          "title": "MultiImageHero",
+          "flags": {},
+          "code": "jsx\n<MultiImageHero bundleData={{\n  bundleType: \"CHOICE_BUNDLE\",\n  sections: [{\n    type: \"STANDARD\",\n    numberComponents: 1,\n    title: \"Thing 1\",\n    imageUrl: \"image.png\"\n  },\n  {\n    type: \"REQUIRED\",\n    numberComponents: 2,\n    title: \"Thing 2\",\n    imageUrl: \"image.png\"\n  }]\n}} />\n"
+        }
+      ],
+      "hasProps": true
+    }
+  ]
+}

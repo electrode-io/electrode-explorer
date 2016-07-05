@@ -1,0 +1,361 @@
+{
+  "library": "@walmart/wmreact-product-descriptors",
+  "description": "Components related to products descriptors",
+  "components": [
+    {
+      "description": "",
+      "methods": [],
+      "props": {
+        "total": {
+          "type": {
+            "name": "number"
+          },
+          "required": true,
+          "description": "The total number of stars (e.g. 5, 10)"
+        },
+        "average": {
+          "type": {
+            "name": "number"
+          },
+          "required": true,
+          "description": "The average number of stars (e.g. 3)"
+        },
+        "count": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "description": "The count label."
+        },
+        "countNode": {
+          "type": {
+            "name": "node"
+          },
+          "required": false,
+          "description": "The formatted count label node. If this prop is set, the component ignores the count property."
+        },
+        "onCountClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": "Click handler for count."
+        },
+        "onStarsClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": "Click handler for stars."
+        },
+        "size": {
+          "type": {
+            "name": "enum",
+            "value": [
+              {
+                "value": "\"small\"",
+                "computed": false
+              },
+              {
+                "value": "\"medium\"",
+                "computed": false
+              },
+              {
+                "value": "\"large\"",
+                "computed": false
+              }
+            ]
+          },
+          "required": false,
+          "description": "The display size"
+        },
+        "automationId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "Automation id"
+        },
+        "hidden": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/stars.jsx",
+      "hasProps": true
+    },
+    {
+      "methods": [],
+      "props": {
+        "specifications": {
+          "type": {
+            "name": "arrayOf",
+            "value": {
+              "name": "shape",
+              "value": {
+                "DisplayName": {
+                  "name": "string",
+                  "required": true
+                },
+                "Value": {
+                  "name": "array",
+                  "required": true
+                }
+              }
+            }
+          },
+          "required": true,
+          "description": "specification data"
+        },
+        "stripeStyle": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"odd\"",
+            "computed": false
+          },
+          "description": "style. Could be \"odd\", \"even\", \"light-odd\", \"light-even\""
+        }
+      },
+      "fileName": "./src/components/specification.jsx",
+      "description": "This componet display the specification chart of an item.\n```jsx\n<Specification\n  specifications={specsData}\n/>",
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "displayName": "ShortDescription",
+      "methods": [],
+      "props": {
+        "shortDescriptionMarkup": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "Short description markup"
+        }
+      },
+      "fileName": "./src/components/short-description.jsx",
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "methods": [],
+      "props": {
+        "yesCount": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "0",
+            "computed": false
+          },
+          "description": ""
+        },
+        "noCount": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "0",
+            "computed": false
+          },
+          "description": ""
+        },
+        "onYesClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        },
+        "onNoClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        },
+        "onReportClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/review-helpfulness.jsx",
+      "hasProps": true
+    },
+    {
+      "displayName": "FlagList",
+      "methods": [],
+      "props": {
+        "outline": {
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          }
+        }
+      },
+      "fileName": "./src/components/flag-list.jsx",
+      "description": "This component displays a list of flags\n\n```jsx\n<div style={{height: 100}}>\n  <FlagList>\n    <Flag type=\"rollback\" text=\"Rollback\" />\n    <Flag text=\"Clearance\" align=\"right\" />\n    <Flag text=\"New flag\" outline={true}/>\n  </FlagList>\n</div>\n\n```",
+      "import": "{FlagList}",
+      "flags": "noVisibleRender",
+      "component": "FlagList",
+      "playground": [
+        {
+          "title": "FlagList",
+          "flags": {},
+          "code": "<div style={{height: 100}}>\n  <FlagList>\n    <Flag type=\"rollback\" text=\"Rollback\" />\n    <Flag text=\"Clearance\" align=\"right\" />\n    <Flag text=\"New flag\" outline={true}/>\n  </FlagList>\n</div>\n\n"
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "methods": [],
+      "props": {
+        "type": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "True if this is a certain type"
+        },
+        "outline": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": "True if we should render in an outline mode"
+        },
+        "align": {
+          "type": {
+            "name": "custom",
+            "raw": "FlagDirection"
+          },
+          "required": false,
+          "description": "Specify alignment of left or right if required.\n  The default is no alignment."
+        },
+        "text": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": "text is the display content in the flag"
+        },
+        "hidden": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/flag-base.jsx",
+      "description": "Product flag.",
+      "examples": "```jsx\n<div style={{padding: 20}}>\n  <Flag>Product Flag</Flag>\n</div>\n```",
+      "component": "Flag`",
+      "import": "{Flag}",
+      "playground": [
+        {
+          "title": "Flag",
+          "flags": {},
+          "code": "<div style={{padding: 20}}>\n  <Flag>Product Flag</Flag>\n</div>\n"
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "RatingSelector",
+      "methods": [
+        {
+          "name": "_handleClick",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "clickedRating",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_handleMouseOver",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "selectedRating",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_handleMouseOut",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_renderStarButtons",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "activeRating",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_renderRatingText",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "activeRating",
+              "type": null
+            }
+          ],
+          "returns": null
+        }
+      ],
+      "props": {
+        "handleClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/rating-selector.jsx",
+      "description": "This component allows a user to select a certain \"star\" rating.\nIt is used on the \"write a review\" page\n\n```jsx\n<div style={{height: 100}}>\n  <RatingSelector />\n</div>\n```",
+      "import": "{RatingSelector}",
+      "component": "RatingSelector",
+      "playground": [
+        {
+          "title": "RatingSelector",
+          "flags": {},
+          "code": "<div style={{height: 100}}>\n  <RatingSelector />\n</div>\n\n"
+        }
+      ],
+      "hasProps": true
+    }
+  ]
+}

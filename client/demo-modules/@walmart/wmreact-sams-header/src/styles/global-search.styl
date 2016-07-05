@@ -1,0 +1,128 @@
+$searchbar-height-large = 40px;
+$searchbar-height-small = 30px;
+
+.header-GlobalSearch {
+  .header-SearchDropdown {
+    margin-right: -1px;
+  }
+}
+
+.header-GlobalSearch-input {
+  to-rem(font-size, 16px);
+
+  width: 100%;
+  height: $searchbar-height-large;
+  padding: 5px 37px 5px 16px;
+  border: 0;
+
+  background: $white;
+  outline: 0;
+}
+
+.header-GlobalSearch-submit {
+  to-rem(font-size, 20px);
+
+  height: $searchbar-height-large;
+  width: 50px;
+  border-radius: 0 100px 100px 0;
+  border: 0;
+  padding: 0;
+
+  outline: 0;
+
+  &, &:hover, &:focus {
+    background: $yellow;
+    color: $grey-dark;
+  }
+}
+
+search-s-styles() {
+  .header-GlobalSearch-input,
+  .header-GlobalSearch-submit {
+    height: $searchbar-height-small;
+    line-height: $searchbar-height-small;
+  }
+
+  .header-GlobalSearch-submit {
+    to-rem(font-size, 16px);
+
+    width: 44px;
+  }
+}
+
+.header-Header {
+  .header-GlobalSearch {
+    +breakpoint($breakpoint-m-max, "max") {
+      search-s-styles();
+
+      height: 40px;
+      padding-top: 2px;
+
+      &:after {
+        content: "";
+        position: absolute;
+        left: 60px;
+        bottom: 38px;
+
+        border: 7px solid transparent;
+        border-bottom-color: $white;
+
+        +breakpoint($breakpoint-xs-max, "max") {
+          left: 56px;
+        }
+      }
+
+      .header-GlobalSearch-input {
+        border-radius: 100px 0 0 100px;
+      }
+    }
+  }
+
+  .is-fixed .header-GlobalSearch {
+    search-s-styles();
+  }
+}
+
+      input.header-GlobalSearch-input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        font-size: 16px;
+        color: rgba(66, 66, 66, 0.8);
+        text-align: left;
+      }
+      input.header-GlobalSearch-input::-moz-placeholder { /* Firefox 19+ */
+        font-size: 16px;
+        color: rgba(66, 66, 66, 0.8);
+        text-align: left;
+      }
+      input.header-GlobalSearch-input:-ms-input-placeholder { /* IE 10+ */
+        font-size: 16px;
+        color: rgba(66, 66, 66, 0.8);
+        text-align: left;
+      }
+      input.header-GlobalSearch-input:-moz-placeholder { /* Firefox 18- */
+        font-size: 16px;
+        color: rgba(66, 66, 66, 0.8);
+        text-align: left;
+      }
+
+.header-Typeahead {
+  ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    font-size: 16px;
+    color: rgba(66, 66, 66, 0.8);
+    text-align: left;
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+    font-size: 16px;
+    color: rgba(66, 66, 66, 0.8);
+    text-align: left;
+  }
+  :-ms-input-placeholder { /* IE 10+ */
+    font-size: 16px;
+    color: rgba(66, 66, 66, 0.8);
+    text-align: left;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+    font-size: 16px;
+    color: rgba(66, 66, 66, 0.8);
+    text-align: left;
+  }
+}

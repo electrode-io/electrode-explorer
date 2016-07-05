@@ -1,0 +1,84 @@
+// TODO: Clean up styles here and merge with product-card repo.
+// https://jira.walmart.com/browse/CDSFE-2675
+.Tile { // @stylint ignore
+  padding-top: $xs-spacing;
+}
+
+.Tile-img { // @stylint ignore
+  width: 128px;
+  height: @width;
+
+  +breakpoint($breakpoint-m) {
+    width: 144px;
+    height: @width;
+  }
+}
+
+.Tile-content {  // @stylint ignore
+  height: 114px;
+  padding: $xxs-spacing $xs-spacing $xs-spacing;
+
+  +breakpoint($breakpoint-m) {
+    padding: $xxs-spacing $s-spacing $xs-spacing;
+  }
+
+  .stars {
+    margin-top: 0;
+  }
+}
+
+.Tile-priceContent {  // @stylint ignore
+  overflow: hidden;
+
+  .Price {  // @stylint ignore
+    margin: 0;
+    padding-right: $xxs-spacing;
+    line-height: 1;
+    to-rem(font-size, 18px);
+
+    letter-spacing: -.015em;
+    text-transform: uppercase;
+  }
+
+  .Price-old {  // @stylint ignore
+    overflow: hidden;
+    white-space: nowrap;
+    to-rem(font-size, 12px);
+
+    height: .9em;
+    font-weight: 400;
+
+    &.from-price {
+      to-rem(font-size, 18px);
+      font-weight: 600;
+
+      letter-spacing: -.015em;
+      line-height: 1;
+      padding-left: 0;
+    }
+  }
+
+  .Savings-price {
+    line-height: 16px;
+  }
+}
+
+.from-price .Price-currency {  // @stylint ignore
+  to-rem(font-size, 10px);
+  font-weight: 700;
+
+  position: relative;
+  top: -.5em;
+}
+
+.Tile-priceContent .Price + .Price-old { // @stylint ignore
+  margin-left: 0;
+}
+
+.Tile-heading { // @stylint ignore
+  margin-top: 0;
+}
+
+.Tile-shippingPass { // @stylint ignore
+  margin: 1px 0 0;
+}

@@ -1,0 +1,109 @@
+{
+  "_args": [
+    [
+      {
+        "name": "@walmart/wmreact-multi-image-hero",
+        "raw": "@walmart/wmreact-multi-image-hero",
+        "rawSpec": "",
+        "scope": "@walmart",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/cshi1/githome/portal"
+    ]
+  ],
+  "_from": "@walmart/wmreact-multi-image-hero@latest",
+  "_id": "@walmart/wmreact-multi-image-hero@2.2.1",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/@walmart/wmreact-multi-image-hero",
+  "_nodeVersion": "4.4.5",
+  "_npmUser": {
+    "email": "npme@example.com",
+    "name": "cshi1"
+  },
+  "_npmVersion": "3.9.6",
+  "_phantomChildren": {
+    "@walmart/automation-utils": "3.0.1",
+    "@walmart/wmreact-analytics": "4.2.0",
+    "@walmart/wmreact-interactive": "7.4.0",
+    "@walmart/wmreact-layout": "7.2.0",
+    "classnames": "2.2.5",
+    "exenv": "1.2.1",
+    "kw-react-tween-state": "0.1.5",
+    "object-assign": "4.0.1"
+  },
+  "_requested": {
+    "name": "@walmart/wmreact-multi-image-hero",
+    "raw": "@walmart/wmreact-multi-image-hero",
+    "rawSpec": "",
+    "scope": "@walmart",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://npme.walmart.com/@/@walmart/wmreact-multi-image-hero/_attachments/wmreact-multi-image-hero-2.2.1.tgz",
+  "_shasum": "65d67753e9e78dbb14c72d91b901d0b1f405e8c1",
+  "_shrinkwrap": null,
+  "_spec": "@walmart/wmreact-multi-image-hero",
+  "_where": "/Users/cshi1/githome/portal",
+  "bugs": {
+    "url": "https://gecgithub01.walmart.com/react/multi-image-hero/issues"
+  },
+  "dependencies": {
+    "@walmart/wmreact-base": "^7.0.0",
+    "@walmart/wmreact-carousel": "^3.2.0",
+    "lodash": "^4.5.0"
+  },
+  "description": "A hero component containing several images",
+  "devDependencies": {
+    "@walmart/chai-shallowly": "^1.1.0",
+    "@walmart/electrode-archetype-react-component": "^9.2.0",
+    "@walmart/electrode-archetype-react-component-dev": "^9.2.0",
+    "@walmart/electrode-docgen": "^1",
+    "@walmart/lithe-extras": "^2.5.0",
+    "builder": "^2.10.1",
+    "component-playground": "^1.2.0",
+    "react": "^0.14.8",
+    "react-dom": "^0.14.8"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "65d67753e9e78dbb14c72d91b901d0b1f405e8c1",
+    "tarball": "https://npme.walmart.com/@/@walmart/wmreact-multi-image-hero/_attachments/wmreact-multi-image-hero-2.2.1.tgz"
+  },
+  "engines": {
+    "node": "^4.2.6",
+    "npm": "^3.5.3"
+  },
+  "gitHead": "ebbbba3db5cb01ad09564f8a6bfd45582d052715",
+  "homepage": "https://gecgithub01.walmart.com/react/multi-image-hero",
+  "license": "UNLICENSED",
+  "main": "lib/index.js",
+  "maintainers": [
+    {
+      "email": "npme@example.com",
+      "name": "Jehle"
+    }
+  ],
+  "name": "@walmart/wmreact-multi-image-hero",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "https://gecgithub01.walmart.com/react/multi-image-hero.git"
+  },
+  "scripts": {
+    "demo": "builder run generate && builder run server-dev",
+    "demo-iso": "builder run dev-iso",
+    "generate": "npm run generate-metadata && npm run generate-documentation",
+    "generate-documentation": "electrode-docgen --package ./package.json --src ./src --markdown components.md",
+    "generate-metadata": "electrode-docgen --package ./package.json --src ./src --metadata components.json",
+    "prepublish": "builder run build-lib",
+    "preversion": "builder run test",
+    "test": "builder run check-cov"
+  },
+  "version": "2.2.1"
+}

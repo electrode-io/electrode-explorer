@@ -1,0 +1,72 @@
+/**
+ * SearchResults: product description
+ */
+.search-result-product-description {
+  .prod-ProductShortDescription {
+    .prod-ProductShortDescription-content {
+      margin-top: 10px;
+      padding: 10px;
+
+      background-color: #f2f8fd;
+      border-radius: 3px;
+      color: $black;
+      line-height: 1.2;
+      list-style: none;
+      
+      mark {
+        background-color: inherit;
+        color: inherit;
+        font-weight: 600;
+      }
+
+      li:nth-of-type(1) {
+        margin-top: 0;
+      }
+
+      li {
+        margin: 3px 0 0px 10px;
+      }
+
+      li:before {
+        content: '\2219';
+        display: inline;
+        margin: 0 5px 0 -10px;
+        color: #d9d9d9;
+        font-size: 16px;
+        vertical-align: middle;
+      }
+
+      .media-details {
+        font-size: 14px;
+        padding-top: 0;
+
+        dd {
+          margin-bottom: 8px;
+          max-height: 55px;
+
+          font-weight: 300;
+          overflow: hidden;
+        }
+
+        dt {
+          margin-bottom: 8px;
+          font-weight: 500;
+        }
+
+        dt:last-child {
+          margin-bottom: 0;
+        }
+
+        ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+
+          li {
+            margin: 0 0 0 10px;
+          }
+        }
+      }
+    }
+  }
+}

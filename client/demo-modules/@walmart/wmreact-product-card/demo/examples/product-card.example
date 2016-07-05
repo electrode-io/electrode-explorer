@@ -1,0 +1,14 @@
+<ProductCard
+  name="Samsung TV"
+  url="/ip/1531"
+  price={{price: 40, currency:"$", savingsPrice: 5, wasPrice: 45}}
+  maxQuantity={12}
+  maxRating={5}
+  averageRating={4}
+  numberOfReviews={22}
+  flags={[{text: "Rollback", type: "rollback"}]}
+  onVariantClick={(variant) => console.log(variant)}
+  imageUrl="http://dummyimage.com/450x450/7766EE/fff"
+  variantTypes={variantTypes}
+  offerShippingPassEligible
+/>

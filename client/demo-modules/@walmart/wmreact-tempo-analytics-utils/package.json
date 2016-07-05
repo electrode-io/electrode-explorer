@@ -1,0 +1,101 @@
+{
+  "_args": [
+    [
+      {
+        "name": "@walmart/wmreact-tempo-analytics-utils",
+        "raw": "@walmart/wmreact-tempo-analytics-utils",
+        "rawSpec": "",
+        "scope": "@walmart",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/cshi1/githome/portal"
+    ]
+  ],
+  "_from": "@walmart/wmreact-tempo-analytics-utils@latest",
+  "_id": "@walmart/wmreact-tempo-analytics-utils@7.1.1",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/@walmart/wmreact-tempo-analytics-utils",
+  "_nodeVersion": "4.3.2",
+  "_npmUser": {
+    "email": "npme@example.com",
+    "name": "Jehle"
+  },
+  "_npmVersion": "3.10.3",
+  "_phantomChildren": {
+    "array-find": "1.0.0",
+    "eventuate": "4.0.0",
+    "lodash": "4.13.1"
+  },
+  "_requested": {
+    "name": "@walmart/wmreact-tempo-analytics-utils",
+    "raw": "@walmart/wmreact-tempo-analytics-utils",
+    "rawSpec": "",
+    "scope": "@walmart",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://npme.walmart.com/@/@walmart/wmreact-tempo-analytics-utils/_attachments/wmreact-tempo-analytics-utils-7.1.1.tgz",
+  "_shasum": "2248086fe80b20ad095bf75092813030a7791614",
+  "_shrinkwrap": null,
+  "_spec": "@walmart/wmreact-tempo-analytics-utils",
+  "_where": "/Users/cshi1/githome/portal",
+  "bugs": {
+    "url": "https://gecgithub01.walmart.com/react/tempo-analytics-utils/issues"
+  },
+  "dependencies": {
+    "@walmart/canary": "5.1.1",
+    "@walmart/canary-event-pattern": "^4.0.1",
+    "@walmart/canary-event-sequence": "^3.0.1",
+    "@walmart/wmreact-analytics": "^4.0.0"
+  },
+  "description": "Utilites for sending analytics on Tempo modules",
+  "devDependencies": {
+    "@walmart/electrode-archetype-react-component": "^9.0.2",
+    "@walmart/electrode-archetype-react-component-dev": "^9.0.2",
+    "@walmart/electrode-docgen": "^1.0.0",
+    "babel-polyfill": "^6.7.4",
+    "builder": "^2.9.1"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "2248086fe80b20ad095bf75092813030a7791614",
+    "tarball": "https://npme.walmart.com/@/@walmart/wmreact-tempo-analytics-utils/_attachments/wmreact-tempo-analytics-utils-7.1.1.tgz"
+  },
+  "engines": {
+    "node": "^4.2.6",
+    "npm": "^3.5.3"
+  },
+  "gitHead": "39362592d9c1f9838560458753291c696b381745",
+  "homepage": "https://gecgithub01.walmart.com/react/tempo-analytics-utils",
+  "license": "UNLICENSED",
+  "main": "lib/index.js",
+  "maintainers": [
+    {
+      "email": "cderr@walmartlabs.com",
+      "name": "cderr"
+    }
+  ],
+  "name": "@walmart/wmreact-tempo-analytics-utils",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "https://gecgithub01.walmart.com/react/tempo-analytics-utils.git"
+  },
+  "scripts": {
+    "demo": "builder run generate && builder run server-dev",
+    "demo-iso": "builder run dev-iso",
+    "generate": "npm run generate-metadata && npm run generate-documentation",
+    "generate-documentation": "electrode-docgen --package ./package.json --src ./src --markdown components.md",
+    "generate-metadata": "electrode-docgen --package ./package.json --src ./src --metadata components.json",
+    "prepublish": "builder run build-lib",
+    "preversion": "builder run test",
+    "test": "builder run check-cov"
+  },
+  "version": "7.1.1"
+}

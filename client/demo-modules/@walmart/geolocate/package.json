@@ -1,0 +1,90 @@
+{
+  "_args": [
+    [
+      {
+        "name": "@walmart/geolocate",
+        "raw": "@walmart/geolocate",
+        "rawSpec": "",
+        "scope": "@walmart",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/cshi1/githome/portal"
+    ]
+  ],
+  "_from": "@walmart/geolocate@latest",
+  "_id": "@walmart/geolocate@3.1.0",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/@walmart/geolocate",
+  "_nodeVersion": "4.4.0",
+  "_npmUser": {
+    "email": "apham@walmartlabs.com",
+    "name": "apham"
+  },
+  "_npmVersion": "3.8.2",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "@walmart/geolocate",
+    "raw": "@walmart/geolocate",
+    "rawSpec": "",
+    "scope": "@walmart",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://npme.walmart.com/@/@walmart/geolocate/_attachments/geolocate-3.1.0.tgz",
+  "_shasum": "00a99bc6b3b3b2c08cb1cb0762727dc66d642e6e",
+  "_shrinkwrap": null,
+  "_spec": "@walmart/geolocate",
+  "_where": "/Users/cshi1/githome/portal",
+  "bugs": {
+    "url": "https://gecgithub01.walmart.com/react/geolocate/issues"
+  },
+  "dependencies": {},
+  "description": "Geolocation Utility",
+  "devDependencies": {
+    "@walmart/electrode-archetype-react-component": "^9.0.2",
+    "@walmart/electrode-archetype-react-component-dev": "^9.0.2",
+    "babel-polyfill": "^6.9.0",
+    "builder": "^2.9.1"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "00a99bc6b3b3b2c08cb1cb0762727dc66d642e6e",
+    "tarball": "https://npme.walmart.com/@/@walmart/geolocate/_attachments/geolocate-3.1.0.tgz"
+  },
+  "engines": {
+    "node": "^4.2.6",
+    "npm": "^3.5.3"
+  },
+  "gitHead": "4a35c989e36fd5cda144507bc8a202d6021038ca",
+  "homepage": "https://gecgithub01.walmart.com/react/geolocate",
+  "license": "UNLICENSED",
+  "main": "lib/index.js",
+  "maintainers": [
+    {
+      "email": "vlaxman@walmartlabs.com",
+      "name": "vlaxman"
+    }
+  ],
+  "name": "@walmart/geolocate",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "https://gecgithub01.walmart.com/react/geolocate.git"
+  },
+  "scripts": {
+    "build": "builder run build-lib",
+    "generate": "npm run generate-metadata && npm run generate-documentation",
+    "generate-documentation": "electrode-docgen --package ./package.json --src ./src --markdown components.md",
+    "generate-metadata": "electrode-docgen --package ./package.json --src ./src --metadata components.json",
+    "prepublish": "builder run build-lib",
+    "preversion": "builder run test",
+    "test": "builder run check-cov"
+  },
+  "version": "3.1.0"
+}

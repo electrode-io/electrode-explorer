@@ -1,0 +1,4 @@
+<StoreList dataAutomationId="storeList">
+  <StoreListItem id={1234} name="San Bruno" address="850 Cherry Ave" distance="13 mi"/>
+  <StoreListItem id={2031} name="Union City" address="30600 Dyer st" distance="13 mi"/>
+</StoreList>

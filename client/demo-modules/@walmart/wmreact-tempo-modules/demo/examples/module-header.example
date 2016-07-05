@@ -1,0 +1,15 @@
+<ModuleHeader
+  headerTitle="My Header"
+  themeButton={
+    {
+      linkText: "Shop All",
+      title: "Shop All",
+      clickThrough: {
+        type: "url",
+        value: "something"
+      },
+      uid: "CLAM4z1m",
+      className: "BannerMessage--button"
+    }
+  }
+/>

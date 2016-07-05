@@ -1,0 +1,101 @@
+{
+  "library": "@walmart/wmreact-calendar",
+  "description": "Calendar component",
+  "components": [
+    {
+      "description": "",
+      "methods": [],
+      "props": {
+        "showIcon": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "true",
+            "computed": false
+          },
+          "description": ""
+        },
+        "flyoutClassName": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "dpClassName": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "date": {
+          "type": {
+            "name": "any"
+          },
+          "required": false,
+          "description": ""
+        },
+        "trigger": {
+          "type": {
+            "name": "element"
+          },
+          "required": false,
+          "description": ""
+        },
+        "initialText": {
+          "defaultValue": {
+            "value": "\"Choose date\"",
+            "computed": false
+          }
+        },
+        "direction": {
+          "defaultValue": {
+            "value": "\"bottom\"",
+            "computed": false
+          }
+        },
+        "closeOnClickOut": {
+          "defaultValue": {
+            "value": "true",
+            "computed": false
+          }
+        },
+        "dateFormat": {
+          "defaultValue": {
+            "value": "\"MM/DD/YYYY\"",
+            "computed": false
+          }
+        },
+        "navPrev": {
+          "defaultValue": {
+            "value": "\"«\"",
+            "computed": false
+          }
+        },
+        "navNext": {
+          "defaultValue": {
+            "value": "\"»\"",
+            "computed": false
+          }
+        },
+        "monthFormat": {
+          "defaultValue": {
+            "value": "\"MMM\"",
+            "computed": false
+          }
+        },
+        "weekDayNames": {
+          "defaultValue": {
+            "value": "[\"Su\", \"Mo\", \"Tu\", \"We\", \"Th\", \"Fr\", \"Sa\"]",
+            "computed": false
+          }
+        }
+      },
+      "fileName": "./src/components/calendar.jsx",
+      "hasProps": true
+    }
+  ]
+}

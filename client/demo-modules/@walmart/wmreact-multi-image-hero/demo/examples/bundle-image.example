@@ -1,0 +1,7 @@
+<BundleImage
+  details="Standard item"
+  decorate={true}
+  showDetails={true}
+  imageUrl="http://ll-us-i5.wal.co/dfw/dce07b8c-d575/k2-_40c4fec9-fdf5-4786-893e-261131a0b581.v3.jpg?odnWidth=300&odnHeight=300"
+  title="Item title"
+/>

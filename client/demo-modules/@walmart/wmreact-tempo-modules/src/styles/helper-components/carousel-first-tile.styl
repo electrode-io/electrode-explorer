@@ -1,0 +1,32 @@
+.CarouselFirstTile {
+  position: relative;
+
+  height: 242px;
+
+  background-size: cover;
+  background-position: center top;
+
+  +breakpoint($breakpoint-m) {
+    height: 266px;
+  }
+}
+
+.CarouselFirstTile-link {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.CarouselFirstTile-themeButton {
+  to-rem(font-size, 18px);
+
+  position: relative;
+  top: 196px;
+
+  padding: 11px 25px;
+
+  border-radius: 4px;
+  line-height: 1;
+}

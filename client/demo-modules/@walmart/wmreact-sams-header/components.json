@@ -1,0 +1,3494 @@
+{
+  "library": "@walmart/wmreact-sams-header",
+  "description": "Samsclub.com header component",
+  "components": [
+    {
+      "description": "",
+      "displayName": "GlobalEyebrowNavMobile",
+      "methods": [],
+      "props": {
+        "moduleData": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "type": {
+                "name": "string",
+                "required": false
+              },
+              "moduleId": {
+                "name": "string",
+                "required": false
+              },
+              "configs": {
+                "name": "shape",
+                "value": {
+                  "elements": {
+                    "name": "array",
+                    "required": true
+                  }
+                },
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "defaultValue": {
+            "value": "{\n  type: \"\",\n  moduleId: \"\"\n}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "dataAutomationId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"header-GlobalEyebrowNavMobile\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "userName": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/global-eyebrow-nav-mobile.jsx",
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "methods": [
+        {
+          "name": "renderCurrentClub",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "renderNearbyClubsTitle",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "postalCode",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "renderNearbyClubs",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "nearbyStores",
+              "type": null
+            },
+            {
+              "name": "postalCode",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "renderFindOtherClubs",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        }
+      ],
+      "props": {
+        "type": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "moduleId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "configs": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "options": {
+                "name": "array",
+                "required": true
+              }
+            }
+          },
+          "required": false,
+          "description": ""
+        },
+        "preferredStores": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "displayName": {
+                "name": "string",
+                "required": false
+              },
+              "timing": {
+                "name": "string",
+                "required": false
+              },
+              "phone": {
+                "name": "string",
+                "required": false
+              },
+              "address": {
+                "name": "string",
+                "required": false
+              },
+              "city": {
+                "name": "string",
+                "required": false
+              }
+            }
+          },
+          "required": false,
+          "description": ""
+        },
+        "nearbyStores": {
+          "type": {
+            "name": "array"
+          },
+          "required": false,
+          "description": ""
+        },
+        "automation": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "findOtherClubsBtn": {
+                "name": "string",
+                "required": false
+              }
+            }
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "{\n  findOtherClubsBtn: \"find-other-clubs-btn\"\n}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "tealeaf": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "findOtherClubsBtn": {
+                "name": "string",
+                "required": false
+              }
+            }
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "{\n  findOtherClubsBtn: \"find-other-clubs-btn\"\n}",
+            "computed": false
+          },
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/store-finder-panel.jsx",
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "displayName": "GlobalLefthandNavMobile",
+      "methods": [
+        {
+          "name": "_getClassNames",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "className",
+              "type": {
+                "name": "string"
+              }
+            },
+            {
+              "name": "{ expanded, superDept, dept }",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "string"
+            }
+          }
+        },
+        {
+          "name": "_getEntryClassName",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "depth",
+              "type": {
+                "name": "number"
+              }
+            },
+            {
+              "name": "index",
+              "type": {
+                "name": "number",
+                "nullable": true
+              }
+            },
+            {
+              "name": "selected",
+              "type": {
+                "name": "number",
+                "nullable": true
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "string"
+            }
+          }
+        },
+        {
+          "name": "_setSuperDept",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "selectedNavMenuItem",
+              "type": {
+                "name": "Object",
+                "alias": "Object"
+              }
+            },
+            {
+              "name": "ev",
+              "type": {
+                "name": "Object",
+                "alias": "Object"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_setDept",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "index",
+              "type": {
+                "name": "number"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_clearDepts",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_toggleExpanded",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_renderLink",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "link",
+              "type": {
+                "name": "Object",
+                "alias": "Object"
+              }
+            },
+            {
+              "name": "{ depth, shopAll, index }",
+              "type": null
+            },
+            {
+              "name": "prefix",
+              "type": {
+                "name": "string"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderSuperDepts",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "departments",
+              "type": {
+                "name": "Array",
+                "elements": [
+                  {
+                    "name": "Object"
+                  }
+                ],
+                "raw": "Array<Object>",
+                "alias": "Array"
+              }
+            },
+            {
+              "name": "{ superDept, dept, renderDepts }",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "Array",
+              "elements": [
+                {
+                  "name": "ReactElement"
+                }
+              ],
+              "raw": "Array<ReactElement>"
+            }
+          }
+        },
+        {
+          "name": "_renderDepts",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "departments",
+              "type": {
+                "name": "Array",
+                "elements": [
+                  {
+                    "name": "Object"
+                  }
+                ],
+                "raw": "Array<Object>",
+                "alias": "Array"
+              }
+            },
+            {
+              "name": "selected",
+              "type": {
+                "name": "number"
+              }
+            },
+            {
+              "name": "prefix",
+              "type": {
+                "name": "string"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "Array",
+              "elements": [
+                {
+                  "name": "ReactElement"
+                }
+              ],
+              "raw": "Array<ReactElement>"
+            }
+          }
+        },
+        {
+          "name": "_renderCategories",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "categories",
+              "type": {
+                "name": "Array",
+                "elements": [
+                  {
+                    "name": "Object"
+                  }
+                ],
+                "raw": "Array<Object>",
+                "alias": "Array"
+              }
+            },
+            {
+              "name": "prefix",
+              "type": {
+                "name": "string"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "Array",
+              "elements": [
+                {
+                  "name": "ReactElement"
+                }
+              ],
+              "raw": "Array<ReactElement>"
+            }
+          }
+        },
+        {
+          "name": "_renderOptionalDept",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "department",
+              "type": {
+                "name": "Object",
+                "alias": "Object"
+              }
+            },
+            {
+              "name": "index",
+              "type": {
+                "name": "number"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement",
+              "nullable": true
+            }
+          }
+        },
+        {
+          "name": "_renderBack",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{ superDept }",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement",
+              "nullable": true
+            }
+          }
+        },
+        {
+          "name": "_renderExpander",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{ superDept, expanded }",
+              "type": null
+            }
+          ],
+          "returns": null
+        }
+      ],
+      "props": {
+        "moduleData": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "type": {
+                "name": "string",
+                "required": false
+              },
+              "moduleId": {
+                "name": "string",
+                "required": false
+              },
+              "configs": {
+                "name": "shape",
+                "value": {
+                  "departments": {
+                    "name": "array",
+                    "required": true
+                  }
+                },
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "defaultValue": {
+            "value": "{\n  type: \"\",\n  moduleId: \"\",\n  configs: {}\n}",
+            "computed": false
+          },
+          "description": "Data for configuring the component. Typically coming from Tempo. Contains department data."
+        },
+        "onSuperDeptClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": "Callback to execute after a super department is clicked"
+        },
+        "onBackClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": "Callback to execute after back button is clicked"
+        },
+        "dataAutomationId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"header-GlobalLefthandNavMobile\"",
+            "computed": false
+          },
+          "description": "Automation ID base string"
+        },
+        "isBot": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "Check for web crawler bots."
+        }
+      },
+      "fileName": "./src/components/global-lefthand-nav-mobile.jsx",
+      "hasProps": true
+    },
+    {
+      "displayName": "BannerMessage",
+      "methods": [
+        {
+          "name": "_prepareNextMessage",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_convertMillisecondsToSeconds",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "ms",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_renderIcon",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "linkText",
+              "type": {
+                "name": "string"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement",
+              "nullable": true
+            }
+          }
+        },
+        {
+          "name": "_getClassNames",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "height",
+              "type": {
+                "name": "string"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "string"
+            }
+          }
+        },
+        {
+          "name": "_isEmpty",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "text",
+              "type": {
+                "name": "string"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "boolean"
+            }
+          }
+        },
+        {
+          "name": "_renderThemeButton",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "themeButton",
+              "type": {
+                "name": "Object",
+                "alias": "Object"
+              }
+            },
+            {
+              "name": "dataAutomationId",
+              "type": {
+                "name": "string"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement",
+              "nullable": true
+            }
+          }
+        },
+        {
+          "name": "_processTextDate",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "text",
+              "type": {
+                "name": "string"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "string"
+            }
+          }
+        },
+        {
+          "name": "_renderMessageSegment",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "segmentType",
+              "type": null
+            },
+            {
+              "name": "segmentIndex",
+              "type": null
+            },
+            {
+              "name": "configs",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement",
+              "nullable": true
+            }
+          }
+        },
+        {
+          "name": "_renderBannerMessageHeader",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "configs",
+              "type": {
+                "name": "Object",
+                "alias": "Object"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderSubText",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "configs",
+              "type": {
+                "name": "Object",
+                "alias": "Object"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderLink",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "configs",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        }
+      ],
+      "props": {
+        "moduleData": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "configs": {
+                "name": "shape",
+                "value": {
+                  "themeButton": {
+                    "name": "shape",
+                    "value": {
+                      "clickThrough": {
+                        "name": "object",
+                        "required": false
+                      }
+                    },
+                    "required": false
+                  },
+                  "messages": {
+                    "name": "array",
+                    "required": false
+                  }
+                },
+                "required": false
+              }
+            }
+          },
+          "required": true,
+          "description": "Data for configuring the component. Typically coming from Tempo.\nContains information on the URL, link text, and colors to use for the links."
+        },
+        "moduleId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "type": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "dataAutomationId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"homepage-zone1\"",
+            "computed": false
+          },
+          "description": "Automation ID base string"
+        },
+        "messages": {
+          "defaultValue": {
+            "value": "{\n  configs: {\n    themeButton: {\n      clickThrough: {}\n    }\n  }\n}",
+            "computed": false
+          }
+        }
+      },
+      "fileName": "./src/components/banner-message.jsx",
+      "description": "The banner message component has links customizable by text, color, url font\n weight and height.\n ```jsx\n <BannerMessage messages={\n    {\n      \"type\": \"BannerMessage\",\n      \"configs\": {\n        \"height\": \"small\",\n        \"headerText1\": \"Daily\",\n        \"headerColor1\": \"#A1D7F8\",\n        \"headerFontWeight1\": \"bold\",\n        \"headerText2\": \"Center\",\n        \"headerColor2\": \"#F07330\",\n        \"headerFontWeight2\": \"bold\",\n        \"headerText3\": \"Savings\",\n        \"headerColor3\": \"#A1D7F8\",\n        \"headerFontWeight3\": \"bold\",\n        \"secondaryText1\": \"Your Hottest values for |date|.\",\n        \"secondaryColor1\": \"#FFFFFF\",\n        \"secondaryFontWeight1\": \"regular\",\n        \"secondaryText2\": null,\n        \"secondaryColor2\": null,\n        \"secondaryFontWeight2\": null,\n        \"secondaryText3\": null,\n        \"secondaryColor3\": null,\n        \"secondaryFontWeight3\": null,\n        \"themeButton\": {\n          \"linkText\": \"Shop All\",\n          \"title\": \"Shop All\",\n          \"clickThrough\": {\n            \"type\": \"url\",\n            \"value\": \"http://www.walmart.com/browse/3944_1078524_1231200\"\n          },\n          \"uid\": \"CLAM4z1m\"\n        },\n        \"themeButtonColor\": null,\n        \"buttonTextColor\": \"#007dc6\",\n        \"image\": null,\n        \"mobileImage\": null,\n        \"athenaEnabled\": \"true\",\n        \"filterType\": null,\n        \"moduleList\": [],\n        \"useListForAll\": null\n      },\n      \"moduleId\": \"84c9fa92-2122-443a-89fe-b4a21c75d0d2\"\n    }\n  } />\n ```",
+      "import": "{BannerMessage}",
+      "component": "BannerMessage",
+      "playground": [
+        {
+          "title": "BannerMessage",
+          "flags": {},
+          "code": null
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "displayName": "GlobalLefthandNav",
+      "methods": [
+        {
+          "name": "_renderToggles",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "open",
+              "type": {
+                "name": "boolean"
+              }
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_renderSuperDepts",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "superDepts",
+              "type": null
+            },
+            {
+              "name": "selectedIndex",
+              "type": null
+            }
+          ],
+          "returns": null
+        }
+      ],
+      "props": {
+        "moduleData": {
+          "defaultValue": {
+            "value": "{\n  name: \"\",\n  type: \"\",\n  moduleId: \"\",\n  configs: {}\n}",
+            "computed": false
+          }
+        },
+        "dataAutomationId": {
+          "defaultValue": {
+            "value": "\"header-GlobalLefthandNav\"",
+            "computed": false
+          }
+        },
+        "isBot": {
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          }
+        }
+      },
+      "fileName": "./src/components/global-lefthand-nav.jsx",
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "displayName": "BusinessToolsNav",
+      "methods": [
+        {
+          "name": "_getClassNames",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "className",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_renderToggles",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "open",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_handleSelectSuperDept",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "selectedNavMenuItem",
+              "type": {
+                "name": "Object",
+                "alias": "Object"
+              }
+            },
+            {
+              "name": "ev",
+              "type": {
+                "name": "Object",
+                "alias": "Object"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_renderLink",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "deptLink",
+              "type": {
+                "name": "Object",
+                "alias": "Object"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement",
+              "nullable": true
+            }
+          }
+        },
+        {
+          "name": "_renderLinks",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "Links",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_renderDeptHeading",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "heading",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_renderSuperDepts",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "superDepts",
+              "type": null
+            },
+            {
+              "name": "selectedIndex",
+              "type": null
+            }
+          ],
+          "returns": null
+        }
+      ],
+      "props": {
+        "moduleData": {
+          "defaultValue": {
+            "value": "{\n  name: \"\",\n  type: \"\",\n  moduleId: \"\",\n  configs: {}\n}",
+            "computed": false
+          }
+        },
+        "dataAutomationId": {
+          "defaultValue": {
+            "value": "\"header-BusinessToolsNav\"",
+            "computed": false
+          }
+        },
+        "isBot": {
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          }
+        }
+      },
+      "fileName": "./src/components/business-tools-nav.jsx",
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "methods": [
+        {
+          "name": "_toggleServices",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "evt",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_renderfilterOptions",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "handleClosePopup",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "e",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_renderHeader",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_renderYourClubIcon",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_renderMakeThisYourClubLink",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_renderClubInfo",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "nearbyStores",
+              "type": null
+            },
+            {
+              "name": "singleLineAddr",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "renderClubList",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        }
+      ],
+      "props": {
+        "nbrOfStores": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "20",
+            "computed": false
+          },
+          "description": ""
+        },
+        "headerInfo": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "clubCity": {
+                "name": "string",
+                "required": false
+              },
+              "changeLocation": {
+                "name": "string",
+                "required": false
+              }
+            }
+          },
+          "required": true,
+          "defaultValue": {
+            "value": "{\n  clubCity: \"San Francisco, CA\",\n  changeLocation: \"Change location\"\n}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "onSelectFilterServices": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "onCancelFilterServices": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "onApplyFilterServices": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "onSelectClubChoice": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "onChangeLocation": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "filterOptions": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "{items: [\"Pharmacy\", \"Business Center\", \"Cafe\",\n  \"Tires & Batteries\", \"Mobile Wireless\", \"Liquor\", \"Bakery\", \"One Hour Photo\",\n  \"Optical\", \"Floral\", \"Gas\", \"Hearing Center\", \"Meat\"]}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "stores": {
+          "type": {
+            "name": "arrayOf",
+            "value": {
+              "name": "shape",
+              "value": {
+                "displayName": {
+                  "name": "string",
+                  "required": false
+                },
+                "address": {
+                  "name": "shape",
+                  "value": {
+                    "postalCode": {
+                      "name": "string",
+                      "required": false
+                    },
+                    "address1": {
+                      "name": "string",
+                      "required": false
+                    },
+                    "city": {
+                      "name": "string",
+                      "required": false
+                    },
+                    "state": {
+                      "name": "string",
+                      "required": false
+                    }
+                  },
+                  "required": true
+                },
+                "distance": {
+                  "name": "string",
+                  "required": false
+                },
+                "clubChoice": {
+                  "name": "node",
+                  "required": false
+                }
+              }
+            }
+          },
+          "required": true,
+          "defaultValue": {
+            "value": "[]",
+            "computed": false
+          },
+          "description": ""
+        },
+        "btnCancel": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"Cancel\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "btnApply": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"Apply\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "titleText": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"Club results\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "automation": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "changeLocationLink": {
+                "name": "string",
+                "required": false
+              },
+              "cancelBtn": {
+                "name": "string",
+                "required": false
+              },
+              "applyBtn": {
+                "name": "string",
+                "required": false
+              }
+            }
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "{\n  changeLocationLink: \"cr-change-location-link\",\n  cancelBtn: \"cr-cancel-button\",\n  applyBtn: \"cr-apply-button\"\n}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "tealeaf": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "changeLocationLink": {
+                "name": "string",
+                "required": false
+              },
+              "cancelBtn": {
+                "name": "string",
+                "required": false
+              },
+              "applyBtn": {
+                "name": "string",
+                "required": false
+              }
+            }
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "{\n  changeLocationLink: \"cr-change-location-link\",\n  cancelBtn: \"cr-cancel-button\",\n  applyBtn: \"cr-apply-button\"\n}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "nearbyStores": {
+          "type": {
+            "name": "array"
+          },
+          "required": false,
+          "description": ""
+        },
+        "singleLineAddr": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "close": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/club-results.jsx",
+      "hasProps": true
+    },
+    {
+      "displayName": "SamsHeader",
+      "methods": [
+        {
+          "name": "_setOffcanvasNavOpen",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_toggleSearch",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_renderTempoZone",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "zoneName",
+              "type": null
+            },
+            {
+              "name": "isBot",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderMainNav",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderPrimaryHeader",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderHeader",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_setTypeAheadUrl",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        }
+      ],
+      "props": {
+        "isMobile": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "check mobile device"
+        },
+        "isBot": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "check for bots"
+        },
+        "searchExposed": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "true",
+            "computed": false
+          },
+          "description": "True if search should be exposed by default at smaller screen widths."
+        },
+        "selectedCategory": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "null",
+            "computed": false
+          },
+          "description": "Initially selected category ID in the search dropdown on larger screen widths."
+        },
+        "shippingPass": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "True if the shipping pass logo should show on larger screen widths."
+        },
+        "userName": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "null",
+            "computed": false
+          },
+          "description": "First name of the user if signed in. Null otherwise."
+        },
+        "totalItemsCount": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "0",
+            "computed": false
+          },
+          "description": "Total number of items."
+        },
+        "maxCountThreshold": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "99",
+            "computed": false
+          },
+          "description": "The max count value. After totalItemsCount reaches maxCountThreshold,\n  the HeaderCartCount would start displaying the value as\n  (maxCountThreshold+) instead of actual totalItemsCount, for e.g. if maxCountThreshold is 99\n  and totalItemsCount is 100, the component would display the total as 99+ instead of 100.\n  Default value for this is 99."
+        },
+        "storeFinderResponse": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "loading": {
+                "name": "bool",
+                "required": false
+              },
+              "didInvalidate": {
+                "name": "bool",
+                "required": false
+              },
+              "stores": {
+                "name": "shape",
+                "value": "unknown",
+                "required": false
+              }
+            }
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "{\n  loading: false,\n  didInvalidate: false,\n  stores: {}\n}",
+            "computed": false
+          },
+          "description": "Data used to render storefinder panel.\n  This includes the loading and error states and stores data"
+        },
+        "onBootstrap": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": "The first action dispatched"
+        },
+        "onStoreFinderActive": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": "On location change is a action that is called when user's location changes"
+        },
+        "quimbyData": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "description": "quimbyData is the result of tempo-core calls to quimby stored in redux"
+        },
+        "typeAheadUrl": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": "Url to fetch recomendations in searchbar"
+        },
+        "storeFinderUrl": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "bizToolsMob": {
+          "type": {
+            "name": "object"
+          },
+          "required": true,
+          "description": ""
+        },
+        "renderBizToolsMobile": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "indexSuperDeptMobile": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "renderDeptMobile": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "indexDeptMobile": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "btoolsIndexMobile": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/sams-header.jsx",
+      "description": "Global SamsHeader component connected to Tempo and Redux\n  ```jsx\n  <SamsHeader searchExposed={true} totalItemsCount={100} userName=\"Test\" />\n  ```",
+      "import": "{SamsHeader}",
+      "flags": "noVisibleRender",
+      "component": "Header",
+      "playground": [
+        {
+          "title": "SamsHeader",
+          "flags": {},
+          "code": null
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "OffcanvasNav",
+      "methods": [
+        {
+          "name": "updateWidth",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "width",
+              "type": {
+                "name": "string"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "setOpen",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_setClosed",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_toggleDeptSelected",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_toggleBusinessToolsSelected",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_toggleMemberServicesSelected",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_toggleAccountSelected",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_clearToggles",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_renderOverlay",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "open",
+              "type": {
+                "name": "boolean"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement",
+              "nullable": true
+            }
+          }
+        },
+        {
+          "name": "_signInRequest",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_signedIn",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{userName}",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement",
+              "nullable": true
+            }
+          }
+        },
+        {
+          "name": "_renderUser",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{deptSelected, businessToolsSelected, memberServicesSelected,\n  accountSelected}",
+              "type": null
+            },
+            {
+              "name": "userName",
+              "type": {
+                "name": "string"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement",
+              "nullable": true
+            }
+          }
+        },
+        {
+          "name": "_cLSignedIn",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_cLNotSignedIn",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_renderSignOut",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "deptSelected",
+              "type": {
+                "name": "boolean"
+              }
+            },
+            {
+              "name": "userName",
+              "type": {
+                "name": "string"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement",
+              "nullable": true
+            }
+          }
+        },
+        {
+          "name": "_renderNavLinks",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{deptSelected, businessToolsSelected, memberServicesSelected,\n  accountSelected}",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement",
+              "nullable": true
+            }
+          }
+        },
+        {
+          "name": "_renderMemberServices",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{deptSelected, businessToolsSelected, accountSelected}",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement",
+              "nullable": true
+            }
+          }
+        },
+        {
+          "name": "_renderBusinessTools",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{deptSelected, memberServicesSelected, accountSelected}",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement",
+              "nullable": true
+            }
+          }
+        },
+        {
+          "name": "_renderEyebrowNav",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{deptSelected, businessToolsSelected, memberServicesSelected,\n  accountSelected}",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement",
+              "nullable": true
+            }
+          }
+        },
+        {
+          "name": "_renderGlobalLeftHandNav",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{businessToolsSelected, memberServicesSelected,\n  accountSelected}",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement",
+              "nullable": true
+            }
+          }
+        },
+        {
+          "name": "_renderClubLocator",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{deptSelected, businessToolsSelected, memberServicesSelected,\n  accountSelected, userName}",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement",
+              "nullable": true
+            }
+          }
+        },
+        {
+          "name": "_renderGlobalAccountNav",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{businessToolsSelected, memberServicesSelected,\n  deptSelected}",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement",
+              "nullable": true
+            }
+          }
+        },
+        {
+          "name": "_renderSeperator",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{businessToolsSelected, memberServicesSelected,\n  accountSelected, deptSelected}",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement",
+              "nullable": true
+            }
+          }
+        }
+      ],
+      "props": {
+        "userName": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "null",
+            "computed": false
+          },
+          "description": ""
+        },
+        "bizToolsMob": {
+          "type": {
+            "name": "object"
+          },
+          "required": true,
+          "description": ""
+        },
+        "renderBizToolsMobile": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        },
+        "indexSuperDeptMobile": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        },
+        "renderDeptMobile": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        },
+        "indexDeptMobile": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        },
+        "btoolsIndexMobile": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/offcanvas-nav.jsx",
+      "description": "An intermediate component for the header for rendering the offcanvas nav and overlay. Should be\nused inside a TempoWrapper so all modules are populated",
+      "examples": "```jsx\n<OffcanvasNav userName=\"Foo\" />\n```",
+      "component": "OffcanvasNav",
+      "import": "{OffcanvasNav}",
+      "references": "OffcanvasNav",
+      "playground": [
+        {
+          "title": "OffcanvasNav",
+          "flags": {},
+          "code": null
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "displayName": "MemberServicesNav",
+      "methods": [
+        {
+          "name": "_getClassNames",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "className",
+              "type": {
+                "name": "string"
+              }
+            },
+            {
+              "name": "dropdown",
+              "type": {
+                "name": "boolean"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "string"
+            }
+          }
+        },
+        {
+          "name": "_renderLink",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{link, dropdown}",
+              "type": null
+            },
+            {
+              "name": "id",
+              "type": {
+                "name": "string"
+              }
+            },
+            {
+              "name": "className",
+              "type": {
+                "name": "string"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderFlyoutLink",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "linkDetails",
+              "type": {
+                "name": "Object",
+                "alias": "Object"
+              }
+            },
+            {
+              "name": "index",
+              "type": {
+                "name": "number"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        }
+      ],
+      "props": {
+        "moduleData": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "name": {
+                "name": "string",
+                "required": false
+              },
+              "type": {
+                "name": "string",
+                "required": false
+              },
+              "moduleId": {
+                "name": "string",
+                "required": false
+              },
+              "configs": {
+                "name": "shape",
+                "value": {
+                  "menuLinks": {
+                    "name": "array",
+                    "required": true
+                  }
+                },
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "defaultValue": {
+            "value": "{\n  name: \"\",\n  type: \"\",\n  moduleId: \"\",\n  configs: {}\n}",
+            "computed": false
+          },
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/member-services-nav.jsx",
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "displayName": "MemberServicesNavMobile",
+      "methods": [
+        {
+          "name": "_getClassNames",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "className",
+              "type": {
+                "name": "string"
+              }
+            },
+            {
+              "name": "{ expanded, menuLinks, link }",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "string"
+            }
+          }
+        },
+        {
+          "name": "_getEntryClassName",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "depth",
+              "type": {
+                "name": "number"
+              }
+            },
+            {
+              "name": "index",
+              "type": {
+                "name": "number",
+                "nullable": true
+              }
+            },
+            {
+              "name": "selected",
+              "type": {
+                "name": "number",
+                "nullable": true
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "string"
+            }
+          }
+        },
+        {
+          "name": "_getButtonClassName",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "depth",
+              "type": {
+                "name": "number"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "string"
+            }
+          }
+        },
+        {
+          "name": "_setLink",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "index",
+              "type": {
+                "name": "number"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_toggleExpanded",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_clearLinks",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_renderLinks",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "link",
+              "type": {
+                "name": "Object",
+                "alias": "Object"
+              }
+            },
+            {
+              "name": "{ depth, index }",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderMenuLinks",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "menuLinks",
+              "type": {
+                "name": "Array",
+                "elements": [
+                  {
+                    "name": "Object"
+                  }
+                ],
+                "raw": "Array<Object>",
+                "alias": "Array"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "Array",
+              "elements": [
+                {
+                  "name": "ReactElement"
+                }
+              ],
+              "raw": "Array<ReactElement>"
+            }
+          }
+        },
+        {
+          "name": "_renderAllMenuLinks",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "menuLinks",
+              "type": {
+                "name": "Array",
+                "elements": [
+                  {
+                    "name": "Object"
+                  }
+                ],
+                "raw": "Array<Object>",
+                "alias": "Array"
+              }
+            },
+            {
+              "name": "{renderLinks}",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "Array",
+              "elements": [
+                {
+                  "name": "ReactElement"
+                }
+              ],
+              "raw": "Array<ReactElement>"
+            }
+          }
+        },
+        {
+          "name": "_renderBack",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "ReactElement",
+              "nullable": true
+            }
+          }
+        }
+      ],
+      "props": {
+        "moduleData": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "type": {
+                "name": "string",
+                "required": false
+              },
+              "moduleId": {
+                "name": "string",
+                "required": false
+              },
+              "configs": {
+                "name": "shape",
+                "value": {
+                  "menuLinks": {
+                    "name": "array",
+                    "required": true
+                  }
+                },
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "defaultValue": {
+            "value": "{\n  type: \"\",\n  moduleId: \"\",\n  configs: {}\n}",
+            "computed": false
+          },
+          "description": "Data for configuring the component. Typically coming from Tempo. Contains department data."
+        },
+        "onMenuLinkClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": "Callback to execute after a super department is clicked"
+        },
+        "onBackClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": "Callback to execute after back button is clicked"
+        },
+        "dataAutomationId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"header-MemberServicesNavMobile\"",
+            "computed": false
+          },
+          "description": "Automation ID base string"
+        },
+        "isBot": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "Check for web crawler bots."
+        }
+      },
+      "fileName": "./src/components/member-services-nav-mobile.jsx",
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "methods": [
+        {
+          "name": "validateZipCode",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "inputZipCode",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "onZipCodeChange",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "event",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "handleSubmit",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "e",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "onFindClick",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "e",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "closeModal",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "renderErrorNotifications",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "extractLatLong",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "geo",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "findStores",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "singleLineAddr",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "renderFindAClub",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        }
+      ],
+      "props": {
+        "notification": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "defaultValue": {
+            "value": "\"Find a club\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "userMessage": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "defaultValue": {
+            "value": "\"Choose your club to see pricing and availability\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "findBtn": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "defaultValue": {
+            "value": "\"Find\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "titleText": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "description": ""
+        },
+        "cancelBtn": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "defaultValue": {
+            "value": "\"Cancel\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "changeLocationBtn": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "description": ""
+        },
+        "submitting": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": ""
+        },
+        "tealeaf": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "{ //for analytics\n  submitBtn1: \"Find-a-club-cancel-submit-btn\",\n  submitBtn2: \"Find-a-club-find-submit-btn\"\n}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "automation": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "{// for testing\n  submitBtn1: \"Find-a-club-cancel-submit-btn\",\n  submitBtn2: \"Find-a-club-find-submit-btn\"\n}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "close": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "btnMessage": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "onStoreFinderActive": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "nearbyStores": {
+          "type": {
+            "name": "array"
+          },
+          "required": false,
+          "description": ""
+        },
+        "nearbyDistance": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "description": ""
+        },
+        "openClubList": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "zipError": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "onFocus": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "labelText": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/find-a-club.jsx",
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "methods": [
+        {
+          "name": "extractLatLong",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "geo",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "handleYourClubClick",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "e",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "handleClosePopup",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "e",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "handleCloseFindAClub",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "e",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "handleOpenClubList",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "e",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "handleShowClubList",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "e",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_renderClubListFlyout",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "nearbyStores",
+              "type": null
+            },
+            {
+              "name": "preferredStores",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_renderYourClubLocation",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "showFindAClubFn",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "e",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "handleCloseClubList",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "e",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_renderClubList",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_renderShowClubPopup",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "nearbyStores",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_renderClubLocator",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_renderFindAClub",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "nearbyStores",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "showFlyoutState",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        }
+      ],
+      "props": {
+        "type": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "moduleId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "submitting": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "configs": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "options": {
+                "name": "array",
+                "required": true
+              }
+            }
+          },
+          "required": false,
+          "description": ""
+        },
+        "tealeaf": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "findOtherClubsBtn": {
+                "name": "string",
+                "required": false
+              }
+            }
+          },
+          "required": false,
+          "description": ""
+        },
+        "isUserLoggedIn": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "preferedClub": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "description": ""
+        },
+        "nearbyClub": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "description": ""
+        },
+        "onStoreFinderActive": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "stores": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/club-locator.jsx",
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "displayName": "BusinessToolsNavMobile",
+      "methods": [],
+      "props": {
+        "moduleData": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "type": {
+                "name": "string",
+                "required": false
+              },
+              "moduleId": {
+                "name": "string",
+                "required": false
+              },
+              "configs": {
+                "name": "shape",
+                "value": {
+                  "businessToolsLinks": {
+                    "name": "array",
+                    "required": true
+                  },
+                  "departments": {
+                    "name": "array",
+                    "required": true
+                  },
+                  "businessServicesLinks": {
+                    "name": "array",
+                    "required": true
+                  }
+                },
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "defaultValue": {
+            "value": "{\n  type: \"\",\n  moduleId: \"\",\n  configs: {}\n}",
+            "computed": false
+          },
+          "description": "Data for configuring the component. Typically coming from Tempo. Contains department data."
+        },
+        "onBusinessToolsClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "onSuperDeptClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": "Callback to execute after a super department is clicked"
+        },
+        "onBackClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": "Callback to execute after back button is clicked"
+        },
+        "dataAutomationId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"header-BusinessToolsNavMobile\"",
+            "computed": false
+          },
+          "description": "Automation ID base string"
+        },
+        "isBot": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "Check for web crawler bots."
+        },
+        "bizToolsMob": {
+          "type": {
+            "name": "object"
+          },
+          "required": true,
+          "description": ""
+        },
+        "renderBizToolsMobile": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        },
+        "indexSuperDeptMobile": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        },
+        "renderDeptMobile": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        },
+        "indexDeptMobile": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        },
+        "btoolsIndexMobile": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/business-tools-nav-mobile.jsx",
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "displayName": "GlobalAccountNavMobile",
+      "methods": [
+        {
+          "name": "_getClassNames",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "className",
+              "type": {
+                "name": "string"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "string"
+            }
+          }
+        },
+        {
+          "name": "_getEntryClassName",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "depth",
+              "type": {
+                "name": "number"
+              }
+            },
+            {
+              "name": "index",
+              "type": {
+                "name": "number",
+                "nullable": true
+              }
+            },
+            {
+              "name": "selected",
+              "type": {
+                "name": "number",
+                "nullable": true
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "string"
+            }
+          }
+        },
+        {
+          "name": "_getButtonClassName",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "depth",
+              "type": {
+                "name": "number"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "string"
+            }
+          }
+        },
+        {
+          "name": "_clearLinks",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_toggleExpanded",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_renderBack",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "ReactElement",
+              "nullable": true
+            }
+          }
+        },
+        {
+          "name": "_renderLink",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "link",
+              "type": {
+                "name": "Object",
+                "alias": "Object"
+              }
+            },
+            {
+              "name": "{ depth, index }",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderMenuItems",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "section",
+              "type": {
+                "name": "Array",
+                "elements": [
+                  {
+                    "name": "Object"
+                  }
+                ],
+                "raw": "Array<Object>",
+                "alias": "Array"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "Array",
+              "elements": [
+                {
+                  "name": "ReactElement"
+                }
+              ],
+              "raw": "Array<ReactElement>"
+            }
+          }
+        },
+        {
+          "name": "_renderSeperator",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": {
+            "type": {
+              "name": "Array",
+              "elements": [
+                {
+                  "name": "ReactElement"
+                }
+              ],
+              "raw": "Array<ReactElement>"
+            }
+          }
+        }
+      ],
+      "props": {
+        "moduleData": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "type": {
+                "name": "string",
+                "required": false
+              },
+              "moduleId": {
+                "name": "string",
+                "required": false
+              },
+              "configs": {
+                "name": "shape",
+                "value": {
+                  "sectionOne": {
+                    "name": "array",
+                    "required": false
+                  },
+                  "sectionTwo": {
+                    "name": "array",
+                    "required": false
+                  },
+                  "sectionThree": {
+                    "name": "array",
+                    "required": false
+                  }
+                },
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "defaultValue": {
+            "value": "{\n  type: \"\",\n  moduleId: \"\",\n  configs: {\n    sectionOne: [],\n    sectionTwo: [],\n    sectionThree: []\n  }\n}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "onAccountLinkClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "onBackClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/global-account-nav-mobile.jsx",
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "displayName": "GlobalAccountFlyout",
+      "methods": [],
+      "props": {
+        "moduleData": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "configs": {
+                "name": "shape",
+                "value": {
+                  "sectionOne": {
+                    "name": "array",
+                    "required": false
+                  },
+                  "sectionTwo": {
+                    "name": "array",
+                    "required": false
+                  },
+                  "sectionThree": {
+                    "name": "array",
+                    "required": false
+                  },
+                  "sectionFour": {
+                    "name": "array",
+                    "required": false
+                  }
+                },
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "defaultValue": {
+            "value": "{\n  configs: {\n    sectionOne: [],\n    sectionTwo: [],\n    sectionThree: [],\n    sectionFour: []\n  }\n}",
+            "computed": false
+          },
+          "description": "Data for configuring the component. Typically coming from Tempo.\n  Contains information on the URL and link text to use for the links."
+        },
+        "customerName": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/global-account-flyout.jsx",
+      "hasProps": true
+    }
+  ]
+}

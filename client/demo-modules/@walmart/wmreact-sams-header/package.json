@@ -1,0 +1,157 @@
+{
+  "_args": [
+    [
+      {
+        "name": "@walmart/wmreact-sams-header",
+        "raw": "@walmart/wmreact-sams-header",
+        "rawSpec": "",
+        "scope": "@walmart",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/cshi1/githome/portal"
+    ]
+  ],
+  "_from": "@walmart/wmreact-sams-header@latest",
+  "_id": "@walmart/wmreact-sams-header@2.4.8",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/@walmart/wmreact-sams-header",
+  "_nodeVersion": "4.4.5",
+  "_npmUser": {
+    "email": "npme@example.com",
+    "name": "cshi1"
+  },
+  "_npmVersion": "3.9.6",
+  "_phantomChildren": {
+    "autoprefixer-core": "5.2.1",
+    "change-case": "2.3.1",
+    "gulp": "3.9.1",
+    "gulp-csso": "1.1.0",
+    "gulp-postcss": "4.0.3",
+    "gulp-stylus": "2.5.0",
+    "gulp-util": "3.0.7",
+    "json-loader": "0.5.4",
+    "jsx-loader": "0.12.2",
+    "normalize.css": "3.0.3",
+    "postcss-import": "5.2.2",
+    "webpack": "1.13.1"
+  },
+  "_requested": {
+    "name": "@walmart/wmreact-sams-header",
+    "raw": "@walmart/wmreact-sams-header",
+    "rawSpec": "",
+    "scope": "@walmart",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://npme.walmart.com/@/@walmart/wmreact-sams-header/_attachments/wmreact-sams-header-2.4.8.tgz",
+  "_shasum": "3cf5e4f3b5a6be58fb925dcc46679a53f4b1c0a2",
+  "_shrinkwrap": null,
+  "_spec": "@walmart/wmreact-sams-header",
+  "_where": "/Users/cshi1/githome/portal",
+  "bugs": {
+    "url": "https://gecgithub01.walmart.com/react/sams-header/issues"
+  },
+  "dependencies": {
+    "@walmart/automation-utils": "^3.0.1",
+    "@walmart/electrode-archetype-react-component": "^10.1.0",
+    "@walmart/icons-set": "^2.0.0",
+    "@walmart/wmreact-header": "^12.0.4",
+    "@walmart/wmreact-interactive": "^7.2.0",
+    "@walmart/wmreact-tempo-analytics-utils": "^7.1.0",
+    "@walmart/wmreact-validation": "^3.1.0",
+    "bind-effect": "^0.2.0",
+    "builder": "^2.10.1",
+    "classnames": "^2.2.5",
+    "lodash": "^4.12.0",
+    "react": "^0.14.7",
+    "react-cookie": "^0.4.6",
+    "react-dom": "^0.14.8",
+    "react-redux": "^4.4.5",
+    "redux-actions": "^0.10.0",
+    "redux-thunk": "^2.1.0"
+  },
+  "description": "Samsclub.com header component",
+  "devDependencies": {
+    "@walmart/electrode-archetype-react-component-dev": "^10.1.0",
+    "@walmart/electrode-docgen": "^1",
+    "@walmart/lithe-extras": "^2.11.0",
+    "@walmart/router-resolver-engine": "^1.0.0",
+    "@walmart/wmreact-test-helpers": "^0.2.0",
+    "babel-cli": "^6.4.5",
+    "babel-core": "^6.4.0",
+    "babel-eslint": "^4.0.10",
+    "babel-loader": "^6.2.1",
+    "babel-plugin-i18n-id-hashing": "^1.0.0",
+    "babel-plugin-react-intl": "^2.0.0",
+    "babel-plugin-transform-object-rest-spread": "^6.3.13",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "bluebird": "^2.10.1",
+    "builder": "^2.6.0",
+    "bunyan": "^1.5.1",
+    "component-playground": "^1.0.1",
+    "css-loader": "^0.16.0",
+    "file-loader": "^0.8.4",
+    "fs-extra": "^0.30.0",
+    "glob": "^6.0.4",
+    "history": "^1.13.1",
+    "isparta-loader": "^2.0.0",
+    "json-loader": "^0.5.3",
+    "lodash": "^4.5.0",
+    "nodemon": "^1.8.1",
+    "raw-loader": "^0.5.1",
+    "react-hot-loader": "^1.2.8",
+    "react-intl": "2.0.0-beta-2",
+    "react-resolver": "^2.0.5",
+    "react-router": "^1.0.2",
+    "rimraf": "^2.5.1",
+    "style-loader": "^0.12.3",
+    "stylus-loader": "^1.2.1",
+    "url-loader": "^0.5.6",
+    "webpack": "^1.12.13",
+    "webpack-partial": "^1.1.2"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "3cf5e4f3b5a6be58fb925dcc46679a53f4b1c0a2",
+    "tarball": "https://npme.walmart.com/@/@walmart/wmreact-sams-header/_attachments/wmreact-sams-header-2.4.8.tgz"
+  },
+  "engines": {
+    "node": "^4.2.6",
+    "npm": "^3.5.3"
+  },
+  "gitHead": "1c16f22e3021365baae4f64a1ef3d9225ea18fa0",
+  "homepage": "https://gecgithub01.walmart.com/react/sams-header",
+  "license": "UNLICENSED",
+  "main": "lib/index.js",
+  "maintainers": [
+    {
+      "email": "rdecastro@walmartlabs.com",
+      "name": "rdecast"
+    }
+  ],
+  "name": "@walmart/wmreact-sams-header",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "https://gecgithub01.walmart.com/react/sams-header.git"
+  },
+  "scripts": {
+    "cov-custom": "istanbul check-coverage 'coverage/client/*/coverage.json' --config=.istanbul.yml",
+    "demo": "builder run generate && builder run server-dev",
+    "demo-iso": "builder run dev-iso",
+    "generate": "npm run generate-metadata && npm run generate-documentation",
+    "generate-documentation": "electrode-docgen --package ./package.json --src ./src --markdown components.md",
+    "generate-metadata": "electrode-docgen --package ./package.json --src ./src --metadata components.json",
+    "prepublish": "builder run npm:prepublish",
+    "preversion": "builder run test",
+    "test": "builder run check-cov && builder run cov-custom"
+  },
+  "version": "2.4.8"
+}

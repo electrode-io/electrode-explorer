@@ -1,0 +1,4 @@
+<Switcher
+  isGridView={false}
+  onChange={(showGrid)=> {console.log(showGrid)}}
+/>

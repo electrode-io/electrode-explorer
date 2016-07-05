@@ -1,0 +1,69 @@
+{
+  "library": "@walmart/wmreact-error-page",
+  "description": "Error page component",
+  "components": [
+    {
+      "displayName": "ErrorPage",
+      "methods": [
+        {
+          "name": "_renderCopy",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "is500",
+              "type": {
+                "name": "boolean"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "string"
+            }
+          }
+        },
+        {
+          "name": "_renderLinks",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "is500",
+              "type": {
+                "name": "boolean"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "string"
+            }
+          }
+        }
+      ],
+      "props": {
+        "statusCode": {
+          "type": {
+            "name": "number"
+          },
+          "required": true,
+          "description": "HTTP Status code"
+        }
+      },
+      "fileName": "./src/components/error-page.jsx",
+      "description": "This component displays the ErrorPage for use when errors occur in an app.",
+      "import": "{ErrorPage}",
+      "flags": "noVisibleRender",
+      "component": "ErrorPage",
+      "playground": [
+        {
+          "title": "ErrorPage",
+          "flags": {},
+          "code": "<ErrorPage statusCode={500} />\n"
+        }
+      ],
+      "hasProps": true
+    }
+  ]
+}

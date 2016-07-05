@@ -1,0 +1,461 @@
+{
+  "library": "@walmart/wmreact-facets",
+  "components": [
+    {
+      "description": "",
+      "displayName": "PriceRange",
+      "methods": [
+        {
+          "name": "_getCurrencyChar",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_clearPriceRange",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "e",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_updatePriceRange",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "e",
+              "type": null
+            }
+          ],
+          "returns": null
+        }
+      ],
+      "props": {
+        "min": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "null",
+            "computed": false
+          },
+          "description": ""
+        },
+        "max": {
+          "type": {
+            "name": "number"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "null",
+            "computed": false
+          },
+          "description": ""
+        },
+        "currency": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"usd\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "priceRange": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "min": {
+                "name": "number",
+                "required": false
+              },
+              "max": {
+                "name": "number",
+                "required": false
+              }
+            }
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "{}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "onChange": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/price-range.jsx",
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "displayName": "Facets",
+      "methods": [
+        {
+          "name": "_onChange",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "newUrl",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_onSwatchClick",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "item",
+              "type": null
+            }
+          ],
+          "returns": null
+        }
+      ],
+      "props": {
+        "priceRange": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "min": {
+                "name": "custom",
+                "raw": "React.PropTypes.min",
+                "required": false
+              },
+              "max": {
+                "name": "custom",
+                "raw": "React.PropTypes.max",
+                "required": false
+              }
+            }
+          },
+          "required": false,
+          "description": ""
+        },
+        "stores": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "description": ""
+        },
+        "brands": {
+          "type": {
+            "name": "array"
+          },
+          "required": false,
+          "description": ""
+        },
+        "facet": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "{}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "onChange": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "function() {}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "onSwatchClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "function() {}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "originalUrl": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "selectedArray": {
+          "type": {
+            "name": "array"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "[]",
+            "computed": false
+          },
+          "description": ""
+        },
+        "customText": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "refinedPrice": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "{}",
+            "computed": false
+          },
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/facets.jsx",
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "displayName": "Facet",
+      "methods": [
+        {
+          "name": "_variantComponent",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "props",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_renderVariantItems",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "data",
+              "type": null
+            },
+            {
+              "name": "isColor",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_renderVariants",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_renderRadioButtons",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_renderNoSwatches",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_renderPriceFacet",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_renderPriceRange",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_renderPriceOptions",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_renderExpandable",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "category",
+              "type": null
+            },
+            {
+              "name": "alwaysShown",
+              "type": null
+            },
+            {
+              "name": "sometimesShown",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "toggleShowAll",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        }
+      ],
+      "props": {
+        "facetData": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "displayName": {
+                "name": "string",
+                "required": false
+              },
+              "name": {
+                "name": "string",
+                "required": false
+              },
+              "pluralName": {
+                "name": "string",
+                "required": false
+              },
+              "values": {
+                "name": "array",
+                "required": false
+              },
+              "seeMoreValues": {
+                "name": "array",
+                "required": false
+              },
+              "expandOnPageLoad": {
+                "name": "bool",
+                "required": false
+              },
+              "expandOnLoad": {
+                "name": "bool",
+                "required": false
+              },
+              "type": {
+                "name": "string",
+                "required": false
+              }
+            }
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "{}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "customText": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "originalUrl": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "onChange": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "function() {}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "onSwatchClick": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "function() {}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "selectedArray": {
+          "type": {
+            "name": "array"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "[]",
+            "computed": false
+          },
+          "description": ""
+        },
+        "refinedPrice": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "{}",
+            "computed": false
+          },
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/facet.jsx",
+      "hasProps": true
+    }
+  ]
+}

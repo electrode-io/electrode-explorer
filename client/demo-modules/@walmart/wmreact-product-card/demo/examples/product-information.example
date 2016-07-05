@@ -1,0 +1,8 @@
+<ProductInformation
+  name="Samsung TV"
+  price={{price: 40, currency: "$", savingsPrice: 5, wasPrice: 45}}
+  url="/product/1531"
+  maxRating={5}
+  averageRating={4}
+  numberOfReviews={22}
+  offerShippingPassEligible />

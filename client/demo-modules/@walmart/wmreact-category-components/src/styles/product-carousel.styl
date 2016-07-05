@@ -1,0 +1,49 @@
+$dot-btn-width-small = 7px;
+$dot-btn-width-large = 10px;
+
+.product-carousel {
+  padding-top: $m-spacing;
+  margin-bottom: 20px;
+
+  .paginator-hairline-btn {
+    height: 60px;
+    width: 40px;
+    background-color: $white;
+    background-size: 32%;
+    box-shadow: 0 0 2px 0 $grey-light;
+
+    display:none;
+
+    +breakpoint($breakpoint-m) {
+      display: block;
+    }
+  }
+}
+
+.carousel-paginator-list.carousel-paginator-list-mini {
+  li {
+    margin-left: 8px;
+
+    +breakpoint($breakpoint-m) {
+      margin-left: 18px;
+    }
+  }
+
+  .carousel-paginator-item {
+    width: $dot-btn-width-small;
+    height: @width;
+
+    +breakpoint($breakpoint-m) {
+      width: $dot-btn-width-large;
+      height: @width;
+    }
+  }
+}
+
+.slick-active > .carousel-paginator-item {
+  background: $grey-medium;
+}
+
+.carousel-paginator-item {
+  background: $grey-light;
+}

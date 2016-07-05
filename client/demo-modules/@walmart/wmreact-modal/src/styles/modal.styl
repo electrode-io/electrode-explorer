@@ -1,0 +1,84 @@
+$max-width-xs = 460px
+$max-width-s = 680px
+$max-width-m = 900px
+$max-width-l = 1024px
+
+.modal_outer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  +breakpoint($breakpoint-m) {
+    height: auto;
+    width: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    margin: 0 auto;
+  }
+
+  +breakpoint($breakpoint-m) {
+    &.x-small {
+      max-width: $max-width-xs;
+    }
+      
+    &.small {
+      max-width: $max-width-s;
+    }
+    
+    max-width: $max-width-s;
+  }
+
+  +breakpoint($breakpoint-l) {
+    &.medium {
+      max-width: $max-width-m;
+    }
+    
+    max-width: $max-width-m;
+  }
+
+  +breakpoint($breakpoint-xl) {
+    &.large {
+      max-width: $max-width-l;
+    }
+    
+    max-width: $max-width-l;
+  }
+}
+
+.modal_inner {
+  height: 100%;
+  background-color: $white;
+  
+  +breakpoint($breakpoint-m) {
+    overflow: hidden;
+    border: 4px solid $blue;
+    border-radius: 10px;
+    background-clip: padding-box;
+  }
+}
+
+.modal_close-button {
+  width: 32px;
+  height: @width;
+  padding: 0;
+
+  border: 0;
+  border-radius: 50%;
+  background-color: $blue;
+
+  color: $white;
+  cursor: pointer;
+
+  font-size: 18px;
+  font-weight: 700;
+  line-height: @height;
+
+
+  wmzindex("basic");
+
+  position: absolute;
+
+  top: -14px;
+  right: @top;
+}

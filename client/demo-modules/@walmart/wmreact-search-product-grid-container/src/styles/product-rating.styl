@@ -1,0 +1,61 @@
+.search-result-product-rating {
+  overflow: hidden;
+  width: 100%;
+  margin: 0;
+  
+  @media(min-width: $breakpoint-xs) and (max-width: $breakpoint-l) {
+    height: 16px;
+  }
+  
+  @media (min-width: $breakpoint-l) {
+    height: 30px;
+  }
+  
+  .product-details > & {
+    padding-right: 0;
+  }
+  
+  &.rating-longer-text {
+    .stars-medium {
+      width: 100%;
+      margin-bottom: $xs-spacing;
+    }
+  }
+  
+  .stars-medium {
+    float: left;
+    display: block;
+    margin-right: 8px;
+    padding-top: 1px;
+  }
+
+  .stars-small {
+    float: left;
+    display: block;
+    margin-right: $xs-spacing;
+    padding-top: 3px;
+
+    .star {
+      margin-left: 1px;
+    }
+  }
+
+  .stars-reviews {
+    color: $grey-medium;
+    font-size: 13px;
+    font-weight: 400;
+  }
+
+  .product-media-rating {
+    float: left;
+    width: auto;
+    margin: 0;
+    padding: 1px 5px;
+    border: 1px solid $grey-medium;
+    border-radius: 3px;
+
+    color: $grey-medium;
+    font-size: $font-size-mini;
+    font-weight: 400;
+  }
+}

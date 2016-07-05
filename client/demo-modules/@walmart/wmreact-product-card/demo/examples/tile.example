@@ -1,0 +1,39 @@
+<div style={{backgroundColor: "lightblue", height: 300, paddingLeft: 20, paddingTop: 20}}>
+  <div style={{ width: 168, display: "inline-block", marginRight: 20 }} >
+    <Tile
+      title="Demo Product"
+      flags={[{text: "Rollback", type: "rollback"}]}
+      imageSrc="http://placehold.it/144x144"
+      price={{price: 40, currency:"$", savingsPrice: 5, listPrice: 45}}
+      stars={{total: 5, count: 3, average: 4}}
+      offerShippingPassEligible
+      />
+  </div>
+  <div style={{ width: 168, display: "inline-block", marginRight: 20 }} >
+    <Tile
+      title="Demo Product with From Price"
+      imageSrc="http://placehold.it/144x144"
+      fromPrice={{price: 40, currency:"$", type: "from"}}
+      stars={{total: 5, countNode: 17, average: 4}}
+      />
+  </div>
+  <div style={{ width: 168, display: "inline-block", marginRight: 20 }} >
+    <Tile
+      title="Demo Product with Submap to be Truncated"
+      imageSrc="http://placehold.it/144x144"
+      price={{price: 40, currency:"$"}}
+      maxTitleLines={1}
+      isSubmap
+      showSubmapFlyout
+      />
+  </div>
+  <div style={{ width: 168, display: "inline-block", marginRight: 20 }} >
+    <Tile
+      title="In store only product showing quantity left"
+      imageSrc="http://placehold.it/144x144"
+      price={{price: 40, currency:"$"}}
+      inStoreOnly
+      quantityLeft={100}
+      />
+  </div>
+</div>

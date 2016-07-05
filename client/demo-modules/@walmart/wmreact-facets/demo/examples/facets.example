@@ -1,0 +1,12 @@
+<Facets
+  facet={data}
+  type={data.type}
+  refinedPrice={{minPrice: 1}}
+  expandOnLoad={data.expandOnPageLoad}
+  onChange={function (output) {
+    console.log(output);
+  }}
+  onSwatchClick={function (item) {
+    console.log(item);
+  }}
+/>

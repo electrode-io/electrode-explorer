@@ -1,0 +1,101 @@
+{
+  "_args": [
+    [
+      {
+        "name": "@walmart/wmreact-facets",
+        "raw": "@walmart/wmreact-facets",
+        "rawSpec": "",
+        "scope": "@walmart",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/cshi1/githome/portal"
+    ]
+  ],
+  "_from": "@walmart/wmreact-facets@latest",
+  "_id": "@walmart/wmreact-facets@1.0.1",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/@walmart/wmreact-facets",
+  "_nodeVersion": "4.4.5",
+  "_npmUser": {
+    "email": "npme@example.com",
+    "name": "cshi1"
+  },
+  "_npmVersion": "3.9.6",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "@walmart/wmreact-facets",
+    "raw": "@walmart/wmreact-facets",
+    "rawSpec": "",
+    "scope": "@walmart",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://npme.walmart.com/@/@walmart/wmreact-facets/_attachments/wmreact-facets-1.0.1.tgz",
+  "_shasum": "00dc692bb2485a6c80677c43aaae441d786e8f9c",
+  "_shrinkwrap": null,
+  "_spec": "@walmart/wmreact-facets",
+  "_where": "/Users/cshi1/githome/portal",
+  "author": {
+    "name": "dale.bustad@formidablelabs.com"
+  },
+  "bugs": {
+    "url": "https://gecgithub01.walmart.com/react/facets/issues"
+  },
+  "dependencies": {
+    "@walmart/wmreact-containers": "^11.0.0",
+    "@walmart/wmreact-forms": "^5.0.6",
+    "@walmart/wmreact-interactive": "^7.3.0",
+    "@walmart/wmreact-layout": "^7.2.0",
+    "@walmart/wmreact-product-variants": "^3.0.4",
+    "@walmart/wmreact-validation": "^3.1.0",
+    "classnames": "^1.2.2"
+  },
+  "description": "Refinements Component =====================",
+  "devDependencies": {
+    "@walmart/electrode-archetype-react-component": "^10.2.0",
+    "@walmart/electrode-archetype-react-component-dev": "^10.2.0",
+    "@walmart/electrode-docgen": "^1",
+    "@walmart/lithe-extras": "^2.12.0",
+    "builder": "^2.10.1",
+    "component-playground": "^1.3.0",
+    "object-assign": "^4.1.0"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "00dc692bb2485a6c80677c43aaae441d786e8f9c",
+    "tarball": "https://npme.walmart.com/@/@walmart/wmreact-facets/_attachments/wmreact-facets-1.0.1.tgz"
+  },
+  "gitHead": "6aba0d275e297ab8fcca23d2cadeed640b4fefc8",
+  "license": "UNLICENSED",
+  "main": "lib/index.js",
+  "maintainers": [
+    {
+      "email": "ken.wheeler@walmartlabs.com",
+      "name": "kwheel2"
+    }
+  ],
+  "name": "@walmart/wmreact-facets",
+  "optionalDependencies": {},
+  "private": false,
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git://gecgithub01.walmart.com/react/facets.git"
+  },
+  "scripts": {
+    "demo": "builder run generate && builder run server-dev",
+    "demo-iso": "builder run dev-iso",
+    "generate": "npm run generate-metadata && npm run generate-documentation",
+    "generate-documentation": "electrode-docgen --package ./package.json --src ./src --markdown components.md",
+    "generate-metadata": "electrode-docgen --package ./package.json --src ./src --metadata components.json",
+    "prepublish": "builder run npm:prepublish",
+    "preversion": "builder run test",
+    "test": "builder run check-cov"
+  },
+  "version": "1.0.1"
+}
