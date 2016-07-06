@@ -31,7 +31,8 @@
     "classnames": "2.2.5",
     "exenv": "1.2.1",
     "flowtip": "4.0.0",
-    "lodash": "4.13.1"
+    "lodash": "4.13.1",
+    "object-assign": "4.0.1"
   },
   "_requested": {
     "name": "@walmart/wmreact-calendar",
@@ -42,7 +43,8 @@
     "type": "tag"
   },
   "_requiredBy": [
-    "#USER"
+    "#USER",
+    "/"
   ],
   "_resolved": "https://npme.walmart.com/@/@walmart/wmreact-calendar/_attachments/wmreact-calendar-3.1.1.tgz",
   "_shasum": "fc0341f14ffe7db5defa02800edde3d114873499",
