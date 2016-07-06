@@ -33,6 +33,7 @@
   },
   "homepage": "https://electrode-portal.qa.walmart.com/portal",
   "dependencies": {
+    "@walmart/buy-together": "^1.1.0",
     "@walmart/canary": "^5.0.0",
     "@walmart/canary-event-pattern": "^2.0.0",
     "@walmart/canary-event-sequence": "^2.0.0",

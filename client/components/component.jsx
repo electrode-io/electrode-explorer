@@ -32,7 +32,7 @@ export default class Component extends React.Component {
           this.setState({ demo });
         } catch (e) {
           console.log(`Error require demo in ${meta.name}`);
-          this.setState({error: <div>This component does not have demo.</div>});
+          this.setState({error: true});
         }
       });
   }
@@ -48,7 +48,7 @@ export default class Component extends React.Component {
               Github: <a href={meta.github}>{meta.github}</a>
             </div>}
             {meta.version && `v${meta.version}`}
-            {usage.length && <div>
+            {usage.length > 0 && <div>
               This component is used in {usage.length} modules / apps.
               {usage.map((url) => (
                 <div><a href={url}>{url}</a></div>
@@ -57,7 +57,7 @@ export default class Component extends React.Component {
           </span>
         </h2>
         { typeof demo !== "undefined" && demo && <demo.default/> }
-        { error && <error/> }
+        { error && <b>This component does not have demo or demo does not work properly.</b> }
       </div>
     );
   }

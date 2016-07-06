@@ -1,0 +1,36 @@
+{
+  "library": "@walmart/react-component-boilerplate",
+  "description": "<Add description here>",
+  "components": [
+    {
+      "displayName": "BuyTogether",
+      "methods": [],
+      "props": {
+        "name": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"React\"",
+            "computed": false
+          },
+          "description": "Name displayed on boierplate component"
+        }
+      },
+      "fileName": "./src/components/buy-together.jsx",
+      "description": "This is a boiler plate component\n\n```jsx\n<BuyTogether name=\"react\"/>\n```",
+      "import": "{BuyTogether}",
+      "flags": "noVisibleRender",
+      "component": "BuyTogether",
+      "playground": [
+        {
+          "title": "BuyTogether",
+          "flags": {},
+          "code": "<BuyTogether name=\"react\"/>\n"
+        }
+      ],
+      "hasProps": true
+    }
+  ]
+}

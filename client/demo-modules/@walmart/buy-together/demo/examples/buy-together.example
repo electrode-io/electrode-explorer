@@ -1,0 +1,55 @@
+ <BuyTogether
+  isBTV={false}
+  productData={
+    {
+      name: "Product Name",
+      url: "https://www.somewhere.com",
+      image: "https://i5.walmartimages.com/myimage.jpg",
+      imageWidth: 100,
+      imageHeight: 100,
+      currentPrice: 24.95,
+      selectedVariant: "grey",
+      flags: [
+        { text: "Rollback", type: "rollback" }
+      ]
+    }
+  }
+  accessoryData={[
+    {
+      name: "Accessory Name",
+      url: "https://www.somewhereelse.com",
+      image: "https://i5.walmartimages.com/myotherimage.jpg",
+      imageWidth: 100,
+      imageHeight: 100,
+      esrb: "E",
+      variants: ["standard", "gold", "silver"],
+      currentPrice: 35.05,
+      flags: [
+        { text: "Clearance", type: "clearance" }
+      ]
+    },
+    {
+      name: "Accessory 2 Name",
+      url: "https://www.somewhereelse.com/accessory",
+      image: "https://i5.walmartimages.com/mythirdimage.jpg",
+      imageWidth: 100,
+      imageHeight: 100,
+      esrb: "E",
+      variants: ["standard", "gold", "silver"],
+      currentPrice: 35.05,
+      flags: [
+        { text: "Clearance", type: "clearance" }
+      ]
+    }
+  ]}
+  fulfillmentData={
+    {
+      totalPrice: 68.92,
+      savingsValue: 12.01,
+      shippingPassFlag: false,
+      holidayDDM: {},
+      fulfillmentDelivery: "standard"
+    }
+  }
+/>
+
