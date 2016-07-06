@@ -8,7 +8,7 @@ const githubAuthObject = require("./utils/github-auth-object");
 const ORGS = Config.ORGS_IN_USAGE_SEARCH;
 
 const shouldIncludeRepo = (repo) => {
-  return ORGS.some((org) => repo.indexOf(org) === 0);
+  return ORGS.some((org) => repo.indexOf(org) === 0 && repo.indexOf("electrode-portal") === -1);
 };
 
 const fetchUsage = (meta) => {
