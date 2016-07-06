@@ -58,6 +58,7 @@
     "@walmart/wmreact-product-typography": "^4.2.3",
     "@walmart/wmreact-react-demo-shared": "^1.0.7",
     "@walmart/wmreact-stateless-fields": "^2.1.2",
+    "@walmart/wmreact-tempo-modules": "^3.26.3",
     "@walmart/wmreact-user": "^5.0.8",
     "@walmart/wmreact-validation": "^3.1.0",
     "autoprefixer-stylus": "^0.9.1",

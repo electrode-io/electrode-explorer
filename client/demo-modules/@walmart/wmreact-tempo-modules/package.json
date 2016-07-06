@@ -13,7 +13,7 @@
     ]
   ],
   "_from": "@walmart/wmreact-tempo-modules@latest",
-  "_id": "@walmart/wmreact-tempo-modules@3.26.2",
+  "_id": "@walmart/wmreact-tempo-modules@3.26.3",
   "_inCache": true,
   "_installable": true,
   "_location": "/@walmart/wmreact-tempo-modules",
@@ -33,10 +33,10 @@
     "type": "tag"
   },
   "_requiredBy": [
-    "#USER"
+    "/"
   ],
-  "_resolved": "https://npme.walmart.com/@/@walmart/wmreact-tempo-modules/_attachments/wmreact-tempo-modules-3.26.2.tgz",
-  "_shasum": "c9421095a5a37dee7d20251f9414dafc2fbad9ca",
+  "_resolved": "https://npme.walmart.com/@/@walmart/wmreact-tempo-modules/_attachments/wmreact-tempo-modules-3.26.3.tgz",
+  "_shasum": "abe55bb857c71e2a6c78aa62a8078490417df746",
   "_shrinkwrap": null,
   "_spec": "@walmart/wmreact-tempo-modules",
   "_where": "/Users/cshi1/githome/portal",
@@ -73,10 +73,10 @@
   },
   "directories": {},
   "dist": {
-    "shasum": "c9421095a5a37dee7d20251f9414dafc2fbad9ca",
-    "tarball": "https://npme.walmart.com/@/@walmart/wmreact-tempo-modules/_attachments/wmreact-tempo-modules-3.26.2.tgz"
+    "shasum": "abe55bb857c71e2a6c78aa62a8078490417df746",
+    "tarball": "https://npme.walmart.com/@/@walmart/wmreact-tempo-modules/_attachments/wmreact-tempo-modules-3.26.3.tgz"
   },
-  "gitHead": "44f1bb1cf592dba32b245112cae87d87467fd74a",
+  "gitHead": "061f7ed8be7130c45a7b8fdbda03a4955820986f",
   "homepage": "https://gecgithub01.walmart.com/react/tempo-modules",
   "license": "UNLICENSED",
   "main": "lib/index.js",
@@ -103,5 +103,5 @@
     "prepublish": "builder run build-lib",
     "test": "builder run check-cov"
   },
-  "version": "3.26.2"
+  "version": "3.26.3"
 }
