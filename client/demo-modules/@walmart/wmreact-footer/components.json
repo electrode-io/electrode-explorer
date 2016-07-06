@@ -1,0 +1,953 @@
+{
+  "library": "@walmart/wmreact-footer",
+  "description": "A set of react components for Footer",
+  "title": "Footer",
+  "components": [
+    {
+      "displayName": "Footer",
+      "methods": [
+        {
+          "name": "_renderEmailSignupZone",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{emailSignup, onEmailSubmitted, emailSignupUrl, onModalClose, isMobile}",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderSocialIconsZone",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{isMobile}",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderGlobalFooterZone",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{isMobile, pathToAssets}",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderFooterCopyright",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{copyrightText, referenceId, isMobile}",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        }
+      ],
+      "props": {
+        "isMobile": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "check mobile device"
+        },
+        "copyrightText": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "defaultValue": {
+            "value": "\"© Walmart Stores, Inc.\"",
+            "computed": false
+          },
+          "description": "Copyright text"
+        },
+        "referenceId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": "Customer reference Id"
+        },
+        "emailSignup": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "loading": {
+                "name": "bool",
+                "required": false
+              },
+              "emailId": {
+                "name": "string",
+                "required": false
+              },
+              "didInvalidate": {
+                "name": "bool",
+                "required": false
+              },
+              "showModal": {
+                "name": "bool",
+                "required": false
+              }
+            }
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "{\n  loading: false,\n  emailId: \"\",\n  didInvalidate: false,\n  showModal: false\n}",
+            "computed": false
+          },
+          "description": "Emailsignup info"
+        },
+        "onBootstrap": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": "The first action dispatched"
+        },
+        "onEmailSubmitted": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "onModalClose": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": ""
+        },
+        "quimbyData": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "description": "quimbyData is the result of tempo-core calls to quimby stored in redux"
+        },
+        "pathToAssets": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": "Path to opinion lab assets"
+        },
+        "emailSignupUrl": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"/ajax/footer-email\"",
+            "computed": false
+          },
+          "description": "Url for email signup"
+        }
+      },
+      "fileName": "./src/components/footer.jsx",
+      "description": "This component displays the footer on page",
+      "import": "{Footer}",
+      "flags": "noVisibleRender",
+      "component": "Footer",
+      "playground": [
+        {
+          "title": "Footer",
+          "flags": {},
+          "code": "<Footer\n  copyrightText=\"© Walmart Stores, Inc.\"\n  emailSignup= {{showModal: false, loading: false, didInvalidate: false, emailId: \"\"}}\n  referenceId=\"ASWEDF123W\"\n/>\n"
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "FooterCopyright",
+      "methods": [],
+      "props": {
+        "isMobile": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "check mobile device"
+        },
+        "text": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": "Footer copyright text"
+        },
+        "referenceId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": "Customer reference Id"
+        },
+        "autoId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": "Used for generating unique automation id's"
+        },
+        "feedbackText": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": "Feedback link text"
+        }
+      },
+      "fileName": "./src/components/footer-copyright.jsx",
+      "description": "This component displays the FooterCopyright text",
+      "import": "{FooterCopyright}",
+      "flags": "noVisibleRender",
+      "component": "FooterCopyright",
+      "playground": [
+        {
+          "title": "Footer Copyright",
+          "flags": {},
+          "code": "<FooterCopyright text=\"© Walmart Stores, Inc.\" referenceId=\"ASWEDF123W\" />\n"
+        }
+      ],
+      "return": "Element tree",
+      "param": "Props",
+      "hasProps": true
+    },
+    {
+      "displayName": "GlobalEmailSignup",
+      "methods": [
+        {
+          "name": "_handleFormSubmit",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "ev",
+              "type": {
+                "name": "Object",
+                "alias": "Object"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_renderHeader",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{ campaignId, headerColor, header }",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderSignupModal",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{\n  showModal, emailId, autoId, moduleData, onModalClose, isMobile\n}",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement",
+              "nullable": true
+            }
+          }
+        },
+        {
+          "name": "_renderEmailForm",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{ autoId, loading }",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderFooterItem",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{ moduleData, autoId }",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        }
+      ],
+      "props": {
+        "isMobile": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "check mobile device"
+        },
+        "moduleData": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "type": {
+                "name": "string",
+                "required": false
+              },
+              "moduleId": {
+                "name": "string",
+                "required": false
+              },
+              "configs": {
+                "name": "shape",
+                "value": {
+                  "campaignId": {
+                    "name": "string",
+                    "required": false
+                  },
+                  "headerColor": {
+                    "name": "string",
+                    "required": false
+                  },
+                  "header": {
+                    "name": "string",
+                    "required": true
+                  },
+                  "link": {
+                    "name": "shape",
+                    "value": {
+                      "linkText": {
+                        "name": "string",
+                        "required": true
+                      },
+                      "clickThrough": {
+                        "name": "shape",
+                        "value": {
+                          "value": {
+                            "name": "string",
+                            "required": true
+                          }
+                        },
+                        "required": false
+                      }
+                    },
+                    "required": false
+                  }
+                },
+                "required": true
+              }
+            }
+          },
+          "required": true,
+          "defaultValue": {
+            "value": "{\n  type: \"\",\n  moduleId: \"\",\n  configs: {\n    campaignId: \"\",\n    headerColor: \"\",\n    header: \"\",\n    link: {\n      linkText: \"\",\n      clickThrough: {\n        value: \"\"\n      }\n    }\n  }\n}",
+            "computed": false
+          },
+          "description": "Tempo module Data"
+        },
+        "showModal": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "Show modal with customer Email"
+        },
+        "onModalClose": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": "Callback trigger on modal close."
+        },
+        "onEmailSubmitted": {
+          "type": {
+            "name": "func"
+          },
+          "required": true,
+          "description": "Pass value of the email box to set showModal"
+        },
+        "autoId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": "Used for generating unique automation id's"
+        },
+        "emailId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "loading": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "didInvalidate": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/global-email-signup.jsx",
+      "description": "This component displays the form to user\nto signup for marketing emails at walmart.com",
+      "import": "{GlobalEmailSignup}",
+      "flags": "noVisibleRender",
+      "component": "GlobalEmailSignup",
+      "playground": [
+        {
+          "title": "Global Email Signup",
+          "flags": {},
+          "code": "<GlobalEmailSignup\n  onEmailSubmitted={(emailId) => console.log(emailId)}\n  showModal\n  moduleData={\n  {\n    \"type\":\"GlobalEmailSignup\",\n    \"configs\":{\n       \"campaignId\":\"1\",\n       \"headerColor\":\"#888\",\n       \"header\":\"Be the first to save!\",\n       \"link\": {\n         \"clickThrough\": {\n         \"type\": \"url\",\n         \"value\": \"http://www.walmart.com\"\n         },\n       \"linkText\": \"Privacy policy\",\n       \"title\": \"Privacy policy\",\n       \"uid\": \"6TTGai08\"\n       }\n    },\n    \"moduleId\":\"640e8519-fda6-4bf3-aae5-caa0574ae15d\"\n  }\n}/>\n"
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "GlobalEmailSignupModal",
+      "methods": [
+        {
+          "name": "_renderResponsiveModalContent",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "link",
+              "type": {
+                "name": "Object",
+                "alias": "Object"
+              }
+            },
+            {
+              "name": "emailId",
+              "type": {
+                "name": "string"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderSlidePanel",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{showModal, onModalClose, link, emailId}",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_renderModal",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "{showModal, onModalClose, link, emailId}",
+              "type": null
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        }
+      ],
+      "props": {
+        "isMobile": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "check mobile device"
+        },
+        "showModal": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "false",
+            "computed": false
+          },
+          "description": "Used to hide and show modal"
+        },
+        "emailId": {
+          "type": {
+            "name": "string"
+          },
+          "required": true,
+          "description": "Show email id for customer"
+        },
+        "link": {
+          "type": {
+            "name": "shape",
+            "value": {
+              "linkText": {
+                "name": "string",
+                "required": true
+              },
+              "clickThrough": {
+                "name": "shape",
+                "value": {
+                  "value": {
+                    "name": "string",
+                    "required": true
+                  }
+                },
+                "required": false
+              }
+            }
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "{\n  linkText: \"\",\n  clickThrough: {\n    value: \"\"\n  }\n}",
+            "computed": false
+          },
+          "description": "Show Privacy link in the modal"
+        },
+        "autoId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": "Used for generating unique automation id's"
+        },
+        "onModalClose": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "() => {}",
+            "computed": false
+          },
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/global-email-signup-modal.jsx",
+      "description": "This component displays the confermation modal to user\nwhen they signup for emails.",
+      "import": "{GlobalEmailSignupModal}",
+      "flags": "noVisibleRender",
+      "component": "GlobalEmailSignupModal",
+      "playground": [
+        {
+          "title": "Global Email Signup Modal",
+          "flags": {},
+          "code": "<GlobalEmailSignupModal showModal={true} emailId=\"a@a.com\" link={\n  {\n    \"linkText\": \"Walmart MoneyCenter\",\n    \"title\": \"Walmart MoneyCenter\",\n    \"clickThrough\": {\n      \"type\": \"url\",\n      \"value\": \"http:\\/\\/www-e16.walmart.com\\/instantcredit\"\n    },\n    \"uid\": \"iyoJypI4\"\n  }\n}/>\n"
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "displayName": "GlobalFooterItems",
+      "methods": [
+        {
+          "name": "_isOpen",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "key",
+              "type": {
+                "name": "number"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "boolean"
+            }
+          }
+        },
+        {
+          "name": "_getClassName",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "key",
+              "type": {
+                "name": "number"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "string"
+            }
+          }
+        },
+        {
+          "name": "_expandToggle",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "key",
+              "type": {
+                "name": "number"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_generateToggleText",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "key",
+              "type": {
+                "name": "number"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "void"
+            }
+          }
+        },
+        {
+          "name": "_generateHeading",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "headingName",
+              "type": {
+                "name": "string"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_items",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "linkDetails",
+              "type": {
+                "name": "Object",
+                "alias": "Object"
+              }
+            },
+            {
+              "name": "index",
+              "type": {
+                "name": "number"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        },
+        {
+          "name": "_links",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "linkDetails",
+              "type": {
+                "name": "Object",
+                "alias": "Object"
+              }
+            },
+            {
+              "name": "index",
+              "type": {
+                "name": "number"
+              }
+            }
+          ],
+          "returns": {
+            "type": {
+              "name": "ReactElement"
+            }
+          }
+        }
+      ],
+      "props": {
+        "block": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "true",
+            "computed": false
+          },
+          "description": "True if we are applying the `footer-block-list` class"
+        },
+        "links": {
+          "type": {
+            "name": "array"
+          },
+          "required": true,
+          "defaultValue": {
+            "value": "[]",
+            "computed": false
+          },
+          "description": "The list of links"
+        },
+        "name": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": "The name of list"
+        },
+        "autoId": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": "Used for generating unique automation id's"
+        },
+        "pathToAssets": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": "Path to opinion lab assets"
+        }
+      },
+      "fileName": "./src/components/global-footer-items.jsx",
+      "description": "This component displays the GlobalFooterItems",
+      "import": "{GlobalFooterItems}",
+      "flags": "noVisibleRender",
+      "component": "GlobalFooterItems",
+      "playground": [
+        {
+          "title": "Global Footer Items",
+          "flags": {},
+          "code": "<GlobalFooterItems name=\"Walmart.com\" links={\n  [\n    {\n      \"link\": {\n        \"linkText\": \"About Walmart.com\",\n        \"title\": \"Walmart credit card\",\n        \"clickThrough\": {\n          \"type\": \"url\",\n          \"value\": \"http:\\/\\/help.walmart.com\\/app\\/answers\\/detail\\/a_id\\/6\"\n        },\n        \"uid\": \"XfEg85uC\"\n      },\n      \"uid\": \"5uh7ZTD-\"\n    },\n    {\n      \"link\": {\n        \"linkText\": \"Terms of Use\",\n        \"title\": \"Terms of use\",\n        \"clickThrough\": {\n          \"type\": \"url\",\n          \"value\": \"http:\\/\\/help.walmart.com\\/app\\/answers\\/detail\\/a_id\\/8\"\n        },\n        \"uid\": \"dKmHgWxk\"\n      },\n      \"image\": {\n        \"assetName\": \"k2-_65ae56ce-e20a-4f67-8a4f-88fbc7f69cde.v1.jpg\",\n        \"height\": \"66\",\n        \"assetId\": \"2c35b6b0-481c-11e5-aa7b-3f9068f8e0a6\",\n        \"src\": \"//i5.walmartimages.com/dfw/4ff9c6c9-9aee/k2-_704e0f82-62c6.v1.png\",\n        \"width\": \"86\",\n        \"size\": \"100\",\n        \"contentType\": \"image/jpeg\",\n        \"alt\": \"footer image\",\n        \"title\": \"footer image\",\n        \"uid\": \"9ZKpMSLd\"\n      },\n      \"uid\": \"erj58MVs\"\n    }\n  ]\n} />\nGlobal Footer Items Inline\n<GlobalFooterItems block={false} links={\n  [\n    {\n      \"link\": {\n        \"linkText\": \"About Walmart.com\",\n        \"title\": \"Walmart credit card\",\n        \"clickThrough\": {\n          \"type\": \"url\",\n          \"value\": \"http:\\/\\/help.walmart.com\\/app\\/answers\\/detail\\/a_id\\/6\"\n        },\n        \"uid\": \"XfEg85uC\"\n      },\n      \"uid\": \"5uh7ZTD-\"\n    },\n    {\n      \"link\": {\n        \"linkText\": \"Terms of Use\",\n        \"title\": \"Terms of use\",\n        \"clickThrough\": {\n          \"type\": \"url\",\n          \"value\": \"http:\\/\\/help.walmart.com\\/app\\/answers\\/detail\\/a_id\\/8\"\n        },\n        \"uid\": \"dKmHgWxk\"\n      }\n  ]\n} />\n"
+        }
+      ],
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "displayName": "FeedbackLink",
+      "methods": [],
+      "props": {
+        "uid": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": "Link data from tempo"
+        },
+        "title": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": "Link data from tempo"
+        },
+        "pathToAssets": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": "Path to opinion lab assets"
+        },
+        "linkText": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"\"",
+            "computed": false
+          },
+          "description": "Link Text"
+        }
+      },
+      "fileName": "./src/components/feedback-link.jsx",
+      "hasProps": true
+    }
+  ]
+}
