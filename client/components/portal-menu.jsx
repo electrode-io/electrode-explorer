@@ -1,6 +1,5 @@
 import React from "react";
 import { fetchJSON } from "@walmart/electrode-fetch";
-import Config from "@walmart/electrode-ui-config";
 import ExecutionEnvironment from "exenv";
 
 export default class Component extends React.Component {

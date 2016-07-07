@@ -1,6 +1,7 @@
 import React from "react";
 import { fetchJSON } from "@walmart/electrode-fetch";
 import ExecutionEnvironment from "exenv";
+import Config from "@walmart/electrode-ui-config";
 
 export default class Component extends React.Component {
   constructor(props) {
@@ -28,7 +29,7 @@ export default class Component extends React.Component {
         this.setState({ meta, usage });
 
         try {
-          const demo = require(`../demo-modules/${meta.name}/demo/demo.jsx`);
+          const demo = require(`../demo-modules/${meta.name}/${Config.ui.demoPath}`);
           this.setState({ demo });
         } catch (e) {
           console.log(`Error require demo in ${meta.name}`);

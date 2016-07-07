@@ -66,7 +66,8 @@
     "github": {
       "protocol": "https",
       "basePath": "gecgithub01.walmart.com"
-    }
+    },
+    "demoPath": "demo/demo.jsx"
   },
 
   "ORGS_IN_USAGE_SEARCH": [
