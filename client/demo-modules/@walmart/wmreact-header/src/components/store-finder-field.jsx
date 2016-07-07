@@ -1,6 +1,7 @@
 /* @flow */
 import React, { PropTypes, Component } from "react";
-import Field from "@walmart/wmreact-forms/lib/components/field";
+import Field from "@walmart/wmreact-stateless-fields/lib/components/field";
+import { userLocation } from "@walmart/wmreact-validation/lib/validators" ;
 import Arrange from "@walmart/wmreact-layout/lib/components/arrange";
 import Button from "@walmart/wmreact-interactive/lib/components/button";
 import { getStoreFinderUrl } from "../utils/store-finder-utils";
@@ -35,20 +36,24 @@ Component<StoreFinderFieldPropTypes, StoreFinderFieldDefaultProps> {
 
   constructor(props): void {
     super(props);
+    this.state = {
+      location: "",
+      showError: false
+    };
     this._handleLocationSubmit = this._handleLocationSubmit.bind(this);
   }
+
 
   _renderLocationField(dataAutomationId): ReactElement {
     return (
       <Field
+        value={this.state.location}
         className="header-StoreFinderField-location"
         inputName="storeFinder"
-        isRequiredField={false}
-        ref="storeFinderInputField"
-        validationType="userLocation"
-        placeholderText="Enter city, state or zip code"
-        labelText="Enter city, state or zip code"
-        showLabel
+        shouldDisplayError={() => this.state.showError}
+        placeholder="Enter city, state or zip code"
+        error={VALIDATION_MESSAGE}
+        onChange={(e) => this.setState({location: e.target.value})}
         {...getDataAutomationIdPair("locationText", dataAutomationId)}
       />
     );
@@ -72,19 +77,13 @@ Component<StoreFinderFieldPropTypes, StoreFinderFieldDefaultProps> {
 
   _handleLocationSubmit(ev: Object): void {
     ev.preventDefault();
-    const {storeFinderInputField} = this.refs;
-    const location = storeFinderInputField.getValue();
+    const location = this.state.location;
     const currentWindow = this._getWindow();
-    const isValid = storeFinderInputField.isValid();
+    const isValid = userLocation.validate(location);
     if (location && isValid) {
       currentWindow.location.href = getStoreFinderUrl(location);
-    } else {
-      this._invalidateField(storeFinderInputField);
     }
-  }
-
-  _invalidateField(field) {
-    field.invalidate(VALIDATION_MESSAGE);
+    this.setState({showError: !isValid});
   }
 
   render(): ReactElement {

@@ -107,10 +107,10 @@ var OffcanvasNav = function (_Component) {
       body.style.top = -1 * this.scrollTop + "px";
       // Closes the offcanvas nav by shifting the page back and returns to the correct scroll position
     } else if (prevOpen && !nextOpen) {
-        body.classList.remove(OPEN_CLASS_NAME);
-        body.style.top = null;
-        window.scrollTo(0, this.scrollTop);
-      }
+      body.classList.remove(OPEN_CLASS_NAME);
+      body.style.top = null;
+      window.scrollTo(0, this.scrollTop);
+    }
   };
 
   OffcanvasNav.prototype.componentDidUpdate = function componentDidUpdate() {

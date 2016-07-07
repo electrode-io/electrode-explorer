@@ -137,10 +137,10 @@ var AppBanner = function (_Component) {
       type = "windows";
       //iOS >= 6 has native support for Smart Banner, but only in Safari
     } else if (agent.os.name === "iOS" && (parseInt(agent.os.version, 10) < 6 || agent.browser.name.indexOf("Safari") === -1)) {
-        type = "ios";
-      } else if (agent.os.name === "Android") {
-        type = "android";
-      }
+      type = "ios";
+    } else if (agent.os.name === "Android") {
+      type = "android";
+    }
     return this._getDeviceType(type);
   };
 

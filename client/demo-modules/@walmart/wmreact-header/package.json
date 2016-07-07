@@ -3,61 +3,54 @@
     [
       {
         "name": "@walmart/wmreact-header",
-        "raw": "@walmart/wmreact-header",
-        "rawSpec": "",
+        "raw": "@walmart/wmreact-header@^12.0.5",
+        "rawSpec": "^12.0.5",
         "scope": "@walmart",
-        "spec": "latest",
-        "type": "tag"
+        "spec": ">=12.0.5 <13.0.0",
+        "type": "range"
       },
       "/Users/cshi1/githome/portal"
     ]
   ],
-  "_from": "@walmart/wmreact-header@latest",
-  "_id": "@walmart/wmreact-header@12.0.5",
+  "_from": "@walmart/wmreact-header@>=12.0.5 <13.0.0",
+  "_id": "@walmart/wmreact-header@12.0.7",
   "_inCache": true,
   "_installable": true,
   "_location": "/@walmart/wmreact-header",
-  "_nodeVersion": "4.4.5",
+  "_nodeVersion": "4.3.2",
   "_npmUser": {
     "email": "npme@example.com",
-    "name": "cshi1"
+    "name": "Jehle"
   },
-  "_npmVersion": "3.9.6",
+  "_npmVersion": "3.10.3",
   "_phantomChildren": {
-    "@walmart/canary": "5.1.1",
     "@walmart/react-utils": "4.0.0",
-    "@walmart/wmreact-analytics": "4.2.0",
     "@walmart/wmreact-base": "7.1.0",
     "@walmart/wmreact-interactive": "7.4.0",
     "@walmart/wmreact-layout": "7.2.0",
-    "agentkeepalive": "2.2.0",
     "array-find": "1.0.0",
-    "bluebird": "2.10.2",
     "classnames": "2.2.5",
     "eventuate": "4.0.0",
     "exenv": "1.2.1",
     "flowtip": "4.0.0",
-    "lodash": "4.13.1",
-    "node-fetch": "1.5.3",
-    "uuid": "2.0.2",
-    "whatwg-fetch": "0.11.1"
+    "lodash": "4.13.1"
   },
   "_requested": {
     "name": "@walmart/wmreact-header",
-    "raw": "@walmart/wmreact-header",
-    "rawSpec": "",
+    "raw": "@walmart/wmreact-header@^12.0.5",
+    "rawSpec": "^12.0.5",
     "scope": "@walmart",
-    "spec": "latest",
-    "type": "tag"
+    "spec": ">=12.0.5 <13.0.0",
+    "type": "range"
   },
   "_requiredBy": [
-    "#USER",
+    "/",
     "/@walmart/wmreact-sams-header"
   ],
-  "_resolved": "https://npme.walmart.com/@/@walmart/wmreact-header/_attachments/wmreact-header-12.0.5.tgz",
-  "_shasum": "6f71176152d7b475b9b20822514f029072511390",
+  "_resolved": "https://npme.walmart.com/@/@walmart/wmreact-header/_attachments/wmreact-header-12.0.7.tgz",
+  "_shasum": "ef74f3c8632d13b710aac86d23d9b0dc2d1b1ab6",
   "_shrinkwrap": null,
-  "_spec": "@walmart/wmreact-header",
+  "_spec": "@walmart/wmreact-header@^12.0.5",
   "_where": "/Users/cshi1/githome/portal",
   "author": {
     "name": "jherrington@walmartlabs.com"
@@ -71,14 +64,15 @@
     "@walmart/geolocate": "^3.0.0",
     "@walmart/wmreact-analytics": "^4.0.0",
     "@walmart/wmreact-base": "^7.0.0",
-    "@walmart/wmreact-containers": "^10.0.0",
-    "@walmart/wmreact-forms": "^5.0.3",
+    "@walmart/wmreact-containers": "^11.2.1",
     "@walmart/wmreact-image-utils": "^2.0.1",
     "@walmart/wmreact-interactive": "^7.0.2",
     "@walmart/wmreact-layout": "^7.0.2",
     "@walmart/wmreact-shipping-pass": "^2.0.1",
-    "@walmart/wmreact-tempo-analytics-utils": "^6.0.0",
+    "@walmart/wmreact-stateless-fields": "^2.1.2",
+    "@walmart/wmreact-tempo-analytics-utils": "^7.1.1",
     "@walmart/wmreact-tempo-core": "^6.0.0",
+    "@walmart/wmreact-validation": "^3.1.0",
     "classnames": "^2.2.3",
     "exenv": "^1.2.0",
     "jsonp": "^0.2.0",
@@ -107,10 +101,10 @@
   },
   "directories": {},
   "dist": {
-    "shasum": "6f71176152d7b475b9b20822514f029072511390",
-    "tarball": "https://npme.walmart.com/@/@walmart/wmreact-header/_attachments/wmreact-header-12.0.5.tgz"
+    "shasum": "ef74f3c8632d13b710aac86d23d9b0dc2d1b1ab6",
+    "tarball": "https://npme.walmart.com/@/@walmart/wmreact-header/_attachments/wmreact-header-12.0.7.tgz"
   },
-  "gitHead": "6bffec51594dc89b1911e00fc98183664d439ffa",
+  "gitHead": "98c9658085ef4a48e45759e176b45991c1aa4742",
   "license": "UNLICENSED",
   "main": "lib/index.js",
   "maintainers": [
@@ -142,5 +136,5 @@
     "preversion": "builder run test",
     "test": "builder run check-cov && builder run cov-frontend"
   },
-  "version": "12.0.5"
+  "version": "12.0.7"
 }

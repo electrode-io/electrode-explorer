@@ -22,9 +22,11 @@ var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _field = require("@walmart/wmreact-forms/lib/components/field");
+var _field = require("@walmart/wmreact-stateless-fields/lib/components/field");
 
 var _field2 = _interopRequireDefault(_field);
+
+var _validators = require("@walmart/wmreact-validation/lib/validators");
 
 var _arrange = require("@walmart/wmreact-layout/lib/components/arrange");
 
@@ -63,20 +65,29 @@ var StoreFinderField = function (_Component) {
 
     var _this = (0, _possibleConstructorReturn3.default)(this, _Component.call(this, props));
 
+    _this.state = {
+      location: "",
+      showError: false
+    };
     _this._handleLocationSubmit = _this._handleLocationSubmit.bind(_this);
     return _this;
   }
 
   StoreFinderField.prototype._renderLocationField = function _renderLocationField(dataAutomationId) {
+    var _this2 = this;
+
     return _react2.default.createElement(_field2.default, (0, _extends3.default)({
+      value: this.state.location,
       className: "header-StoreFinderField-location",
       inputName: "storeFinder",
-      isRequiredField: false,
-      ref: "storeFinderInputField",
-      validationType: "userLocation",
-      placeholderText: "Enter city, state or zip code",
-      labelText: "Enter city, state or zip code",
-      showLabel: true
+      shouldDisplayError: function shouldDisplayError() {
+        return _this2.state.showError;
+      },
+      placeholder: "Enter city, state or zip code",
+      error: VALIDATION_MESSAGE,
+      onChange: function onChange(e) {
+        return _this2.setState({ location: e.target.value });
+      }
     }, (0, _automationIdUtils.getDataAutomationIdPair)("locationText", dataAutomationId)));
   };
 
@@ -100,20 +111,13 @@ var StoreFinderField = function (_Component) {
 
   StoreFinderField.prototype._handleLocationSubmit = function _handleLocationSubmit(ev) {
     ev.preventDefault();
-    var storeFinderInputField = this.refs.storeFinderInputField;
-
-    var location = storeFinderInputField.getValue();
+    var location = this.state.location;
     var currentWindow = this._getWindow();
-    var isValid = storeFinderInputField.isValid();
+    var isValid = _validators.userLocation.validate(location);
     if (location && isValid) {
       currentWindow.location.href = (0, _storeFinderUtils.getStoreFinderUrl)(location);
-    } else {
-      this._invalidateField(storeFinderInputField);
     }
-  };
-
-  StoreFinderField.prototype._invalidateField = function _invalidateField(field) {
-    field.invalidate(VALIDATION_MESSAGE);
+    this.setState({ showError: !isValid });
   };
 
   StoreFinderField.prototype.render = function render() {
