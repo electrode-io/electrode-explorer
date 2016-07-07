@@ -1,5 +1,5 @@
 import React from "react";
-import { SignInWidget } from "src/index";
+import { SignInWidget } from "../src/index";
 import {Alert} from "@walmart/wmreact-forms";
 import store from "./demo-store";
 import {Provider} from "react-redux";
