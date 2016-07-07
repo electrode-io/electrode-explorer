@@ -122,7 +122,7 @@
     "react": "^0.14.8",
     "react-async-script": "^0.6.0",
     "react-cookie": "^0.4.7",
-    "react-date-picker": "^5.3.16",
+    "react-date-picker": "^4.0.10",
     "react-dom": "^0.14.8",
     "react-element-pan": "^1.0.7",
     "react-google-recaptcha": "^0.5.3",
