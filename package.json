@@ -84,7 +84,6 @@
     "@walmart/wmreact-product-inputs": "^3.1.0",
     "@walmart/wmreact-product-offers": "^6.1.12",
     "@walmart/wmreact-product-typography": "^4.2.3",
-    "@walmart/wmreact-react-demo-shared": "^1.0.7",
     "@walmart/wmreact-sams-footer": "^1.3.3",
     "@walmart/wmreact-sams-header": "^2.4.9",
     "@walmart/wmreact-stateless-fields": "^2.1.2",
