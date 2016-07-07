@@ -13,16 +13,16 @@
     ]
   ],
   "_from": "@walmart/store-finder-carousel-container@latest",
-  "_id": "@walmart/store-finder-carousel-container@1.0.0",
+  "_id": "@walmart/store-finder-carousel-container@1.0.1",
   "_inCache": true,
   "_installable": true,
   "_location": "/@walmart/store-finder-carousel-container",
-  "_nodeVersion": "4.3.0",
+  "_nodeVersion": "4.4.5",
   "_npmUser": {
-    "email": "DDavidson@walmartlabs.com",
-    "name": "ddavid4"
+    "email": "npme@example.com",
+    "name": "cshi1"
   },
-  "_npmVersion": "3.7.2",
+  "_npmVersion": "3.9.6",
   "_phantomChildren": {},
   "_requested": {
     "name": "@walmart/store-finder-carousel-container",
@@ -33,10 +33,10 @@
     "type": "tag"
   },
   "_requiredBy": [
-    "#USER"
+    "/"
   ],
-  "_resolved": "https://npme.walmart.com/@/@walmart/store-finder-carousel-container/_attachments/store-finder-carousel-container-1.0.0.tgz",
-  "_shasum": "b6269c4d515ae975d7ea36d8815ad564744fa152",
+  "_resolved": "https://npme.walmart.com/@/@walmart/store-finder-carousel-container/_attachments/store-finder-carousel-container-1.0.1.tgz",
+  "_shasum": "7cd1f3ab1205d4f8900c08b0a36775c9552f0827",
   "_shrinkwrap": null,
   "_spec": "@walmart/store-finder-carousel-container",
   "_where": "/Users/cshi1/githome/portal",
@@ -64,14 +64,14 @@
   },
   "directories": {},
   "dist": {
-    "shasum": "b6269c4d515ae975d7ea36d8815ad564744fa152",
-    "tarball": "https://npme.walmart.com/@/@walmart/store-finder-carousel-container/_attachments/store-finder-carousel-container-1.0.0.tgz"
+    "shasum": "7cd1f3ab1205d4f8900c08b0a36775c9552f0827",
+    "tarball": "https://npme.walmart.com/@/@walmart/store-finder-carousel-container/_attachments/store-finder-carousel-container-1.0.1.tgz"
   },
   "engines": {
     "node": "^4.2.6",
     "npm": "^3.5.3"
   },
-  "gitHead": "99d6c92c19eb5c9c1dc003fdd76ed5bd54a5bebb",
+  "gitHead": "09401a20a09be0dbfb83b48b276485dba5172f85",
   "homepage": "https://gecgithub01.walmart.com/redux/store-finder-carousel-container",
   "license": "UNLICENSED",
   "main": "lib/index.js",
@@ -98,5 +98,5 @@
     "preversion": "builder run test",
     "test": "builder run check-cov"
   },
-  "version": "1.0.0"
+  "version": "1.0.1"
 }

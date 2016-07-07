@@ -1,0 +1,32 @@
+{
+  "library": "@walmart/redux-gift-card",
+  "description": "redux part of react/gift-card component",
+  "components": [
+    {
+      "description": "",
+      "methods": [],
+      "props": {
+        "fetchInitialData": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "true",
+            "computed": false
+          },
+          "description": ""
+        },
+        "store": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/gift-cards-widget.jsx",
+      "hasProps": true
+    }
+  ]
+}

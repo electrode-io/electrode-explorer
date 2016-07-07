@@ -1,0 +1,478 @@
+{
+  "library": "@walmart/redux-shipping-pass-page",
+  "description": "MyAccount Shipping Pass page component",
+  "components": [
+    {
+      "description": "",
+      "methods": [],
+      "props": {
+        "store": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/containers/provided-shipping-pass.jsx",
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "methods": [],
+      "props": {
+        "onSelected": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "checked": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/wrapped-credit-card.jsx",
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "methods": [
+        {
+          "name": "_renderHeader",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_renderFlow",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_renderTrialFlow",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        }
+      ],
+      "props": {
+        "autoRenew": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "cardInfo": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "description": ""
+        },
+        "cardStatus": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "error": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "getSubscriptionStatus": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "link": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"http://help.walmart.com/app/answers/detail/a_id/778\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "loading": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "logo": {
+          "type": {
+            "name": "any"
+          },
+          "required": false,
+          "description": ""
+        },
+        "price": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "defaultValue": {
+            "value": "\"$49\"",
+            "computed": false
+          },
+          "description": ""
+        },
+        "renewalDate": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "trialStatus": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "updateAutoRenew": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "updatePaymentPref": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/shipping-pass-well.jsx",
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "methods": [
+        {
+          "name": "toggle",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_renderText",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_renderUpdatePayment",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "block",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_renderSlidePanel",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_renderModal",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        }
+      ],
+      "props": {
+        "cardSprite": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "cardStatus": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "fixed": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "padded": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "piHash": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "renewalDate": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "logo": {
+          "type": {
+            "name": "any"
+          },
+          "required": false,
+          "description": ""
+        },
+        "updatePaymentPref": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/manage-sub-modal.jsx",
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "methods": [],
+      "props": {
+        "logo": {
+          "type": {
+            "name": "any"
+          },
+          "required": false,
+          "description": ""
+        },
+        "url": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "getModalInfo": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "modalContent": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/info-well.jsx",
+      "hasProps": true
+    },
+    {
+      "methods": [
+        {
+          "name": "toggle",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_injectHTML",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_renderSlidePanel",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_renderModal",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        }
+      ],
+      "props": {
+        "url": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "fixed": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "padded": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "getModalInfo": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "modalContent": {
+          "type": {
+            "name": "object"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/info-modal.jsx",
+      "description": "Wrapper for Modal component that loads the response of the URL you pass in as props.",
+      "import": "{InfoModal}",
+      "examples": "```jsx\n<InfoModal url={'http://jsonplaceholder.typicode.com'} fixed={false} padded={true} />\n```",
+      "hasProps": true
+    },
+    {
+      "description": "",
+      "methods": [
+        {
+          "name": "toggle",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_renderContent",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_renderButtons",
+          "docblock": null,
+          "modifiers": [],
+          "params": [
+            {
+              "name": "block",
+              "type": null
+            }
+          ],
+          "returns": null
+        },
+        {
+          "name": "_renderSlidePanel",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        },
+        {
+          "name": "_renderModal",
+          "docblock": null,
+          "modifiers": [],
+          "params": [],
+          "returns": null
+        }
+      ],
+      "props": {
+        "cancel": {
+          "type": {
+            "name": "func"
+          },
+          "required": false,
+          "description": ""
+        },
+        "renewalDate": {
+          "type": {
+            "name": "string"
+          },
+          "required": false,
+          "description": ""
+        },
+        "logo": {
+          "type": {
+            "name": "any"
+          },
+          "required": false,
+          "description": ""
+        },
+        "fixed": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "padded": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        },
+        "trialStatus": {
+          "type": {
+            "name": "bool"
+          },
+          "required": false,
+          "description": ""
+        }
+      },
+      "fileName": "./src/components/cancel-modal.jsx",
+      "hasProps": true
+    }
+  ]
+}

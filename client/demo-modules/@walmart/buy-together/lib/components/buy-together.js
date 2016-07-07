@@ -1,117 +1,31 @@
 "use strict";
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+exports.__esModule = true;
 
 var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
-/**
-This is a boiler plate component
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-```jsx
- <BuyTogether
-  isBTV={false}
-  productData={
-    {
-      name: "Product Name",
-      url: "https://www.somewhere.com",
-      image: "https://i5.walmartimages.com/myimage.jpg",
-      imageWidth: 100,
-      imageHeight: 100,
-      currentPrice: 24.95,
-      selectedVariant: "grey",
-      flags: [
-        { text: "Rollback", type: "rollback" }
-      ]
-    }
-  }
-  accessoryData={[
-    {
-      name: "Accessory Name",
-      url: "https://www.somewhereelse.com",
-      image: "https://i5.walmartimages.com/myotherimage.jpg",
-      imageWidth: 100,
-      imageHeight: 100,
-      esrb: "E",
-      variants: ["standard", "gold", "silver"],
-      currentPrice: 35.05,
-      flags: [
-        { text: "Clearance", type: "clearance" }
-      ]
-    }
-  ]}
-  fulfillmentData={
-    {
-      totalPrice: 68.92,
-      savingsValue: 12.01,
-      shippingPassFlag: false,
-      holidayDDM: {},
-      fulfillmentDelivery: "standard"
-    }
-  }
-/>
-```
-
-@import {BuyTogether}
-@flags noVisibleRender
-@component BuyTogether
-@playground
-BuyTogether
-```
-<BuyTogether name="react"/>
-```
-*/
-
-var BuyTogether = (function (_React$Component) {
-  _inherits(BuyTogether, _React$Component);
-
-  function BuyTogether() {
-    _classCallCheck(this, BuyTogether);
-
-    _get(Object.getPrototypeOf(BuyTogether.prototype), "constructor", this).apply(this, arguments);
-  }
-
-  _createClass(BuyTogether, [{
-    key: "render",
-    value: function render() {
-      return _react2["default"].createElement(
-        "div",
-        { className: "buyTogether" },
-        "Hello ",
-        this.props.name,
-        "!"
-      );
-    }
-  }]);
-
-  return BuyTogether;
-})(_react2["default"].Component);
-
-exports["default"] = BuyTogether;
+var BuyTogether = function BuyTogether(props) {
+  return _react2.default.createElement(
+    "div",
+    { className: "buyTogether" },
+    "Hello ",
+    props.name,
+    "!"
+  );
+};
 
 BuyTogether.displayName = "BuyTogether";
 
 BuyTogether.propTypes = {
-  /**
-    Name displayed on boierplate component
-  */
-  "name": _react2["default"].PropTypes.string
+  "name": _react2.default.PropTypes.string
 };
 
 BuyTogether.defaultProps = {
   name: "React"
 };
-module.exports = exports["default"];
+
+exports.default = BuyTogether;

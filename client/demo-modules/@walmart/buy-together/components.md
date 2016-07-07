@@ -1,26 +1,22 @@
-#  (@walmart/react-component-boilerplate)
+#  (@walmart/buy-together)
 
 <Add description here>
 
 
-## BuyTogether
+## 
 
-This is a boiler plate component
 
-```jsx
-<BuyTogether name="react"/>
-```
 
 ### Properties
 
 | Property | Type | Description | Default |
 | -------- | ---- | ----------- | ------- |
-| *name* | string | Name displayed on boierplate component | `"React"`
+| *name* | string |  | `"React"`
 
 ### import
 
 ```jsx
-import {BuyTogether} from "@walmart/react-component-boilerplate";
+import  from "@walmart/buy-together";
 ```
 
 <hr/>

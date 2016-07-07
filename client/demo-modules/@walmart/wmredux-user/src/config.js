@@ -1,0 +1,19 @@
+class AuthConfig {
+  constructor() {
+    this.signInApiUrl = "/account/electrode/api/signin";
+    this.signUpApiUrl = "/account/electrode/api/signup";
+    this.forgotPasswordUrl = "/account/electrode/api/forgotpassword";
+    this.resetPasswordUrl = "/account/electrode/api/resetpassword";
+    this.logger = {log: () => {}};
+  }
+
+  init(options) {
+    Object.assign(this, options);
+  }
+
+  setLogger(logger) {
+    this.logger = logger;
+  }
+}
+
+export default new AuthConfig();
