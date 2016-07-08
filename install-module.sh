@@ -12,4 +12,4 @@ if [ -f /usr/local/lib/electrode-ops-helpers.sh ]; then
   npm set strict-ssl false
 fi
 
-npm i --save $1
+npm i $1
