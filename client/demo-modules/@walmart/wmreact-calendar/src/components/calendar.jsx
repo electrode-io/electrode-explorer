@@ -2,7 +2,7 @@ import React, { PropTypes } from "react";
 import DatePicker from "react-date-picker";
 import classNames from "classnames";
 
-import Flyout from "../../node_modules/@walmart/wmreact-containers/lib/components/flyout";
+import Flyout from "@walmart/wmreact-containers/lib/components/flyout";
 
 import { nullSafeDate } from "../utils";
 
