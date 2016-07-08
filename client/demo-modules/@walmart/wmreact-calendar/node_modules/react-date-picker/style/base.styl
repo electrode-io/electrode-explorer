@@ -1,0 +1,57 @@
+/*
+
+ Copyright (c) 2016 ZippyUI.com
+
+ All rights reserved to zippyui.com
+
+ */
+@import './utils.styl'
+
+.date-picker
+  display flex
+  flex-flow column
+  flex 1 0 auto
+
+  &
+  & *
+    box-sizing border-box
+
+  .dp-footer
+    flex-flow row
+    display flex
+
+  .dp-body
+    display flex
+    flex-flow column
+    flex 1
+
+  .dp-table
+    width 100%
+    height 100%
+    display flex
+    flex-flow column
+    flex 1
+
+  .dp-row
+    display flex
+    flex-flow row
+    flex 1
+
+  .dp-week-day-names
+    flex none
+
+  .dp-cell
+    display flex
+    align-items center
+    justify-content center
+    flex 1
+
+  .dp-nav-table
+    display flex
+    flex-flow row
+    flex 1
+    width 100%
+    .dp-cell
+      flex 7
+    .dp-nav-cell
+      flex 1

@@ -1,0 +1,155 @@
+
+/*!
+Meter
+Styleguide 8.8
+*/
+
+$meter ?= {
+  radius: 8px
+}
+$meter-height = 35px;
+
+.meter {
+  position: relative;
+
+  overflow: hidden;
+  width: 190px;
+  height: $meter-height;
+  border-radius: $meter.radius;
+
+  background: $grey-light;
+}
+
+.meter-bar {
+  display: block;
+  height: 100%;
+
+  background: $yellow;
+}
+
+.meter-text {
+  position: absolute;
+  right: 0;
+  left: 0;
+
+  color: $white;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: $meter-height;
+  text-align: center;
+}
+
+/*!
+Percentage Circle
+http://circle.firchow.net/
+Percentage display meter in a circle format. It uses the class
+`.meter-circle-p80` where the `p80` value is the percent to fill the meter.
+Styleguide 8.8.1
+*/
+
+.meter-circle-p51, .meter-circle-p52, .meter-circle-p53, .meter-circle-p54, .meter-circle-p55, .meter-circle-p56, .meter-circle-p57, .meter-circle-p58, .meter-circle-p59, .meter-circle-p60, .meter-circle-p61, .meter-circle-p62, .meter-circle-p63, .meter-circle-p64, .meter-circle-p65, .meter-circle-p66, .meter-circle-p67, .meter-circle-p68, .meter-circle-p69, .meter-circle-p70, .meter-circle-p71, .meter-circle-p72, .meter-circle-p73, .meter-circle-p74, .meter-circle-p75, .meter-circle-p76, .meter-circle-p77, .meter-circle-p78, .meter-circle-p79, .meter-circle-p80, .meter-circle-p81, .meter-circle-p82, .meter-circle-p83, .meter-circle-p84, .meter-circle-p85, .meter-circle-p86, .meter-circle-p87, .meter-circle-p88, .meter-circle-p89, .meter-circle-p90, .meter-circle-p91, .meter-circle-p92, .meter-circle-p93, .meter-circle-p94, .meter-circle-p95, .meter-circle-p96, .meter-circle-p97, .meter-circle-p98, .meter-circle-p99, .meter-circle-p100 {
+  .meter-circle-slice {
+    clip: rect(auto, auto, auto, auto);
+  }
+}
+
+.meter-circle-p51, .meter-circle-p52, .meter-circle-p53, .meter-circle-p54, .meter-circle-p55, .meter-circle-p56, .meter-circle-p57, .meter-circle-p58, .meter-circle-p59, .meter-circle-p60, .meter-circle-p61, .meter-circle-p62, .meter-circle-p63, .meter-circle-p64, .meter-circle-p65, .meter-circle-p66, .meter-circle-p67, .meter-circle-p68, .meter-circle-p69, .meter-circle-p70, .meter-circle-p71, .meter-circle-p72, .meter-circle-p73, .meter-circle-p74, .meter-circle-p75, .meter-circle-p76, .meter-circle-p77, .meter-circle-p78, .meter-circle-p79, .meter-circle-p80, .meter-circle-p81, .meter-circle-p82, .meter-circle-p83, .meter-circle-p84, .meter-circle-p85, .meter-circle-p86, .meter-circle-p87, .meter-circle-p88, .meter-circle-p89, .meter-circle-p90, .meter-circle-p91, .meter-circle-p92, .meter-circle-p93, .meter-circle-p94, .meter-circle-p95, .meter-circle-p96, .meter-circle-p97, .meter-circle-p98, .meter-circle-p99, .meter-circle-p100 {
+  .meter-circle-fill {
+    position: absolute;
+
+    width: .84em;
+    height: .84em;
+
+    border: .08em solid #eec334;
+    border-radius: 50%;
+
+    clip: rect(0, .5em, 1em, 0);
+    transform: rotate(0deg);
+  }
+}
+
+.meter-circle-bar {
+  position: absolute;
+
+  width: .84em;
+  height: .84em;
+
+  border: .08em solid $yellow;
+  border-radius: 50%;
+
+  clip: rect(0, .5em, 1em, 0);
+  transform: rotate(0deg);
+}
+
+.meter-circle-p51 .meter-circle-bar:after, .meter-circle-p51 .meter-circle-fill, .meter-circle-p52 .meter-circle-bar:after, .meter-circle-p52 .meter-circle-fill, .meter-circle-p53 .meter-circle-bar:after, .meter-circle-p53 .meter-circle-fill, .meter-circle-p54 .meter-circle-bar:after, .meter-circle-p54 .meter-circle-fill, .meter-circle-p55 .bar:after, .meter-circle-p55 .meter-circle-fill, .meter-circle-p56 .meter-circle-bar:after, .meter-circle-p56 .meter-circle-fill, .meter-circle-p57 .meter-circle-bar:after, .meter-circle-p57 .meter-circle-fill, .meter-circle-p58 .meter-circle-bar:after, .meter-circle-p58 .meter-circle-fill, .meter-circle-p59 .meter-circle-bar:after, .meter-circle-p59 .meter-circle-fill, .meter-circle-p60 .meter-circle-bar:after, .meter-circle-p60 .meter-circle-fill, .meter-circle-p61 .meter-circle-bar:after, .meter-circle-p61 .meter-circle-fill, .meter-circle-p62 .meter-circle-bar:after, .meter-circle-p62 .meter-circle-fill, .meter-circle-p63 .meter-circle-bar:after, .meter-circle-p63 .meter-circle-fill, .meter-circle-p64 .bar:after, .meter-circle-p64 .meter-circle-fill, .meter-circle-p65 .meter-circle-bar:after, .meter-circle-p65 .meter-circle-fill, .meter-circle-p66 .meter-circle-bar:after, .meter-circle-p66 .meter-circle-fill, .meter-circle-p67 .meter-circle-bar:after, .meter-circle-p67 .meter-circle-fill, .meter-circle-p68 .meter-circle-bar:after, .meter-circle-p68 .meter-circle-fill, .meter-circle-p69 .meter-circle-bar:after, .meter-circle-p69 .meter-circle-fill, .meter-circle-p70 .meter-circle-bar:after, .meter-circle-p70 .meter-circle-fill, .meter-circle-p71 .meter-circle-bar:after, .meter-circle-p71 .meter-circle-fill, .meter-circle-p72 .meter-circle-bar:after, .meter-circle-p72 .meter-circle-fill, .meter-circle-p73 .meter-circle-bar:after, .meter-circle-p73 .meter-circle-fill, .meter-circle-p74 .meter-circle-bar:after, .meter-circle-p74 .meter-circle-fill, .meter-circle-p75 .meter-circle-bar:after, .meter-circle-p75 .meter-circle-fill, .meter-circle-p76 .meter-circle-bar:after, .meter-circle-p76 .meter-circle-fill, .meter-circle-p77 .meter-circle-bar:after, .meter-circle-p77 .meter-circle-fill, .meter-circle-p78 .meter-circle-bar:after, .meter-circle-p78 .meter-circle-fill, .meter-circle-p79 .meter-circle-bar:after, .meter-circle-p79 .meter-circle-fill, .meter-circle-p80 .meter-circle-bar:after, .meter-circle-p80 .meter-circle-fill, .meter-circle-p81 .meter-circle-bar:after, .meter-circle-p81 .meter-circle-fill, .meter-circle-p82 .meter-circle-bar:after, .meter-circle-p82 .meter-circle-fill, .meter-circle-p83 .meter-circle-bar:after, .meter-circle-p83 .meter-circle-fill, .meter-circle-p84 .meter-circle-bar:after, .meter-circle-p84 .meter-circle-fill, .meter-circle-p85 .bar:after, .meter-circle-p85 .meter-circle-fill, .meter-circle-p86 .meter-circle-bar:after, .meter-circle-p86 .meter-circle-fill, .meter-circle-p87 .meter-circle-bar:after, .meter-circle-p87 .meter-circle-fill, .meter-circle-p88 .meter-circle-bar:after, .meter-circle-p88 .meter-circle-fill, .meter-circle-p89 .meter-circle-bar:after, .meter-circle-p89 .meter-circle-fill, .meter-circle-p90 .meter-circle-bar:after, .meter-circle-p90 .meter-circle-fill, .meter-circle-p91 .meter-circle-bar:after, .meter-circle-p91 .meter-circle-fill, .meter-circle-p92 .meter-circle-bar:after, .meter-circle-p92 .meter-circle-fill, .meter-circle-p93 .meter-circle-bar:after, .meter-circle-p93 .meter-circle-fill, .meter-circle-p94 .meter-circle-bar:after, .meter-circle-p94 .meter-circle-fill, .meter-circle-p95 .meter-circle-bar:after, .meter-circle-p95 .meter-circle-fill, .meter-circle-p96 .meter-circle-bar:after, .meter-circle-p96 .meter-circle-fill, .meter-circle-p97 .meter-circle-bar:after, .meter-circle-p97 .meter-circle-fill, .meter-circle-p98 .meter-circle-bar:after, .meter-circle-p98 .meter-circle-fill, .meter-circle-p99 .meter-circle-bar:after, .meter-circle-p99 .meter-circle-fill, .meter-circle-p100 .meter-circle-bar:after, .meter-circle-p100 .meter-circle-fill {
+  transform: rotate(180deg);
+}
+
+.meter-circle {
+  position: relative;
+
+  float: left;
+  width: 1em;
+  height: 1em;
+  margin: 0 .1em .1em 0;
+
+  border-radius: 50%;
+
+  background-color: $grey-very-light;
+  font-size: 69px;
+}
+
+.meter-circle *, .meter-circle *:before, .meter-circle *:after {
+  box-sizing: content-box;
+}
+
+.meter-circle > span {
+  position: absolute;
+  z-index: 1;
+  top: -25px;
+  left: -24px;
+
+  display: block;
+  width: 5em;
+
+  color: $black;
+  font-size: 23px;
+  line-height: 5em;
+  text-align: center;
+  transition-property: all;
+  transition-duration: .2s;
+  transition-timing-function: ease-out;
+  white-space: nowrap;
+}
+
+.meter-circle:after {
+  content: " ";
+  position: absolute;
+  top: .08em;
+  left: .08em;
+
+  display: block;
+  width: .84em;
+  height: .84em;
+  border-radius: 50%;
+
+  background-color: $white;
+  transition-duration: .2s;
+  transition-property: all;
+  transition-timing-function: ease-in;
+}
+
+.meter-circle-slice {
+  position: absolute;
+
+  width: 1em;
+  height: 1em;
+
+  clip: rect(0, 1em, 1em, .5em);
+}
+
+for $i in (1..100) {
+  .meter-circle-p{$i} .meter-circle-bar {
+    transform: rotate(unit(360 * $i / 100, deg));
+  }
+}

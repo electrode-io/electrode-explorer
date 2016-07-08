@@ -1,0 +1,153 @@
+/*
+
+ Copyright (c) 2016 ZippyUI.com
+
+ All rights reserved to zippyui.com
+
+ */
+@import '../../utils.styl'
+@import './constants.styl'
+
+.date-picker
+  overflow hidden
+  background white
+  font-size $dp-datepicker-font-size
+  width $dp-datepicker-width
+  height $dp-datepicker-height
+  border $dp-datepicker-border-width $dp-datepicker-border-style $dp-datepicker-border-color
+  border-radius $dp-datepicker-border-radius
+
+  .dp-header
+    background $dp-datepicker-header-background
+    .dp-cell
+      color $dp-datepicker-header-color
+      &:hover
+        background $dp-datepicker-header-over-background
+
+  .dp-table
+    border-color $dp-datepicker-border-color
+
+    .dp-row
+      border-top $dp-datepicker-row-border-width $dp-datepicker-row-border-style $dp-datepicker-row-border-color
+      &.dp-week-day-names
+        background $dp-datepicker-week-day-names-background
+        border-bottom $dp-datepicker-week-day-names-border-width $dp-datepicker-week-day-names-border-style $dp-datepicker-week-day-names-border-color
+        border-top none
+        color $dp-datepicker-week-day-names-color
+
+    .dp-cell
+      cursor pointer
+      padding $dp-datepicker-cell-padding
+      background $dp-datepicker-day-bg
+      border-radius $dp-datepicker-day-border-radius
+      margin $dp-datepicker-day-margin
+
+      &:not(:first-child)
+        border-left $dp-datepicker-cell-border-width $dp-datepicker-cell-border-style $dp-datepicker-cell-border-color
+
+      &.dp-weeknumber
+      &.dp-weeknumber:hover
+        color lighten($dp-datepicker-day-other-month-color, 30%)
+        background none
+        cursor auto
+      &.dp-prev
+      &.dp-next
+        color $dp-datepicker-day-other-month-color
+        background $dp-datepicker-day-other-month-bg
+
+      &:hover
+        color $dp-datepicker-cell-over-color
+        font-weight $dp-datepicker-cell-over-font-weight
+        background $dp-datepicker-cell-over-background
+
+      &.dp-disabled
+        cursor default
+        color $dp-datepicker-day-disabled-color
+        background $dp-datepicker-day-disabled-bg
+
+      &.dp-value
+        color $dp-datepicker-value-color
+        font-weight $dp-datepicker-value-font-weight
+        background $dp-datepicker-value-bg
+
+      &.dp-current
+        font-weight $dp-datepicker-today-font-weight
+
+      &.dp-in-range
+        background $dp-datepicker-value-selected-range-bg
+
+      &.dp-month
+        ellipsis true
+
+      &.dp-week-day-name
+        cursor default
+        background inherit
+        border $dp-datepicker-week-day-name-border
+
+  .dp-footer
+    padding 3px
+    justify-content center
+    border-top $dp-datepicker-border-width $dp-datepicker-border-style $dp-datepicker-border-color
+
+    .dp-footer-selected
+    .dp-footer-today
+      padding 5px 15px
+      border-width 1px
+      cursor pointer
+
+  .dp-body
+    overflow hidden
+
+  .dp-cell
+    outline none
+
+  .dp-weekend.dp-weekend-highlight
+  .dp-weekend.dp-weekend-highlight:hover
+    color $dp-datepicker-weekend-highlight-color
+  .dp-weekend.dp-weekend-highlight.dp-value
+  .dp-weekend.dp-weekend-highlight.dp-value:hover
+    color $dp-datepicker-weekend-highlight-value-color
+
+  .dp-nav-view
+  .dp-nav-cell
+  .dp-week-day-name
+    ellipsis true
+    unselectable true
+
+  .dp-nav-view
+  .dp-nav-cell
+    cursor pointer
+
+  .dp-nav-table .dp-nav-cell.dp-cell
+    border $dp-datepicker-header-cell-border
+    padding 0
+    margin-top 5px
+    width 0
+    height 0
+    &.dp-prev-nav
+      border-right-color $dp-datepicker-nav-bg
+      &:hover
+        border-right-color $dp-datepicker-nav-over-bg
+    &.dp-next-nav
+      border-left-color $dp-datepicker-nav-bg
+      &:hover
+        border-left-color $dp-datepicker-nav-over-bg
+
+
+  .dp-nav-view
+    background $dp-datepicker-month-name-bg
+    &:hover
+      background $dp-datepicker-month-name-over-bg
+
+  .dp-nav-table
+    .dp-cell
+      padding $dp-datepicker-header-padding
+      font-weight bold
+    .dp-nav-cell
+      flex 0
+      unselectable true
+
+  .dp-decade-view
+  .dp-year-view
+  .dp-month-view
+    unselectable true

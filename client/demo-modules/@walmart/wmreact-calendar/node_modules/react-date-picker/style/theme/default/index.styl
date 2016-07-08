@@ -1,0 +1,124 @@
+/*
+
+ Copyright (c) 2016 ZippyUI.com
+
+ All rights reserved to zippyui.com
+
+ */
+@import '../../utils.styl'
+@import './constants.styl'
+
+.date-picker
+  overflow hidden
+  background white
+  font-size $dp-datepicker-font-size
+  width $dp-datepicker-width
+  height $dp-datepicker-height
+  border $dp-datepicker-border-width $dp-datepicker-border-style $dp-datepicker-border-color
+
+  .dp-table
+    border-color $dp-datepicker-border-color
+
+    .dp-row
+      border-top $dp-datepicker-border-width $dp-datepicker-border-style $dp-datepicker-border-color
+      &:last-child
+        border-bottom $dp-datepicker-border-width $dp-datepicker-border-style $dp-datepicker-border-color
+
+    .dp-cell
+      cursor pointer
+      padding $dp-datepicker-cell-padding
+      background $dp-datepicker-day-bg
+
+      &:not(:first-child)
+        border-left $dp-datepicker-border-width $dp-datepicker-border-style $dp-datepicker-border-color
+
+      &.dp-prev
+      &.dp-next
+        color $dp-datepicker-day-other-month-color
+        background $dp-datepicker-day-other-month-bg
+
+      &:hover
+        color $dp-datepicker-cell-over-color
+        font-weight $dp-datepicker-cell-over-font-weight
+        background $dp-datepicker-cell-over-background
+
+      &.dp-disabled
+        cursor default
+        color $dp-datepicker-day-disabled-color
+        background $dp-datepicker-day-disabled-bg
+
+      &.dp-value
+        color $dp-datepicker-value-color
+        font-weight $dp-datepicker-value-font-weight
+        background $dp-datepicker-value-bg
+
+      &.dp-current
+        color $dp-datepicker-today-color
+        background $dp-datepicker-today-bg
+
+      &.dp-in-range
+        font-weight $dp-datepicker-value-font-weight
+        background $dp-datepicker-value-bg
+
+      &.dp-value
+        background $dp-datepicker-day-in-range-bg
+
+      &.dp-month
+        ellipsis true
+
+      &.dp-week-day-name
+        font-weight bold
+        cursor default
+        background inherit
+
+  .dp-footer
+    padding 3px
+    justify-content center
+    border-top-width 0px
+
+    .dp-footer-selected
+    .dp-footer-today
+      padding 5px 15px
+      border-width 1px
+      cursor pointer
+
+  .dp-body
+    overflow hidden
+
+  .dp-nav-view
+  .dp-nav-cell
+  .dp-week-day-name
+    ellipsis true
+    unselectable true
+
+  .dp-nav-view
+  .dp-nav-cell
+    cursor pointer
+
+  .dp-nav-cell
+    background $dp-datepicker-nav-bg
+    &:hover
+      background $dp-datepicker-nav-over-bg
+
+  .dp-nav-view
+    background $dp-datepicker-month-name-bg
+    &:hover
+      background $dp-datepicker-month-name-over-bg
+
+  .dp-weekend.dp-weekend-highlight
+  .dp-weekend.dp-weekend-highlight.dp-value
+  .dp-weekend.dp-weekend-highlight.dp-value:hover
+  .dp-weekend.dp-weekend-highlight:hover
+    color $dp-datepicker-weekend-highlight-color
+
+  .dp-nav-table
+    .dp-cell
+      border-top-width 0px
+      border-bottom-width 0px
+      padding $dp-datepicker-header-padding
+      font-weight bold
+
+  .dp-decade-view
+  .dp-year-view
+  .dp-month-view
+    unselectable true
