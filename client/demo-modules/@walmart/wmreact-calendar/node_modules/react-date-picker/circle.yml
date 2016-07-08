@@ -1,3 +1,0 @@
-machine:
-    node:
-        version: iojs-v1.2.0
