@@ -24,6 +24,10 @@ var _exenv = require("exenv");
 
 var _exenv2 = _interopRequireDefault(_exenv);
 
+var _electrodeUiConfig = require("@walmart/electrode-ui-config");
+
+var _electrodeUiConfig2 = _interopRequireDefault(_electrodeUiConfig);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Component = function (_React$Component) {
@@ -62,7 +66,7 @@ var Component = function (_React$Component) {
       _this2.setState({ meta: meta, usage: usage });
 
       try {
-        var demo = require("../demo-modules/" + meta.name + "/demo/demo.jsx");
+        var demo = require("../demo-modules/" + meta.name + "/" + _electrodeUiConfig2.default.ui.demoPath);
         _this2.setState({ demo: demo });
       } catch (e) {
         console.log("Error require demo in " + meta.name);
