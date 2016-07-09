@@ -1,1 +1,1 @@
-{"meta":{"name":"@walmart/wmreact-table","github":"https://gecgithub01.walmart.com/react/table/","version":"3.0.0"},"usage":["https://gecgithub01.walmart.com/react/product-descriptors"]}
+{"meta":{"name":"@walmart/wmreact-table","github":"https://gecgithub01.walmart.com/react/table/","version":"3.0.0"},"usage":[{"uri":"https://gecgithub01.walmart.com/react/product-descriptors","displayName":"react/product-descriptors","version":{"status":"ok","str":"^3.0.0"},"description":"Components related to products descriptors"}]}

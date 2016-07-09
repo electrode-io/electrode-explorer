@@ -1,15 +1,8 @@
 {
   "_args": [
     [
-      {
-        "name": "@walmart/wmreact-navigation",
-        "raw": "@walmart/wmreact-navigation",
-        "rawSpec": "",
-        "scope": "@walmart",
-        "spec": "latest",
-        "type": "tag"
-      },
-      "/Users/cshi1/githome/portal"
+      "@walmart/wmreact-navigation",
+      "/Users/dsteve7/ws/electrode/portal"
     ]
   ],
   "_from": "@walmart/wmreact-navigation@latest",
@@ -33,13 +26,14 @@
     "type": "tag"
   },
   "_requiredBy": [
-    "#USER"
+    "#USER",
+    "/@walmart/wmreact-category-components"
   ],
   "_resolved": "https://npme.walmart.com/@/@walmart/wmreact-navigation/_attachments/wmreact-navigation-2.2.0.tgz",
   "_shasum": "438b4e0248653c9f02c53961c273bc94e41abc94",
   "_shrinkwrap": null,
   "_spec": "@walmart/wmreact-navigation",
-  "_where": "/Users/cshi1/githome/portal",
+  "_where": "/Users/dsteve7/ws/electrode/portal",
   "author": {
     "name": "kwheel2"
   },

@@ -1,5 +1,8 @@
 import React from "react";
 import { fetchJSON } from "@walmart/electrode-fetch";
+import Well from "@walmart/wmreact-containers/lib/components/well";
+import Table from "@walmart/wmreact-table/lib/components/table";
+import Revealer from "@walmart/wmreact-interactive/lib/components/revealer";
 import ExecutionEnvironment from "exenv";
 
 export default class Component extends React.Component {
@@ -39,21 +42,53 @@ export default class Component extends React.Component {
 
   render() {
     const { meta, usage, demo, error } = this.state;
+
+    if (!meta.title) {
+      meta.title = this.props.params.repo || "[ Missing Title ]";
+    }
+
     return (
       <div>
         <h2 className="portal-title">
-          {meta.title}
+          {meta.title} {meta.version && <span className="component-version">{` v${meta.version}`}</span>}
+          {meta.description && <span className="component-description">{meta.description}</span>}
           <span className="component-info">
             {meta.github && <div>
-              Github: <a href={meta.github}>{meta.github}</a>
+              <a href={meta.github}>View Repository on Github</a>
             </div>}
-            {meta.version && `v${meta.version}`}
-            {usage.length && <div>
+            {meta.name && <Well className="code-well" padded={true}>npm i --save {meta.name}</Well>}
+            {usage.length && <Revealer
+              baseHeight={50}
+              buttonClosedText="View Usage"
+              buttonOpenText="Hide Usage"
+              defaultOpen={false}
+              disableClose={false}
+              inverse={true}
+              fakeLink={false}
+              border={false}>
+              <div className="component-usage">
               This component is used in {usage.length} modules / apps.
-              {usage.map((url) => (
-                <div><a href={url}>{url}</a></div>
+              <Table>
+                <Table.Body>
+                {usage.map((detail) => (
+                <Table.Row>
+                  <Table.Cell>
+                    <a href={detail.uri} className="detail-uri">
+                      {detail.displayName}
+                    </a>
+                  </Table.Cell>
+                  <Table.Cell className="detail-version">
+                    <span className={`version-status-${detail.version.status}`}>{detail.version.str}</span>
+                  </Table.Cell>
+                  <Table.Cell className="detail-description">
+                    {detail.description}
+                  </Table.Cell>
+                </Table.Row>
               ))}
-            </div>}
+              </Table.Body>
+              </Table>
+            </div>
+            </Revealer>}
           </span>
         </h2>
         { typeof demo !== "undefined" && demo && <demo.default/> }
@@ -61,4 +96,4 @@ export default class Component extends React.Component {
       </div>
     );
   }
-};
+}

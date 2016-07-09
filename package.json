@@ -101,7 +101,8 @@
     "redux-logger": "^2.6.1",
     "redux-thunk": "^1.0.3",
     "request": "^2.55.0",
-    "rimraf": "^2.4.0"
+    "rimraf": "^2.4.0",
+    "semver": "^5.2.0"
   },
   "devDependencies": {
     "@walmart/electrode-archetype-react-app": "^3.8.1",
