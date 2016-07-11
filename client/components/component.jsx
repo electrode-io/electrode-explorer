@@ -9,6 +9,7 @@ export default class Component extends React.Component {
       meta: {},
       usage: [],
       demo: null,
+      demoStyl: null,
       error: null
     };
   }
@@ -29,7 +30,8 @@ export default class Component extends React.Component {
 
         try {
           const demo = require(`../demo-modules/${meta.name}/demo/demo.jsx`);
-          this.setState({ demo });
+          const demoStyl = require(`../demo-modules/${meta.name}/demo/demo.styl`);
+          this.setState({ demo, demoStyl });
         } catch (e) {
           console.log(`Error require demo in ${meta.name}`);
           this.setState({error: <div>This component does not have demo.</div>});
@@ -56,9 +58,10 @@ export default class Component extends React.Component {
             </div>}
           </span>
         </h2>
+        { typeof demoStyl !== "undefined" && demoStyl && demoStyl }
         { typeof demo !== "undefined" && demo && <demo.default/> }
         { error && <error/> }
       </div>
     );
   }
-};
+}

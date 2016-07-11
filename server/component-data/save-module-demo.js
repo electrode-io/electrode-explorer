@@ -2,8 +2,11 @@
 
 const Path = require("path");
 const execFile = require("child_process").execFile;
+const ProcessSubModules = require("./process-submodules");
 
-const saveModuleDemo = (moduleName) => {
+const saveModuleDemo = (meta) => {
+
+  const moduleName = meta.name;
 
   execFile("bash", [Path.join(__dirname, "../../install-module.sh"), moduleName], (error) => {
     if (error) {
@@ -18,6 +21,8 @@ const saveModuleDemo = (moduleName) => {
         console.log(`copying files failed for this module, error:\n${error}`);
         throw error;
       }
+
+      ProcessSubModules(moduleName, meta.github);
     });
 
   });
