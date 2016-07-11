@@ -70,11 +70,16 @@
     "demoPath": "demo/demo.jsx"
   },
 
-  "ORGS_IN_USAGE_SEARCH": [
+  "REPOS_INCLUDE": [
     "electrode",
     "react",
     "redux",
     "R-"
+  ],
+
+  "REPOS_EXCLUDE": [
+    "electrode-training",
+    "electrode/portal"
   ],
 
   "automaticUpdate": true,
