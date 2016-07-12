@@ -52,27 +52,17 @@ const UpdateHandler = function (request, reply) {
       try {
         catalog = JSON.parse(catalog);
 
-        if (!catalog.orgs[org]) {
-          catalog.orgs[org] = {
-            repos: [],
-            hash: {}
+        if (!catalog.allOrgs[org]) {
+          catalog.allOrgs[org] = {
+            repos: {}
           };
         }
 
-        const current = catalog.orgs[org];
+        const current = catalog.allOrgs[org];
 
-        if (!current.hash[repoName]) {
-
-          current.hash[repoName] = 1;
-
-          current.repos.push({
-            name: repoName,
-            link: `${org}/${repoName}`
-          });
-
-        }
-
-        current.repos.sort(compare);
+        current.repos[repoName] = {
+          link: `${org}/${repoName}`
+        };
 
         Fs.writeFileSync(orgMap, JSON.stringify(catalog));
 

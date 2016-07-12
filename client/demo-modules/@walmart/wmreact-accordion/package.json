@@ -1,28 +1,21 @@
 {
   "_args": [
     [
-      {
-        "name": "@walmart/wmreact-accordion",
-        "raw": "@walmart/wmreact-accordion",
-        "rawSpec": "",
-        "scope": "@walmart",
-        "spec": "latest",
-        "type": "tag"
-      },
-      "/Users/cshi1/githome/portal"
+      "@walmart/wmreact-accordion",
+      "/Users/dsteve7/ws/electrode/portal"
     ]
   ],
   "_from": "@walmart/wmreact-accordion@latest",
-  "_id": "@walmart/wmreact-accordion@5.1.0",
+  "_id": "@walmart/wmreact-accordion@5.2.0",
   "_inCache": true,
   "_installable": true,
   "_location": "/@walmart/wmreact-accordion",
-  "_nodeVersion": "4.4.0",
+  "_nodeVersion": "4.2.6",
   "_npmUser": {
-    "email": "apham@walmartlabs.com",
-    "name": "apham"
+    "email": "dstevens@walmartlabs.com",
+    "name": "dsteve7"
   },
-  "_npmVersion": "3.8.2",
+  "_npmVersion": "3.7.2",
   "_phantomChildren": {},
   "_requested": {
     "name": "@walmart/wmreact-accordion",
@@ -35,11 +28,10 @@
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "https://npme.walmart.com/@/@walmart/wmreact-accordion/_attachments/wmreact-accordion-5.1.0.tgz",
-  "_shasum": "e64d5e6884c5ab70c3b96aa71dae5d6afb2cd96a",
+  "_shasum": "92806a00b2bc15fbd5d7ec912f4b20a0e213edf5",
   "_shrinkwrap": null,
   "_spec": "@walmart/wmreact-accordion",
-  "_where": "/Users/cshi1/githome/portal",
+  "_where": "/Users/dsteve7/ws/electrode/portal",
   "author": {
     "name": "jherrington@walmartlabs.com"
   },
@@ -47,27 +39,26 @@
     "@walmart/wmreact-analytics": "^4.0.0",
     "@walmart/wmreact-base": "^7.0.1",
     "@walmart/wmreact-layout": "^7.0.1",
-    "classnames": "^2.2.3",
-    "object-assign": "^4.0.1"
+    "classnames": "^2.2.3"
   },
   "description": "An accordion container for Electrode UIs",
   "devDependencies": {
     "@walmart/electrode-archetype-react-component": "^9.0.2",
     "@walmart/electrode-archetype-react-component-dev": "^9.0.2",
+    "@walmart/electrode-demo-index": "^1.0.0",
     "@walmart/electrode-docgen": "^1",
     "@walmart/wmreact-test-helpers": "^0.2.0",
     "builder": "^2.9.1",
-    "component-playground": "^1.2.0",
     "react": "^0.14.8",
     "react-dom": "^0.14.8"
   },
   "directories": {},
   "dist": {
-    "shasum": "e64d5e6884c5ab70c3b96aa71dae5d6afb2cd96a",
-    "tarball": "https://npme.walmart.com/@/@walmart/wmreact-accordion/_attachments/wmreact-accordion-5.1.0.tgz"
+    "shasum": "92806a00b2bc15fbd5d7ec912f4b20a0e213edf5",
+    "tarball": "https://npme.walmart.com/@/@walmart/wmreact-accordion/_attachments/wmreact-accordion-5.2.0.tgz"
   },
-  "gitHead": "4eb969ae0727704bfa75e788d68875a6180222c2",
-  "license": "private",
+  "gitHead": "50b4064f9f7acdd6a0f18259cb7f1573840e9d1d",
+  "license": "UNLICENSED",
   "main": "lib/index.js",
   "maintainers": [
     {
@@ -96,5 +87,5 @@
     "test:dev": "builder run test-frontend"
   },
   "title": "Accordion",
-  "version": "5.1.0"
+  "version": "5.2.0"
 }

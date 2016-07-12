@@ -52,6 +52,7 @@ var Component = function (_React$Component) {
       meta: {},
       usage: [],
       demo: null,
+      demoStyl: null,
       error: null
     };
     return _this;
@@ -79,7 +80,8 @@ var Component = function (_React$Component) {
 
         try {
           var demo = require("../demo-modules/" + meta.name + "/" + _electrodeUiConfig2.default.ui.demoPath);
-          _this2.setState({ demo: demo });
+          var _demoStyl = require("../demo-modules/" + meta.name + "/demo/demo.styl");
+          _this2.setState({ demo: demo, demoStyl: _demoStyl });
         } catch (e) {
           console.log("Error require demo in " + meta.name);
           _this2.setState({ error: true });
@@ -194,6 +196,7 @@ var Component = function (_React$Component) {
             )
           )
         ),
+        typeof demoStyl !== "undefined" && demoStyl && demoStyl,
         typeof demo !== "undefined" && demo && _react2.default.createElement(demo.default, null),
         error && _react2.default.createElement(
           "b",
