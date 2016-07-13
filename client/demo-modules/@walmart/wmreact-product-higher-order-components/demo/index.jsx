@@ -65,6 +65,16 @@ Index.Components = [
     ]
   },
   {
+    title: "ProductsFulfillmentTable",
+    examples: [
+      {
+        type: "playground",
+        code: require("raw!./examples/products-fulfillment-table.example"),
+        noRender: true
+      }
+    ]
+  },
+  {
     title: "DetailedHeroImage",
     examples: [
       {
@@ -198,6 +208,15 @@ Index.Components = [
       {
         type: "playground",
         code: require("raw!./examples/discovery-module.example")
+      }
+    ]
+  },
+  {
+    title: "FulfillmentContainerElements",
+    examples: [
+      {
+        type: "playground",
+        code: require("raw!./examples/fulfillment-container-elements.example")
       }
     ]
   }

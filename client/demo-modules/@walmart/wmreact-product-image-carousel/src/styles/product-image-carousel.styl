@@ -37,9 +37,21 @@ $prod-AltImageCarouselImageDim-xl ?= 60px; // @stylint ignore
 
   +breakpoint($breakpoint-m-max, "max") {
     .prod-AltImageWrapper {
+      /*
+        if a video thumb does not exists, we display 4 slides,
+        in alt image carousel, so it have have some additional width.
+      */
       > span > div {
         display: inline-block;
-        width: 55%;
+        width: 390px;
+      }
+
+      /*
+        if a video thumb exists, we display 3 slides,
+        in alt image carousel, so we reduce the carousel container width.
+      */
+      > .prod-AltImageCarousel.prod-VideoItem + span > div {
+        width: 300px;
       }
 
       .prod-AltImageCarousel.prod-VideoItem {

@@ -6,7 +6,6 @@ $lefthand-nav-panel-width = 450px;
 .header-GlobalLefthandNav {
   display: inline-block;
   to-rem(font-size, 12px);
-  font-family: AktivGrotesk-Regular;
   .dropdown-link:after {
     content: "";
     display: inline-block;
@@ -29,7 +28,7 @@ $lefthand-nav-panel-width = 450px;
   padding-bottom: 8px;
   height: 45px;
   width: 188px;
-  border-right: 1px solid $grey-very-light;
+  border-right: 1px solid $gray-eight;
   padding-left: 16px;
 
   transition: .1s ease background;
@@ -45,7 +44,7 @@ $lefthand-nav-panel-width = 450px;
     transform-origin: center 3px;
   }
 
-  
+
 
   &.is-active {
     wmzindex("nav-dropdown-toggle");
@@ -125,7 +124,7 @@ $lefthand-nav-panel-width = 450px;
 
 .header-GlobalLefthandNav-dropdown-list:before {
   border-color: rgba(194, 225, 245, 0);
-  border-bottom-color: $grey-very-light;
+  border-bottom-color: $gray-eight;
   border-width: 16px;
   margin-left: -16px;
 
@@ -161,8 +160,8 @@ $lefthand-nav-panel-width = 450px;
   cursor: pointer;
   position: relative;
   background: $white;
-  border-top: 1px solid $grey-very-light;
-  border-left:  1px solid $grey-very-light;
+  border-top: 1px solid $gray-eight;
+  border-left:  1px solid $gray-eight;
 
 
 .header-GlobalLefthandNav-panel-column {
@@ -195,7 +194,7 @@ $lefthand-nav-panel-width = 450px;
   }
   a:hover {
     color: $blue-secondary-hover;
-  } 
+  }
 }
 
 .header-GlobalLefthandNav-panel-column-linkGroup {
@@ -268,6 +267,9 @@ $lefthand-nav-panel-width = 450px;
 
     .header-GlobalLefthandNav-toggle--small {
       display: inline-block;
+      .btn-fake-link::after{
+        display:none;
+      }
     }
 
     .header-GlobalLefthandNav-wrapper {

@@ -78,12 +78,17 @@ export const getIrsConfig = (options) => {
     IRS_ENABLE_AB_TEST: Boolean(get(p13nConfig, configNames.IRS_ENABLE_AB_TEST_NAME)),
     IRS_SHOW_SHIPPING_PASS: Boolean(get(p13nConfig, configNames.IRS_SHOW_SHIPPING_PASS_NAME)),
     IRS_VOD_ZONE_MAP: get(p13nConfig, configNames.IRS_VOD_ZONE_MAP_NAME),
-    IRS_REACT_PAGES: get(p13nConfig, configNames.IRS_REACT_PAGES, "")
+    IRS_REACT_PAGES: get(p13nConfig, configNames.IRS_REACT_PAGES, ""),
+    IRS_HTTP_SOCKETTIMEOUT_NAME: get(p13nConfig, configNames.IRS_HTTP_SOCKETTIMEOUT_NAME, "")
   };
 };
 
 export const getIrsHomepageConfig = (config) => {
   return config.IRS_HOMEPAGE_CONFIG;
+};
+
+export const getIrsSocketTimeOut = (config) => {
+  return config.IRS_HTTP_SOCKETTIMEOUT_NAME;
 };
 
 export const getIrsCollectionConfig = (config) => {

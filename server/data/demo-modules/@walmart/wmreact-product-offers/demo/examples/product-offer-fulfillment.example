@@ -1,0 +1,6 @@
+<ProductOfferFulfillment
+  shippable={true}
+  pickupable={true}
+  pickupToday={true}
+  currency="$"
+  freeShippingThresholdPrice={35} />

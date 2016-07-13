@@ -75,7 +75,12 @@ class GlobalEmailSignup extends Component {
     );
   }
 
-  _renderEmailForm({ autoId, loading, emailExclusions }): ReactElement {
+  _renderEmailForm({ autoId, loading }): ReactElement {
+    const {
+      moduleData: {
+        configs
+      }
+    } = this.props;
     const formSuffix = "form";
     const formInputSuffix = "formInput";
     const formButtonSuffix = "formButton";
@@ -94,7 +99,7 @@ class GlobalEmailSignup extends Component {
           <Button type="submit" primary={true} spinner={loading}
             {...getDataAutomationIdPair(formButtonSuffix, autoId)}>Sign Up</Button>
           <div className="footer-GlobalEmailSignup-form-exclusions">
-            {emailExclusions}
+            {configs.emailExclusions}
           </div>
         </form>
       </div>

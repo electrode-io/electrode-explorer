@@ -25,10 +25,11 @@ const addToRegistryError = () => {
   };
 };
 
-const addToRegistrySuccess = () => {
+const addToRegistrySuccess = (serviceResponse) => {
   return {
     type: "ADD_TO_REGISTRY_SUCCESS",
-    status: "SUCCESS"
+    status: "SUCCESS",
+    serviceResponse
   };
 };
 
@@ -58,7 +59,7 @@ const getStoreId = () => {
 
 // Function called when an item is added to registry
 const addToRegistry = ({offerId, quantity, price, type, addToRegistryUrl},
-    dispatch, fetch = fetchJSON) => {
+    dispatch, _fetch = fetchJSON) => {
   dispatch(addToRegistryRequest());
   const storeId = getStoreId();
   const postBody = {
@@ -68,7 +69,7 @@ const addToRegistry = ({offerId, quantity, price, type, addToRegistryUrl},
     storeId
   };
   const url = getAddToRegistryUrl(addToRegistryUrl, type);
-  fetch(url, {
+  _fetch(url, {
     method: "POST",
     body: JSON.stringify(postBody)
   }).then((data) => {
@@ -90,7 +91,9 @@ const onAddToRegistryClicked = ({
   return (dispatch) => {
     dispatch(addToRegistryRequest());
     // 1. Check to see if the user has any registries
-    return fetch(fetchRegistriesUrl).then((res) => {
+    return fetch(fetchRegistriesUrl)
+    .then((res) => res.json())
+    .then((res) => {
       const lists = res.searchResults.filter((result) => {
         return result.type === "BR" || result.type === "WR";
       });

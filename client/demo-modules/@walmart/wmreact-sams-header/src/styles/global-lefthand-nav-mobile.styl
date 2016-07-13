@@ -12,11 +12,19 @@
 
   }
 }
-
-.hi{
-  color:red;
-  background-color: white;
-  width: 100%;
+.header-GlobalLefthandNavMobile-dept-2 {
+    color: $black;
+    font-size: 16px;
+    font-size: 1rem;
+    display: inline-block;
+    border-bottom: 1px solid #f3f3f3;
+    height: 44px;
+    white-space: nowrap;
+    padding: 0 44px;
+    width: 100%;
+    font-weight: 400;
+    background-color: $white;
+    line-height: 44px;
 }
 
 .header-GlobalLefthandNavMobile--superDeptSelected {
@@ -24,9 +32,9 @@
     padding-left: $l-spacing;
 
     &.is-selected {
-      padding-left: 30px;
+      padding-left: 29px;
       border:0;
-      background-color: $gray-eight;
+      background-color: #f6f6f6;
       font-size: 16px;
       color: $black;
       font-weight: 600;
@@ -78,6 +86,8 @@
     color: @border-color;
   }
 }
+
+
 
 .header-GlobalLefthandNavMobile--deptSelected .header-GlobalLefthandNavMobile-superDept {
   border-color: $blue-secondary;
@@ -150,6 +160,61 @@
   background-color: #cbc9cb;
 }
 
+.downward-arrow {
+  line-height: 0px;
+  background-color: $white;
+  -webkit-transform: rotate(-270deg);
+  transform: rotate(-270deg);
+  float: right;
+}
+.downward-arrow:active, .downward-arrow:link {
+  -webkit-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
 .sign-in-greeting {
   font-weight:bold;
+}
+
+.header-GlobalLefthandNavMobile-businessSection {
+  color: $black-flag;
+  font-size: 16px;
+  font-size: 1rem;
+  display: inline-block;
+  border-bottom: 1px solid #f3f3f3;
+  height: 44px;
+  padding: 0 22px;
+  width: 350px;
+  font-weight: 400;
+  background-color: $white;
+  line-height: 44px;
+
+  &.is-open{
+    color: $black-flag;
+    font-weight: 600;
+    background-color: #f3f3f3;
+  }
+}
+
+.blue{
+  color: $blue-secondary-active;
+  padding-left: 29px;
+}
+
+.header-GlobalLefthandNavMobile-dept {
+  color: $black;
+  font-size: 16px;
+  font-size: 1rem;
+  display: inline-block;
+  border-bottom: 1px solid #f3f3f3;
+  height: 44px;
+  white-space: nowrap;
+  padding: 0 30px;
+  width: 100%;
+  font-weight: 400;
+  background-color: #fff;
+  line-height: 44px;
+
+  &.is-selected {
+    color: #007dc6;
+  }
 }

@@ -1,25 +1,47 @@
 /* @flow */
 /*eslint no-invalid-this:0*/
 import React, { Component, PropTypes } from "react";
-import { Button } from "@walmart/wmreact-interactive";
-import { SlidePanel, Modal } from "@walmart/wmreact-containers";
-import { Field } from "@walmart/wmreact-stateless-fields";
+import Button from "@walmart/wmreact-interactive/lib/components/button";
+import SlidePanel from "@walmart/wmreact-containers/lib/components/slidepanel";
+import Modal from "@walmart/wmreact-containers/lib/components/modal";
+import Field from "@walmart/wmreact-stateless-fields/lib/components/field";
+import { getDataAutomationIdPair } from "@walmart/automation-utils/lib/utils/automation-id-utils";
 import {
   firstname as firstNameValidator,
   lastname as lastNameValidator,
   email as emailValidator
 } from "@walmart/wmreact-validation/lib/validators";
 
+const AUTOMATION_CONTEXT = "product-submap-modal";
+
 class SubmapModal extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      firstName: null,
-      lastName: null,
-      email: null
-    };
-  }
+  static defaultProps = {
+    active: false,
+    onContinue: () => {},
+    onClose: () => {}
+  };
+
+  static propTypes = {
+    /**
+     Used to hide and show modal
+     */
+    active: PropTypes.bool,
+    /**
+     Used to submit the from
+     */
+    onContinue: PropTypes.func,
+    /**
+     Used to close modal
+     */
+    onClose: PropTypes.func
+  };
+
+  state = {
+    firstName: null,
+    lastName: null,
+    email: null
+  };
 
   _isEmailValid(email: string): boolean {
     return emailValidator.validate(email);
@@ -33,9 +55,9 @@ class SubmapModal extends Component {
     return lastNameValidator.validate(name || "");
   }
 
-  _onBlur(type: string) {(e: Object): void => this.setState({ [`${type}`]: e.target.value })}
+  _onBlur = (type: string) => (e: Object): void => this.setState({ [`${type}`]: e.target.value });
 
-  _onContinue(): void {
+  _onContinue = (): void => {
     const { firstName, lastName, email } = this.state;
     if (
       this._isFirstNameValid(firstName) &&
@@ -51,9 +73,9 @@ class SubmapModal extends Component {
         email: email || ""
       });
     }
-  }
+  };
 
-  _renderResponsiveModalContent(isMobile: boolean, onClose): ReactElement {
+  _renderResponsiveModalContent = (isMobile: boolean, onClose): ReactElement => {
     const { firstName, lastName, email } = this.state;
     return (
       <div>
@@ -69,16 +91,19 @@ class SubmapModal extends Component {
           You can remove the item from your cart at any time.
         </p>
         <Field
+          {...getDataAutomationIdPair("first-name", AUTOMATION_CONTEXT)}
           label="First name"
           onBlur={this._onBlur("firstName")}
           touched={firstName !== null && !this._isFirstNameValid(firstName)}
           error="This information is required" />
         <Field
+          {...getDataAutomationIdPair("last-name", AUTOMATION_CONTEXT)}
           label="Last name"
           onBlur={this._onBlur("lastName")}
           touched={lastName !== null && !this._isLastNameValid(lastName)}
           error="This information is required" />
         <Field
+          {...getDataAutomationIdPair("email", AUTOMATION_CONTEXT)}
           label="Email"
           onBlur={this._onBlur("email")}
           touched={email !== null && !this._isEmailValid(email)}
@@ -101,9 +126,9 @@ class SubmapModal extends Component {
         }
       </div>
     );
-  }
+  };
 
-  _renderMobileHeader(onClose): ReactElement {
+  _renderMobileHeader = (onClose): ReactElement => {
     return (
       <div className="Grid Grid--gutters">
         <div className="Grid-col u-size-1-2">
@@ -124,7 +149,7 @@ class SubmapModal extends Component {
         </div>
       </div>
     );
-  }
+  };
 
   render(): ReactElement {
     const { active, onClose } = this.props;
@@ -150,26 +175,5 @@ class SubmapModal extends Component {
     );
   }
 }
-
-SubmapModal.defaultProps = {
-  active: false,
-  onContinue: () => {},
-  onClose: () => {}
-};
-
-SubmapModal.propTypes = {
-  /**
-   Used to hide and show modal
-   */
-  active: PropTypes.bool,
-  /**
-   Used to submit the from
-   */
-  onContinue: PropTypes.func,
-  /**
-   Used to close modal
-   */
-  onClose: PropTypes.func
-};
 
 export default SubmapModal;

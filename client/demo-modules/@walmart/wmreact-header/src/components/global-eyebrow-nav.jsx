@@ -78,7 +78,9 @@ const GlobalEyebrowNav = (props: Object): ReactElement => {
         storeFinderMainNav,
         orderStatusMainNav,
         customNav,
-        customNav2
+        customNav2,
+        customNav3,
+        customNav4
       }
     },
     storeFinderResponse,
@@ -151,7 +153,9 @@ const GlobalEyebrowNav = (props: Object): ReactElement => {
       { linkData: storeFinderMainNav, iconName: storeFinderMainNav && "pin", storeFinderResponse },
       { linkData: orderStatusMainNav, iconName: "package" },
       { linkData: customNav, iconName: customNav && customNav.title },
-      { linkData: customNav2, iconName: customNav2 && customNav2.title }
+      { linkData: customNav2, iconName: customNav2 && customNav2.title },
+      { linkData: customNav3, iconName: customNav3 && customNav3.title },
+      { linkData: customNav4, iconName: customNav4 && customNav4.title }
     ];
 
     return links.map((link, index) => {
@@ -191,7 +195,9 @@ GlobalEyebrowNav.propTypes = {
       storeFinderMainNav: PropTypes.object,
       orderStatusMainNav: PropTypes.object,
       customNav: PropTypes.object,
-      customNav2: PropTypes.object
+      customNav2: PropTypes.object,
+      customNav3: PropTypes.object,
+      customNav4: PropTypes.object
     }).isRequired
   }).isRequired,
   /**
@@ -227,7 +233,9 @@ GlobalEyebrowNav.defaultProps = {
       storeFinderMainNav: {},
       orderStatusMainNav: {},
       customNav: {},
-      customNav2: {}
+      customNav2: {},
+      customNav3: {},
+      customNav4: {}
     }
   },
   dataAutomationId: "header-GlobalEyebrowNav",

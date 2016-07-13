@@ -1,6 +1,6 @@
 .mweb-Typeahead {
   z-index: 99999;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
@@ -86,6 +86,11 @@
       line-height: normal;
       height: 25px;
       padding: 0 0 0 $xs-spacing;
+
+      &:hover {
+        background: none;
+        text-decoration: none;
+      }
     }
   }
 

@@ -1,5 +1,6 @@
 import React, {PropTypes} from "react";
 import isEmpty from "lodash/isEmpty";
+import classnames from "classnames";
 
 import Heading from "@walmart/wmreact-base/lib/components/heading";
 import NortonLogo from "@walmart/wmreact-iconography/lib/components/norton-logo-grey";
@@ -329,8 +330,10 @@ const SignInForm = React.createClass({
         <HeadingElement className="heading">{titleText}</HeadingElement>
         {showForm && this.renderForm()}
         {showForm && this.renderExtras()}
-        {!showForm && this.renderBotEmail()}
-        {this.props.children}
+        <div className={classnames("captcha", {"re-captcha": !showForm})}>
+          {!showForm && this.renderBotEmail()}
+          {this.props.children}
+        </div>
       </section>
     );
   }

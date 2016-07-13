@@ -1,0 +1,125 @@
+.secondary-bot-container {
+  margin: 0 -12px;
+  padding: 20px 12px;
+
+  background-color: $blue-light;
+
+  +breakpoint($breakpoint-m) {
+    margin: 0;
+    padding: 0;
+
+    background-color: transparent;
+  }
+}
+
+.secondary-bot {
+  padding: 0 10px 15px;
+  margin-bottom: 10px;
+
+  background-color: $white;
+  border-radius: 3px;
+  border: 1px solid $grey-very-light;
+
+  +breakpoint($breakpoint-m) {
+    margin-top: 20px;
+    padding: 0 20px 15px;
+  }
+
+  .seller-offer-sort-active {
+    background: none;
+  }
+
+  .marketplace-header {
+    position: relative;
+
+    height: 34px;
+    margin: -1px -11px 0;
+    padding-left: 10px;
+    padding-top: 5px;
+
+    background-color: $blue-hover;
+    border-radius: 3px 3px 0 0;
+    color: $white;
+
+    +breakpoint($breakpoint-m) {
+      margin: -1px -21px 0;
+      padding-left: 20px;
+    }
+
+    &:before {
+      wmzindex("negative");
+
+      content: "";
+      position: absolute;
+      top: 27px;
+      left: 5%;
+
+      width: 12px;
+      height: @width;
+      background-color: $blue-hover;
+      transform: rotate(45deg);
+      z-index: 0;
+
+      +breakpoint($breakpoint-m) {
+        // Adjust shadow slightly to prevent artifacts on hi-dpi screens.
+        @media (-o-min-device-pixel-ratio: 5/4),
+        (-webkit-min-device-pixel-ratio: 1.25),
+        (min-resolution: 120dpi) {
+          box-shadow: 2px -2px 2px -1px rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+  }
+
+  a {
+    color: $black;
+
+    &:hover {
+      color: $black;
+    }
+
+    .seller-container {
+      border-top: 1px solid $blue-pale;
+    }
+
+    &:first-child {
+      .seller-container {
+        border-top: none;
+      }
+    }
+  }
+
+  .seller-container {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .slp-link {
+    vertical-align: middle;
+
+    .trigger-arrow {
+      height: 16px;
+      width: 18px;
+    }
+  }
+
+  .seller-offer-sm-price, .Price-old-text {
+    to-rem(font-size, 18px);
+
+    color: $black;
+  }
+
+  .HelpFlyout-trigger {
+    display: none;
+  }
+
+  .btn-compare {
+    to-rem(font-size, 15px);
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+    &:hover {
+       color: $blue-hover;
+    }
+  }
+}

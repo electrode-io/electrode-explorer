@@ -9,6 +9,7 @@ import Alert from "@walmart/wmreact-forms/lib/components/alert";
 import Spinner from "@walmart/wmreact-containers/lib/components/spinner";
 import Field from "./common/field";
 import Password from "./common/password";
+import AutofillMask from "./common/login-autofill-mask";
 import authConfig from "../config";
 import {CAPTCHA_STATES} from "./captcha";
 import alertMessageMap from "./common/alert-message-map";
@@ -161,6 +162,7 @@ class ResetPassword extends React.Component {
         placeholder={"Create password"}
         field={password}
         autoComplete="new-password"
+        help="Your password must be between 6 and 12 characters."
         automationId={automation.passwordInput}
         showAutomationId={automation.passwordShowBtn}
         hideAutomationId={automation.passwordHideBtn}
@@ -223,6 +225,7 @@ class ResetPassword extends React.Component {
         className="form-box"
       >
         {this._renderEmail()}
+        <AutofillMask/>
         <Field
           label={"Verification code"}
           placeholder={"Verification code"}
@@ -272,7 +275,9 @@ class ResetPassword extends React.Component {
           <div className="norton-wrapper">
             <NortonLogo grey={false}/>
           </div>}
-        <div className={classnames({"hide-content": formDisplay})}>
+        <div className={classnames("captcha",
+          {"hide-content": formDisplay, "re-captcha": !formDisplay})}>
+          {!formDisplay && this._renderEmail()}
           {this.props.children}
         </div>
       </section>

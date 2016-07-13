@@ -1,0 +1,15 @@
+<OrderSummary
+  subTotal={99}
+  itemCount={1}
+  shippingCosts={[
+    { label: "Value", price: 9.99 }
+  ]}
+  genericFees={[
+    {
+      label: "Merchandise fee", price: 0.99,
+      description: "Merchandise fees include all e911(Enhanced 9-1-1), " +
+        "recycling and environmental disposal fees."
+      }
+  ]}
+  onTaxZipCodeChanged={ZipCodeHandler.onZipCodeChanged}
+/>

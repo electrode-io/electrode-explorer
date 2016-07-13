@@ -1,0 +1,6 @@
+<ProductVariantOption
+  variantName="Color Red"
+  suffix="- Out of stock"
+  disabled={true}
+  disabledVariantClassName="u-textGrey"
+  displaySuffix={true}/>

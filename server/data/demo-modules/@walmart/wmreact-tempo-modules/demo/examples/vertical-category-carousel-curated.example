@@ -1,0 +1,3 @@
+<div style={{ maxWidth: 236, margin: "0 auto" }}>
+  <VerticalCategoryCarouselCurated moduleData={VerticalCategoryCarouselCuratedData} dataAutomationId="Homepage-contentZone14" />
+</div>

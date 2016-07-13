@@ -12,3 +12,4 @@ export { default as StoreItemTile } from "./components/store-item-tile";
 export { default as Swatch } from "./components/swatch";
 export { default as SwatchSelector } from "./components/swatch-selector";
 export { default as Tile } from "./components/tile";
+export { default as ProductCompetitorInfo } from "./components/product-competitor-info";

@@ -21,7 +21,7 @@ import GlobalMarketingMessages
   from "@walmart/wmreact-header/lib/components/global-marketing-messages";
 import GlobalLefthandNav from "./global-lefthand-nav";
 import GlobalSecondaryNav from "@walmart/wmreact-header/lib/components/global-secondary-nav";
-import HeaderButtonToggle from "@walmart/wmreact-header/lib/components/header-button-toggle";
+import HeaderButtonToggle from "./header-button-toggle";
 import StorefinderLink from "@walmart/wmreact-header/lib/components/storefinder-link";
 import { getCartCount, getUserName, getShippingPass }
   from "@walmart/wmreact-header/lib/actions";

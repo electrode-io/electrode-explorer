@@ -3,7 +3,8 @@ import { fetchJSON } from "@walmart/electrode-fetch";
 import {
   getIrsConfig,
   getPageConfig,
-  getIrsUrl
+  getIrsUrl,
+  getIrsSocketTimeOut
 } from "../config/p13n-config";
 
 const MODULES_BIT_FIELD_VALUE = "0";
@@ -30,10 +31,12 @@ export const irsServiceFetch = (request, reply) => {
   if (!query) {
     return reply().code(500);
   } else {
+    const irsConfig = getIrsConfig(request);
     const irsUrl = buildURLString(request);
     return fetchJSON(irsUrl, {
       method: "GET",
-      headers: request.headers
+      headers: request.headers,
+      timeout: getIrsSocketTimeOut(irsConfig)
     }).then((res) => {
       if (res.status >= 400) {
         reply(res).code(res.status);

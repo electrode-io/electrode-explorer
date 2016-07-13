@@ -73,7 +73,7 @@ Global Footer Image Item
 ```
 */
 
-export const _generateTarget = (newTab: boolean): ?ReactElement => {
+export const _generateTarget = (newTab: boolean): ?string => {
   if (newTab) {
     return "_blank";
   }
@@ -103,6 +103,7 @@ export const _isFeedbackLink = (linkText: string, title: string): boolean => {
 export const _isButtonLink = (linkType: string): boolean => {
   return linkType === BUTTON;
 };
+
 
 export const _generateLinkData = (
   linkText: string,

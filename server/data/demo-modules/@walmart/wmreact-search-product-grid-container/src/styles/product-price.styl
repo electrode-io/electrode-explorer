@@ -1,0 +1,159 @@
+.search-result-productprice {
+  position: relative;
+  
+  .price-content {
+    .price-main-block {
+      display: inline-block;
+      .price-main {
+        margin-top: 5px;
+      
+        font-family: "Myriad Pro Semifold" $font;
+        font-weight: 600;
+        line-height: 1;
+        
+        .Price-currency {
+          font-size: 12px;
+          vertical-align: top;
+        }
+      }
+      
+      .product-price-ppu {
+        .price-ppu {
+          margin-left: 5px;
+          
+          font-size: 14px;
+          font-weight: 500;
+        }
+        
+        &.product-out-of-stock {
+          color: $grey-medium;
+        }
+      }
+
+      .product-bundle-price {
+        .from-price {
+          color: $blue;
+          font-size: 20px;
+          font-weight: 700;
+        }
+
+        &.product-out-of-stock {
+          color: $grey-medium;
+        }
+      }
+
+      .product-variant-price {
+        color: $blue;
+        
+        &.product-out-of-stock {
+          color: $grey-medium;
+        }
+      }
+      
+      .price-submap {
+        font-size: 16px;
+      }
+    }
+    
+    .product-was-price-block, .product-list-price-block {
+      display: inline-block;
+      margin-left: 5px;
+
+      color: $blue;
+      font-size: 13px;
+      line-height: 24px;
+      font-weight: 400;
+    }
+    
+    .product-sub-title-block {
+      display: inline-block;
+      margin-left: 5px;
+
+      color: $blue;
+      font-size: 13px;
+      line-height: 24px;
+      font-weight: 400;
+      
+      &.product-out-of-stock {
+        color: $grey-medium;
+        font-weight: 600;
+      }
+      
+      &.product-in-store-only {
+        color: $black;
+        
+        font-size: 17px;
+        font-weight: 600;
+      }
+      
+      .pick-up-only {
+        color: $black;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 24px;
+        vertical-align: bottom;
+      }
+      
+      .sub-title-list-price {
+        color: $blue;
+        font-size: 14px;
+        font-weight: 600;
+      }
+    }
+  }
+  
+  .price-saving-block {
+    margin: -8px 0 5px 0;
+    
+    color: $red;
+    font-weight: 600;
+    
+    .price-saving {
+      color: $red !important;
+    }
+  }
+}
+
+.search-result-productprice.listview {
+  overflow: hidden;
+  margin-bottom: 10px;
+
+  .price-content {
+    .price-main-block {
+      font-size: 32px;
+      
+      .price-main {
+        margin: 0 5px 3px 0;
+        padding-top: 10px;
+        
+        .Price-currency {
+          font-size: 18px;
+          vertical-align: super;
+        }
+      }
+    }
+
+    .product-sub-info-block {
+      margin-left: 3px;
+    }
+  }
+  
+  .price-saving-block {
+    font-size: 14px;
+    font-weight: 600;
+  }
+}
+
+.search-result-productprice.gridview {
+  overflow: visible;
+  height: 40px;
+  
+  .price-main-block {
+    font-size: 20px;
+  }
+  
+  .price-saving-block {
+    font-size: 14px;
+    vertical-align: top;
+  }
+}

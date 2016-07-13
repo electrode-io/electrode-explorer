@@ -1,0 +1,33 @@
+@require "~@walmart/wmreact-base/src/styles/base";
+@require "~@walmart/wmreact-interactive/src/styles/button";
+
+// @stylint off
+// Image sizes at different breakpoints for shorter responsive povs
+$shorter-pov-sizes = {
+  height: {
+    xs: 120px,
+    s: 178px,
+    m: 283px,
+    l: 300px
+  },
+  width: {
+   xs: 546px,
+   s: 809px,
+   m: 1287px,
+   l: 1364px
+ }
+};
+// @stylint on
+
+@require "./pov-frame-container";
+@require "./theme-button";
+@require "./dynamic-price-bubble";
+
+.shorter-pov-frame {
+  $pov-base();
+  $pov-container($shorter-pov-sizes.height);
+  $pov-image($shorter-pov-sizes.height, $shorter-pov-sizes.width);
+  $pov-button();
+  $pov-dynamic-price-bubble(true);
+}
+// @stylint on

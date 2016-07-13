@@ -11,7 +11,7 @@ import Price from "./price";
 class LineItem extends React.Component {
   renderLabel():ReactElement {
     const {
-      label, automation, automationIndex
+      label, automation, automationIndex, labelExtension
     } = this.props;
 
     const automationLabel = `${automation.label}-${automationIndex}`;
@@ -23,6 +23,7 @@ class LineItem extends React.Component {
     return (
       <span className="OrderSummary-label" data-automation-id={automationLabel}>
         {labelInner} {this.renderFlyout()}
+        {labelExtension && this.renderLabelExtension()}
       </span>
     );
   }
@@ -36,6 +37,17 @@ class LineItem extends React.Component {
 
     return (
       <Price {...this.props} zeroAlt={showFree} automationId={automationPrice} />
+    );
+  }
+
+  renderLabelExtension():ReactElement {
+    const {labelExtension, automation, automationIndex} = this.props;
+    const automationLabel = `${automation.labelExtension}-${automationIndex}`;
+
+    return (
+      <span className="OrderSummary-label-line2" data-automation-id={automationLabel}>
+        {labelExtension}
+      </span>
     );
   }
 
@@ -92,10 +104,12 @@ LineItem.defaultProps = {
   price: 0,
   showFree: false,
   flyout: null,
+  labelExtension: null,
   automationIndex: 0,
   automation: {
     label: "order-summary-item-type",
-    price: "order-summary-item-price"
+    price: "order-summary-item-price",
+    labelExtension: "order-summary-item-type-ext"
   }
 };
 
@@ -121,8 +135,10 @@ LineItem.propTypes = {
   automationIndex: PropTypes.number,
   automation: PropTypes.shape({
     label: PropTypes.string,
-    price: PropTypes.string
-  })
+    price: PropTypes.string,
+    labelExtension: PropTypes.string
+  }),
+  labelExtension: PropTypes.string
 };
 
 export default LineItem;

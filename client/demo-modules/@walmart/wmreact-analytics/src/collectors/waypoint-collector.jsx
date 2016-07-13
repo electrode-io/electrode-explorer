@@ -32,31 +32,37 @@ export default class WaypointCollector extends Component {
         previousPosition: waypoint.previousPosition,
         currentPosition: waypoint.currentPosition
       };
-      this.context.analytics.callback({
-        _type: eventType,
-        _reactChild: child,
-        event: waypoint.event,
-        context: this.context.analytics.context,
-        props: child.props,
-        extra
-      });
+      const { analytics } = this.context;
+      if (analytics && analytics.callback) {
+        analytics.callback({
+          _type: eventType,
+          _reactChild: child,
+          event: waypoint.event,
+          context: analytics.context,
+          props: child.props,
+          extra
+        });
+      }
     }
 
-    shouldComponentUpdate() : boolean { //To avoid firing twice
-      return false;
+    _renderChild(child, fireAtBottom, rest) {
+      const waypointComponent =
+        <Waypoint {...rest} onEnter={once(this._onEnter.bind(this, child))} />;
+      if (fireAtBottom) {
+        return [child, waypointComponent];
+      }
+      return [waypointComponent, child];
     }
 
     render() : ReactElement {
       const {
         children,
+        fireAtBottom,
         ...rest
       } = this.props;
       return (
         <span>
-        { Children.map(children, (child) => [
-          <Waypoint {...rest} onEnter={once(this._onEnter.bind(this, child))} />,
-          child
-        ])}
+        {Children.map(children, (child) => this._renderChild(child, fireAtBottom, rest))}
         </span>
       );
     }
@@ -81,7 +87,12 @@ WaypointCollector.propTypes = {
   /**
   * Type of the event to send to the processor
   */
-  eventType: PropTypes.string
+  eventType: PropTypes.string,
+
+  /**
+  * Fires event when bottom of children are in view rather than the top
+  */
+  fireAtBottom: PropTypes.bool
 };
 
 WaypointCollector.contextTypes = {
@@ -91,7 +102,8 @@ WaypointCollector.contextTypes = {
 WaypointCollector.defaultProps = {
   onEnter: () => {},
   eventType: "waypoint",
-  throttleHandler: (cb) => throttle(cb, 100)
+  throttleHandler: (cb) => throttle(cb, 100),
+  fireAtBottom: false
 };
 
 WaypointCollector.displayName = "WaypointCollector";

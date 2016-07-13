@@ -18,6 +18,8 @@ import AddToListRegistryFlyoutContentExample from "raw!./examples/add-to-list-re
 import AddToRegistryButtonExample from "raw!./examples/add-to-registry-button.example";
 import AddToCartWithSubmapModalExample from "raw!./examples/add-to-cart-with-submap-modal.example";
 import SubmapModalExample from "raw!./examples/product-submap-modal.example";
+import PostAddToRegistryContentExample from "raw!./examples/post-add-to-registry-content.example";
+import CellCoverageFinderCTAExample from "raw!./examples/add-to-cart-with-cell-coverage-finder.example";
 
 import * as libraryScope from "../src/index";
 
@@ -60,11 +62,31 @@ Index.Components = [
     ]
   },
   {
+    title: "Post ATR",
+    examples: [
+      {
+        type: "playground",
+        code: PostAddToRegistryContentExample,
+        noRender: true
+      }
+    ]
+  },
+  {
     title: "ZipCodeSearch",
     examples: [
       {
         type: "playground",
         code: ZipCodeSearchExample,
+        noRender: true
+      }
+    ]
+  },
+  {
+    title: "CellCoverageFinderCTA",
+    examples: [
+      {
+        type: "playground",
+        code: CellCoverageFinderCTAExample,
         noRender: true
       }
     ]

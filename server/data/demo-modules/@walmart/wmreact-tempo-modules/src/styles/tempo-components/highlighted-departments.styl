@@ -1,0 +1,38 @@
+@require "../helper-components/module-header";
+
+.HighlightedDepartments {
+  to-rem(font-size, 14px);
+
+  overflow: hidden;
+
+  border-bottom: 8px solid $grey-light;
+
+  +breakpoint($breakpoint-m) {
+    padding-bottom: $m-spacing;
+
+    .ModuleHeader {
+      border-bottom: 1px solid $grey-light;
+    }
+
+    border-bottom: 0;
+  }
+
+  .HighlightedDepartments-button {
+    border-bottom: 1px solid $grey-light;
+    padding: $s-spacing 0;
+
+    line-height: 24px;
+
+    +breakpoint($breakpoint-m) {
+      border: none;
+      margin-top: $m-spacing;
+      padding: 0;
+
+      line-height: 18px;
+    }
+
+    &:last-child {
+      border: none;
+    }
+  }
+}

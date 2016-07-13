@@ -90,6 +90,7 @@ class RegisterMembership extends React.Component {
             validationSuccessMark
             label={"Membership number"}
             placeholder={"Membership number"}
+            showErrorOnTop={true}
             autoComplete="off"
             automationId={this.props.automation.memberShipInput}
             tealeafId={this.props.tealeaf.memberShipInput}>
@@ -106,6 +107,7 @@ class RegisterMembership extends React.Component {
             validationSuccessMark
             label={"Last name"}
             placeholder={"Last name"}
+            showErrorOnTop={true}
             autoComplete="off"/>
           <div className="online-account-match-text">{matchText}</div>
           <Button

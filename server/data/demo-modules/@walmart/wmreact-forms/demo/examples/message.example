@@ -1,0 +1,11 @@
+<div>
+  <Message.Success block={true}>
+    Success message
+  </Message.Success>
+  <Message.Warning block={true}>
+    Warning message
+  </Message.Warning>
+  <Message.Error block={true}>
+    Error message
+  </Message.Error>
+</div>

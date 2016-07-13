@@ -1,4 +1,7 @@
 /* @flow */
+
+/* eslint react/prop-types: 0*/
+
 import type {Props, MaskedProps} from "../types";
 
 import React, {Component, PropTypes} from "react";
@@ -154,7 +157,13 @@ class FloatingField extends Component {
               {...maskProps}
             />
           </div>
-          {hasError && <p className="error-label">{props.error}</p>}
+          {hasError && (
+            <p
+              className="error-label"
+              data-automation-id={`${this.props["data-automation-id"] || "floatingField"}-error`}>
+              {props.error}
+            </p>
+          )}
         </div>
       </label>
     );

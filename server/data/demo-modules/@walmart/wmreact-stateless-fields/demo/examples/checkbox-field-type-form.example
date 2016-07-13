@@ -1,0 +1,6 @@
+ <div>
+  <CheckboxField type="form" label="Remember me" />
+  <CheckboxField onChange={() => {}} checked type="form" label="Remember me" />
+  <CheckboxField touched error type="form" label="Remember me" />
+  <CheckboxField type="form" shouldDisplayValid={() => true} label="Remember me" />
+</div>

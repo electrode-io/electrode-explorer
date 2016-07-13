@@ -7,6 +7,7 @@ import isEmpty from "lodash/isEmpty";
 import {CAPTCHA_STATES} from "./captcha";
 import authConfig from "../config";
 import alertMessageMap from "./common/alert-message-map";
+import classnames from "classnames";
 
 import Field from "./common/field";
 
@@ -196,8 +197,10 @@ class ForgotPassword extends React.Component {
         {this._renderAlertOrHeader()}
         {showForm && this._renderForm()}
         {showForm && this._renderBottomInfo()}
-        {!showForm && this._renderBotEmail()}
-        {this.props.children}
+        <div className={classnames("captcha", {"re-captcha": !showForm})}>
+          {!showForm && this._renderBotEmail()}
+          {this.props.children}
+        </div>
       </section>
     );
   }

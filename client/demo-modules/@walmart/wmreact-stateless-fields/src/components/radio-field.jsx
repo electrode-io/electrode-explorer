@@ -1,4 +1,6 @@
 /* @flow */
+/* eslint react/prop-types: 0*/
+
 import type {Props} from "../types";
 
 import React, {Component, PropTypes} from "react";
@@ -75,7 +77,13 @@ class RadioField extends Component {
             {isValid && <i className="validation-marker validation-marker-success" />}
           </div>
         </div>
-        {hasError && <p className="error-label">{props.error}</p>}
+        {hasError && (
+          <p
+            className="error-label"
+            data-automation-id={`${this.props["data-automation-id"] || "radioField"}-error`}>
+            {props.error}
+          </p>
+        )}
       </label>
     );
   }

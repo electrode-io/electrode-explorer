@@ -1,0 +1,8 @@
+<Tabs style={{minWidth: '100%'}} automationId="demo-tabs">
+  <Tabs.Item title="First">
+    <p>First Tab!</p>
+  </Tabs.Item>
+  <Tabs.Item title="Second">
+    <p>Second Tab!</p>
+  </Tabs.Item>
+</Tabs>

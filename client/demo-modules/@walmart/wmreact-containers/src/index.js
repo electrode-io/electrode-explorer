@@ -10,3 +10,4 @@ export { default as Tray } from "./components/tray";
 export { default as Well } from "./components/well";
 export { default as SlidePanel } from "./components/slidepanel";
 export { default as ResponsiveFlyoutSlidePanel } from "./components/responsive-flyout-slidepanel";
+export { default as ResponsiveModalSlidePanel } from "./components/responsive-modal-slidepanel";

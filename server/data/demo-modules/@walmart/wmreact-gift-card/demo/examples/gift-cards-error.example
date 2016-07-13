@@ -1,0 +1,46 @@
+<GiftCards
+  error={{
+    message: "This is an error",
+    type: "error"
+  }}
+  cards={[{
+    label:"John Snow",
+    lastFour:"1111",
+    balance:1,
+    currency:"USD",
+    id:"1"
+  },
+  {
+    label:"Arya Stark",
+    lastFour:"2222",
+    balance:500,
+    currency:"USD",
+    id:"2"
+  },
+     {
+       label:"Arya Stark",
+       lastFour:"2222",
+       balance:500,
+       currency:"USD",
+       id:"3"
+     },
+        {
+          label:"Arya Stark",
+          lastFour:"2222",
+          balance:500,
+          currency:"USD",
+          id:"4"
+        },
+           {
+             label:"Arya Stark",
+             lastFour:"2222",
+             balance:500,
+             currency:"USD",
+             id:"5"
+           }
+
+  ]}
+  onAdd={ev=>console.log(ev)}
+  onHistory={ev=>console.log(ev)}
+  onDelete={ev=>console.log(ev)}
+  />

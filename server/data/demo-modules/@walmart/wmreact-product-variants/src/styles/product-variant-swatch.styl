@@ -1,0 +1,18 @@
+$prod-ProductVariantSwatchExpanderFont--l ?= 36px;
+$prod-ProductVariantSwatchExpanderFont--s ?= 24px;
+$prod-ProductVariantSwatchExpanderFontWeight ?= 400;
+
+.prod-ProductVariantSwatch {
+  .variant-expand {
+    to-rem(font-size, $prod-ProductVariantSwatchExpanderFont--l);
+
+    color: $blue;
+    font-weight: $prod-ProductVariantSwatchExpanderFontWeight;
+  }
+
+  .variants-small {
+    .variant-expand {
+      to-rem(font-size, $prod-ProductVariantSwatchExpanderFont--s);
+    }
+  }
+}

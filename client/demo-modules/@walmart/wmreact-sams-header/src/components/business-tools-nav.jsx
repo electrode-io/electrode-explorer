@@ -146,7 +146,7 @@ _renderDeptHeading(heading) {
           {this._renderToggles(open)}
           <div className="header-GlobalLefthandNav-wrapper">
             <Collapsable
-              transitionDuration={12}
+              transitionDuration={0}
               isOpen={this.state.open}
               containerClassName="header-GlobalLefthandNav-dropdown">
               <MenuAimWrapper className="pull-left" ref="menuAim">

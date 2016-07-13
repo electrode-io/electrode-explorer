@@ -1,0 +1,4 @@
+/* @flow */
+export const ADD_HEADER_CART_COUNT: string = "ADD_HEADER_CART_COUNT";
+export const GET_CART_COUNT_FROM_COOKIE: string = "GET_CART_COUNT_FROM_COOKIE";
+export const SET_HEADER_CART_COUNT = "SET_HEADER_CART_COUNT";

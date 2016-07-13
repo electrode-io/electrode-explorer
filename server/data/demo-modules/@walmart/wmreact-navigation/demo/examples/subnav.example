@@ -1,0 +1,13 @@
+<Subnav automationId="demo-subnav">
+  <Subnav.Item href="#foo" current={true} childCount={3} automationId="subnav-0">
+    Item 1
+  </Subnav.Item>
+
+  <Subnav.Item href="#bar" current={false} childCount={3} automationId="subnav-1">
+    Item 2
+  </Subnav.Item>
+
+  <Subnav.Item href="#baz" current={false} childCount={3} automationId="subnav-2">
+    Item 3
+  </Subnav.Item>
+</Subnav>

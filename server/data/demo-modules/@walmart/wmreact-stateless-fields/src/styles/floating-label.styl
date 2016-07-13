@@ -1,0 +1,46 @@
+
+.form-group--float {
+  position: relative;
+  padding-top: .625em;
+}
+
+.form-label-float {
+  color: #888;
+  position: absolute;
+  top: 1.125em;
+  left: .625em;
+  z-index: 1;
+  animation: none;
+}
+
+.form-label-float--floating {
+  color: #888;
+  font-size: .8em;
+  line-height: 1;
+  top: -.5em;
+
+  animation: float-labels 300ms none ease-out;
+  animation-play-state: running;
+}
+
+.form-label-float--focused {
+  color: #6da6cf;
+}
+
+.form-group--disabled .form-label-float--floating {
+  color: #888;
+}
+
+@keyframes float-labels {
+  from {
+    z-index: -1;
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  to {
+    z-index: 1;
+    opacity: 1;
+  }
+}

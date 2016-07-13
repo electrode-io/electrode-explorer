@@ -84,6 +84,7 @@ class CompleteAccountRegistered extends React.Component {
             validationSuccessMark
             label={"Membership number"}
             placeholder={"Membership number"}
+            showErrorOnTop={true}
             autoComplete="off"
             automationId={this.props.automation.memberShipInput}
             tealeafId={this.props.tealeaf.memberShipInput}>
@@ -98,6 +99,7 @@ class CompleteAccountRegistered extends React.Component {
             field={password}
             label={"Password"}
             placeholder={"Password"}
+            showErrorOnTop={true}
             validationSuccessMark
             autoComplete="new-password"
             automationId={this.props.automation.passwordInput}

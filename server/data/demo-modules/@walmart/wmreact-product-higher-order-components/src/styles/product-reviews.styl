@@ -1,0 +1,52 @@
+.review-header {
+
+  +breakpoint($breakpoint-xs) {
+    to-rem(font-size, 14px);
+  }
+
+  .review-title {
+    @extend .font-semibold;
+
+    +breakpoint($breakpoint-xs) {
+      to-rem(font-size, 16px);
+    }
+
+    +breakpoint($breakpoint-m) {
+      to-rem(font-size, 18px);
+    }
+  }
+  .review-submissionTime {
+    color: #9B9B9B;
+  }
+
+  .review-star-rating {
+    margin-top: $xs-spacing;
+    text-align: left;
+  }
+}
+
+.review-showBottomBorder {
+  border-bottom: 1px solid $blue-pale;
+}
+
+.review-badge {
+  margin-right: 50px;
+
+  color: $orange;
+  @extend .font-semibold;
+
+
+  +breakpoint($breakpoint-xs) {
+    margin-right: 50px;
+  }
+}
+
+.review-badge-light {
+  color: $orange;
+  @extend .font-normal;
+}
+
+.trigger-arrow {
+  width: 30px;
+  height: 15px;
+}

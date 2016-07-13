@@ -1,0 +1,12 @@
+@require "~@walmart/lithe-extras/lib/tenants/walmart/base";
+@require "../src/styles/store-finder-carousel";
+
+.class-defined-by-consuming-app {
+  width: 1000px;
+  margin: 10px auto;
+
+  .slider-frame {
+    margin-top: 0 !important; // To override inline styles set within `Carousel`
+    margin-bottom: 0 !important;
+  }
+}

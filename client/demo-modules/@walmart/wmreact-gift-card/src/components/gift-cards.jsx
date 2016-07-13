@@ -48,7 +48,7 @@ class GiftCards extends React.Component {
 
     const GiftCardComponent = this.props.tile || GiftCard;
     return (
-      <div key={index} className="padded-card">
+      <div key={card.id} className="padded-card">
         <GiftCardComponent
           index={index}
           deleteMode={cardInDeleteMode === card.id}

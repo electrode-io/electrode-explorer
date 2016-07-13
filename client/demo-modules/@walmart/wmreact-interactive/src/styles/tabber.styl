@@ -1,0 +1,54 @@
+// only dependent on button, mainly here to simplify for consumers
+@require "./button";
+.vertical-tabber {
+  word-wrap: break-word;
+
+  .vertical-tabber-controls {
+    width: 20%;
+    border-right: 1px solid $grey-cool;
+
+    color: $blue;
+
+    .vertical-tabber-control {
+      position: relative;
+
+      padding: 8px;
+
+      &.active {
+        color: $black;
+        &:after {
+        content: "";
+        position: absolute;
+        right: -8px;
+        top: 12px;
+
+        width: 15px;
+        height: 15px;
+        border: 1px solid $grey-cool;
+        border-right: 0;
+        border-bottom: 0;
+
+        transform: rotate(-45deg);
+        background: $white;
+        }
+      }
+    }
+  }
+
+  .vertical-tabber-contents {
+    width: 80%;
+    padding: 8px 15px;
+
+    .vertical-tabber-content {
+      display: none;
+
+      &.active {
+        display: block;
+      }
+
+      p {
+        margin-top: 0;
+      }
+    }
+  }
+}

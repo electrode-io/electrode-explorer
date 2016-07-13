@@ -83,7 +83,7 @@ const subscriptionStatus = (state = initialState, { payload: pl, type }) => {
       errorMessage: false,
       loading: false,
       renewalDate: formatDate(pl.expiryDate),
-      success: true,
+      successMessage: true,
       trialStatus: checkLifecycleStatus(pl.lifecycleStatus)
     };
 

@@ -1,5 +1,5 @@
 import {reduxForm, getValues} from "redux-form";
-import {get as _get} from "lodash";
+import _get from "lodash/get";
 import ADDRESS_VALIDATION_STATUS from "./enums/address-validation-status";
 import {
   addressFormFields,
@@ -49,6 +49,7 @@ const configureAddressFormCreator = () => ({
       initialValues,
       fields,
       form: "addressBookForm",
+      touchOnBlur: false,
       validate: validator,
       reduxMountPoint: "addressBookForm"
     },

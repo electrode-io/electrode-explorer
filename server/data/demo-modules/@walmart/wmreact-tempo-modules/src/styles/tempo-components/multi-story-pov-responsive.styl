@@ -1,0 +1,92 @@
+@require "../helper-components/pov-story";
+
+.MultiStoryPOVResponsive {
+  margin-bottom: $xs-spacing;
+
+  +breakpoint($breakpoint-m) {
+    margin-bottom: $s-spacing;
+  }
+
+  // Ensure correct height while loading
+  .slider-list {
+    height: $tempo-pov-height.xs !important;
+
+    +breakpoint($breakpoint-s) {
+      height: $tempo-pov-height.s !important;
+    }
+
+    +breakpoint($breakpoint-m) {
+      height: $tempo-pov-height.m !important;
+    }
+
+    +breakpoint($breakpoint-l) {
+      height: $tempo-pov-height.l !important;
+    }
+  }
+
+  .paginator-hairline-btn-large.paginator-hairline-btn-prev.paginator-hairline-btn-light-no-hover,
+  .paginator-hairline-btn-large.paginator-hairline-btn-prev.paginator-hairline-btn-light-no-hover:hover,
+  .paginator-hairline-btn-large.paginator-hairline-btn-prev.paginator-hairline-btn-light-no-hover:focus {
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20id%3D%22final__x23_888_60_x25_%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%22-245.6667%20331.3562%2030%2064%22%20width%3D%2230%22%20height%3D%2264%22%3E%3Cstyle%3E.st0%7Bfill%3A%23fff%7D.st0%2C.st1%7Bopacity%3A.6%3Benable-background%3Anew%7D.st1%7Bfill%3A%23888%7D%3C%2Fstyle%3E%3Cpath%20class%3D%22st0%22%20d%3D%22M-218.666%20395.356c-.57%200-1.137-.243-1.533-.715l-25-29.803a2%202%200%200%201-.005-2.56l25-30.194a2%202%200%200%201%203.08%202.552l-23.937%2028.91%2023.928%2028.53a2%202%200%200%201-1.53%203.283z%22%2F%3E%3Cpath%20class%3D%22st1%22%20d%3D%22M-216.134%20392.07l-23.93-28.528%2023.938-28.91a2%202%200%200%200-.265-2.816%201.99%201.99%200%200%200-1.78-.39c.277.07.543.196.777.39a2%202%200%200%201%20.264%202.816l-23.936%2028.91%2023.93%2028.53c.71.845.598%202.106-.248%202.816-.237.2-.507.326-.787.398.164.042.33.07.5.07.454%200%20.91-.153%201.285-.467a2.004%202.004%200%200%200%20.246-2.82z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+  }
+
+  .paginator-hairline-btn-large.paginator-hairline-btn-next.paginator-hairline-btn-light-no-hover,
+  .paginator-hairline-btn-large.paginator-hairline-btn-next.paginator-hairline-btn-light-no-hover:hover,
+  .paginator-hairline-btn-large.paginator-hairline-btn-next.paginator-hairline-btn-light-no-hover:focus {
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20id%3D%22final__x23_888_60_x25_%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%22-280.0371%20331.3562%2030.0002%2064%22%20width%3D%2230%22%20height%3D%2264%22%3E%3Cstyle%3E.st0%7Bfill%3A%23FFF%7D.st0%2C.st1%7Bopacity%3A.6%3Benable-background%3Anew%7D.st1%7Bfill%3A%23888%7D%3C%2Fstyle%3E%3Cpath%20class%3D%22st0%22%20d%3D%22M-277.038%20395.356c.57%200%201.138-.243%201.533-.715l25-29.804c.62-.74.624-1.817.01-2.56l-25-30.194a2%202%200%200%200-3.082%202.552l23.937%2028.91-23.93%2028.53a2%202%200%200%200%201.532%203.283z%22%2F%3E%3Cpath%20class%3D%22st1%22%20d%3D%22M-279.57%20392.07l23.93-28.528-23.937-28.91a2%202%200%200%201%20.265-2.816%201.987%201.987%200%200%201%201.776-.39c-.276.07-.542.196-.776.39a2%202%200%200%200-.265%202.816l23.937%2028.91-23.93%2028.53a1.998%201.998%200%200%200%20.248%202.816c.236.2.506.326.785.398a2.01%202.01%200%200%201-.5.07%202.003%202.003%200%200%201-1.532-3.287z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+  }
+
+  .paginator-hairline-btn-light-no-hover {
+    display: none;
+  }
+
+  &:hover {
+    .paginator-hairline-btn-light-no-hover {
+      +breakpoint($breakpoint-m) {
+        display: inline-block;
+      }
+    }
+  }
+
+  .carousel-paginator-list-mini {
+    li {
+      margin-left: $xs-spacing;
+
+      +breakpoint($breakpoint-m) {
+        margin-left: 16px;
+      }
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+
+    .carousel-paginator-item {
+      width: 7px;
+      height: @width;
+
+      background: $grey-light;
+      box-shadow: 0 0 1px rgba(0, 0, 0, .2), 1px 1px 3px rgba(0, 0, 0, .25);
+
+      +breakpoint($breakpoint-m) {
+        width: 10px;
+        height: @width;
+      }
+    }
+
+    .slick-active > .carousel-paginator-item {
+      background: $grey-medium;
+    }
+  }
+
+  .slider-decorator-0,
+  .slider-decorator-1 {
+    height: 100%;
+
+    .paginator-hairline-btn {
+      height: inherit;
+    }
+  }
+}

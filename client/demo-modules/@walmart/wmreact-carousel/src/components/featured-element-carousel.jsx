@@ -139,6 +139,8 @@ const FeaturedElementCarousel = ({
   dataModuleId,
   dataAutomationId,
   className,
+  containerProps,
+  otherChild,
   ...props
 }) => {
   const staticWidth = staticTile ? staticTileWidth : null;
@@ -149,11 +151,13 @@ const FeaturedElementCarousel = ({
       style={{backgroundColor, backgroundImage}}
       data-module={dataModuleType}
       data-module-id={dataModuleId}
+      {...containerProps}
       {...getDataAutomationIdPair(dataModuleType, dataAutomationId)}
     >
       {_renderHeader({padding: props.framePadding, header})}
       {_renderStaticTile({padding: props.framePadding, staticTile, staticWidth})}
       {_renderCarousel({children, staticWidth, ...props})}
+      {otherChild}
     </div>
   );
 };
@@ -202,7 +206,15 @@ FeaturedElementCarousel.propTypes = {
   /**
    * Additional classes for styling
    */
-  className: PropTypes.string
+  className: PropTypes.string,
+  /**
+  * Additional props to put on the container div
+  */
+  containerProps: PropTypes.object,
+  /**
+  * Additional child of container that is not a carousel tile
+  */
+  otherChild: PropTypes.node
 };
 
 FeaturedElementCarousel.defaultProps = {
@@ -215,7 +227,9 @@ FeaturedElementCarousel.defaultProps = {
   dataModuleType: "",
   dataModuleId: "",
   dataAutomationId: "",
-  className: ""
+  className: "",
+  containerProps: {},
+  otherChild: null
 };
 
 export default FeaturedElementCarousel;

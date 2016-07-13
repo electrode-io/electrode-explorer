@@ -39,6 +39,7 @@ const AUTOMATION_CONTEXT = "ProductShortInfo";
 
 const ProductShortInfo = (props) => {
   const {
+    bottomLinkClassName,
     bottomLinkOnClick,
     bottomLinkText,
     className,
@@ -123,7 +124,7 @@ const ProductShortInfo = (props) => {
 
   const _renderModalLink = (link) => {
     return (link && link.length) ? (
-      <div className="ProductShortInfo-bottomLink tile-controls tile-controls-dotted">
+      <div className={classNames("ProductShortInfo-bottomLink", bottomLinkClassName)}>
         <a className="dropdown-link" href="#" onClick={bottomLinkOnClick}>
           {link}
         </a>
@@ -157,6 +158,10 @@ const ProductShortInfo = (props) => {
 ProductShortInfo.displayName = "ProductShortInfo";
 
 ProductShortInfo.propTypes = {
+  /**
+   Bottom link class
+   */
+  bottomLinkClassName: PropTypes.string,
   /**
    Bottom link handler
    */
@@ -212,6 +217,7 @@ ProductShortInfo.propTypes = {
 };
 
 ProductShortInfo.defaultProps = {
+  bottomLinkClassName: "tile-controls tile-controls-dotted hide-content display-block-m",
   bottomLinkOnClick: () => {},
   bottomLinkText: "",
   className: "",

@@ -1,0 +1,238 @@
+<StateWrapper
+  initialState={{
+    background: true,
+    close: true,
+    margins: true,
+    header: true,
+    footer: true,
+    actions: true,
+    divided: true,
+    shadows: true,
+    freeze: true,
+    size: "medium"
+  }}
+  render={(state, setState, refs, storeRef) => {
+    const LinkedCheckbox = ({name, children: label}) =>
+      <div>
+        <label>
+          <input
+            type="checkbox"
+            checked={state[name]}
+            onChange={({target: {checked}}) => {
+              setState(
+                {...state, [name]: checked},
+                () => refs.layout.layout()
+              );
+            }}
+          />
+          &nbsp;{label}
+        </label>
+      </div>
+
+    const LinkedSelect = ({name, options, children: label}) =>
+      <div>
+        <label>
+          {label}&nbsp;
+          <select
+            value={state[name]}
+            onChange={({target: {value}}) => {
+              setState(
+                {...state, [name]: value},
+                () => refs.layout.layout()
+              );
+            }}
+          >
+            {Object.keys(options).map((optionValue) => {
+              const optionLabel = options[optionValue];
+              return (
+                <option key={optionValue} value={optionValue}>
+                  {optionLabel}
+                </option>
+              );
+            })}
+          </select>
+        </label>
+      </div>
+
+    const LinkedInput = ({name, type = "text", children: label}) =>
+      <div>
+        <label>
+          {label}&nbsp;
+          <input
+            type={type}
+            defaultValue={state[name]}
+            onBlur={({target: {value}}) => {
+              value = (type === "number") ? parseInt(value, 10) : value;
+              value = (value !== value) ? undefined : value;
+              if (value !== state[name]) {
+                setState(
+                  {
+                    ...state, [name]: value},
+                  () => refs.layout.layout()
+                );
+              }
+            }}
+          />
+        </label>
+      </div>
+
+    return (
+      <div>
+        <Button onClick={() => setState({...state, open: true})}>
+          Open Modal
+        </Button>
+        {
+          !!state.open &&
+          <Container
+            freezeScroll={state.freeze}
+            onClose={
+              state.background
+                ? (() => setState({...state, open: false}))
+                : undefined
+            }
+          >
+            <Modal
+              size={state.size}
+              onClose={
+                state.close
+                  ? (() => setState({...state, open: false}))
+                  : undefined
+              }
+            >
+              <Layout
+                ref={storeRef("layout")}
+                divided={state.divided}
+                shadows={state.shadows}
+                margins={state.margins}
+                maxHeight={state.maxHeight}
+                minHeight={state.minHeight}
+                minBodyHeight={state.minBodyHeight}
+                header={state.header && <h2>Header</h2>}
+                body={
+                  <GridLayout small={2}>
+                    <div>
+                      <h3 style={{marginTop: 0}}>Configuration Options</h3>
+                      <p><b>Interface</b></p>
+                      <LinkedCheckbox name="close">
+                        close button
+                      </LinkedCheckbox>
+                      <LinkedCheckbox name="background">
+                        close on background click
+                      </LinkedCheckbox>
+                      <LinkedCheckbox name="freeze">
+                        freeze scroll position
+                        <small>
+                          (re-open modal with visible scrollbar to see effect)
+                        </small>
+                      </LinkedCheckbox>
+                      <LinkedInput name="maxHeight" type="number">
+                        max modal height
+                      </LinkedInput>
+                      <LinkedInput name="minHeight" type="number">
+                        min modal height
+                      </LinkedInput>
+                      <LinkedInput name="minBodyHeight" type="number">
+                        min scroll area height
+                      </LinkedInput>
+                      <p><b>Style</b></p>
+                      <LinkedCheckbox name="margins">
+                        content margins
+                      </LinkedCheckbox>
+                      <LinkedCheckbox name="divided">
+                        header/footer divider lines
+                      </LinkedCheckbox>
+                      <LinkedCheckbox name="shadows">
+                        header/footer shadows
+                      </LinkedCheckbox>
+                      <LinkedSelect
+                        name="size"
+                        options={{
+                          "x-small": "x small",
+                          "small": "small",
+                          "medium": "medium",
+                          "large": "large"
+                        }}
+                      >
+                        modal width
+                      </LinkedSelect>
+                      <p><b>Content</b></p>
+                      <LinkedCheckbox name="header">
+                        sticky header
+                      </LinkedCheckbox>
+                      <LinkedCheckbox name="footer">
+                        sticky footer
+                      </LinkedCheckbox>
+                      <LinkedCheckbox name="actions">
+                        responsive actions
+                      </LinkedCheckbox>
+                    </div>
+                    <div>
+                      <pre style={{
+                        fontSize: 13,
+                        color: "#f8f8f2",
+                        background: "#1B2B34",
+                        padding: 10,
+                        borderRadius: 5,
+                        overflow: "auto"
+                      }}>
+                        {`
+<Container${
+  state.freeze ? " freezeScroll" : ""
+}${
+  state.background ? " onClose={() => {...}}" : ""
+}>
+  <Modal size="${state.size}"${state.close ? " onClose={() => {...}}" : ""
+}>
+    <Layout${state.divided ? `
+      divided` : ""
+    }${state.shadows ? `
+      shadows` : ""
+    }${state.margins ? `
+      margins` : ""
+    }${state.header ? `
+      header={<h2>...</h2>}` : ""
+    }${state.minHeight ? `
+      minHeight={${state.minHeight}}` : ""
+    }${state.maxHeight ? `
+      maxHeight={${state.maxHeight}}` : ""
+    }${state.minBodyHeight ? `
+      minBodyHeight={${state.minBodyHeight}}` : ""
+    }
+      body={<div>...</div>}${state.footer ? `
+      footer={<div>...</div>}` : ""
+    }${state.actions ? `
+      actions={
+        <ButtonGroup>
+          <Button/>
+          ...
+        </ButtonGroup>
+      }` : ""
+    }
+    />
+  </Modal>
+</Container>
+                        `.trim()}
+                      </pre>
+                    </div>
+                  </GridLayout>
+                }
+                footer={state.footer && <div>Footer</div>}
+                actions={
+                  state.actions &&
+                  <ButtonGroup>
+                    <Button inverse onClick={() => setState({...state, open: false})}>
+                      Cancel
+                    </Button>
+                    <Button primary onClick={() => setState({...state, open: false})}>
+                      Continue
+                    </Button>
+                  </ButtonGroup>
+                }
+              />
+            </Modal>
+          </Container>
+        }
+      </div>
+    )
+  }}
+/>

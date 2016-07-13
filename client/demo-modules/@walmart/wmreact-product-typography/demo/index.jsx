@@ -15,6 +15,7 @@ import prodShortDescEx from "raw!./examples/product-short-description.example";
 import prodStoreInfoLabelEx from "raw!./examples/product-store-info-label.example";
 import prodTitleEx from "raw!./examples/product-title.example";
 import prodLegalBadgeEx from "raw!./examples/product-legal-badge.example";
+import productFulfillmentHeaderEx from "raw!./examples/product-fulfillment-header.example";
 
 export default class Index extends React.Component {
   render() {
@@ -140,6 +141,16 @@ Index.Components = [
       {
         type: "playground",
         code: prodSellerInfoEx,
+        noRender: true
+      }
+    ]
+  },
+  {
+    title: "ProductFulfillmentHeader",
+    examples: [
+      {
+        type: "playground",
+        code: productFulfillmentHeaderEx,
         noRender: true
       }
     ]

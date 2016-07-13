@@ -1,0 +1,22 @@
+<div>
+  <div>
+  <ProductsBOT>
+    <ProductsBOT.Row colored>
+      <ProductsFulfillmentMessaging
+        messaging={`Want it by tomorrow <b>May 15</b>? Choose <b>Rush</b> at checkout`}
+        iconType="truck"
+        launchModalText="Shipping Pass"
+        onClickLaunchModal={() => {console.log("Some click func")}}
+      />
+    </ProductsBOT.Row>
+    <ProductsBOT.Row colored>
+          <ProductsFulfillmentMessaging
+            messaging={`<b>FREE pickup today</b> at <b>Mountain View</b>`}
+            iconType="store"
+            launchModalText="Pick up Options"
+            onClickLaunchModal={() => {console.log("Some click func")}}
+          />
+        </ProductsBOT.Row>
+    </ProductsBOT>
+  </div>
+</div>

@@ -1,4 +1,6 @@
 /* @flow */
+/* eslint react/prop-types: 0*/
+
 import type {Props} from "../types";
 
 import React, {Component, PropTypes} from "react";
@@ -75,7 +77,13 @@ class SelectField extends Component {
             })}>
             {props.children}
           </select>
-          {hasError && <p className="error-label">{props.error}</p>}
+          {hasError && (
+            <p
+              className="error-label"
+              data-automation-id={`${this.props["data-automation-id"] || "selectField"}-error`}>
+              {props.error}
+            </p>
+          )}
         </div>
       </label>
     );

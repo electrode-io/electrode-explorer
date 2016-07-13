@@ -162,6 +162,7 @@ class ForgotPasswordReset extends React.Component {
         label={"Create password"}
         placeholder={"Create password"}
         field={password}
+        showErrorOnTop={true}
         autoComplete="new-password"
         automationId={automation.passwordInput}
         showAutomationId={automation.passwordShowBtn}
@@ -227,6 +228,7 @@ class ForgotPasswordReset extends React.Component {
         className="input-field"
         label={"Verification code"}
         placeholder={"Verification code"}
+        showErrorOnTop={true}
         field={passcode}
         autoComplete="off"
         automationId={automation.passcodeInput}

@@ -11,6 +11,7 @@ import Flyout from "@walmart/wmreact-containers/lib/components/flyout";
 
 import Field from "./common/field";
 import Password from "./common/password";
+import AutofillMask from "./common/login-autofill-mask";
 import authConfig from "../config";
 import alertMessageMap from "./common/alert-message-map";
 import PasswordStrength from "./common/password-strength";
@@ -198,6 +199,7 @@ const SignUpForm = React.createClass({
         autoComplete="new-password"
         label={"Password"}
         placeholder={"Password"}
+        help="Your password must be between 6 and 12 characters."
         automationId={automation.passwordInput}
         showAutomationId={automation.passwordShowBtn}
         hideAutomationId={automation.passwordHideBtn}
@@ -323,7 +325,7 @@ const SignUpForm = React.createClass({
           {this.renderLastName()}
 
           {this.renderEmail()}
-
+          <AutofillMask/>
           {this.renderPassword()}
 
           {this.props.showPasswordStrength &&

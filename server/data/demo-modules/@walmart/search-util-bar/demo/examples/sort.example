@@ -1,0 +1,5 @@
+<Sort
+  currentSortValue="price_high"
+  options={options}
+  onChange={(currentValue, previousValue)=> {console.log("currentValue: ", currentValue, ",  previousValue:", previousValue)}}
+/>

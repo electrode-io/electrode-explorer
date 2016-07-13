@@ -1,0 +1,40 @@
+$blue-tertiary = #9ed6fa;
+$grey-light = #d9d9d9;
+
+.desktop-bar-switcher {
+  margin: 5px 0 0 30px;
+  overflow: hidden;
+
+  .switcher-grid,
+  .switcher-list {
+    float: left;
+
+    &.active {
+      i {
+        color: $blue-tertiary;
+      }
+    }
+
+    i {
+      font-size: 18px;
+
+      color: $grey-light;
+
+      &:hover {
+        color: $blue-tertiary;
+
+        cursor: pointer;
+      }
+    }
+  }
+
+  .switcher-grid {
+    padding-right: 15px;
+    margin-right: 12px;
+    border-right: 1px solid $grey-light;
+  }
+
+  .wmicon-list:before {
+    content: "\e002";
+  }
+}

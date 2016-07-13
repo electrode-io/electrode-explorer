@@ -127,7 +127,7 @@ class GlobalLefthandNavMobile extends Component {
   }
 
   _getEntryClassName(depth: number, index: ?number, selected: ?number): string {
-    return classNames(ENTRY_CLASS_NAME, {
+    return classNames(depth === 1 ? null : ENTRY_CLASS_NAME, {
       [`${MAIN_CLASS_NAME}-superDept`]: depth === 0,
       [`${MAIN_CLASS_NAME}-dept`]: depth === 1,
       "is-selected": index !== null && index === selected
@@ -157,11 +157,11 @@ class GlobalLefthandNavMobile extends Component {
   }
 
   _setDept(index: number): void {
-    if (this.state.dept === null) {
-      this.setState({
-        dept: index
-      });
-    }
+
+    this.setState({
+      dept: index
+    });
+
   }
 
   _clearDepts(): void {
@@ -180,11 +180,12 @@ class GlobalLefthandNavMobile extends Component {
 
   _renderLink(link: Object, { depth, shopAll, index }, prefix: string): ReactElement {
     const {uid, title, linkText, clickThrough: {value}} = link;
-    const text = shopAll ? `Shop all ${linkText}` : linkText;
+    const text = linkText;
     return (
       <Link
         key={index}
-        className={this._getEntryClassName(depth, null, null)}
+        className={depth === 2 ? "header-GlobalLefthandNavMobile-dept-2" :
+                    this._getEntryClassName(depth, null, null)}
         data-uid={uid}
         alt={title}
         href={value}
@@ -231,7 +232,7 @@ class GlobalLefthandNavMobile extends Component {
               onClick={this._setDept.bind(this, index)}
               className={this._getEntryClassName(1, index, selected)}
               {...getDataAutomationIdPair(index, prefix)}>
-              {department.linkText}<Icon className="pull-right" name="angle-right" />
+              {department.linkText}<Icon className="downward-arrow" name="angle-right" />
             </Button>
             <div className={`${MAIN_CLASS_NAME}-menu`}>
               {this._renderLink(department, {depth: 2, shopAll: true, index: 0},

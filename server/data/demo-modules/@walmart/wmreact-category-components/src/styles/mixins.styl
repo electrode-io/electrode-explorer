@@ -1,0 +1,31 @@
+multiline-ellipsify($max-height) {
+  &:before {
+    content: "";
+
+    float: left;
+    width: 5px;
+    height: $max-height;
+  }
+
+  & > *:first-child {
+    float: right;
+    width: 100%;
+    margin-left: -5px;
+  }
+
+  &:after {
+    content: "...";
+    position: relative;
+    top: -1.0em;
+    left: 100%;
+
+    float: right;
+    width: 3em;
+    margin-left: -3em;
+    padding-right: 5px;
+    box-sizing: content-box;
+
+    background: $white;
+    text-align: center;
+  }
+}

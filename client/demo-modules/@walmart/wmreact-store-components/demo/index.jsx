@@ -9,6 +9,8 @@ import StoreHeaderExample1 from "raw!./examples/store-header-1.example";
 import StoreHeaderExample2 from "raw!./examples/store-header-2.example";
 import StoreHeaderExample3 from "raw!./examples/store-header-3.example";
 import StoreHeaderExample4 from "raw!./examples/store-header-4.example";
+import StoreHeaderExample5 from "raw!./examples/store-header-5.example";
+import CouponsIframeWrapperExample1 from "raw!./examples/coupons-iframe-wrapper-1.example";
 
 export default class Index extends React.Component {
   render() {
@@ -54,6 +56,21 @@ Index.Components = [
       {
         type: "playground",
         code: StoreHeaderExample4,
+        noRender: true
+      },
+      {
+        type: "playground",
+        code: StoreHeaderExample5,
+        noRender: true
+      }
+    ]
+  },
+  {
+    "name": "Coupons iframe Wrapper",
+    examples: [
+      {
+        type: "playground",
+        code: CouponsIframeWrapperExample1,
         noRender: true
       }
     ]

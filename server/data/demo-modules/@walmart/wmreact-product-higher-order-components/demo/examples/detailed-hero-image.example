@@ -1,0 +1,10 @@
+ <div>
+   <DetailedHeroImage
+     title="Here Is A Collection Item"
+     description={`It is pretty cool and even describes itself
+      <div>It can even take HTML</div>`}
+     imageWidth={450}
+     imageHeight={450}
+     imageUrl="http://ll-us-i5.wal.co/dfw/dce07b8c-b906/k2-_c08da57a-38a4-43ad-9ba9-fc4bd0bd3e4e.v1.jpg?odnWidth=450&odnHeight=450"
+   />
+ </div>

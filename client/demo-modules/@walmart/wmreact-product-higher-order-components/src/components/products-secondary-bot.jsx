@@ -2,28 +2,38 @@ import React, {PropTypes} from "react";
 
 import {ProductSellerOffer, ProductDelivery, Price} from "@walmart/wmreact-product-offers";
 import {ProductSellerInfo} from "@walmart/wmreact-product-typography";
+import { getDataAutomationIdPair } from "@walmart/automation-utils";
 
+const AUTOMATION_CONTEXT = "ProductSecondaryBOT";
+
+export const _getSellerText = (offerCount) => {
+  return offerCount === 1 ? "seller" : "sellers";
+};
 
 const _renderMarketplaceHeader = (isWM, offerCount, fromPrice) => {
+  let offerDisplayCount = offerCount - 1;
   if (isWM) {
+    offerDisplayCount = offerCount - 2;
     return (
       <div className="marketplace-header">
-        <span>Walmart<i className="wmicon wmicon-16 wmicon-spark xxs-margin-left"
-            /> & </span>
-        {offerCount - 2} other sellers from <Price price={fromPrice} />
+        <span>Walmart<i className="wmicon wmicon-16 wmicon-spark xxs-margin-left"/> & </span>
+        {offerDisplayCount} other {_getSellerText(offerDisplayCount)} from&nbsp;
+        <Price price={fromPrice} />
       </div>
     );
   }
   return (
     <div className="marketplace-header">
-      {offerCount - 1} other sellers from <Price price={fromPrice} />
+      {offerDisplayCount} other {_getSellerText(offerDisplayCount)} from&nbsp;
+      <Price price={fromPrice} />
     </div>
   );
 };
 
-const _renderMarketplaceSeller = (offer, usItemId) => {
+const _renderMarketplaceSeller = (offer, usItemId, idx) => {
   return (
-    <a href={`/product/${usItemId}/sellers`} className="display-block">
+    <a href={`/product/${usItemId}/sellers`} className="display-block"
+      {...getDataAutomationIdPair(idx, AUTOMATION_CONTEXT, process)}>
       <div className="arrange seller-container">
         <div className="arrange-fill">
           <ProductSellerOffer
@@ -71,7 +81,8 @@ const ProductSecondaryBOT = (props) => {
     <div className="secondary-bot-container">
       <div className="secondary-bot">
         {_renderMarketplaceHeader(props.isWMseller, props.offerCount, props.offers[0].price)}
-        {props.offers.map((offer) => _renderMarketplaceSeller(offer, props.usItemId))}
+        {props.offers.map((offer, index) =>
+          _renderMarketplaceSeller(offer, props.usItemId, `MarketplaceSeller${index}`))}
         <a href={`/product/${props.usItemId}/sellers`}
           className="btn btn-inverse btn-block btn-compare"
           >Compare all {props.offerCount} sellers</a>

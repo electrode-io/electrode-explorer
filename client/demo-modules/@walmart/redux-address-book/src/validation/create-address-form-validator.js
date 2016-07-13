@@ -1,5 +1,5 @@
-import {validators} from "@walmart/wmreact-validation";
-import {mapValues} from "lodash";
+import validators from "@walmart/wmreact-validation/lib/validators";
+import mapValues from "lodash/mapValues";
 import {
   firstName,
   lastName,

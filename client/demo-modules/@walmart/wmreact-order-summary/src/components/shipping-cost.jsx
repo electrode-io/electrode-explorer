@@ -23,7 +23,7 @@ class ShippingCost extends React.Component {
 
   render():ReactElement {
     const {
-      flyout, className, showFree, automation, automationIndex
+      flyout, className, showFree, automation, automationIndex, showSurchargeLabel
     } = this.props;
 
     let shippingCostFlyout;
@@ -45,11 +45,18 @@ class ShippingCost extends React.Component {
 
     const automationLabel = `${automation.label}-${automationIndex}`;
     const automationPrice = `${automation.price}-${automationIndex}`;
+    const automationSurcharge = `${automation.surcharge}-${automationIndex}`;
 
     return (
       <div className={componentClassName}>
         <span className="OrderSummary-label" data-automation-id={automationLabel}>
           {this._getLabel()} {shippingCostFlyout}
+          {showSurchargeLabel &&
+            <span className="copy-mini"
+              data-automation-id={automationSurcharge}>
+              {showSurchargeLabel}
+            </span>
+          }
         </span>
         <Price {...this.props} zeroAlt={showFree} automationId={automationPrice} />
       </div>
@@ -60,6 +67,7 @@ class ShippingCost extends React.Component {
 ShippingCost.defaultProps = {
   className: "",
   label: "Shipping",
+  showSurchargeLabel: null,
   price: 0,
   showFree: true,
   noSuffix: false,
@@ -67,7 +75,8 @@ ShippingCost.defaultProps = {
   automationIndex: 0,
   automation: {
     label: "order-summary-shipping-type",
-    price: "order-summary-shipping-price"
+    price: "order-summary-shipping-price",
+    surcharge: "order-summary-shipping-surcharge"
   }
 };
 
@@ -76,6 +85,7 @@ ShippingCost.displayName = "OrderSummary.ShippingCost";
 ShippingCost.propTypes = {
   className: PropTypes.string,
   label: PropTypes.string,
+  showSurchargeLabel: PropTypes.string,
   price: PropTypes.number,
   showFree: PropTypes.bool,
   noSuffix: PropTypes.bool,
@@ -93,7 +103,8 @@ ShippingCost.propTypes = {
   automationIndex: PropTypes.number,
   automation: PropTypes.shape({
     label: PropTypes.string,
-    price: PropTypes.string
+    price: PropTypes.string,
+    surcharge: PropTypes.string
   })
 };
 

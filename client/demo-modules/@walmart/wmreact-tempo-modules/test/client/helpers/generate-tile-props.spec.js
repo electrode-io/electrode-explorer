@@ -13,16 +13,12 @@ import generateTileProps, {
 describe("generateTileProps", () => {
   describe("helper functions", () => {
     describe("_setUidProp", () => {
-      it("should return undefined if no usItemId", () => {
-        expect(_setUidProp({})).to.be.undefined;
+      it("should set uid to empty string if no id", () => {
+        expect(_setUidProp()).to.eq("");
       });
 
-      it("should set uid only from usItemId if no moduleId present", () => {
-        expect(_setUidProp({ usItemId: "123" })).to.eq("123");
-      });
-
-      it("should set uid from usItemId and moduleId if present", () => {
-        expect(_setUidProp({ usItemId: "123" }, "456-789")).to.eq("456-789-123");
+      it("should set uid from productId if present", () => {
+        expect(_setUidProp({ productId: "ABC" })).to.eq("ABC");
       });
     });
 

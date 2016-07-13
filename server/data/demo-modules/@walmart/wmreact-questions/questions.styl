@@ -1,0 +1,158 @@
+.qa-sortby {
+  margin: 20px 0px 0px;
+  .chooser {
+    margin-left: 5px;
+  }
+}
+
+.qa-header {
+  +breakpoint($breakpoint-m, "max") {
+    text-align: center;
+  }
+}
+
+.qa-question hr.separator {
+  margin: 0;
+}
+
+.qa-question-column {
+  border-right: 1px dotted #e9e9e9;
+  margin: 26px 0px 24px;
+  min-height: 60px;
+  padding-right: 26px;
+  +breakpoint($breakpoint-m, "max") {
+    padding-right: 0;
+  }
+  h3 {
+    color: #007dc6;
+    font-size: 20px;
+    margin: 0;
+    &:hover {
+      color: #3da1e0;
+    }
+    .wmicon {
+      font-size: 14px;
+      line-height: 20px;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+  }
+}
+
+.qa-data-column {
+  margin: 26px 0px 24px;
+  +breakpoint($breakpoint-m, "max") {
+    margin: 0px 0px 24px;
+    text-align: center;
+  }
+  .btn-fake-link {
+    font-weight: bold;
+  }
+  .muted {
+    color: #888;
+  }
+  .btn-inverse {
+    margin-top: 10px;
+    +breakpoint($breakpoint-m, "max") {
+      display: block;
+      margin: 10px auto 0px;
+    }
+  }
+}
+
+.qa-question-data {
+  margin-top: 3px;
+  padding-right: 18px;
+  +breakpoint($breakpoint-m, "max") {
+    padding-right: 0;
+  }
+  > .copy-small {
+    margin-top: 5px;
+    .answer-user {
+      margin 0px 10px 0px 3px;
+    }
+  }
+}
+
+.qa-answers {
+  margin-top: 15px;
+  border: 3px solid #9ed6fa;
+  border-radius: 3px;
+  position: relative;
+  &:before {
+    z-index: 1;
+    content: "";
+    position: absolute;
+    top: -30px;
+    left: 40px;
+    width: 0;
+    height: 0;
+    border: 15px solid transparent;
+    border-bottom-color: #9ed6fa;
+  }
+  &:after {
+    z-index: 1;
+    content: "";
+    position: absolute;
+    top: -26px;
+    left: 40px;
+    width: 0;
+    height: 0;
+    border: 15px solid transparent;
+    border-bottom-color: #fff;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    list-style-type: none;
+    padding: 20px 25px;
+    border-top: 1px dashed #9ed6fa;
+    margin: 0;
+    +breakpoint($breakpoint-m, "max") {
+      .customer-review-voting {
+        margin-top: 10px;
+        .btn-vote-section .btn-vote {
+          margin-left: -5px;
+        }
+        .btn-vote-section {
+          margin-right: 15px;
+        }
+        .btn-vote-heading {
+          display: block;
+          margin-bottom: 10px;
+        }
+      }
+      .customer-review-report-btn {
+        float: none;
+        clear: left;
+        display: block;
+        margin-top: 10px;
+      }
+    }
+    &:first-child {
+      border-top: 0;
+    }
+    p:first-child {
+      margin-top: 0;
+    }
+    > .copy-small {
+      margin-top: 0px;
+      .answer-user {
+        margin 0px 10px 0px 3px;
+      }
+    }
+  }
+}
+
+.qa-list-footer {
+  padding-top: 20px;
+  .copy-mini {
+    line-height: 28px;
+  }
+  +breakpoint($breakpoint-m, "max") {
+    text-align: center;
+    padding-top: 20px;
+  }
+}

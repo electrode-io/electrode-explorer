@@ -1,4 +1,4 @@
-/* global document setTimeout */
+/* global document setTimeout setInterval */
 
 import React from "react";
 import classNames from "classnames";
@@ -23,10 +23,14 @@ export default class Iframe extends React.Component {
     this.setIFrameContent(iframeDoc);
 
     const images = iframeDoc.body.getElementsByTagName("img");
+    const resizeRate = this.props.resizeRate;
 
     this.loadImages(images).then(() => {
       // update height
-      iframe.childNodes[0].style.height = `${iframeDoc.body.offsetHeight}px`;
+      const updateHeight = () => {
+        iframe.childNodes[0].style.height = `${iframeDoc.body.offsetHeight}px`;
+      };
+      setInterval(updateHeight, resizeRate);
 
       /**
        * Typekit doesn't support iframes without a src, so we have to inject
@@ -49,6 +53,8 @@ export default class Iframe extends React.Component {
   }
 
   setIFrameContent(iframeDoc) {
+    const script = this.getScript(this.props.script);
+
     let htmlData = `
       <!DOCTYPE html>
       <!--[if lt IE 7]> <html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7 main-html-body">
@@ -59,6 +65,7 @@ export default class Iframe extends React.Component {
       <!--[if gt IE 9]><!--> <html class="no-js main-html-body"> <!--<![endif]-->
       </html>
       ${this.props.markup}
+      ${script || ""}
     `;
 
     if (this.isNativeIframe) {
@@ -101,6 +108,12 @@ export default class Iframe extends React.Component {
     });
 
     return ret;
+  }
+
+  getScript(script) {
+    return script.toLowerCase().indexOf("http") === 0 ?
+      `<script type="text/javascript" src=\"${script}\"/>` :
+      `<script type="text/javascript">${script}</script>`;
   }
 
   loadImages(images) {
@@ -166,5 +179,17 @@ Iframe.propTypes = {
   markup: React.PropTypes.string,
   css: React.PropTypes.string,
   moduleId: React.PropTypes.string,
-  moduleType: React.PropTypes.string
+  moduleType: React.PropTypes.string,
+  script: React.PropTypes.string,
+  resizeRate: React.PropTypes.number
+};
+
+Iframe.defaultProps = {
+  iframeId: "",
+  markup: "",
+  css: "",
+  moduleId: "",
+  moduleType: "",
+  script: "",
+  resizeRate: 500
 };

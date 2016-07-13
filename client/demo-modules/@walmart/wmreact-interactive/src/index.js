@@ -7,3 +7,5 @@ export { default as Zoom } from "./components/zoom";
 
 import "./components/zoom-out";
 import "./components/tabber-simple";
+import "./components/tabber-vert";
+

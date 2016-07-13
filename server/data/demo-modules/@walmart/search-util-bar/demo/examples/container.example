@@ -1,0 +1,9 @@
+<SearchUtilBar
+  brandChoices={brandChoices}
+  sortOptions={sortOptions}
+  onChangePrice={(range)=> {console.log(range)}}
+  onChangeBrand={(updatedChoice, i, newChoices)=>{console.log(updatedChoice.label, ":", updatedChoice.checked, "chioces:", newChoices)}}
+  onFetchStores={(location)=>{console.log(location)}}
+  onChangeSort={(currentValue, previousValue)=> {console.log("currentValue: ", currentValue, ",  previousValue:", previousValue)}}
+  onChangeSwitcher={(showGrid)=> {console.log(showGrid)}}
+/>

@@ -1,0 +1,8 @@
+<RadioTile groupName="demo">
+  <RadioTile.tile rounded={true} groupName="demo">
+    Tile 1
+  </RadioTile.tile>
+  <RadioTile.tile rounded={true} groupName="demo">
+    Tile 2
+  </RadioTile.tile>
+</RadioTile>

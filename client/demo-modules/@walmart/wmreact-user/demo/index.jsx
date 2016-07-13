@@ -1,5 +1,5 @@
 import React from "react";
-import {SignIn, SignUp, ForgotPassword, ResetPassword} from "../src/index";
+import {SignIn, SignUp, ForgotPassword, ResetPassword} from "src/index";
 import Playground from "component-playground";
 import {IntlProvider} from "react-intl";
 

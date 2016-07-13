@@ -1,10 +1,11 @@
 /* @flow */
-import React, { PropTypes } from "react";
+import React, { PropTypes, Component } from "react";
+import classNames from "classnames";
+
 import Link from "@walmart/wmreact-base/lib/components/link";
 import Button from "@walmart/wmreact-interactive/lib/components/button";
 import Flyout from "@walmart/wmreact-containers/lib/components/flyout";
 import { getDataAutomationIdPair } from "@walmart/automation-utils/lib/utils/automation-id-utils";
-import classNames from "classnames";
 import CollectorContext from "@walmart/wmreact-analytics/lib/backplane/collector-context";
 
 /**
@@ -23,27 +24,18 @@ moduleData is too long please check examples
 ```
 */
 
-const GlobalAccountFlyout = (props: Object): ReactElement => {
-  const {
-    moduleData: {
-      type,
-      moduleId,
-      configs: {
-        loggedIn,
-        loggedOut
-      }
-    },
-    customerName,
-    dataAutomationId
-  } = props;
+class GlobalAccountFlyout extends Component {
+  constructor(props) {
+    super(props);
+  }
 
-  const _getClassNames = (className: string, dropdown: boolean): string => {
+  _getClassNames(className: string, dropdown: boolean): string {
     return classNames("header-GlobalAccountFlyout-link", className, {
       "dropdown-link": dropdown
     });
-  };
+  }
 
-  const _renderInstructionalText = (text: string): ReactElement => {
+  _renderInstructionalText(text: string): ReactElement {
     if (text) {
       return (
         <span className="header-GlobalAccountFlyout-instructional display-block">
@@ -51,10 +43,13 @@ const GlobalAccountFlyout = (props: Object): ReactElement => {
         </span>
       );
     }
-  };
+  }
 
-  const _renderLink = (
-    {menu, instructionalText, dropdown}, id: string, className: string): ReactElement => {
+  _renderLink(// eslint-disable-line max-params
+    { menu, instructionalText, dropdown },
+    id: string,
+    className: string,
+    dataAutomationId: string): ReactElement {// eslint-disable-line max-params
     const {
       uid,
       title,
@@ -64,7 +59,7 @@ const GlobalAccountFlyout = (props: Object): ReactElement => {
     return (
       <div>
         <Link
-          className={_getClassNames(className, dropdown)}
+          className={this._getClassNames(className, dropdown)}
           data-uid={uid}
           href={value}
           alt={title}
@@ -72,12 +67,12 @@ const GlobalAccountFlyout = (props: Object): ReactElement => {
           {...getDataAutomationIdPair(id, dataAutomationId)}>
           {linkText}
         </Link>
-        {_renderInstructionalText(instructionalText)}
+        {this._renderInstructionalText(instructionalText)}
       </div>
     );
-  };
+  }
 
-  const _renderButton = (linkText: string, id: string): ReactElement => {
+  _renderButton(linkText: string, id: string, dataAutomationId: string): ReactElement {
     return (
       <Button
         className="header-GlobalAccountFlyout-flyout-link dropdown-link font-bold display-block"
@@ -87,9 +82,9 @@ const GlobalAccountFlyout = (props: Object): ReactElement => {
         {linkText}
       </Button>
     );
-  };
+  }
 
-  const _renderFlyoutLink = (linkDetails: Object, index: number): ReactElement => {
+  _renderFlyoutLink(linkDetails: Object, index: number, dataAutomationId: string): ReactElement {
     const linkId = `flyout-link-${index}`;
     const {
       menu,
@@ -98,34 +93,49 @@ const GlobalAccountFlyout = (props: Object): ReactElement => {
     const linkClass = "display-block";
     return (
       <li className="header-GlobalAccountFlyout-flyout-listItem font-normal" key={index}>
-        {_renderLink({menu, instructionalText, dropdown: false}, linkId, linkClass)}
+        {this._renderLink({menu, instructionalText, dropdown: false}, linkId, linkClass,
+          dataAutomationId)}
       </li>
     );
-  };
+  }
 
-  const _renderFlyoutWithLink = (
-    flyoutLink: Object, links: Array<Object>, infoLink: Object): ReactElement => {
+  _renderFlyoutWithLink(// eslint-disable-line max-params
+    flyoutLink: Object, links, {customerName, dataAutomationId}, infoLink: Object): ReactElement {
     const linkId = "link";
     const infoLinkId = "customerInfo-link";
     const infoLinkClass = "header-GlobalAccountFlyout-name display-block";
     const { linkText } = flyoutLink;
+
     return (
       <div>
-        {_renderLink({menu: infoLink, dropdown: false}, infoLinkId, infoLinkClass)}
+        {this._renderLink({menu: infoLink, dropdown: false}, infoLinkId, infoLinkClass,
+          dataAutomationId)}
         <Flyout className="header-GlobalAccountFlyout-flyout display-block"
           direction="bottom"
           size="fluid"
           hover
-          trigger={_renderButton(linkText, linkId)}>
+          trigger={this._renderButton(linkText, linkId, dataAutomationId)}>
           <ul className="header-GlobalAccountFlyout-flyout-list block-list no-margin">
-            {links.map((linkDetails, index) => _renderFlyoutLink(linkDetails, index))}
+            {links.map((linkDetails, index) => this._renderFlyoutLink(linkDetails, index,
+              dataAutomationId))}
           </ul>
         </Flyout>
       </div>
     );
-  };
+  }
 
-  const _renderCustomerStatus = (): ReactElement => {
+  _renderCustomerStatus(props): ReactElement {
+    const {
+      moduleData: {
+        configs: {
+          loggedIn,
+          loggedOut
+        }
+      },
+      customerName,
+      dataAutomationId
+    } = props;
+
     const accountKeyword = "Hello";
     const accountUrl = "/account";
     const flyoutLink = {
@@ -136,26 +146,39 @@ const GlobalAccountFlyout = (props: Object): ReactElement => {
       "clickThrough": { "value": accountUrl },
       "linkText": `${accountKeyword}. Sign In`
     };
+
     if (customerName) {
       customerInfoLink.linkText = `${accountKeyword}, ${customerName}`;
-      return _renderFlyoutWithLink(flyoutLink, loggedIn, customerInfoLink);
+      return this._renderFlyoutWithLink(flyoutLink, loggedIn,
+        {customerName, dataAutomationId}, customerInfoLink);
     } else {
-      return _renderFlyoutWithLink(flyoutLink, loggedOut, customerInfoLink);
+      return this._renderFlyoutWithLink(flyoutLink, loggedOut,
+        {customerName, dataAutomationId}, customerInfoLink);
     }
-  };
+  }
 
-  return (
-    <CollectorContext moduleId={moduleId}>
-      <div
-        className="header-GlobalAccountFlyout font-semibold text-right"
-        data-module={type}
-        data-module-id={moduleId}
-        {...getDataAutomationIdPair(dataAutomationId, "")}>
-        {_renderCustomerStatus()}
-      </div>
-    </CollectorContext>
-  );
-};
+  render() {
+    const {
+      moduleData: {
+        type,
+        moduleId
+      },
+      dataAutomationId
+    } = this.props;
+
+    return (
+      <CollectorContext moduleId={moduleId}>
+        <div
+          className="header-GlobalAccountFlyout font-semibold text-right"
+          data-module={type}
+          data-module-id={moduleId}
+          {...getDataAutomationIdPair(dataAutomationId, "")}>
+          {this._renderCustomerStatus(this.props)}
+        </div>
+      </CollectorContext>
+    );
+  }
+}
 
 GlobalAccountFlyout.displayName = "GlobalAccountFlyout";
 

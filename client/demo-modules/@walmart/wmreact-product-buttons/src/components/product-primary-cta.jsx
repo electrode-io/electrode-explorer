@@ -19,6 +19,8 @@ import SubmapAddToCartButton from "./add-to-cart-with-submap-checkout";
 import ProductCTAOutOfStock from "./product-cta-out-of-stock";
 import PreorderFlyoutContent from "./preorder-flyout-content";
 import LegalPromptProptype from "./legal-prompt-proptype";
+import CellCoverageFinderCTA from "./add-to-cart-with-cell-coverage-finder";
+import CellCoverageFinderPropTypes from "./cell-coverage-finder-proptypes";
 import clientWidth from "@walmart/wmreact-layout/lib/components/helpers/client-width";
 import { canUseDOM } from "exenv";
 const AUTOMATION_CONTEXT = "ProductPrimaryCTA";
@@ -161,6 +163,8 @@ class ProductPrimaryCTA extends React.Component {
     actionStatus,
     autoId,
     legalPromptProps,
+    cellCoverageFinder,
+    cellCoverageFinderProps,
     isSubmapCheckout,
     submapProps
   }): ReactElement {
@@ -174,6 +178,15 @@ class ProductPrimaryCTA extends React.Component {
       onCloseAddedToCartFlyout,
       autoId: dataAutoId
     };
+
+    if (cellCoverageFinder) {
+      return (
+        <CellCoverageFinderCTA
+          addToCartProps={addToCartProps}
+          {...cellCoverageFinderProps}/>
+        );
+    }
+
     const addToCartButton = isSubmapCheckout ?
       <SubmapAddToCartButton
         addToCartProps={addToCartProps}
@@ -362,7 +375,9 @@ ProductPrimaryCTA.propTypes = {
   /**
    submap modal/slide panel props
    */
-  submapProps: React.PropTypes.object
+  submapProps: React.PropTypes.object,
+  cellCoverageFinder: React.PropTypes.bool,
+  cellCoverageFinderProps: React.PropTypes.shape(CellCoverageFinderPropTypes)
 };
 
 ProductPrimaryCTA.defaultProps = {
@@ -383,7 +398,9 @@ ProductPrimaryCTA.defaultProps = {
   autoId: "",
   layoutSizes: [6, 6],
   flyoutDirection: "left",
-  flyoutSize: "wide"
+  flyoutSize: "wide",
+  cellCoverageFinder: false,
+  cellCoverageFinderProps: {}
 };
 
 export default ProductPrimaryCTA;

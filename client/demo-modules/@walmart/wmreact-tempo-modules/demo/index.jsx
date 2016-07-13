@@ -5,6 +5,7 @@ import assign from "object-assign";
 import ministoryData from "../test/client/test-data/ministory-test-data";
 import HomepageSavingCenterData from "../test/client/test-data/homepage-saving-center-test-data";
 import itemCarouselCuratedData from "../test/client/test-data/item-carousel-curated-test-data";
+import itemCarouselCuratedCompareData from "../test/client/test-data/item-carousel-curated-compare-test-data";
 import categoryCarouselCuratedData from "../test/client/test-data/category-carousel-curated-test-data";
 import singleStoryImageMapData from "../test/client/test-data/single-story-image-map-data";
 import multiStoryPOVData from "../test/client/test-data/multi-story-pov-data";
@@ -188,6 +189,17 @@ Index.Components = [
         code: require("raw!./examples/item-carousel-curated.example"),
         noRender: true,
         extraScope: {itemCarouselCuratedData}
+      }
+    ]
+  },
+  {
+    title: "Item Carousel Curated with Compare Prices",
+    examples: [
+      {
+        type: "playground",
+        code: require("raw!./examples/item-carousel-curated-compare.example"),
+        noRender: true,
+        extraScope: {itemCarouselCuratedCompareData}
       }
     ]
   },

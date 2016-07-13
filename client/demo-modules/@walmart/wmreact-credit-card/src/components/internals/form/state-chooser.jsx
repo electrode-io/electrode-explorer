@@ -44,7 +44,6 @@ class StateChooser extends Component {
 
   render() {
     const options = States;
-    const {value} = this.props;
 
     return (
       <div className={classNames({
@@ -63,7 +62,6 @@ class StateChooser extends Component {
             <option
               key={code}
               value={code}
-              selected={code === value}
               data-automation-id={`select-state-option-${index}`}
             >{name}</option>
           )}

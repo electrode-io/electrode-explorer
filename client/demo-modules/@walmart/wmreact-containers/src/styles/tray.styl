@@ -8,6 +8,8 @@ right-aligned fixed position default style for small screen sizes, and a
 screen centered layout for larger screen sizes (similar to current modal)
 Styleguide 8.1.1
 */
+@require "~@walmart/wmreact-layout/src/styles/layout";
+@require "~@walmart/wmreact-interactive/src/styles/button";
 
 .tray-modal {
   wmzindex("modal");
@@ -85,5 +87,12 @@ Styleguide 8.1.1
     top: -14px;
     right: -14px;
     left: auto;
+  }
+}
+.tray-wrapper {
+  .x-small-margin-top {
+    @media(max-width: $breakpoint-s-px - 1) {
+      margin-top: 10px;
+    }
   }
 }

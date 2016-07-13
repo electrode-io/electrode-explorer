@@ -2,6 +2,7 @@
 /* global SyntheticEvent:false */
 
 type BaseFieldProps = {
+  'data-automation-id'?: string;
   // Redux Form properties
   // http://erikras.github.io/redux-form/#/api/props?_k=j5oc9d
   active: boolean;
@@ -26,7 +27,7 @@ type BaseFieldProps = {
 
 export type Props = {
   icon?: any;
-  label?: string;
+  label?: any;
   instructions?: string;
   placeholder?: string;
   defaultValue?: any;

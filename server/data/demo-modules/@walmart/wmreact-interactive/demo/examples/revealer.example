@@ -1,0 +1,19 @@
+<Revealer baseHeight={100}
+          defaultOpen={false}
+          disableClose={true}
+          inverse={false}
+          fakeLink={true}
+          border={true}>
+  <ul>
+    <li>Item one</li>
+    <li>Item two</li>
+    <li>Item three</li>
+    <li>Item four</li>
+    <li>Item five</li>
+    <li>Item six</li>
+    <li>Item seven</li>
+    <li>Item eight</li>
+    <li>Item nine</li>
+    <li>Item ten</li>
+  </ul>
+</Revealer>

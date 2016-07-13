@@ -26,7 +26,9 @@ const DL_WHITELIST = {
   SingleItem: true,
   HighlightedDepartments: true,
   HomepageSavingsCenter: true,
-  MiniStoryStackable: true
+  MiniStoryStackable: true,
+  WMXOMPAdCarousel: true,
+  VerticalItemCarouselCurated: true
 };
 
 export default class ModuleAnalyticsUtils {
@@ -68,23 +70,24 @@ export default class ModuleAnalyticsUtils {
   }
 
   // generate UIDs for links in product carousel to match frontend
-  static _appendProductLinks(
-    products: Array<Object>, moduleId: string, links: Array<Object>): void {
+  static _appendProductLinks(products: Array<Object>, links: Array<Object>): void {
     if (Array.isArray(products)) {
       products.forEach((product) => {
-        const { id: { usItemId, productId }, productName } = product;
-        links.push({
-          uid: `${moduleId}-${usItemId}`,
-          id: productId,
-          title: productName,
-          clickThrough: {}
-        });
+        const { id: { productId }, productName, canAddToCart } = product;
+        if (canAddToCart) {
+          links.push({
+            uid: `${productId}`,
+            id: productId,
+            title: productName,
+            clickThrough: {}
+          });
+        }
       });
     }
   }
 
   // Build links analytics data for module
-  static _buildModuleLinksAnalyticsData(configs: Array<Object>, moduleId: string): Object {
+  static _buildModuleLinksAnalyticsData(configs: Array<Object>): Object {
     const links = [];
     const linkDataArray = [];
     const linkUids = [];
@@ -94,7 +97,7 @@ export default class ModuleAnalyticsUtils {
     this._getLinks(configs, links);
 
     if (products) {
-      this._appendProductLinks(products, moduleId, links);
+      this._appendProductLinks(products, links);
     }
 
     links.forEach((link) => {
@@ -154,7 +157,7 @@ export default class ModuleAnalyticsUtils {
         moduleObject.zn = zoneName;
       }
 
-      const { linkDataArray, linkUids } = this._buildModuleLinksAnalyticsData(configs, moduleId);
+      const { linkDataArray, linkUids } = this._buildModuleLinksAnalyticsData(configs);
 
       // only add DL attribute for whitelisted modules
       if (DL_WHITELIST[type]) {

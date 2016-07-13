@@ -30,7 +30,8 @@ const ProductsFulfillmentMessaging = (props) => {
       </span>
       <i className="prod-fulfillment-messaging-view-details
         align-right arrange-fit arrange-middle paginator-hairline-btn
-        paginator-hairline-btn-next hide-content-m"></i>
+        paginator-hairline-btn-next hide-content-m"
+        onClick={props.onClickLaunchModal}></i>
     </div>
   );
 };

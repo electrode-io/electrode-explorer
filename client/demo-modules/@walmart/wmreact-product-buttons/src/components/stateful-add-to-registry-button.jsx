@@ -2,26 +2,28 @@
 import React, { PropTypes, Component } from "react";
 import StatelessAddToRegistryButton from "./add-to-registry-button";
 import { connect } from "react-redux";
-import ExecutionEnvironment from "exenv";
+import get from "lodash/get";
+import { canUseDOM } from "exenv";
 import actions from "../actions/add-to-registry";
 const {
   getSignInStatus,
   onAddToRegistryClicked,
-  onRegistryPromptClose,
-  addToRegistry
+  onRegistryPromptClose
 } = actions;
 
 class StatefulAddToRegistryButton extends Component {
   constructor(props: Object): void {
     super(props);
-    if (ExecutionEnvironment.canUseDOM) {
+    if (canUseDOM) {
       props.onBootstrap(props);
     }
   }
   render() {
-    const {onClick, onListItemSelected, ...rest} = this.props;
+    const {onClick, onListItemSelected, serviceResponse, ...rest} = this.props;
+    const listType = serviceResponse && serviceResponse.listType;
     return (<StatelessAddToRegistryButton
       onClick={() => onClick(this.props)}
+      listType={listType}
       onListItemSelected={(type) => onListItemSelected(this.props, type)}
       {...rest}/>);
   }
@@ -99,17 +101,43 @@ StatefulAddToRegistryButton.propTypes = {
   /**
   This is used to trigger click event automatically
   */
-  triggerClick: PropTypes.bool
+  triggerClick: PropTypes.bool,
+  /**
+  Service response after successful add to registry
+  */
+  serviceResponse: PropTypes.object
 };
 
 export const mapStateToProps = (state) => {
-  return {...state};
+  const {
+    addToRegistry
+  } = state;
+  const selectedProductId = get(state, "product.selected.product", "");
+  const offerId = get(state, `product.products[${selectedProductId}].offers[0]`);
+  const offer = get(state, `product.offers[${offerId}]`, {});
+  const quantity = get(offer, "quantity", 1);
+  const price = get(offer, "pricesInfo.priceMap.CURRENT");
+  const {
+    isSignedIn,
+    status,
+    lists,
+    serviceResponse
+  } = addToRegistry;
+  return {
+    isSignedIn,
+    status,
+    offerId,
+    price,
+    quantity,
+    listItems: lists,
+    serviceResponse
+  };
 };
 
 export const mapDispatchToProps = (dispatch) => {
   return {
     onBootstrap: (props) => {
-      dispatch(getSignInStatus(props));
+      dispatch(getSignInStatus());
       if (props.triggerClick) {
         dispatch(onAddToRegistryClicked(props));
       }
@@ -117,14 +145,15 @@ export const mapDispatchToProps = (dispatch) => {
     onClick: (props) => {
       if (!props.isSignedIn) {
         window.location.href = props.signInUrl;
+      } else {
+        dispatch(onAddToRegistryClicked(props));
       }
-      dispatch(onAddToRegistryClicked(props));
     },
     onPromptClose: () => {
       dispatch(onRegistryPromptClose());
     },
     onListItemSelected: (props, type) => {
-      addToRegistry(props, type);
+      actions.addToRegistry({ type, ...props }, dispatch);
     }
   };
 };

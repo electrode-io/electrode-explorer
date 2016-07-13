@@ -1,4 +1,9 @@
-/* @flow */
+/**
+ * @flow
+ **/
+
+/*eslint react/prop-types: 0*/
+
 import type {Props} from "../types";
 
 import React, {Component, PropTypes} from "react";
@@ -75,7 +80,13 @@ class Field extends Component {
             />
             {icon && <span className="form-control-faux-shadow" />}
           </div>
-          {hasError && <p className="error-label">{props.error}</p>}
+          {hasError && (
+            <p
+              className="error-label"
+              data-automation-id={`${this.props["data-automation-id"] || "field"}-error`}>
+              {props.error}
+            </p>
+          )}
         </div>
       </label>
     );

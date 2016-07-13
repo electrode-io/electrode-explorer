@@ -1,0 +1,17 @@
+<div>
+  <Fixie>
+    <p>Fixed when you scroll past</p>
+  </Fixie>
+
+  <Fixie fixedAtBottom={true}>
+    <p>Fixed when you scroll past the bottom</p>
+  </Fixie>
+
+  <Fixie fixedContent={<div>Different content when fixed</div>}>
+    <p>Content when not fixed</p>
+  </Fixie>
+
+  <Fixie cssMode={true}>
+    <p style={{ margin: 0, textAlign: "right" }}>Content fixed with CSS mode</p>
+  </Fixie>
+</div>

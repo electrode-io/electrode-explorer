@@ -94,6 +94,7 @@ class ForgotEmail extends React.Component {
           field={membershipNumber}
           label={"membership number"}
           placeholder={"Membership number"}
+          showErrorOnTop={true}
           automationId={automation.membershipNumberInput}
           tealeafId={tealeaf.membershipNumberInput}>
           <a href="#" onClick={this._toggle.bind(this)} className="icon-tool-tip">
@@ -108,6 +109,7 @@ class ForgotEmail extends React.Component {
           field={lastName}
           label={"Last Name"}
           placeholder={"Last name"}
+          showErrorOnTop={true}
           automationId={automation.lastNameInput}
           tealeafId={tealeaf.lastNameInput}
         />

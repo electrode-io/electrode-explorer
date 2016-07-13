@@ -1,0 +1,26 @@
+<div>
+  <h2>Example with pickup</h2>
+  <ProductsFulfillmentTable
+    type={"PICKUP"}
+    data={[
+      {storeName: "Union City", distance: "12 mi.", storeAddress: "30600 Dyer St", date: "Today"},
+      {storeName: "San Leandro", distance: "12 mi.", storeAddress: "15555 Hesperian Blvd", date: "Today"},
+      {storeName: "San Leandro", distance: "12 mi.", storeAddress: "1919 Davis St", date: "Today"}
+    ]}
+  />
+  <h2>Example with Shipping</h2>
+  <ProductsFulfillmentTable
+    type={"SHIPPING"}
+    data={[
+      {shipMethod: "SHIPPING_PASS", date: "Tue, Jun 28", cost: "Free"},
+      {shipMethod: "Rush", date: "Wed, Jun 29", cost: "$15.93"},
+      {shipMethod: "Value", date: "Wed, Jul 6", cost: "Free"},
+      {shipMethod: "Standard", date: "Thu, Jun 30", cost: "$4.97"}
+    ]}
+    isShippingPassAvailable={true}
+    isTargetedUser={false}
+    isSubscribedUser={true}
+    byDate={"Wed, Jul 6"}
+    learnMoreUrl={"http://www.walmart.com/cp/3472216"}
+  />
+</div>

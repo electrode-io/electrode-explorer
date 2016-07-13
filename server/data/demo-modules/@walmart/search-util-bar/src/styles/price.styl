@@ -1,0 +1,67 @@
+@require "~@walmart/wmreact-containers/src/styles/flyout";
+@require "~@walmart/wmreact-interactive/src/styles/button";
+
+$red = #f42121;
+$blue = #007dc6;
+$blue-hover = #3da1e0;
+
+.desktop-bar-price {
+  float: left;
+  width: auto;
+  height: auto;
+  margin: 0;
+
+  & > * {
+    float: left;
+    margin-right: 5px;
+  }
+
+  label, span {
+    line-height: 28px;
+  }
+
+  .form-inline {
+    .form-control-mini {
+      width: 56px;
+      height: 30px;
+      margin: 0 5px;
+      line-height: 30px;
+
+      &.error-alert {
+        border-color: $red;
+      }
+    }
+
+    .price-refine-btn {
+      height: 30px;
+      margin-left: 0;
+      padding: 0 20px;
+
+      font-size: 1.125rem;
+      line-height: 30px;
+    }
+  }
+
+  .clear-range-btn {
+    margin-top: 5px;
+
+    font-size: 14px;
+
+    color: $blue;
+
+    &:hover {
+      color: $blue-hover;
+      cursor: pointer;
+    }
+  }
+
+  .error-message {
+    margin: 10px 0 0;
+    display: block;
+
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+    color: $red;
+  }
+}

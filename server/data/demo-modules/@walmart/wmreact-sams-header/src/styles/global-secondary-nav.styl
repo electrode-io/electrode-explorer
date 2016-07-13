@@ -1,0 +1,15 @@
+.header-Header {
+  .header-GlobalSecondaryNav {
+    display: inline;
+    vertical-align: middle;
+
+    // Fix layout thrashing due to FOUT when
+    // webfonts are loading.
+    a {
+      .wf-loading & {
+        to-rem(font-size, 15px);
+        letter-spacing: -.2px;
+      }
+    }
+  }
+}

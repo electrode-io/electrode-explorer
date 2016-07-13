@@ -1,0 +1,15 @@
+<ProductVariantDropdown
+  onVariantClick={(ev)=>{console.log(ev)}}
+  variantOptions={[{
+    id: "color_blue",
+    name: "Blue",
+    status: "in stock"
+  }, {
+    id: "color_red",
+    name: "Red",
+    status: "out of stock"
+  }, {
+    id: "color_green",
+    name: "Green",
+    status: "not available"
+}]}/>

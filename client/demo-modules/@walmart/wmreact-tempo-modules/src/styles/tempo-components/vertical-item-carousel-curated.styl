@@ -2,8 +2,6 @@
 @require "../helper-components/tempo-tile-carousel";
 @require "../helper-components/tempo-tile-vertical-carousel";
 
-$vertical-carousel-decorator-height = 48px;
-
 .VerticalItemCarouselCurated {
   height: 100%;
 
@@ -12,18 +10,12 @@ $vertical-carousel-decorator-height = 48px;
   &.TempoTileCarousel--vertical {
     .slider-decorator-0,
     .slider-decorator-1 {
-
-
       .paginator-hairline-btn {
         border-left: solid 1px $grey-very-light;
         border-right: @border-left;
 
         background-color: $white;
       }
-    }
-
-    .slider-decorator-0 {
-      top: -50px !important;
     }
   }
 

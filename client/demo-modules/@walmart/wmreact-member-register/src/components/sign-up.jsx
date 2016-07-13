@@ -137,6 +137,7 @@ const SignUpForm = React.createClass({
           label={"Email address"}
           showLabel={this.props.showLabels}
           placeholder={"Email address"}
+          showErrorOnTop={true}
           automationId={automation.emailInput}
           tealeafId={tealeaf.emailInput}
           value={this.state.value}
@@ -153,6 +154,7 @@ const SignUpForm = React.createClass({
         autoComplete="new-password"
         label={"Password"}
         placeholder={"Password"}
+        showErrorOnTop={true}
         automationId={automation.passwordInput}
         showAutomationId={automation.passwordShowBtn}
         hideAutomationId={automation.passwordHideBtn}
@@ -241,7 +243,7 @@ const SignUpForm = React.createClass({
 
           <div className="password-reminder-text">{passwordText}</div>
 
-          {this.renderNewsletter()}
+          <div className="signup-newsletter">{this.renderNewsletter()}</div>
 
           <Field field={membershipNum} value={membershipId} type="hidden"/>
 

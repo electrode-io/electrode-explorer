@@ -44,12 +44,39 @@ const ALERT_FAILED_TEXT = "There was a problem submitting your email address. Pl
 
 class InStockAlertForm extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = { email: null };
-  }
+  static defaultProps = {
+    actionStatus: CTA_INITIALIZED,
+    className: "",
+    onNotifyBackInStock: () => {},
+    autoId: ""
+  };
 
-  _onBlur(e: Object): void { this.setState({ email: e.target.value }) }
+  static propTypes = {
+    /**
+     Any additional style classes.
+     */
+    className: PropTypes.string,
+    /**
+     Email submit callback handler.
+     */
+    onNotifyBackInStock: PropTypes.func,
+    /**
+    Used for generating unique automation id's
+    */
+    autoId: PropTypes.string,
+    /**
+     The status of the action resulting from clicking the CTA
+     */
+    actionStatus: PropTypes.oneOf([
+      CTA_INITIALIZED,
+      IN_PROGRESS,
+      IN_STOCK_ALERT_SENT,
+      IN_STOCK_ALERT_ERROR])
+  };
+
+  state = { email: null };
+
+  _onBlur = (e: Object): void => this.setState({ email: e.target.value });
 
   _isAValidEmail(email: string): boolean {
     return emailValidator.validate(email || "");
@@ -161,35 +188,5 @@ class InStockAlertForm extends Component {
     );
   }
 }
-
-InStockAlertForm.defaultProps = {
-  actionStatus: CTA_INITIALIZED,
-  className: "",
-  onNotifyBackInStock: () => {},
-  autoId: ""
-};
-
-InStockAlertForm.propTypes = {
-  /**
-   Any additional style classes.
-   */
-  className: PropTypes.string,
-  /**
-   Email submit callback handler.
-   */
-  onNotifyBackInStock: PropTypes.func,
-  /**
-  Used for generating unique automation id's
-  */
-  autoId: PropTypes.string,
-  /**
-   The status of the action resulting from clicking the CTA
-   */
-  actionStatus: PropTypes.oneOf([
-    CTA_INITIALIZED,
-    IN_PROGRESS,
-    IN_STOCK_ALERT_SENT,
-    IN_STOCK_ALERT_ERROR])
-};
 
 export default InStockAlertForm;

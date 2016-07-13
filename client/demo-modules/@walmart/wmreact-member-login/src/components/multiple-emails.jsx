@@ -1,7 +1,9 @@
-import React, { PropTypes} from "react";
+import React, { PropTypes } from "react";
 import Button from "@walmart/wmreact-interactive/lib/components/button";
-import RadioGroup from "@walmart/wmreact-forms/lib/components/radio-group";
-import RadioButton from "@walmart/wmreact-forms/lib/components/radio-button";
+import { CAPTCHA_STATES } from "@walmart/wmreact-user/lib/components/captcha";
+import authConfig from "../config";
+import Alert from "@walmart/wmreact-forms/lib/components/alert";
+import isEmpty from "lodash/isEmpty";
 /**
   Usage:
   <MultipleEmails
@@ -14,54 +16,155 @@ import RadioButton from "@walmart/wmreact-forms/lib/components/radio-button";
   />
 **/
 class MultipleEmails extends React.Component {
-  render() {
-    const { greeting,
-        subject,
-        emailAddress,
-        buttonMessage,
-        emailFooter,
-        tealeaf,
-        automation,
-        submitting} = this.props;
-    const renderEmails = emailAddress.map((email) => {
+
+  componentWillMount() {
+    const {initializeForm} = this.props;
+    initializeForm({
+      email: this.props.emailAddress[0]
+    });
+  }
+
+  componentDidUpdate(prevProps) {
+    return this.props.captchaAvailable && prevProps.captchaAvailable === undefined
+      && this._handleSubmit();
+  }
+
+  _renderAlertOrHeader() {
+    const {
+      error = {},
+      compromisedErr = {},
+      captcha = {},
+      userFirstName,
+      subject
+    } = this.props;
+    const {
+      alertType,
+      message
+    } = !isEmpty(error) ? error : {};
+    const {
+      alertType: compromisedAlertType,
+      message: compromisedMessage
+    } = !isEmpty(compromisedErr) ? compromisedErr : {};
+
+    const {isBot} = captcha;
+    const {CF_IS_BOT, IS_BOT_RESOLVED} = CAPTCHA_STATES;
+    const showForm = !(isBot === CF_IS_BOT || isBot === IS_BOT_RESOLVED);
+
+    return (
+      <div>
+        {showForm && (!isEmpty(error) || !isEmpty(compromisedErr)) &&
+          <Alert
+            message={message || compromisedMessage}
+            alertType={alertType || compromisedAlertType}
+            isBlock/>
+        }
+        <label className="email-greeting">{`Hi ${userFirstName},`}</label>
+        <label className="email-subject">{subject}</label>
+      </div>
+    );
+  }
+
+  _handleSubmit(evt) {
+    authConfig.logger.log("On Submit", {event: "submit", form: "MultipleEmails"});
+    const {
+      handleSubmit,
+      handleResponse,
+      onMultipleEmail
+    } = this.props;
+
+    return handleResponse(handleSubmit(onMultipleEmail)(evt));
+  }
+
+  _renderForm() {
+    const {
+      buttonMessage,
+      tealeaf,
+      automation,
+      fields: {email},
+      emailAddress,
+      submitting
+    } = this.props;
+
+    const renderEmails = emailAddress.map((choice) => {
       return (
-          <RadioButton group="email">{email}</RadioButton>
-        );
+        <label className="radio">
+          <input
+            {...email}
+            type="radio"
+            value={choice}
+            checked={email.value === choice}
+            onChange={email.onChange}/>
+          <div className="radio-content">{choice}</div>
+        </label>
+      );
     });
 
     return (
+      <form
+        onSubmit={(evt) => {
+          if (this.props.submitting) {
+            evt.preventDefault();
+            return false;
+          }
+          return this._handleSubmit(evt);
+        }}
+        method="post"
+      >
+        <div className="email-section">
+          <label className="email-section-header">Select your current email address:</label>
+          {renderEmails}
+        </div>
+        <Button
+          block
+          type="submit"
+          disabled={submitting}
+          spinner={submitting}
+          automationId={automation.submitBtn}
+          tealeafId={tealeaf.submitBtn}
+          >
+          {buttonMessage}
+        </Button>
+      </form>
+    );
+  }
+
+  render() {
+    const {captcha = {}, emailFooter} = this.props;
+    const {isBot} = captcha;
+    const {CF_IS_BOT, IS_BOT_RESOLVED} = CAPTCHA_STATES;
+    const showForm = !(isBot === CF_IS_BOT || isBot === IS_BOT_RESOLVED);
+
+    return (
         <div className="multipleEmails">
-            <label className="email-greeting">{greeting}</label>
-            <label className="email-subject">{subject}</label>
-            <div className="email-section">
-              <label className="email-section-header">Select your current email address:</label>
-              <RadioGroup name="emailId">
-                {renderEmails}
-              </RadioGroup>
-            </div>
-            <Button
-              block
-              type="submit"
-              disabled={submitting}
-              automationId={automation.submitBtn}
-              tealeafId={tealeaf.submitBtn}
-              >
-              {buttonMessage}
-            </Button>
-            <span></span>
-            <label className="email-footer">{emailFooter}</label>
+          {this._renderAlertOrHeader()}
+          {showForm && this._renderForm()}
+          <label className="email-footer">{emailFooter}</label>
         </div>
     );
   }
 
 }
 MultipleEmails.propTypes = {
-  greeting: PropTypes.string.isRequired,
+  userFirstName: PropTypes.string.isRequired,
   subject: PropTypes.string.isRequired,
   buttonMessage: PropTypes.string.isRequired,
+  initializeForm: PropTypes.func.isRequired,
+  error: PropTypes.object,
+  compromisedErr: PropTypes.object,
+  //Captcha
+  captchaAvailable: PropTypes.bool,
+  captcha: PropTypes.shape({
+    isBot: PropTypes.number
+  }),
+  fields: PropTypes.shape({
+    email: PropTypes.object.isRequired
+  }).isRequired,
+  submitting: PropTypes.bool,
+  handleSubmit: PropTypes.func.isRequired,
+  handleResponse: PropTypes.func.isRequired,
+  onMultipleEmail: PropTypes.func.isRequired,
   emailAddress: PropTypes.arrayOf(PropTypes.string),
   automation: PropTypes.object,
-  submitting: PropTypes.bool,
   tealeaf: PropTypes.object,
   emailFooter: PropTypes.string
 };

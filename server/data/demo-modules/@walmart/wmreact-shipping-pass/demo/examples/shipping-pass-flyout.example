@@ -1,0 +1,11 @@
+<ShippingPassFlyout
+  spTrialText="Try unlimited"
+  spNumberOfShipDays="2-day"
+  spFulfillmentText="shipping"
+  spPromotionText="FREE for 60 days"
+  seeDetailsText="See details"
+  signUpText="Sign Up"
+  signUpUrl="http://www.walmart.com/cp/3472216"
+  onClickSeeDetails = {() => {console.log("Some click func")}}
+  showShippingPassFlyout
+/>

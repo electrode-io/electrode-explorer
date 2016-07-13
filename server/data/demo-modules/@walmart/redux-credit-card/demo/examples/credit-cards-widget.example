@@ -1,0 +1,1 @@
+<CreditCardsWidget store={store} fetchInitialData truncated/>

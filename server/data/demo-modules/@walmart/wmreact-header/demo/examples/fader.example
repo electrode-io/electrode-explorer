@@ -1,0 +1,4 @@
+<Fader type="fadeOut" duration={1000}>
+  <div style={{height: 50, width: 50, background: "blue"}}>
+  </div>
+</Fader>

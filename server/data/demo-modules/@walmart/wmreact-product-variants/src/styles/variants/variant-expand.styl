@@ -1,0 +1,44 @@
+.variant-expand {
+  to-rem(font-size, 16px);
+  color: $variant-color.text-expand;
+  // Uses Helvetica for the heavier + and - glyph weight.
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 700;
+
+  &:before {
+    content: "+";
+    position: relative;
+    top: -1px;
+  }
+
+  &,
+  .variants-swatches & {
+    &:hover {
+      border-color: $variant-color.border-active;
+
+      color: $variant-color.border-active;
+    }
+
+    & {
+      border-color: $variant-color.border;
+    }
+
+    &.active {
+      &,
+      &:hover {
+        border-color: $variant-color.border-active;
+
+        background: $variant-color.bg-active;
+        color: $variant-color.text-active;
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+.variant-expand-less {
+  &:before {
+    // En dash character
+    content: "\2013";
+  }
+}

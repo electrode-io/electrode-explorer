@@ -1,0 +1,4 @@
+<Brand
+  choices={choices}
+  onChange={(updatedChoice, i, newChoices)=>{console.log(updatedChoice.label, ":", updatedChoice.checked, "chioces:", newChoices)}}
+/>

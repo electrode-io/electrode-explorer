@@ -1,0 +1,9 @@
+<FulfillmentContainerElements
+  type="SHIPPING"
+  zipCode="94044"
+  onLocationUpdate={ () => console.log("Some Function")}
+   >
+     <div className="s-margin-ends">
+     Fulfillment Options Table Goes Here
+     </div>
+</FulfillmentContainerElements>

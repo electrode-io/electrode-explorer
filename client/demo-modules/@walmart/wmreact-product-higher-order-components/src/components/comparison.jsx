@@ -1,5 +1,6 @@
 import React from "react";
 
+import hideableMixin from "@walmart/wmreact-hideable";
 import MediaSelector from "@walmart/wmreact-layout/lib/components/media-selector";
 
 import SmallSection from "./comparison-small-section";
@@ -22,6 +23,8 @@ Comparison.Large
 */
 const Comparison = React.createClass({
   displayName: "Comparison",
+
+  mixins: [hideableMixin()],
 
   propTypes: {
     /**

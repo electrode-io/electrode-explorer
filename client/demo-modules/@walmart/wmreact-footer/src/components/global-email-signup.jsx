@@ -1,7 +1,8 @@
 /* @flow */
 import React, { PropTypes, Component } from "react";
-import Email from "@walmart/wmreact-forms/lib/components/email";
+import Field from "@walmart/wmreact-stateless-fields/lib/components/field";
 import Button from "@walmart/wmreact-interactive/lib/components/button";
+import { email } from "@walmart/wmreact-validation/lib/validators" ;
 import GlobalFooterItem from "./global-footer-item";
 import GlobalEmailSignupModal from "./global-email-signup-modal";
 import { getDataAutomationIdPair } from "@walmart/automation-utils/lib/utils/automation-id-utils";
@@ -47,6 +48,10 @@ Global Email Signup
 class GlobalEmailSignup extends Component {
   constructor(props: Object): void {
     super(props);
+    this.state = {
+      email: "",
+      showError: false
+    };
     this._handleFormSubmit = this._handleFormSubmit.bind(this);
   }
 
@@ -59,16 +64,16 @@ class GlobalEmailSignup extends Component {
 
   _handleFormSubmit(ev: Object): void {
     ev.preventDefault();
-    const emailInput = this.refs.emailInput;
-    const emailId = emailInput.getValue();
+    const emailId = this.state.email;
     const {
       onEmailSubmitted
     } = this.props;
-
-    if (emailId && emailInput.validate()) {
-      emailInput.clearValue();
+    const isValid = email.validate(emailId);
+    if (emailId && isValid) {
+      this.setState({email: ""});
       onEmailSubmitted(emailId);
     }
+    this.setState({showError: !isValid});
   }
 
   _renderHeader({ campaignId, headerColor, header }): ReactElement {
@@ -103,12 +108,12 @@ class GlobalEmailSignup extends Component {
       <div className="footer-GlobalEmailSignup-form display-inline-block valign-top">
         <form onSubmit={this._handleFormSubmit}
           {...getDataAutomationIdPair(formSuffix, autoId)}>
-          <Email
-            isRequiredField={false}
-            ref="emailInput"
-            showLabel
-            labelText="Enter Email address"
-            placeholderText="Email address"
+          <Field
+            value={this.state.email}
+            placeholder="Email address"
+            shouldDisplayError={() => this.state.showError}
+            error="Please enter a valid email address."
+            onChange={(ev) => this.setState({email: ev.target.value})}
             {...getDataAutomationIdPair(formInputSuffix, autoId)}
           />
           <Button type="submit" primary={true} spinner={loading}

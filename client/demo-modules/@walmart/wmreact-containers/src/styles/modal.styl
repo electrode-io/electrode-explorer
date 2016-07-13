@@ -8,6 +8,8 @@ that the modal stays in place when the page is scrolled.
 .modal-padded - A variant with padding.
 Styleguide 8.1
 */
+@require "~@walmart/wmreact-base/src/styles/base";
+@require "~@walmart/wmreact-interactive/src/styles/button";
 
 $modal-color ?= {
   border: $blue,
@@ -172,4 +174,16 @@ $modal-color ?= {
       position: fixed;
     }
   }
+}
+
+  // modal alert
+.modal-alert .modal-message {
+  margin: 40px 30px 0;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.modal-alert .modal-alert-actions {
+  text-align: right;
+  padding: 1rem;
 }

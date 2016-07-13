@@ -6,7 +6,6 @@ import defaultAddressValidationApi from "../api/address-validation-api";
 import isFunction from "lodash/isFunction";
 import isUndefined from "lodash/isUndefined";
 import {change} from "redux-form";
-import Promise from "bluebird";
 
 export default ({
   addressApi = defaultAddressApi(),

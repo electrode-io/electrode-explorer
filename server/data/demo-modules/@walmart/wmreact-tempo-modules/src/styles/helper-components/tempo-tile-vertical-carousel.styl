@@ -1,0 +1,40 @@
+$vertical-carousel-width = 236px;
+$vertical-carousel-decorator-height = 48px;
+
+.TempoTileCarousel--vertical {
+  width: $vertical-carousel-width;
+
+  .slider-decorator-0,
+  .slider-decorator-1 {
+    height: $vertical-carousel-decorator-height;
+
+    .paginator-hairline-btn {
+      width: $vertical-carousel-width;
+      height: $vertical-carousel-decorator-height;
+
+      background-size: 20%;
+
+      &.paginator-hairline-btn-up {
+        box-shadow:  0 1px 1px 0 rgba(0, 0, 0, 0.15);
+      }
+
+      &.paginator-hairline-btn-down {
+        box-shadow: 0 -1px 1px 0 rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
+
+  .ModuleHeader-heading {
+    height: 24px;
+    overflow: hidden;
+  }
+
+  .ModuleHeader {
+    padding-left: 16px;
+    padding-right: @padding-left;
+  }
+
+  .ModuleHeader-button {
+    display: none !important;
+  }
+}

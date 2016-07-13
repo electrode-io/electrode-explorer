@@ -2,7 +2,7 @@ import React from "react";
 import Playground from "component-playground";
 import assign from "object-assign";
 
-import * as libraryScope from "../lib/index.js";
+import * as libraryScope from "../src/index.js";
 import ControlledFloatingMask from "./controlled-floating-mask";
 
 import visaImage from "./images/Visa.svg";

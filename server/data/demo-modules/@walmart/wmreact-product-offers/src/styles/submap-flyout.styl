@@ -1,0 +1,46 @@
+.Price-submapFlyout-content {
+  to-rem(font-size, 14px);
+
+  color: $grey-dark;
+}
+
+.Price-submapFlyout-content-cta {
+  margin-top: 0;
+}
+
+.Price-submapFlyout-content-info {
+  margin-top: 10px;
+}
+
+.Price-submap {
+  .HelpFlyout-trigger {
+    margin-left: $xxs-spacing;
+  }
+
+  .flyout-close {
+    position: absolute;
+  }
+
+  // Ensure flyout can be opened when overlay is there.
+  .Price-submapFlyout-button {
+    wmzindex("basic-increment");
+
+    position: relative;
+
+    vertical-align: 1px;
+  }
+}
+
+.Price-submapFlyout {
+  .slidepanel-body {
+    padding: 11px 13px 0 8px;
+
+    h3 {
+      margin: 11px 0 14px;
+    }
+
+    .Price-submapFlyout-content {
+      to-rem(font-size, 16px);
+    }
+  }
+}

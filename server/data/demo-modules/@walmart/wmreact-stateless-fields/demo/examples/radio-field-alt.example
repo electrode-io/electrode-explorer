@@ -1,0 +1,6 @@
+<div>
+  <RadioField name="alt" type="alt" value="0" label="Excellent" defaultChecked />
+  <RadioField name="alt" type="alt" value="1" label="Good" />
+  <RadioField name="alt" type="alt" value="2" label="Bad" instructions="Excellent radio option description." />
+  <RadioField name="alt" type="alt" value="3" label="Terrible" shouldDisplayValid={() => true} />
+</div>

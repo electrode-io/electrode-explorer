@@ -1,3 +1,4 @@
+import React from "react";
 import { AllHtmlEntities } from "html-entities";
 
 import { checkImageSrc } from "@walmart/wmreact-image-utils/lib/utils/image-utils";
@@ -9,14 +10,8 @@ const SUBMAP_MESSAGE = "See details in cart";
 const SUBMAP_TYPE_CART = "CART";
 const SUBMAP_TYPE_CHECKOUT = "CHECKOUT";
 
-export const _setUidProp = (id, moduleId) => {
-  if (id) {
-    const { usItemId } = id;
-    if (moduleId) {
-      return `${moduleId}-${usItemId}`;
-    }
-    return usItemId;
-  }
+export const _setUidProp = (id) => {
+  return id ? id.productId : "";
 };
 
 export const _setFlagProp = ({ isRollback, isClearance, isReducedPrice, isSpecialBuy }, quantity,
@@ -130,9 +125,30 @@ export const _setStarsProp = ({ rating, totalRatings }) => {
   }
 };
 
-const generateTileProps = ({ productData, productNameLines, showPrice, showFlags,
+export const _setExtraProp = (compareValues, maxCompareValues) => {
+  const rows = [];
+  const sellers = Object.keys(compareValues);
+
+  if (!sellers.length) {
+    return null;
+  }
+
+  for (let index = 0; index < maxCompareValues; index++) {
+    const seller = sellers[index];
+    rows.push(
+      <li key={index} className="TempoItemTile-comparePrices-row clearfix">
+        <span className="pull-left">{seller}</span>
+        <span className="pull-right font-semibold">{compareValues[seller]}</span>
+      </li>
+    );
+  }
+
+  return <ul className="TempoItemTile-comparePrices block-list">{rows}</ul>;
+};
+
+const generateTileProps = ({ productData, productNameLines, showPrice, showFlags, // eslint-disable-line max-statements, max-len
   showShippingPass, showRatings, showQuantityLeft, vertical, isMobile, userLoggedIn, lazyLoadImage,
-  submapFlyoutPosition, lowQuantityThreshold, dataAutomationId, moduleId }) => {
+  submapFlyoutPosition, lowQuantityThreshold, dataAutomationId, maxCompareValues }) => {
   // Data from IRO via Quimby
   const {
     id,
@@ -143,7 +159,8 @@ const generateTileProps = ({ productData, productNameLines, showPrice, showFlags
     isShippingPassEligible,
     productName,
     productUrl,
-    quantity
+    quantity,
+    compareValues
   } = productData;
 
   const newProps = {
@@ -153,7 +170,7 @@ const generateTileProps = ({ productData, productNameLines, showPrice, showFlags
     dataAutomationId
   };
 
-  newProps.uid = _setUidProp(id, moduleId);
+  newProps.uid = _setUidProp(id);
 
   // Flags
   if (showFlags) {
@@ -183,6 +200,11 @@ const generateTileProps = ({ productData, productNameLines, showPrice, showFlags
 
   // Quantity
   newProps.quantityLeft = showQuantityLeft ? quantity : null;
+
+  // Compare Prices
+  if (compareValues && maxCompareValues) {
+    newProps.extra = _setExtraProp(compareValues, maxCompareValues);
+  }
 
   return newProps;
 };

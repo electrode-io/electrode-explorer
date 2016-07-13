@@ -1,0 +1,16 @@
+<div>
+  <FlyoutMagic trigger={({toggle}) => <button className="btn" onClick={toggle}>X</button>}>
+  	<div>Magic Flyout!</div>
+  </FlyoutMagic>
+  <br />
+  <br />
+  <FlyoutMagic hover trigger={({show}) => {
+      return (
+        <button className="btn" style={{ position: "relative", zIndex: 1 }} onMouseEnter={show}>
+          X
+        </button>
+      );
+    }}>
+  	<div>Magic Flyout Hover!</div>
+  </FlyoutMagic>
+</div>

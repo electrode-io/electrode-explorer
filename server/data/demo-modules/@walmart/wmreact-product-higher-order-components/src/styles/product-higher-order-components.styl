@@ -1,0 +1,203 @@
+@require "~@walmart/wmreact-layout/src/styles/layout";
+@require "~@walmart/wmreact-product-card/src/styles/product-card";
+@require "~@walmart/wmreact-base/src/styles/base";
+@require "~@walmart/wmreact-carousel/src/styles/carousel";
+@require "~@walmart/wmreact-product-descriptors/src/styles/product-descriptors";
+@require "~@walmart/wmreact-product-typography/src/styles/product-typography";
+
+.ComparisonTable {
+  padding-top: 32px;
+
+  .table {
+    table-layout: fixed;
+    width: 100%;
+  }
+
+  // HACKS
+  .carousel-paginator-list {
+    display: none !important;
+  }
+
+  .paginator-hairline-btn {
+    position: absolute;
+    top: 50px;
+  }
+
+  .paginator-hairline-btn-prev {
+    left: 0;
+  }
+
+  .paginator-hairline-btn-next {
+    right: 0;
+  }
+
+  .slider-frame + div, .slider-frame + div + div {
+    top: 0 !important;
+  }
+}
+
+.ComparisonTable-cell,
+.ComparisonKey-cell {
+  ellipsis();
+
+  padding: 6px !important;
+  border: solid $white;
+  border-width: 2px 4px 0 0;
+
+  text-align: left;
+}
+
+.ComparisonTable-cell {
+  background: $blue-light;
+}
+
+.ComparisonKey-cell {
+  background: $blue-pale;
+}
+
+.ComparisonHeader {
+  display: block;
+  height: 180px;
+  padding: $xxs-spacing $s-spacing;
+}
+
+.ComparisonHeader-image {
+  display: block;
+  height: 129px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.ComparisonHeader-brandImage {
+  display: block;
+  padding-top: 50px;
+  margin: 0 auto;
+}
+
+.ComparisonHeader-title {
+  $fontSize = 14px;
+  $lineHeight = 1.5;
+
+  display: block;
+  height: 2 * ($fontSize * $lineHeight);
+  overflow: hidden;
+
+  // Webkit-only multi-line ellipsis. Non-standard but will work for now.
+  display: -webkit-box;
+  -webkit-line-clamp: 2; // @stylint ignore
+  -webkit-box-orient: vertical; // @stylint ignore
+
+  font-size: $fontSize;
+  line-height: $lineHeight;
+  text-align: center;
+}
+
+$comparisonRootBorderWidth = 3px;
+
+.ComparisonRoot {
+  wmzindex("basic");
+
+  position: relative;
+
+  border: $comparisonRootBorderWidth solid $blue-pale;
+  border-top: 0;
+
+  .ComparisonTable-cell,
+  .ComparisonKey-cell {
+    border-width: 2px 0 0;
+  }
+}
+
+.ComparisonRoot-marker {
+  position: absolute;
+  right: -($comparisonRootBorderWidth);
+  bottom: 100%;
+  left: -($comparisonRootBorderWidth);
+
+  height: 37px;
+
+  background-color: $blue-secondary;
+  color: $white;
+  to-rem(font-size, 14px);
+  line-height: @height;
+  text-align: center;
+}
+
+.ComparisonHeaderRow {
+  border-right-width: 0;
+}
+
+.MiniComparison {
+  margin-right: -($xs-spacing);
+  margin-left: -($xs-spacing);
+
+  th, td {
+    padding: $xs-spacing !important;
+  }
+
+  td:first-child {
+    width: 40%;
+  }
+}
+
+.MiniComparison-image {
+  width: 60px;
+  margin-right: 6px;
+  max-width: none;
+}
+
+.MiniComparison-title {
+  margin: 0;
+  padding: $xs-spacing;
+
+  to-rem(font-size, 13px);
+  line-height: 1.3;
+}
+
+.MiniComparisonBtn {
+  padding: $xs-spacing;
+  border-bottom: 1px solid $blue-pale;
+
+  .caret {
+    display: block;
+    width: 24px;
+
+    &:after {
+      font-size: 16px;
+      transform-origin: 50%;
+    }
+  }
+}
+
+.MiniComparisonContent {
+  border-bottom: 1px solid $blue-pale;
+
+  background: $blue-light;
+}
+
+.MiniComparisonLink {
+  display: inline-block;
+  margin: 8px 0 12px;
+  to-rem(font-size, 13px);
+}
+
+.MiniComparisonHeading {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.DiscoveryModule {
+  height: 326px;
+
+  background-color: $blue-light;
+}
+
+@require "./detailed-hero-image";
+@require "./products-bot";
+@require "./product-tiles";
+@require "./sticky-nav";
+@require "./products-fulfillment-messaging";
+@require "./product-reviews";
+@require "./histogram";
+@require "./store-item-grid";
+@require "./products-secondary-bot";

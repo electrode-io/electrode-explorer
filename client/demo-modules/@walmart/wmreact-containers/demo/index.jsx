@@ -89,6 +89,16 @@ Index.Components = [
     ]
   },
   {
+    title: "Responsive Modal SlidePanel",
+    examples: [
+      {
+        type: "playground",
+        code: require("raw!./examples/responsive-modal-slidepanel.example"),
+        noRender: true
+      }
+    ]
+  },
+  {
     title: "Spinner",
     examples: [
       {

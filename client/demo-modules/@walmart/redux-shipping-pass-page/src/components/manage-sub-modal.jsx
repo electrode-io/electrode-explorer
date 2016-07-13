@@ -68,6 +68,8 @@ class ManageSubModal extends React.Component {
             store={this.context.store}
             fetchInitialData
             showExpiredLabel
+            usePrimaryButtons={false}
+            floatingLabels
             tile={
               (props) => {
                 let selected;

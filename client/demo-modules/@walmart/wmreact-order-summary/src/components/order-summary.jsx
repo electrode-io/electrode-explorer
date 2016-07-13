@@ -115,14 +115,14 @@ class OrderSummary extends React.Component {
   }
 
   render():ReactElement {
-    const {className} = this.props;
+    const {className, renderShippingCosts} = this.props;
     const componentClassName = classNames("OrderSummary", className);
 
     return (
       <div className={componentClassName}>
         {this._renderSubTotal()}
         {this._renderLineItems()}
-        {this._renderShippingCosts()}
+        {renderShippingCosts ? this._renderShippingCosts() : null}
         {this._renderGenericFees()}
         {this._renderTax()}
         {this._renderGrandTotal()}
@@ -139,6 +139,7 @@ OrderSummary.defaultProps = {
   genericFees: [],
   taxTotal: 0,
   grandTotal: null,
+  renderShippingCosts: true,
   automation: {},
   tealeaf: {}
 };
@@ -153,6 +154,7 @@ OrderSummary.propTypes = {
   genericFees: PropTypes.arrayOf(PropTypes.shape(GenericFee.propTypes)),
   taxTotal: PropTypes.number,
   grandTotal: PropTypes.number,
+  renderShippingCosts: PropTypes.bool,
   automation: PropTypes.shape({
     subtotal: SubTotal.propTypes.automation,
     tax: Tax.propTypes.automation,

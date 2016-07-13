@@ -29,7 +29,7 @@ class GlobalLefthandNav extends BaseGlobalLefthandNav {
         key={1}
         fakelink={true}
         data-uid={LHN}
-        className={classNames("dropdown-link header-GlobalLefthandNav-toggle--small", {
+        className={classNames("header-GlobalLefthandNav-toggle--small", {
           "is-active": open
         })}
         {...getDataAutomationIdPair("smallToggle", this.props.dataAutomationId)}>

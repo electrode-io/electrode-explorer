@@ -18,3 +18,9 @@ export { default as StatelessAddToRegistryButton } from "./components/add-to-reg
 export { default as StateFulAddToRegistryButton } from
   "./components/stateful-add-to-registry-button";
 export { default as SubmapAddToCartButton } from "./components/add-to-cart-with-submap-checkout";
+export { default as AddToRegistryReducer } from "./reducers/add-to-registry";
+export { default as PostAddToRegistryContent }
+  from "./components/post-add-to-registry-content";
+export {
+  default as CellCoverageFinderCTA
+} from "./components/add-to-cart-with-cell-coverage-finder";

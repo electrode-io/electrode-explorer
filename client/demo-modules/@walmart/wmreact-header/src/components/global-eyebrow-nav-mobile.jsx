@@ -105,6 +105,8 @@ class GlobalEyebrowNavMobile extends Component {
       orderStatusMainNav,
       customNav,
       customNav2,
+      customNav3,
+      customNav4,
       registry,
       giftCards
     } = configs;
@@ -125,7 +127,9 @@ class GlobalEyebrowNavMobile extends Component {
       { linkData: weeklyAdsMainNav },
       { linkData: orderStatusMainNav },
       { linkData: customNav },
-      { linkData: customNav2 }
+      { linkData: customNav2 },
+      { linkData: customNav3 },
+      { linkData: customNav4 }
     ];
 
     return entries.map((entry, index) => {
@@ -212,7 +216,9 @@ GlobalEyebrowNavMobile.propTypes = {
       weeklyAdsMainNav: PropTypes.object,
       orderStatusMainNav: PropTypes.object,
       customNav: PropTypes.object,
-      customNav2: PropTypes.object
+      customNav2: PropTypes.object,
+      customNav3: PropTypes.object,
+      customNav4: PropTypes.object
     }).isRequired
   }).isRequired,
   /**
@@ -240,7 +246,9 @@ GlobalEyebrowNavMobile.defaultProps = {
       weeklyAdsMainNav: {},
       orderStatusMainNav: {},
       customNav: {},
-      customNav2: {}
+      customNav2: {},
+      customNav3: {},
+      customNav4: {}
     }
   },
   onMenuClick: () => {},

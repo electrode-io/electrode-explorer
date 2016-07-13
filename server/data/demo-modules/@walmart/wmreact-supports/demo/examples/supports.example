@@ -1,0 +1,8 @@
+<div>
+  <Supports svg>
+    <div>This browser supports SVG.</div>
+  </Supports>
+  <Supports canvas>
+    <div>This browser supports the Canvas tag.</div>
+  </Supports>
+</div>

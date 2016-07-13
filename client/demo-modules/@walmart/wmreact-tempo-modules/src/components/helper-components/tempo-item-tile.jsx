@@ -6,6 +6,8 @@ import Tile from "@walmart/wmreact-product-card/lib/components/tile";
 import { getDataAutomationIdPair } from "@walmart/automation-utils/lib/utils/automation-id-utils";
 
 import generateTileProps from "../../helpers/generate-tile-props";
+import { generateMidasTileProps, renderMidasTileBeacon } from
+  "../../helpers/midas-item-carousel-helpers";
 
 /**
 Wrapper component for Tile which maps IRO and Tempo response to the correct props on Tile. Will be
@@ -30,14 +32,17 @@ TempoItemTile
 */
 
 const TempoItemTile = (props) => {
-  const { className, dataAutomationId } = props;
+  const { className, dataAutomationId, productData: { id, midasData } } = props;
   const tileProps = generateTileProps(props);
+  const midasProps = midasData ? generateMidasTileProps(midasData, id) : {};
 
   return (
     <div
-      className={classNames("TempoItemTile", className)}
+      className={classNames("TempoItemTile", className, { "wpa-product": midasData })}
+      {...midasProps}
       {...getDataAutomationIdPair(dataAutomationId, "")}>
       <Tile {...tileProps} />
+      {midasData && renderMidasTileBeacon(midasData)}
     </div>
   );
 };
@@ -72,7 +77,8 @@ TempoItemTile.propTypes = {
     isShipppingPassEligible: PropTypes.bool,
     productName: PropTypes.string.isRequired,
     productUrl: PropTypes.string.isRequired,
-    quantity: PropTypes.number.isRequired
+    quantity: PropTypes.number.isRequired,
+    midasData: PropTypes.object
   }).isRequired,
   /**
   * Number of lines to truncate the product name to. 0 will not display the name.
@@ -126,10 +132,6 @@ TempoItemTile.propTypes = {
   * Automation ID
   */
   dataAutomationId: PropTypes.string,
-  /**
-  * Module ID from a carousel to generate unique UIDs
-  */
-  moduleId: PropTypes.string,
   /**
   * Addtional classes for styling
   */

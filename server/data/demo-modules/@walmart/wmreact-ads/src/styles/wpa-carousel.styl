@@ -1,0 +1,85 @@
+.module-wpa .wpa-product .Tile {
+  .Tile-priceContent {
+    .Price + .Price-old {
+      width: auto;
+      height: auto;
+    }
+
+    .from-price .Price-old-text { // @stylint ignore
+      to-rem(font-size, 14px);
+    }
+  }
+}
+
+.sponsored-carousel-container-ads {
+  min-height: 331px;
+
+  +breakpoint($breakpoint-m) {
+    min-height: 358px;
+  }
+}
+
++breakpoint($breakpoint-xs-max, max) {
+  .sponsored-carousel-container-ads {
+    to-rem(min-height, 239px);
+
+    .slick-list {
+      to-rem(padding-bottom, 10px);
+    }
+  }
+
+  .small-mobile-wpa-products {
+    .wpa-product {
+      .product-image {
+        to-rem(height, 128px);
+        to-rem(width, 128px);
+      }
+
+      .Tile-heading span {
+        display: inline-block;
+        to-rem(height, 15px);
+        to-rem(width, 122px);
+
+        ellipsis(nowrap);
+      }
+
+      .Tile-content {
+        to-rem(height, 66px);
+        to-rem(padding-bottom, 0);
+      }
+
+      .stars,
+      .Tile-shippingPass {
+        display: none;
+      }
+    }
+  }
+}
+
+.module-sponsored-products {
+  .carousel-n-up-responsive {
+    .carousel-slide {
+      width: 156px;
+
+      +breakpoint($breakpoint-s) {
+        width: 155px;
+      }
+
+      +breakpoint($breakpoint-m) {
+        width: 188px;
+      }
+
+      +breakpoint($breakpoint-l) {
+        width: 200px;
+      }
+
+      +breakpoint($breakpoint-xl) {
+        width: 188px;
+      }
+    }
+  }
+
+  .ad-impression-beacon, .ad-page-beacon {
+    visuallyhidden();
+  }
+}

@@ -1,0 +1,107 @@
+$ministory-width-scale-s = 424px;
+$ministory-width-scale-m = 636px;
+$ministory-margin-default = 8px;
+$ministory-margin-gutters-l = 12px;
+$ministory-margin-gutters-xl = 20px;
+
+.ministory-stackable {
+  margin-top: $ministory-margin-default;
+
+  +breakpoint($breakpoint-l) {
+    margin-top: $ministory-margin-gutters-l;
+  }
+
+  +breakpoint($breakpoint-xl) {
+    margin-top: $ministory-margin-gutters-xl;
+  }
+
+  img {
+    max-width: none;
+  }
+
+  .u-size-1-2 {
+    .ministory-stackable-image {
+      display: block;
+      width: 201px;
+      height: 116px;
+
+      // to scale the image from 465px to 424px
+      +breakpoint($ministory-width-scale-s) {
+        width: 100%;
+        height: 100%;
+      }
+
+      +breakpoint($breakpoint-s) {
+        width: 298px;
+        height: 172px;
+      }
+
+      // to scale the image from 636px to 767px
+      +breakpoint($ministory-width-scale-m) {
+        width: 100%;
+        height: 100%;
+      }
+
+      +breakpoint($breakpoint-m) {
+        width: 326px;
+        height: 188px;
+      }
+
+      +breakpoint($breakpoint-l) {
+        width: 433px;
+        height: 250px;
+      }
+    }
+  }
+
+  .ministory-stackable-image {
+    display: block;
+    width: 407px;
+    height: 116px;
+
+    // to scale the image from 424px to 465px
+    +breakpoint($ministory-width-scale-s) {
+      width: 100%;
+      height: 100%;
+    }
+
+    +breakpoint($breakpoint-s) {
+      width: 604px;
+      height: 172px;
+    }
+
+    // to scale the image from 636px to 767px
+    +breakpoint($ministory-width-scale-m) {
+      width: 100%;
+      height: 100%;
+    }
+
+    +breakpoint($breakpoint-m) {
+      width: 660px;
+      height: 188px;
+    }
+
+    +breakpoint($breakpoint-l) {
+      width: 878px;
+      height: 250px;
+    }
+  }
+
+  .ministory-stackable-image-wrapper {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .mini-story-gutters > .Grid-col {
+    margin-bottom: $ministory-margin-default;
+
+    +breakpoint($breakpoint-l) {
+      margin-bottom: $ministory-margin-gutters-l;
+    }
+
+    +breakpoint($breakpoint-xl) {
+      margin-bottom: $ministory-margin-gutters-xl;
+    }
+  }
+}

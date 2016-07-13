@@ -1,0 +1,54 @@
+@require "./item-row-list-view";
+@require "./item-row-grid-view";
+@require "./product-image";
+@require "./swatch-selector";
+@require "./flag-badge";
+@require "./product-price";
+@require "./product-title";
+@require "./product-rating";
+@require "./product-fulfillment";
+@require "./see-all-link";
+@require "./sponsored-product";
+@require "./product-description";
+@require "./zero-results";
+@require "~@walmart/wmreact-product-descriptors/src/styles/stars";
+
+.search-product-result {
+  .hide-display {
+    visibility: hidden;
+  }
+}
+
+.search-product-listview-items {
+  padding: 20px;
+}
+
+.search-result-gridview-items {
+  position: relative;
+
+  list-style: none;
+
+  &::before{
+    content: "";
+    display: table;
+  }
+
+  &::after {
+    content: "";
+    display: table;
+
+    clear: both;
+  }
+
+  .search-result-grid-unit {
+    float: left;
+    display: inline-block;
+    width: 25%;
+    border-bottom: 1px solid $grey-very-light;
+    text-align: center;
+
+    @media (min-width: $breakpoint-xl) {
+      width: 20%;
+    }
+  }
+}

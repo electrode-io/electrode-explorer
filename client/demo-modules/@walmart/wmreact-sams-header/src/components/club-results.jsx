@@ -1,7 +1,6 @@
 import React from "react";
 import Button from "@walmart/wmreact-interactive/lib/components/button";
 import Icon from "@walmart/wmreact-base/lib/components/icon";
-import { Options } from "@walmart/wmreact-forms";
 
 class ClubResults extends React.Component {
   constructor(props) {
@@ -46,11 +45,6 @@ class ClubResults extends React.Component {
         Refine by services <Icon name="caret-down" size={1}/>
       </a>
       <div className={this.state.show}>
-        <div className="cr-filter-options">
-          <Options
-            choices={optionService}
-          />
-        </div>
         <div className="cr-option-buttons">
           <Button
             onClick={onSelectFilterServices}

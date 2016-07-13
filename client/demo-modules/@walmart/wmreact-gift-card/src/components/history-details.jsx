@@ -1,6 +1,5 @@
 import React from "react";
 import classNames from "classnames";
-import Moment from "moment";
 
 import Price from "@walmart/wmreact-product-offers/lib/components/price/price-base";
 import Heading from "@walmart/wmreact-base/lib/components/heading";
@@ -9,21 +8,30 @@ import Button from "@walmart/wmreact-interactive/lib/components/button";
 
 const tranxType = {
   redemption: "Purchase made",
-  refund: "Value added",
   create: "Card purchased",
   activate: "Activated",
   cancel: "Value added",
-  reload: "Value added"
+  reload: "Value added",
+  refund: "Value added",
+  /* eslint-disable camelcase */
+  is_redemption: "Purchase",
+  vc_activate: "GC activated in",
+  cancel_redemption: "Value added",
+  cancel_reload: "Value added",
+  cancel_activation: "GC inactivated in",
+  redemption_no_split_tender: "Purchase"
+  /* eslint-enable camelcase */
 };
 
 class HistoryDetails extends React.Component {
   _renderHistoryRows(tranx, idx) {
     const info = (tranx.info === "9115") ? "Walmart.com" : `Walmart store# ${tranx.info}`;
+    const date = new Date(tranx.date);
     return (
       <div className={classNames("Grid row", {"even": (idx % 2 === 0)})}>
         <div className="Grid-col u-size-1-6-m">
           <span className="font-semibold hide-content-l">Date: </span>
-          <span>{Moment.utc(tranx.date, "x").format("MM/DD/YYYY")}</span>
+          <span>{`${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`}</span>
         </div>
         <div className="Grid-col u-size-2-6-m">
           <span className="font-semibold hide-content-l">Description: </span>

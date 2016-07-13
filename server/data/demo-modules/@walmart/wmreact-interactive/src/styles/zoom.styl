@@ -1,0 +1,47 @@
+// @from @walmart/hydra/src/tenants/walmart/base/components.styl
+
+$zoom-color = {
+  default: $blue-secondary
+  hover-focus: $blue-tertiary-hover
+  active: $blue-tertiary-active
+}
+
+// @from @walmart/hydra/src/common/base/components.styl
+
+$zoom-color ?= {
+  default: #ccc
+  hover-focus: #ccc
+  active: #ccc
+}
+
+/*!
+Zoom
+
+Styleguide 8.10
+*/
+
+.zoom {
+  padding: 3px;
+  border: 0;
+
+  background: transparent;
+  color: $zoom-color.default;
+  font-size: 20px;
+
+  &:before {
+    border-radius: 50%;
+
+    background: $white;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, .7);
+  }
+
+  &:hover,
+  &:focus {
+    color: $zoom-color.hover-focus;
+    outline: none;
+  }
+
+  &:active {
+    color: $zoom-color.active;
+  }
+}

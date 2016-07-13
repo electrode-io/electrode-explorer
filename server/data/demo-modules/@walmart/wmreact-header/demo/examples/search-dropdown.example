@@ -1,0 +1,1 @@
+<SearchDropdown options={quimbyData.global_header.headerZone2.configs.options} />

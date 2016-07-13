@@ -1,0 +1,54 @@
+.variants {
+  // Remove space between inline-block elements.
+  to-rem(font-size, 0);
+
+  list-style: none;
+  text-align: left;
+
+  margin: 16px 0 0 -10px;
+  // Prevents selected swatch box-shadow glow effect from being cut off in edge
+  // cases (overflow: hidden)
+  padding: 1px;
+
+  input {
+    @extend .visuallyhidden;
+
+    &:checked + .variant {
+      variant-active();
+    }
+
+    &:checked + .variant.disabled,
+    &:checked + .variant.variant-unavailable {
+      @extend $variant-disabled;
+
+      &,
+      &:hover {
+        border-color: $variant-color.border-active;
+
+        box-shadow: $variant-box-shadow;
+      }
+    }
+  }
+
+  .module > &:first-child {
+    margin-top: -8px;
+  }
+
+  .variant-container {
+    display: inline-block;
+  }
+
+  .variant-name {
+    width: 100%;
+    color: $black;
+    font-size: 13px;
+    float: left;
+    line-height: 1.5;
+    font-weight: normal;
+  }
+
+  .variant-with-display-name {
+    padding-bottom: 16px;
+    width: 41px;
+  }
+}

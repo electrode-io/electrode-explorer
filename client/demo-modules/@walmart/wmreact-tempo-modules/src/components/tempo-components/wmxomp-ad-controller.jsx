@@ -41,7 +41,9 @@ const WMXOMPAdController = (props) => {
     : `${adsContainer}-mobile-${placement}`;
 
   if (placement === "top" && isMobile) {
-    return null;
+    return (
+      <div></div>
+    );
   }
 
   return (

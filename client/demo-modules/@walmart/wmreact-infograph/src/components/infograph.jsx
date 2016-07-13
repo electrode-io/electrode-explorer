@@ -1,28 +1,9 @@
 /* @flow */
 import React from "react";
 
-import Icon from "@walmart/wmreact-base/lib/components/icon";
-import classNames from "classnames";
 import tweenState from "react-tween-state";
+import StaticInfograph from "./static-infograph";
 
-const _sequenceNames = [
-  "first",
-  "second",
-  "third",
-  "fourth",
-  "fifth",
-  "sixth"
-];
-
-const _countNames = [
-  "",
-  "one",
-  "two",
-  "three",
-  "four",
-  "five",
-  "six"
-];
 
 /**
 Infograph component.
@@ -142,23 +123,6 @@ const Infograph = React.createClass({
     };
   },
 
-  renderBar(): ReactElement {
-    let width = this.getTweeningValue("completedPercent");
-    if (!width) {
-      const sectionWidth = 100 / (this.props.labels.length - 1);
-      const completed = this.props.completed || 1;
-      width = sectionWidth * Math.max(completed - 1, 0);
-    }
-    return (
-      <div className="infograph-bar">
-        <span
-          style={{width: `${width}%`}}
-          className="infograph-bar-progress">
-        </span>
-      </div>
-    );
-  },
-
   getCompleted(): number {
     let comp = this.props.completed;
     if (!comp) {
@@ -172,49 +136,14 @@ const Infograph = React.createClass({
     return comp;
   },
 
-  renderFootprint(label: string, index: number): ReactElement {
-    let item = "footprints-item-";
-    item += index < this.props.labels.length - 1 ?
-      _sequenceNames[index] : "last";
-    const cName = classNames(
-      "infograph-footprint",
-      item,
-      {
-        "active": this.getCompleted() - 1 === index
-      }
-    );
-    return (
-      <div
-        className={cName}
-        key={index}>
-        <div className="infograph-point">
-          <Icon className="infograph-ok" name="ok" />
-        </div>
-        <span className="infograph-label">{label}</span>
-      </div>
-    );
-  },
-
-  renderFootprints(): ReactElement {
-    const cName = `infograph-${_countNames[this.props.labels.length]}-footprints`;
-    const self = this;
-    return (
-      <div className={cName}>
-        {this.props.labels.map((label, index) => {
-          return self.renderFootprint(label, index);
-        })}
-      </div>
-    );
-  },
-
   render(): ReactElement {
+    const {labels} = this.props;
     return (
-      <div className="infograph-container">
-        <div className="infograph">
-          {this.renderBar()}
-          {this.renderFootprints()}
-        </div>
-      </div>
+      <StaticInfograph
+        labels={labels}
+        completed={this.getCompleted()}
+        completedPercentage={this.getTweeningValue("completedPercent")}
+        />
     );
   }
 });

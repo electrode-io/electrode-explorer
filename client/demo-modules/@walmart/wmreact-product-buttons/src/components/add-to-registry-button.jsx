@@ -1,36 +1,39 @@
 import React, { PropTypes } from "react";
-import Button from "@walmart/wmreact-interactive/lib/components/button";
 import Flyout from "@walmart/wmreact-containers/lib/components/flyout";
+import ResponsiveModalSlidePanel
+  from "@walmart/wmreact-containers/lib/components/responsive-modal-slidepanel";
 import AddToListRegistryFlyoutContent from "./add-to-list-registry-flyout-content";
 import SlidePanel from "@walmart/wmreact-containers/lib/components/slidepanel";
+import clientWidth from "@walmart/wmreact-layout/lib/components/helpers/client-width";
+import PostAddToRegistryContent from "./post-add-to-registry-content";
 
-const _renderATRButton = (onClick, spinner) => {
-  return (
-    <Button
-      className="AddToRegistry-button"
-      inverse
-      spinner={spinner}
-      block
-      onClick={onClick}>
-      Add to Registry
-    </Button>
-  );
+const _getFlyoutDirection = (_clientWidth = clientWidth) => {
+  return _clientWidth.isBelowBreakPoint("medium") ?
+    "bottom" : "left";
 };
 
-const _renderFlyoutContent = (props) => {
-  return (<AddToListRegistryFlyoutContent {...props}/>);
+const _renderATRButton = (onClick) => {
+  return (
+    <div className="AddToRegistry-button u-textBlue font-normal" onClick={onClick}>
+      <i className="AddToRegistry-icon wmicon wmicon-registry"/>
+      <span className="AddToRegistry-text">Add to Registry</span>
+    </div>
+  );
 };
 
 const _renderFlyout = ({onClick, onPromptClose}, content) => {
   return (
-    <Flyout direction="left"
+    <Flyout direction={_getFlyoutDirection()}
       className="AddToRegistry-flyout"
       onActiveChange={(active) => {
         if (!active) {
           onPromptClose();
         }
       }}
-      trigger={_renderATRButton(onClick, false)}
+      closeButton
+      size="narrow"
+      onTriggerElementClick={onClick}
+      trigger={_renderATRButton(null)}
       active>
       {content}
     </Flyout>
@@ -47,8 +50,7 @@ const _renderSlidePanel = ({onPromptClose}, content) => {
   );
 };
 
-const _renderPrompt = (props) => {
-  const content = _renderFlyoutContent(props);
+const _renderPrompt = (props, content) => {
   return (
     <div className="AddToRegistry-prompt">
       <div className="hide-content-max-s">
@@ -61,6 +63,17 @@ const _renderPrompt = (props) => {
   );
 };
 
+const _renderPostATR = ({status, listType, onPromptClose}) => {
+  return (
+    <ResponsiveModalSlidePanel
+      className="AddToRegistry-successModal"
+      showContainer
+      onContainerClose={onPromptClose}>
+      <PostAddToRegistryContent status={status} listType={listType} />
+    </ResponsiveModalSlidePanel>
+  );
+};
+
 const StatelessAddToRegistryButton = (props) => {
   const {
     status,
@@ -68,11 +81,19 @@ const StatelessAddToRegistryButton = (props) => {
   } = props;
   switch (status) {
   case "INITIALIZED":
-    return _renderATRButton(onClick, false);
+    return _renderATRButton(onClick);
   case "LOADING":
-    return _renderATRButton(null, true);
+    return _renderATRButton(null);
   case "PROMPT":
-    return _renderPrompt(props);
+    return _renderPrompt(props, (<AddToListRegistryFlyoutContent {...props}/>));
+  case "SUCCESS":
+  case "ERROR":
+    return (
+      <div>
+        {_renderATRButton(onClick)}
+        {_renderPostATR(props)}
+      </div>
+    );
   }
 };
 
@@ -82,7 +103,7 @@ StatelessAddToRegistryButton.propTypes = {
   /**
   Prop that describes the current state of the button
   */
-  status: PropTypes.oneOf(["INITIALIZED", "LOADING", "PROMPT"]),
+  status: PropTypes.oneOf(["INITIALIZED", "LOADING", "PROMPT", "SUCCESS", "ERROR"]),
   /**
   List of items
   */
@@ -107,7 +128,11 @@ StatelessAddToRegistryButton.propTypes = {
   /**
   Callback to handle close of prompt
   */
-  onPromptClose: PropTypes.func
+  onPromptClose: PropTypes.func,
+  /**
+  Type of the list to which the item was added
+  */
+  listType: PropTypes.string
 };
 
 StatelessAddToRegistryButton.defaultProps = {

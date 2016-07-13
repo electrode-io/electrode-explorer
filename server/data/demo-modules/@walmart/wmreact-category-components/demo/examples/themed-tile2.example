@@ -1,0 +1,9 @@
+<ThemedTile
+  url="//www.walmart.com"
+  imageUrl="//i5.walmartimages.com/dfw/4ff9c6c9-ab9d/k2-_8ad66b5e-2645-4378-a1b7-43b1f1c32087.v1.png"
+  button={{
+    textColor: "#f2f2f2",
+    color: "purple",
+    text: "Shop Now"
+  }}
+/>

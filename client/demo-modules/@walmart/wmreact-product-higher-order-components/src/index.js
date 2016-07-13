@@ -11,6 +11,9 @@ export { default as StickyNav } from "./components/sticky-nav";
 export { default as DiscoveryModule } from "./components/discovery-module";
 export { default as ProductsFulfillmentMessaging }
   from "./components/products-fulfillment-messaging";
+export { default as ProductsFulfillmentTable }
+  from "./components/products-fulfillment-table";
 export { default as ReviewSummary }
   from "./components/products-review-summary";
-
+export { default as FulfillmentContainerElements }
+  from "./components/fulfillment-container-elements";

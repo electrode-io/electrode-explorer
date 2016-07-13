@@ -1,0 +1,48 @@
+$prod-ShowBorder-mixin(direction, clz, bp, showBr = true) {
+  if showBr {
+    .prod-{clz} {
+      +breakpoint(bp) {
+        border-{direction}: 1px solid $grey-cool !important; // @stylint ignore
+        &:last-child {
+          border-{direction}: 0 !important; // @stylint ignore
+        }
+      }
+    }
+  } else {
+    .prod-{clz} {
+      +breakpoint(bp) {
+        border-{direction}: 0 !important; // @stylint ignore
+      }
+    }
+  }
+}
+
+.prod-BorderedContainer {
+  // generate class name like: .prod-ShowRightBorder--xs
+  $prod-ShowBorder-mixin("right", "ShowRightBorder--xs", $breakpoint-xs);
+  $prod-ShowBorder-mixin("right", "ShowRightBorder--s", $breakpoint-s);
+  $prod-ShowBorder-mixin("right", "ShowRightBorder--m", $breakpoint-m);
+  $prod-ShowBorder-mixin("right", "ShowRightBorder--l", $breakpoint-l);
+  $prod-ShowBorder-mixin("right", "ShowRightBorder--xl", $breakpoint-xl);
+
+  // generate class name like: .prod-ShowBottomBorder--xs
+  $prod-ShowBorder-mixin("bottom", "ShowBottomBorder--xs", $breakpoint-xs);
+  $prod-ShowBorder-mixin("bottom", "ShowBottomBorder--s", $breakpoint-s);
+  $prod-ShowBorder-mixin("bottom", "ShowBottomBorder--m", $breakpoint-m);
+  $prod-ShowBorder-mixin("bottom", "ShowBottomBorder--l", $breakpoint-l);
+  $prod-ShowBorder-mixin("bottom", "ShowBottomBorder--xl", $breakpoint-xl);
+
+  // generate class name like: .prod-HideRightBorder--xs
+  $prod-ShowBorder-mixin("right", "HideRightBorder--xs", $breakpoint-xs, false);
+  $prod-ShowBorder-mixin("right", "HideRightBorder--s", $breakpoint-s, false);
+  $prod-ShowBorder-mixin("right", "HideRightBorder--m", $breakpoint-m, false);
+  $prod-ShowBorder-mixin("right", "HideRightBorder--l", $breakpoint-l, false);
+  $prod-ShowBorder-mixin("right", "HideRightBorder--xl", $breakpoint-xl, false);
+
+  // generate class name like: .prod-HideBottomBorder--xs
+  $prod-ShowBorder-mixin("bottom", "HideBottomBorder--xs", $breakpoint-xs, false);
+  $prod-ShowBorder-mixin("bottom", "HideBottomBorder--s", $breakpoint-s, false);
+  $prod-ShowBorder-mixin("bottom", "HideBottomBorder--m", $breakpoint-m, false);
+  $prod-ShowBorder-mixin("bottom", "HideBottomBorder--l", $breakpoint-l, false);
+  $prod-ShowBorder-mixin("bottom", "ShowBottomBorder--xl", $breakpoint-xl, false);
+}

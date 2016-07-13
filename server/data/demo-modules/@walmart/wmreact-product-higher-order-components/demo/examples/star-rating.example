@@ -1,0 +1,6 @@
+<div>
+  <h5>Star rating</h5>
+  <StarRating total={5} average={3} count={10} />
+  <h5>Link to review product id</h5>
+  <StarRating average={0} total={5} usItemId="1234" />
+</div>

@@ -48,6 +48,15 @@ Index.Components = [
           accessoryData: extraData.accessoryData,
           fulfillmentData: extraData.fulfillmentData
         }
+      },
+      {
+        type: "playground",
+        code: require("raw!./examples/better-together.example"),
+        extraScope: {
+          productData: extraData.productData,
+          accessoryData: extraData.accessoryData,
+          fulfillmentData: extraData.fulfillmentData
+        }
       }
     ]
   }

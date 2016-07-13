@@ -1,0 +1,291 @@
+@require "~@walmart/wmreact-base/src/styles/base";
+@require "~@walmart/wmreact-interactive/src/styles/interactive";
+@require "~@walmart/wmreact-layout/src/styles/layout";
+@require "~@walmart/wmreact-forms/src/styles/forms";
+@require "~@walmart/wmreact-containers/src/styles/containers";
+@require "~@walmart/wmreact-stateless-fields/src/styles/stateless-fields";
+
+$medium-font-size-gc = 16px;
+$default-border-gc = 1px solid #c2cfd6;
+$base-spacing-gc = 12px;
+$medium-space-gc = 20px;
+
+.gift-cards-wrapper {
+  position: relative;
+  & > div > .Grid {
+    margin: 0 (- $base-spacing-gc) (- $base-spacing-gc);
+  }
+  .alert-block {
+    margin: $base-spacing-gc 0;
+  }
+  .validation-group {
+    margin-top: 0;
+  }
+  .form-group {
+    font-size: 15.4px;
+    margin-top: 15px;
+  }
+  .form-group--float {
+    margin-top: 0;
+  }
+  .form-group--float .validation-group {
+    margin-top: 15px;
+  }
+  .form-label-float {
+    top: 25px;
+  }
+
+  .form-label-float--floating {
+    top: 0;
+    font-size: 0.95em;
+  }
+}
+
+.gift-card-wrapper {
+  position: relative;
+  .gift-card {
+    position: relative;
+    min-height: 146px;
+    width: 100%;
+    border: 1px solid #c2cfd6;
+    border-radius: 4px;
+    background-color: $white;
+    color: $grey-dark;
+    font-size: $medium-font-size-gc;
+    font-weight: 400;
+    line-height: 1.3;
+    padding: 0;
+
+    .card-body {
+      padding: $base-spacing-gc;
+    }
+    .payment-option {
+      position: absolute;
+      right: $base-spacing-gc;
+      top: 15px;
+    }
+    .zero-balance {
+      color: $red;
+    }
+
+    .btn-fake-link {
+      font-size: 14px;
+    }
+
+    .balance {
+      font-size: 16px;
+      display: inline;
+    }
+    .gift-card-last-four {
+      margin-bottom: $xs-spacing;
+    }
+  }
+
+  .gift-card-actions {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    .btn-fake-link {
+      padding: $base-spacing-gc;
+    }
+  }
+
+  .add-gift-card {
+    text-align: center;
+    color: $blue;
+  }
+
+  .confirm-delete {
+    background-color: #f2f8fd;
+    padding: $base-spacing-gc $base-spacing-gc 0;
+    border-radius: 4px;
+
+    .gift-card-actions {
+      position: static;
+      text-align: center;
+      padding-top: $base-spacing-gc;
+      .btn {
+        width: 100%;
+      }
+      .btn-fake-link {
+        font-size: 14px;
+        padding: $base-spacing-gc;
+      }
+    }
+  }
+}
+
+.gift-card-fullname {
+  font-weight: 600;
+
+  .confirm-delete & {
+    margin-top: $base-spacing-gc;
+  }
+}
+
+.padded-card {
+  padding: 0 $base-spacing-gc $medium-space-gc;
+  position: relative;
+}
+
+.padded-card.add-new-card:before {
+  z-index: 2;
+  content: "";
+  position: absolute;
+  display: block;
+  margin-left: -5px;
+  left: 50%;
+  bottom: -9px;
+  width: 18px;
+  height: 18px;
+  border: $default-border-gc;
+  border-width: 1px 1px 0 0;
+  pointer-events: none;
+  background-color: #fff;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.add-form-wrapper {
+  border: $default-border-gc;
+  border-radius: 4px;
+  padding: $base-spacing-gc;
+  margin: 11px -12px 0;
+  +breakpoint($breakpoint-s) {
+    margin:11px 0;
+  }
+  .no-cards & {
+    margin: 0;
+    padding: 0;
+    border: none;
+    .cancel-save-gift-card {
+      display: none;
+    }
+  }
+  .add-form-actions {
+    text-align: right;
+    line-height: 38px;
+    min-height: 38px;
+    .submit-save-gift-card {
+      float: right;
+    }
+  }
+  &.show-actions-left .add-form-actions{
+    text-align: left;
+    .submit-save-gift-card {
+      float: none;
+    }
+    +breakpoint($breakpoint-xs-max, max) {
+      button {
+        width: 100%;
+        margin: 0;
+      }
+    }
+  }
+
+  .cancel-save-gift-card {
+    text-align: center;
+    margin: 0 $m-margin;
+    vertical-align: middle;
+  }
+
+  .sample-card {
+    padding: $medium-space-gc;
+  }
+
+}
+
+.history-modal-gc {
+  top: 25px;
+}
+
+.modal-wrapper-gc {
+  padding: 15px 20px;
+  overflow: scroll;
+  max-height: 80%;
+  max-height: 80vh;
+
+  h2 {
+    margin-top: 0;
+  }
+
+  .gift-card-info {
+    font-size: 20px;
+    font-weight: 600;
+    padding-top: 10px;
+
+    .gift-card-fullname {
+      color: #888;
+    }
+
+    .balance {
+      color: #76c143;
+    }
+
+    .zero-balance {
+      color: $red;
+    }
+  }
+
+  .module {
+    height: 100%;
+  }
+
+  .even {
+    background-color: #dfebed;
+  }
+
+  .row {
+    height: auto;
+    padding: 10px;
+    color: #444;
+    font-size: 14px;
+  }
+
+  .history-grid-header {
+    display: block;
+    height: 35px;
+    padding-top: 5px;
+    border-top: 2px solid #dfebed;
+    color: #222;
+    font-size: 16px;
+    font-weight: 600;
+
+    span {
+      padding-left: 10px;
+    }
+  }
+}
+
+.m-header-gc {
+  background-color: #f2f8fd;
+  padding: 1rem;
+
+  span {
+    font-size: 16px;
+  }
+}
+
++breakpoint($breakpoint-m-max, max) {
+  .modal.history-modal-gc {
+    margin: 0;
+    width: 100%;
+    left: 0;
+    top: 0;
+    height: 100%;
+    border: none;
+    border-radius: 0;
+    overflow: scroll;
+
+  }
+  .modal-close{
+    display: none;
+  }
+  .modal-wrapper-gc {
+    padding: 25px;
+    overflow: visible;
+    max-height: none;
+  }
+}

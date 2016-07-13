@@ -16,6 +16,7 @@ import ProductThemeTileExample from "raw!./examples/product-theme-tile.example";
 import StoreItemTileExample from "raw!./examples/store-item-tile.example";
 import TileBrickExample from "raw!./examples/tile-brick.example";
 import TileExample from "raw!./examples/tile.example";
+import ProductCompetitorInfoExample from "raw!./examples/product-competitor-info.example";
 
 import * as libraryScope from "../src/index";
 
@@ -188,6 +189,16 @@ Index.Components = [
       {
         type: "playground",
         code: StoreItemTileExample,
+        noRender: true
+      }
+    ]
+  },
+  {
+    title: "ProductCompetitorInfo",
+    examples: [
+      {
+        type: "playground",
+        code: ProductCompetitorInfoExample,
         noRender: true
       }
     ]

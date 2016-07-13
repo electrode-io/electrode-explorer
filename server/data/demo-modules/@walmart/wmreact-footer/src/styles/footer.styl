@@ -1,0 +1,61 @@
+@require "~@walmart/wmreact-layout/src/styles/layout";
+@require "~@walmart/wmreact-base/src/styles/base";
+@require "~@walmart/wmreact-interactive/src/styles/interactive";
+@require "~@walmart/wmreact-containers/src/styles/containers";
+@require "~@walmart/wmreact-forms/src/styles/forms";
+
+@require "./global-email-signup";
+@require "./global-email-signup-modal";
+@require "./global-social-icons";
+@require "./global-footer";
+@require "./global-footer-item";
+@require "./global-footer-items";
+@require "./footer-copyright";
+@require "./feedback-link";
+@require "./opinion-lab";
+
+.footer-Footer {
+  padding-top: $m-spacing;
+  border-top: 1px solid $grey-light;
+
+  .footer-GlobalEmailSignup {
+    +breakpoint($breakpoint-m) {
+      display: inline-block;
+    }
+  }
+
+  .footer-GlobalSocialIcons {
+    padding-top: 0;
+    text-align: center;
+
+    +breakpoint($breakpoint-m) {
+      display: inline-block;
+      padding-top: 40px;
+      float: right;
+      text-align: right;
+    }
+
+    +breakpoint($breakpoint-l) {
+      padding-top: 0;
+    }
+  }
+}
+
+/**
+* Sticky footer (https://github.com/philipwalton/solved-by-flexbox/blob/master/assets/css/components/site.css)
+*/
+// wraps header, content, and footer
+.page-full-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+// wraps content only and is a direct child of .page-full-wrapper
+.page-content-wrapper {
+  flex: 1 0 auto;
+}
+
+.header-Header, .footer-Footer {
+  flex: none;
+}

@@ -29,6 +29,7 @@ class MembershipExists extends React.Component {
         <form>
           <Field
             field={this.props.fields.email}
+            showErrorOnTop={true}
             type="text"
             label={"Email"}
             placeholder={"Email"}
@@ -37,6 +38,7 @@ class MembershipExists extends React.Component {
             tealeafId={this.props.tealeaf.emailInput} />
           <Password
             field={this.props.fields.password}
+            showErrorOnTop={true}
             label={"Password"}
             placeholder={"Password"}
             automationId={this.props.automation.passwordInput}

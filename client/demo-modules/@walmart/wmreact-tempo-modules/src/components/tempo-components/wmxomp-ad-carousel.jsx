@@ -1,10 +1,27 @@
 import React, { PropTypes } from "react";
 
 import TempoTileCarousel from "../helper-components/tempo-tile-carousel";
+import { generateMidasCarouselProps, renderMidasCarouselBeacons } from
+  "../../helpers/midas-item-carousel-helpers";
 
-const WMXOMPAdCarousel = (props) => (
-  <TempoTileCarousel className="WMXOMPAdCarousel" {...props} />
-);
+const WMXOMPAdCarousel = (props) => {
+  const { moduleData: { configs: { midasModuleData } } } = props;
+
+  if (!midasModuleData) {
+    return (
+      <div></div>
+    );
+  }
+
+  return (
+    <TempoTileCarousel
+      className="WMXOMPAdCarousel wpa-carousel-container"
+      containerProps={generateMidasCarouselProps(midasModuleData)}
+      otherChild={renderMidasCarouselBeacons(midasModuleData)}
+      {...props}
+    />
+  );
+};
 
 WMXOMPAdCarousel.propTypes = {
   /**
@@ -22,7 +39,8 @@ WMXOMPAdCarousel.propTypes = {
       themeTextColor: PropTypes.string,
       seeAllLink: PropTypes.object,
       seeAllLinkHexCode: PropTypes.string,
-      products: PropTypes.array.isRequired
+      products: PropTypes.array.isRequired,
+      midasModuleData: PropTypes.object.isRequired
     }).isRequired,
     moduleId: PropTypes.string,
     type: PropTypes.string

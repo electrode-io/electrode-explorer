@@ -1,0 +1,41 @@
+$prod-MarginThreshold-xxs ?= $xxs-spacing;
+$prod-MarginThreshold-xs ?= $xs-spacing;
+$prod-MarginThreshold-s ?= $s-spacing;
+$prod-MarginThreshold-m ?= $m-spacing;
+$prod-MarginThreshold-l ?= $l-spacing;
+$prod-MarginThreshold-xl ?= $xl-spacing;
+$prod-MarginThreshold-xxl ?= $xxl-spacing;
+
+$prod-Margin-mixin(bpSize, bpSpacing) {
+  .prod-MarginEnds--{bpSize} {
+    margin-top: bpSpacing !important;
+    margin-bottom: bpSpacing !important;
+  }
+
+  .prod-MarginTop--{bpSize} {
+    margin-top: bpSpacing !important;
+  }
+
+  .prod-MarginRight--{bpSize} {
+    margin-right: bpSpacing !important;
+  }
+
+  .prod-MarginBottom--{bpSize} {
+    margin-bottom: bpSpacing !important;
+  }
+
+  .prod-MarginLeft--{bpSize} {
+    margin-left: bpSpacing !important;
+  }
+}
+
+// generate a Ends class like
+// .prod-MarginEnds--xxs
+// .prod-Margin[Top/Right/Bottom/Left]--xxs
+$prod-Margin-mixin('xxs', $prod-MarginThreshold-xxs);
+$prod-Margin-mixin('xs', $prod-MarginThreshold-xs);
+$prod-Margin-mixin('s', $prod-MarginThreshold-s);
+$prod-Margin-mixin('m', $prod-MarginThreshold-m);
+$prod-Margin-mixin('l',  $prod-MarginThreshold-l);
+$prod-Margin-mixin('xl',  $prod-MarginThreshold-xl);
+$prod-Margin-mixin('xxl',  $prod-MarginThreshold-xxl);

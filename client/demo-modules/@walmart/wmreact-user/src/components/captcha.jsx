@@ -26,22 +26,21 @@ export class Captcha extends React.Component {
     const {CF_IS_BOT, IS_BOT_RESOLVED} = CAPTCHA_STATES;
     const showCaptcha = (isBot === CF_IS_BOT || isBot === IS_BOT_RESOLVED);
     return (
-      <div className="captcha">
+      <div>
         <SensorData ref="sensorData"
           beKey={this.props.beKey}
         />
         {showCaptcha &&
-          <p className="bot-message">
-              {this.props.isBotMssg}
-          </p>
-        }
-        {showCaptcha &&
-          <ReCAPTCHA
-            className="reCaptcha"
-            ref="recaptcha"
-            sitekey={this.props.reCaptchaSiteKey}
-            onChange={onReCaptchaResponse}
-          />
+          <div className="re-captcha">
+            <p className="bot-message">
+                {this.props.isBotMssg}
+            </p>
+            <ReCAPTCHA
+              ref="recaptcha"
+              sitekey={this.props.reCaptchaSiteKey}
+              onChange={onReCaptchaResponse}
+            />
+          </div>
         }
       </div>
     );

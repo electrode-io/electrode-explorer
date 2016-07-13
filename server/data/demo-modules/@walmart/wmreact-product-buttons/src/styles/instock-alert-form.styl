@@ -1,0 +1,25 @@
+.prod-ProductInstockAlertForm {
+  
+  +breakpoint($breakpoint-s-max, "max") {
+    .validation-group .form-control {
+      padding-right: 0;
+      to-rem(font-size, 12px);
+    }
+  }
+
+  .prod-ProductInstockAlertForm-emailContainer {
+    padding-bottom: $s-spacing;
+
+    .prod-ProductInstockAlertForm-emailLabel {
+      padding-top: $m-spacing;
+      padding-right: $s-spacing;
+    }
+  }
+  
+  .prod-ProductInstockAlertForm-successText,
+  .prod-ProductInstockAlertForm-failedText  {
+    padding-top: 6px;
+    to-rem(font-size, 14px);
+    font-weight: 700;
+  }
+}

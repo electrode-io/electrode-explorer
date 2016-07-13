@@ -1,0 +1,14 @@
+<BreadCrumbs
+  moduleType="BreadCrumb"
+  analyticsDataFunc={() => ({
+      "getDidMountData": () => ([{"result": true}]),
+      "dispatch": () => ({"a": true})
+      }
+    )
+  }
+  data={[
+    {
+      "name": "Electronics",
+      "id": "3944"
+    }
+]} />

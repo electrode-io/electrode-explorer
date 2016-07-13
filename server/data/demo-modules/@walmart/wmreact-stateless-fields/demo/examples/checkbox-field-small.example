@@ -1,0 +1,6 @@
+ <div>
+  <CheckboxField isSmall label="Remember me" />
+  <CheckboxField checked onChange={() => {}} isSmall label="Remember me" />
+  <CheckboxField touched error isSmall label="Remember me" />
+  <CheckboxField isSmall shouldDisplayValid={() => true} label="Remember me" />
+</div>

@@ -7,7 +7,7 @@ const _getWindow = () => window;
 const _onClick = (ev) => {
   ev.preventDefault();
   _getWindow().open(
-    "https://trustsealinfo.verisign.com/splash?form_file=fdf/splash.fdf&amp;dn=www.walmart.com&amp;lang=en",
+    "https://trustsealinfo.verisign.com/splash?form_file=fdf/splash.fdf&dn=www.walmart.com&lang=en",
     "VRSN_Splash",
     "location=yes,status=yes,resizable=yes,scrollbars=yes,width=560,height=500"
   );

@@ -128,6 +128,7 @@ class ForgotPassword extends React.Component {
         </p>
         <Field
           className="input-field"
+          showErrorOnTop={true}
           field={email}
           label={"Email address"}
           placeholder={"Email"}

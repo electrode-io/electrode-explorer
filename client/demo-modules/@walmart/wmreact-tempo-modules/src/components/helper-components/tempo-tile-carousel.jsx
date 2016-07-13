@@ -9,144 +9,23 @@ import FeaturedElementCarousel
   from "@walmart/wmreact-carousel/lib/components/featured-element-carousel";
 import CollectorContext from "@walmart/wmreact-analytics/lib/backplane/collector-context";
 import fireDataEvent from "@walmart/wmreact-analytics/lib/helpers/fire-data-event";
+import WaypointCollector from "@walmart/wmreact-analytics/lib/collectors/waypoint-collector";
 
 import ModuleHeader from "./module-header";
 import CarouselFirstTile from "./carousel-first-tile";
 import TempoItemTile from "./tempo-item-tile";
 import TempoCategoryTile from "./tempo-category-tile";
 import validCategoryTile from "../../helpers/category-tile-helpers";
-
-const SLIDE_WIDTH_SMALL = { slideWidth: "136px", initialSlideWidth: 136 };
-const SLIDE_WIDTH_LARGE = { slideWidth: "168px", initialSlideWidth: 168 };
-const CELL_SPACING_SMALL = { cellSpacing: 8 };
-const CELL_SPACING_LARGE = { cellSpacing: 12 };
-
-const HORIZONTAL_CAROUSEL_PROPS = {
-  slidesToScroll: "auto",
-  frameOverflow: "visible",
-  responsive: [{
-    selectors: ["x-small"],
-    settings: {
-      framePadding: "0 8px",
-      ...CELL_SPACING_SMALL,
-      ...SLIDE_WIDTH_SMALL
-    }
-  }, {
-    selectors: ["small"],
-    settings: {
-      framePadding: "0 16px",
-      ...CELL_SPACING_SMALL,
-      ...SLIDE_WIDTH_SMALL
-    }
-  }, {
-    selectors: ["medium"],
-    settings: {
-      framePadding: "0 16px",
-      ...CELL_SPACING_SMALL,
-      ...SLIDE_WIDTH_LARGE
-    }
-  }, {
-    selectors: ["large"],
-    settings: {
-      framePadding: "0 20px",
-      ...CELL_SPACING_LARGE,
-      ...SLIDE_WIDTH_LARGE
-    }
-  }, {
-    selectors: ["x-large"],
-    settings: {
-      framePadding: "0 32px",
-      ...CELL_SPACING_LARGE,
-      ...SLIDE_WIDTH_LARGE
-    }
-  }]
-};
-
-const VERTICAL_CAROUSEL_PROPS = {
-  slidesToScroll: "auto",
-  ...CELL_SPACING_LARGE
-};
-
-const PAGINATOR_STYLE = { top: 84 };
-
-const TILE_PADDING = 8;
-const TILE_IMAGE_HEIGHT = 144;
-const TILE_IMAGE_MARGIN = 4;
-const TILE_TEXT_LINE_HEIGHT = 18;
-const TILE_PRICE_HEIGHT = 36;
-const TILE_STARS_HEIGHT = 15;
-const TILE_SHIPPING_PASS_HEIGHT = 15;
-const TILE_BASE_HEIGHT = TILE_PADDING * 2 + TILE_IMAGE_HEIGHT + TILE_IMAGE_MARGIN;
-
-export const _setOffToFalse = (value) => {
-  return value !== "off";
-};
-
-export const _setTileOptionProps = (tileOptions) => {
-  // set largest values if no tile options
-  if (!tileOptions) {
-    return {
-      productNameLines: 2,
-      showPrice: true,
-      showFlags: true,
-      showRatings: true,
-      showShippingPass: true
-    };
-  }
-
-  const { price, itemFlag, productTitle, ratingsReviews, deliveryPass } = tileOptions;
-
-  const productNameLinesValues = {
-    off: 0,
-    single: 1,
-    double: 2
-  };
-
-  return {
-    productNameLines: productNameLinesValues[productTitle],
-    showPrice: _setOffToFalse(price),
-    showFlags: _setOffToFalse(itemFlag),
-    showRatings: _setOffToFalse(ratingsReviews),
-    showShippingPass: _setOffToFalse(deliveryPass)
-  };
-};
-
-export const _getItemTileHeight = (tileOptionProps) => {
-  const { productNameLines, showPrice, showRatings, showShippingPass } = tileOptionProps;
-  let tileHeight = TILE_BASE_HEIGHT + TILE_TEXT_LINE_HEIGHT * productNameLines;
-  if (showPrice) {
-    tileHeight += TILE_PRICE_HEIGHT;
-  }
-  if (showRatings) {
-    tileHeight += TILE_STARS_HEIGHT;
-  }
-  if (showShippingPass) {
-    tileHeight += TILE_SHIPPING_PASS_HEIGHT;
-  }
-
-  return tileHeight;
-};
-
-export const _getCategoryTileHeight = (titleAlignment) => {
-  const titleLines = titleAlignment === "center" ? 1 : 2;
-  return TILE_BASE_HEIGHT + TILE_TEXT_LINE_HEIGHT * titleLines;
-};
-
-export const _getSlideToShow = (products) => {
-  // Slide to show number are required to define height of vertical carousel.
-  // the numbers are for product tile or categories tile to show initially.
-  return products ? 5 : 7.16;
-};
-
-// determine if a particular tile is contained inside the carousel frame
-export const _isTileVisible = (frameBoundingRect, tileBoundingRect, isVertical) => {
-  if (isVertical) {
-    return tileBoundingRect.bottom <= frameBoundingRect.bottom &&
-      tileBoundingRect.top >= frameBoundingRect.top;
-  }
-  return tileBoundingRect.left >= frameBoundingRect.left &&
-    tileBoundingRect.right <= frameBoundingRect.right;
-};
+import {
+  _isTileVisible,
+  _setTileOptionProps,
+  _getItemTileHeight,
+  _getCategoryTileHeight,
+  _getSlideToShow,
+  HORIZONTAL_CAROUSEL_PROPS,
+  VERTICAL_CAROUSEL_PROPS,
+  PAGINATOR_STYLE
+} from "../../helpers/tempo-tile-carousel-helpers";
 
 class TempoTileCarousel extends Component {
   constructor(props) {
@@ -159,6 +38,7 @@ class TempoTileCarousel extends Component {
 
     this._loadTiles = this._loadTiles.bind(this);
     this._fireModuleView = this._fireModuleView.bind(this);
+    this._fireScrollModuleView = this._fireScrollModuleView.bind(this);
   }
 
   _renderFirstTile(
@@ -187,9 +67,9 @@ class TempoTileCarousel extends Component {
       moduleData: {
         configs,
         configs: {
-          products
-        },
-        moduleId
+          products,
+          maxCompareValues
+        }
       },
       userLoggedIn,
       lowQuantityThreshold,
@@ -201,7 +81,7 @@ class TempoTileCarousel extends Component {
       userLoggedIn,
       lowQuantityThreshold,
       isMobile,
-      moduleId,
+      maxCompareValues,
       ...tileOptionProps
     };
 
@@ -289,7 +169,7 @@ class TempoTileCarousel extends Component {
 
   // count number of slides that are currently visible for analytics
   _getVisibleTileCount(isVertical) {
-    const carouselNode = ReactDOM.findDOMNode(this.refs.carousel);
+    const carouselNode = ReactDOM.findDOMNode(this);
     const carouselFrameNode = carouselNode.querySelector(".slider-frame");
     const carouselTiles = carouselFrameNode.querySelectorAll(".slider-slide");
     const frameBoundingRect = carouselFrameNode.getBoundingClientRect();
@@ -313,7 +193,7 @@ class TempoTileCarousel extends Component {
   }
 
   // fire analytics event with required data on page of tiles
-  _fireModuleView(index) {
+  _fireModuleView(index, isScroll) {
     const { moduleData: { moduleId }, vertical } = this.props;
     const visibleTileCount = this._getVisibleTileCount(vertical);
     const page = Math.floor(index / visibleTileCount) + 1;
@@ -337,8 +217,13 @@ class TempoTileCarousel extends Component {
       tr: totalResults
     };
 
-    this._fireDataEventWrapper({ moduleId, plData });
+    this._fireDataEventWrapper({ moduleId, plData, isScroll });
   }
+
+  _fireScrollModuleView() {
+    this._fireModuleView(0, true);
+  }
+
 /* eslint-disable  max-statements */
   render() {
     const {
@@ -353,7 +238,8 @@ class TempoTileCarousel extends Component {
           products,
           tiles,
           tileOptions,
-          titleAlignment
+          titleAlignment,
+          maxCompareValues
         },
         moduleId,
         type
@@ -362,6 +248,8 @@ class TempoTileCarousel extends Component {
       vertical,
       className,
       isMobile,
+      otherChild,
+      containerProps,
       zoneId
     } = this.props;
 
@@ -377,7 +265,9 @@ class TempoTileCarousel extends Component {
       backgroundImage: themeImage ? `url(${themeImage.src})` : null,
       dataModuleId: moduleId,
       dataModuleType: type,
-      dataAutomationId
+      dataAutomationId,
+      otherChild,
+      containerProps
     };
 
     const newAutomationId = `${dataAutomationId}-${type}`;
@@ -409,7 +299,7 @@ class TempoTileCarousel extends Component {
     const tempoTileClass = vertical ? "TempoTileCarousel--vertical" : "TempoTileCarousel";
 
     const tileOptionProps = products ? _setTileOptionProps(tileOptions) : null;
-    const tileHeight = products ? _getItemTileHeight(tileOptionProps) :
+    const tileHeight = products ? _getItemTileHeight(tileOptionProps, maxCompareValues) :
       _getCategoryTileHeight(titleAlignment);
 
     VERTICAL_CAROUSEL_PROPS.slidesToShow = _getSlideToShow(products);
@@ -417,21 +307,23 @@ class TempoTileCarousel extends Component {
     const CAROUSEL_PROPS = vertical ? {...VERTICAL_CAROUSEL_PROPS} : {...HORIZONTAL_CAROUSEL_PROPS};
 
     return (
-      <CollectorContext moduleId={moduleId} zoneId={zoneId} ref="carousel">
-        <FeaturedElementCarousel
-          className={classNames(className, tempoTileClass, `tile--height${tileHeight}`, {
-            "is-loading": !ExecutionEnvironment.canUseDOM
-          })}
-          vertical={vertical}
-          {...wrapperProps}
-          {...CAROUSEL_PROPS}
-          header={<ModuleHeader {...headerProps} />}
-          beforeSlide={this._loadTiles}
-          afterSlide={this._fireModuleView}>
-          {products ?
-            this._renderItemTiles(this.props, lazyLoadIndex, newAutomationId, tileOptionProps) :
-            this._renderCategoryTiles(this.props, lazyLoadIndex, newAutomationId)}
-        </FeaturedElementCarousel>
+      <CollectorContext moduleId={moduleId} zoneId={zoneId}>
+        <WaypointCollector onEnter={this._fireScrollModuleView} fireAtBottom>
+          <FeaturedElementCarousel
+            className={classNames(className, tempoTileClass, `tile--height${tileHeight}`, {
+              "is-loading": !ExecutionEnvironment.canUseDOM
+            })}
+            vertical={vertical}
+            {...wrapperProps}
+            {...CAROUSEL_PROPS}
+            header={<ModuleHeader {...headerProps} />}
+            beforeSlide={this._loadTiles}
+            afterSlide={this._fireModuleView}>
+            {products ?
+              this._renderItemTiles(this.props, lazyLoadIndex, newAutomationId, tileOptionProps) :
+              this._renderCategoryTiles(this.props, lazyLoadIndex, newAutomationId)}
+          </FeaturedElementCarousel>
+        </WaypointCollector>
       </CollectorContext>
     );
   }
@@ -488,11 +380,18 @@ TempoTileCarousel.propTypes = {
   * Any additional classes to add for styling purposes
   */
   className: PropTypes.string,
-
   /**
   * Zone ID for analytics
   */
-  zoneId: PropTypes.number
+  zoneId: PropTypes.number,
+  /**
+  * Additional props to put on the container div
+  */
+  containerProps: PropTypes.object,
+  /**
+  * Additional child of container that is not a carousel tile
+  */
+  otherChild: PropTypes.node
 };
 
 TempoTileCarousel.defaultProps = {
@@ -502,7 +401,9 @@ TempoTileCarousel.defaultProps = {
   isMobile: false,
   dataAutomationId: "",
   className: "",
-  zoneId: 0
+  zoneId: 0,
+  containerProps: {},
+  otherChild: null
 };
 
 TempoTileCarousel.contextTypes = {

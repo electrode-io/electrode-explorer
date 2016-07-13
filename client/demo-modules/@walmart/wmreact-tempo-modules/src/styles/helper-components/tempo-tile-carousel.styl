@@ -128,7 +128,7 @@ $tile-image-height-l = 144px;
 
   // generate classes for all the possible tile heights
   // ensure correct height while loading
-  for $tileHeight in 164 179 182 194 197 200 212 215 218 230 233 236 236 248 251 266 {
+  for $tileHeight in 164 179 182 190 194 197 200 205 208 212 215 218 220 223 226 230 233 236 238 241 244 248 251 256 259 262 266 274 277 280 292 295 298 310 313 328 {
     &.tile--height{$tileHeight} {
       .slider, .TempoItemTile, .TempoCategoryTile, .CarouselFirstTile {
         height: $tileHeight + $tile-image-height-s - $tile-image-height-l !important;

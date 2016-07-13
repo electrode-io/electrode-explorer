@@ -45,7 +45,7 @@ export const ModuleHeader = (props) => {
       const classes = classNames(
         "ModuleHeader-heading",
         "display-inline-block",
-        {"ModuleHeader-heading-fullWidth": themeButton}
+        {"ModuleHeader-heading-fullWidth": !themeButton}
       );
 
       return (
@@ -73,7 +73,7 @@ export const ModuleHeader = (props) => {
     }
   };
 
-  const classes = themeButton && themeButton.linkText
+  const classes = !headerTitle && (themeButton && themeButton.linkText)
     ? "ModuleHeader ModuleHeader-withButton"
     : "ModuleHeader";
 

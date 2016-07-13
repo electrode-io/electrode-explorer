@@ -1,1 +1,21 @@
 @require "~@walmart/wmreact-product-card/src/styles/product-card";
+
+.TempoItemTile-comparePrices {
+  border-top: 1px solid $grey-light;
+
+  // Negative margins to force the border end to end
+  margin: 6px -1 * $xs-spacing 0;
+  padding: 2px $xs-spacing 0;
+
+  +breakpoint($breakpoint-m) {
+    margin-left: -1 * $s-spacing;
+    margin-right: @margin-left;
+    padding-left: $s-spacing;
+    padding-right: @padding-left;
+  }
+}
+
+.TempoItemTile-comparePrices-row {
+  height: 18px;
+  line-height: @height;
+}

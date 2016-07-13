@@ -1,0 +1,20 @@
+<StoreHeader
+  searchText="Camera"
+  name="Mountain View store"
+  address={{
+    address1: "600 Showers Dr",
+    city: "Mountain View",
+    state: "CA",
+    postalCode: "94040"
+  }}
+  phone="123-456-789"
+  operationalHours={[
+    {
+      openHrs: "1 a.m.",
+      closingHrs: "10 p.m.",
+      fromDay: "Mon",
+      toDay: "Sun"
+    }
+  ]}
+  storeUrl="http://www.walmart.com/store/1"
+/>

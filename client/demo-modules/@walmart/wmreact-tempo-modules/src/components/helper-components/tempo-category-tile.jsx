@@ -1,6 +1,7 @@
 /* @flow */
 import React, { PropTypes } from "react";
 import classNames from "classnames";
+import { AllHtmlEntities } from "html-entities";
 
 import Link from "@walmart/wmreact-base/lib/components/link";
 import Image from "@walmart/wmreact-base/lib/components/image";
@@ -99,7 +100,11 @@ const TempoCategoryTile = (props) => {
           />
         {linkText &&
           <div className={contentClass}>
-            <TextTruncate line={isOneLineLinkText ? 1 : 2} text={linkText} raf={false} />
+            <TextTruncate
+              line={isOneLineLinkText ? 1 : 2}
+              text={AllHtmlEntities.decode(linkText)}
+              raf={false}
+            />
           </div>
         }
         <Link

@@ -1,0 +1,199 @@
+@require "~@walmart/wmreact-layout/src/styles/layout";
+@require "~@walmart/wmreact-base/src/styles/base";
+@require "~@walmart/wmreact-interactive/src/styles/interactive";
+@require "~@walmart/wmreact-containers/src/styles/containers";
+@require "offcanvas-nav";
+@require "global-eyebrow-nav";
+@require "store-list-item";
+@require "store-list";
+@require "store-finder-field";
+@require "store-finder-panel";
+@require "header-logo";
+@require "searchbar-wrapper";
+@require "global-search";
+@require "global-typeahead";
+@require "header-cart";
+@require "global-account-flyout";
+@require "global-lefthand-nav";
+@require "global-lefthand-nav-mobile";
+@require "global-secondary-nav";
+@require "global-marketing-messages";
+@require "walmart-banner";
+@require "typeahead-mobile";
+
+$header-fixed-height = 50px;
+$header-box-shadow = 0 2px 3px rgba(0, 0, 0, .2);
+
+.header-Header {
+  font-smoothing();
+
+  background-color: $blue;
+
+  // don't show flash of highlight color when opening offcanvas nav
+  // have to use both for iOS and some androids
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+
+  .header-GlobalLefthandNav-toggle, .header-GlobalLefthandNav-dropdown {
+    margin-left: -1 * $m-spacing;
+
+    +breakpoint($breakpoint-xl) {
+      margin-left: -1 * $l-spacing;
+    }
+  }
+}
+
+.header-Header-wrapper {
+  wmzindex("header");
+
+  position: relative;
+}
+
+.header-Header-mainNav {
+  height: 36px;
+  line-height: @height;
+
+  background: $white;
+  font-weight: 600;
+  box-shadow: $header-box-shadow;
+}
+
+.header-HeaderPrimary {
+  background-color: $blue;
+  box-shadow: $header-box-shadow;
+
+  +breakpoint($breakpoint-l) {
+    height: 72px;
+
+    box-shadow: none;
+  }
+
+  &.is-expanded {
+    +breakpoint($breakpoint-m-max, "max") {
+      height: 80px;
+    }
+  }
+
+  // Overide ResponsiveContainer styles at small breakpoints
+  .ResponsiveContainer {
+    +breakpoint($breakpoint-m-max, "max") {
+      padding: 0;
+    }
+
+    +breakpoint($breakpoint-l) {
+      height: 100%;
+    }
+  }
+
+  .arrange {
+    +breakpoint($breakpoint-s) {
+      padding: 0 $xxs-spacing;
+    }
+
+    +breakpoint($breakpoint-l) {
+      height: 100%;
+      padding: 0;
+
+      & > .arrange-fit, & > .arrange-fill {
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+.header-HeaderPrimary-icon {
+  to-rem(font-size, 20px);
+
+  height: 40px;
+  width: 44px;
+  line-height: @height;
+
+  color: $white;
+
+  &:hover {
+    color: $blue-secondary-hover;
+  }
+}
+
+.header-HeaderPrimary-logoWrapper {
+  width: 100%;
+
+  +breakpoint($breakpoint-l) {
+    width: auto;
+    padding-top: 2px;
+  }
+}
+
+.header-HeaderPrimary-user {
+  width: 183px;
+
+  .header-GlobalAccountFlyout-flyout {
+    margin-left: 82px;
+    padding-right: 2px;
+  }
+}
+
+/**
+* Sticky Header
+*/
+@keyframes header-slide-down {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.header-Header .is-fixed {
+  wmzindex("header-fixed");
+
+  +breakpoint($breakpoint-l) {
+    .header-Header-mainNav {
+      display: none;
+    }
+
+    .header-HeaderPrimary-eyebrowNavWrapper {
+      display: none;
+    }
+
+    .header-HeaderPrimary {
+      height: $header-fixed-height;
+      max-width: 100%;
+
+      box-shadow: $header-box-shadow;
+
+      animation: header-slide-down .5s ease forwards;
+
+      .header-GlobalLefthandNav-wrapper {
+        top: $header-fixed-height;
+      }
+
+      .header-HeaderPrimary-logoWrapper {
+        padding-top: 0;
+      }
+
+      .header-HeaderPrimary-searchbarWrapper {
+        height: auto;
+        padding: 0 $m-spacing 0 42px;
+      }
+
+      .header-GlobalAccountFlyout-name {
+        margin-top: 2px;
+      }
+
+      .header-HeaderPrimary-user {
+        width: 157px;
+      }
+
+      .header-GlobalAccountFlyout {
+        height: 41px;
+      }
+
+      .header-GlobalAccountFlyout-flyout {
+        margin-left: 50px;
+      }
+    }
+  }
+}

@@ -2,7 +2,6 @@
 @require "~@walmart/wmreact-base/src/styles/base";
 @require "~@walmart/wmreact-interactive/src/styles/interactive";
 @require "~@walmart/wmreact-containers/src/styles/containers";
-@require "~@walmart/wmreact-forms/src/styles/forms";
 @require "./member-services-nav";
 @require "./header-lefthand-nav";
 @require "./club-results";
@@ -37,6 +36,16 @@ $header-box-shadow = 0 2px 3px rgba(0, 0, 0, .2);
 
 .header-Header {
   font-smoothing();
+  .buttonText{
+    padding-top: 8px;
+    padding-right: 12px;
+  }
+
+  .fixie {
+    width: 100%;
+    right: auto;
+    left: auto;
+  }
 
   background-color: $white;
 
@@ -147,13 +156,10 @@ $header-box-shadow = 0 2px 3px rgba(0, 0, 0, .2);
   box-sizing: border-box;
 }
 
-@media screen and (max-width: 1023px) {
-  div.header-HeaderPrimary {
-    box-shadow: none;
-  }
-}
-
 @media screen and (max-width: 767px) {
+  .header-Header .header-Logo {
+    margin-left: 36%;
+  }
   .header {
     &-SearchbarWrapper {
       box-shadow: 0 2px 3px rgba(0, 0, 0, .2);
@@ -169,27 +175,46 @@ $header-box-shadow = 0 2px 3px rgba(0, 0, 0, .2);
       }
 
       &-input {
-        height: 32px !important;
         background-color: $mobile-input-grey;
-        padding: 0 15px;
-        border-radius: 100px !important;
       }
 
-      .arrange-fill {
-        float: left;
-      }
     }
+  }
+}
+@media screen and (min-width: 0px) and (max-width: 768px) {
+  .header-Header.header-Logo {
+    height: 30px;
+    width: 140px;
   }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
+  .arrange-fit {
+    padding-bottom: 7px !important;
+  }
+
+  .header-Header.header-Logo {
+    background-size: contain;
+    height: 29px;
+    width: 142px;
+  }
+
+  .header-HeaderPrimary{
+    padding-top: 8px;
+  }
+
   .header-SearchbarWrapper {
-    box-shadow: 0 2px 3px rgba(0, 0, 0, .2);
+    box-shadow: none;
+    top: 0;
+    left: 265px;
+    width: 55%;
+    height: 55px;
   }
 
   .header-GlobalSearch{
     border: none !important;
     margin: 10px 0;
+    height: 35px;
     background-color: $mobile-input-grey;
 
     &-submit {
@@ -200,7 +225,7 @@ $header-box-shadow = 0 2px 3px rgba(0, 0, 0, .2);
     }
 
     &-input {
-      height: 32px !important;
+      height: 34px !important;
       background-color: $mobile-input-grey;
       padding: 0 15px;
       border-radius: 100px !important;
@@ -302,6 +327,9 @@ $header-box-shadow = 0 2px 3px rgba(0, 0, 0, .2);
 
   // Overide ResponsiveContainer styles at small breakpoints
   .ResponsiveContainer {
+    padding-right: 32px;
+    padding-left: 32px;
+
     +breakpoint($breakpoint-m-max, "max") {
       margin-bottom: 50px;
       padding: 0;
@@ -466,10 +494,6 @@ $header-box-shadow = 0 2px 3px rgba(0, 0, 0, .2);
         padding: 0 $m-spacing 0 42px;
       }
 
-      .header-GlobalAccountFlyout-name {
-        margin-top: 2px;
-      }
-
       .header-HeaderPrimary-user {
         width: 157px;
       }
@@ -479,7 +503,8 @@ $header-box-shadow = 0 2px 3px rgba(0, 0, 0, .2);
       }
 
       .header-GlobalAccountFlyout-flyout {
-        margin-left: 50px;
+        margin-left: $m-spacing;
+        margin-top: 2px;
       }
     }
   }

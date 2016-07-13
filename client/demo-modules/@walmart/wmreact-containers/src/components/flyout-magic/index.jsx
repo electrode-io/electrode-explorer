@@ -86,27 +86,29 @@ export const getRect = (target) => {
   // works basically like `getClientBoundingRect`.
   // Get all the bounding boxes for the target.
   const rects = target.getClientRects();
-  // Find the biggest one.
-  let biggest = normalize(rects[0]);
-  for (let i = 1; i < rects.length; ++i) {
-    const rect = normalize(rects[i]);
-    if (rect.width > biggest.width) {
-      biggest = rect;
+  if (rects && rects.length) {
+    // Find the biggest one.
+    let biggest = normalize(rects[0]);
+    for (let i = 1; i < rects.length; ++i) {
+      const rect = normalize(rects[i]);
+      if (rect.width > biggest.width) {
+        biggest = rect;
+      }
     }
+    return biggest;
   }
-  return biggest;
 };
 
 /**
  * @component Flyout
  * @import {Flyout}
  *
-@examples
-```jsx
-<Flyout trigger={({toggle}) => (
+ @examples
+ ```jsx
+ <Flyout trigger={({toggle}) => (
   <button onClick={toggle}>Show</button>
 )} direction="left">Hello</Flyout>
-```
+ ```
  *
  */
 class Flyout extends Component {
@@ -119,6 +121,10 @@ class Flyout extends Component {
     this.Trigger = wrap(props.trigger);
   }
 
+  componentDidMount() {
+    this.updateTarget();
+  }
+
   /**
    * Update the the rect that the flyout points to. Use of `getClientRects`
    * allows the flyout to position itself intelligently when targeting multi-
@@ -129,8 +135,11 @@ class Flyout extends Component {
     // The target is always the trigger element as per `electrode` convention.
     const target = this.trigger;
     if (target) {
+      const position = getRect(target);
       // Use that as the target for the flyout.
-      this.setState({target: getRect(target)});
+      if (position) {
+        this.setState({target: position});
+      }
     }
   }
 

@@ -1,0 +1,81 @@
+/**
+ * Search Results: shipping details
+ */
+
+.search-result-product-shipping-details {
+  margin: 0;
+  padding: 0;
+  
+  @media(min-width: $breakpoint-xs) and (max-width: $breakpoint-l) {
+    color: $grey-medium;
+    line-height: 1.2;
+
+    +breakpoint($breakpoint-s) {
+      margin-right: 24px;
+      clear: both;
+    }
+  }
+    
+  @media (min-width: $breakpoint-l) {
+    color: $black;
+    line-height: 1.3em;
+
+    &.marketplace-sold-by,
+    &.vudu-media-streaming {
+      display: block;
+    }
+
+    .free-label {
+      font-weight: 700;
+    }
+  }
+
+  .put-oss-address {
+    ellipsis();
+  }
+  
+  .media-product {
+    .vudu-media-streaming, .rent-media-streaming, .buy-media-streaming {
+      display: block;
+      b {
+        display: inline-block;
+      }
+    }
+    
+    .vudu-logo {
+      display: inline;
+      color: $blue;
+      font-size: $font-size-regular;
+    }
+  }
+}
+
+.search-result-product-shipping-details.listview {
+  margin: 10px 0;
+  
+  font-size: 13px;
+  
+  .font-bold {
+    font-weight: 500;
+  }
+  
+  .free-label {
+    font-weight: 700;
+  }
+}
+
+.search-result-product-shipping-details.gridview {
+  height: 40px;
+  margin: 0;
+  
+  font-size: 12px;
+  line-height: 1.2;
+  
+  .font-bold {
+    font-weight: 500;
+  }
+  
+  .free-label {
+    font-weight: 700;
+  }
+}

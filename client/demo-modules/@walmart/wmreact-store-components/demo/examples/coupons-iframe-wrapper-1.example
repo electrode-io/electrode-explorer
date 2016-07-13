@@ -1,0 +1,16 @@
+<CouponsIframeWrapper
+  address={{
+    address1: "street",
+    city: "city",
+    state: "state",
+    postalCode: "95054"
+  }}
+  couponsData={{
+    couponsUrl: "https://www.coupons.com/coupons/",
+    host: "https://www.coupons.com/",
+    pid: "19251",
+    zid: "vz89",
+    nid: "10",
+    cid: null
+  }}
+/>

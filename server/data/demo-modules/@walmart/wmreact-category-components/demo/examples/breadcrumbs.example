@@ -1,0 +1,18 @@
+<BreadCrumbs
+  moduleType="BreadCrumb"
+  data={[
+    {
+      "name": "Electronics",
+      "id": "3944",
+      "url": "/category/3944"
+    },
+    {
+      "name": "Computers",
+      "id": "3951",
+      "url": "/category/3951"
+    },
+    {
+      "name": "Laptops",
+      "id": "3944_3951_1089430"
+    }
+]} />

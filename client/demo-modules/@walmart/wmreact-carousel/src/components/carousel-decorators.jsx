@@ -231,7 +231,7 @@ const paginatorButtons = (externalProps) => ({
     }
   }),
   position: "BottomCenter",
-  style: externalProps.dotsStyle || { bottom: -20 }
+  style: externalProps.dotsStyle || { bottom: -20, width: "100%" }
 });
 
 export const getHorizontalCarouselDecorators = (externalProps = {}) => ([

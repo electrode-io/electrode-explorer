@@ -1,0 +1,34 @@
+<CreditCards
+floatingLabels
+  cards={[{
+    lastFour:"1111",
+    firstName:"John",
+    lastName:"Snow",
+    cardExpiryDate:"2020-07-01",
+    cardType:"AMEX",
+    id:"1",
+    addressLineOne: "860 w california ave",
+    city: "sunnyvale",
+    state: "CA",
+    postalCode: "94086",
+    phone: "8123823828"
+
+  },
+  {
+    lastFour:"2222",
+    firstName:"John",
+    lastName:"Snow",
+    cardExpiryDate:"2018-01-01",
+    cardType:"VISA",
+    id:"2",
+    addressLineOne: "860 w california ave",
+    city: "sunnyvale",
+    state: "CA",
+    postalCode: "94086",
+    phone: "8123823828",
+    loading: true
+  }]}
+  onRequestEdit={(id) => console.log(`edit requested for ${id}`)}
+  cardEdited="2"
+  onEdit={ev => console.log(ev)}
+  />

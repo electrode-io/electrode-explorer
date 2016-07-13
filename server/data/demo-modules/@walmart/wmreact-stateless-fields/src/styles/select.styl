@@ -1,0 +1,52 @@
+
+.select-field {
+  background-color: #fff;
+  border: 1px solid;
+  border-color: #c2cfd6;
+  border-radius: .25em;
+  display: block;
+  font-size: 1em;
+  height: 2.5em;
+  line-height: 2.375em;
+  padding: 0 .625em;
+  width: 100%;
+
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  overflow: none;
+
+  &:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+  }
+  &:focus {
+    outline: none;
+    border-color: #79b9e7;
+    &::-ms-value {
+      background: transparent;
+      color: #444;
+    }
+  }
+  &::-ms-expand {
+    display: none;
+  }
+}
+
+.select-field--error {
+  border-color: #f42121;
+}
+
+.select-field--caret {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: .625em;
+}
+
+.select-field:disabled {
+  cursor: default;
+  background-color: #f1f1f1;
+  border-color: #d9d9d9;
+  color: #888;
+}

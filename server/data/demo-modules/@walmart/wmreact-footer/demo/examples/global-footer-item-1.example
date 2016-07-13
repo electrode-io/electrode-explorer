@@ -1,0 +1,11 @@
+<GlobalFooterItem link={
+  {
+    "linkText": "Walmart MoneyCenter",
+    "title": "Walmart MoneyCenter",
+    "clickThrough": {
+      "type": "url",
+      "value": "http:\/\/www-e16.walmart.com\/instantcredit"
+    },
+    "uid": "iyoJypI4"
+  }
+} />

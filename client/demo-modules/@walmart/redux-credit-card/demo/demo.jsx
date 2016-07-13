@@ -5,6 +5,7 @@ import Playground from "component-playground";
 import creditCardStore from "./mock/credit-card-store";
 import mocks from "./mock/credit-cards-mock";
 import errorMock from "./mock/credit-cards-error-mock";
+import "@walmart/wmreact-react-demo-shared/shared.css";
 import "./demo.styl";
 
 const App = () => (

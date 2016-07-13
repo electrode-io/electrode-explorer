@@ -1,0 +1,18 @@
+<POVFrame
+  image={{
+    "alt": "pov1",
+    "assetId": "3ed12cc0-ffef-11e4-a7e0-4925ffc4aa1b",
+    "assetName": "pov-beauty.png",
+    "clickThrough": {
+      "type":"url",
+      "value":"http://www.walmart.com/browse/home/beds/4044_103150_102547_91837"
+    },
+    "height": "300",
+    "src":"http://ll-us-i5.wal.co/dfw/4ff9c6c9-5bdb/k2-_9142410d-85ee-4835-9a0b-73e7d13f5f28.v1.jpg",
+    "title":"pov1",
+    "width":"1364",
+    "size":"217814",
+    "contentType":"image/png",
+    "uid":"pxNz71rX"
+  }}
+/>

@@ -74,6 +74,7 @@ export default class StoreItemTile extends Tile {
         {this._renderImage()}
         {this.props.inStoreInfo && this._renderInStoreInfo()}
         {this._renderContent()}
+        {this._renderOverlay()}
       </div>
     );
   }

@@ -1,0 +1,143 @@
+
+.AppBanner-show {
+  margin-top: 78px;
+}
+
+.AppBanner-show .AppBanner {
+  display: block;
+}
+
+.AppBanner {
+  font-smoothing();
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 78px;
+  overflow: hidden;
+  display: none;
+
+  border-bottom: 1px solid #e8e8e8;
+  background-color: $white;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+
+  text-size-adjust: none;
+  transition: all .3s ease;
+}
+
+.AppBanner-container {
+  margin: 0 auto;
+}
+
+.AppBanner-close {
+  font-smoothing();
+  to-rem(font-size, 15px);
+  to-rem(line-height, 8px);
+
+  position: absolute;
+  left: 5px;
+  top: @left;
+
+  width: 14px;
+  height: @width;
+  border: 2px solid $white;
+  border-radius: 14px;
+
+  text-align: center;
+  color: $white;
+  background: $black;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+
+  &:hover {
+    color: $white;
+  }
+}
+
+.AppBanner-close:active {
+  to-rem(font-size, 13px);
+  color: #aaa;
+}
+
+.AppBanner-icon {
+  font-smoothing();
+  to-rem(font-size, 57px);
+
+  position: absolute;
+  left: 30px;
+  top: 10px;
+
+  width: 57px;
+  height: @width;
+  border-radius: 10px;
+
+  background: $blue;
+  color: $yellow;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.AppBanner-info {
+  to-rem(font-size, 11px);
+
+  position: absolute;
+  left: 98px;
+  top: 18px;
+  width: 44%;
+
+  line-height: 1.2em;
+  font-weight: 700;
+  color: $grey-medium;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+
+  .AppBanner-title-text {
+    to-rem(font-size, 13px);
+    to-rem(line-height, 18px);
+
+    color: $grey-dark;
+  }
+}
+
+.AppBanner-button {
+  to-rem(font-size, 14px);
+
+  position: absolute;
+  right: 20px;
+  top: 24px;
+  padding: 0 10px;
+  min-width: 10%;
+  height: 24px;
+
+  color: $grey-dark;
+  line-height: 24px;
+  border: 1px solid #bfbfbf;
+  text-align: center;
+  font-weight: 700;
+
+  background: linear-gradient(to bottom, $grey-very-light, $grey-light);
+  text-transform: uppercase;
+  text-decoration: none;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
+}
+
+.AppBanner-button:active,
+.AppBanner-button:hover {
+  color: $grey-dark;
+  background: linear-gradient(to top, $grey-very-light, $grey-light);
+}
+
+.AppBanner-icon.gloss:after {
+  content: '';
+
+  position: absolute;
+  left: 0;
+  top: -1px;
+  width: 100%;
+  height: 50%;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.8);
+  background: linear-gradient(top, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.2) 100%);
+  border-radius: 10px 10px 12px 12px;
+}

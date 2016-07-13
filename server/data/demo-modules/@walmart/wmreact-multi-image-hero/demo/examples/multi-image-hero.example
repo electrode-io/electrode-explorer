@@ -1,0 +1,27 @@
+<MultiImageHero bundleData={{
+  bundleType: "CHOICE_BUNDLE",
+  sections: [{
+    type: "STANDARD",
+    numberComponents: 1,
+    title: "Thing 1",
+    imageUrl: "http://ll-us-i5.wal.co/dfw/dce07b8c-5d2d/k2-_43f4d345-efd9-45b8-bf55-23828bb78f25.v1.jpg?odnWidth=300&odnHeight=300"
+  },
+  {
+    type: "REQUIRED",
+    numberComponents: 2,
+    title: "Thing 2",
+    imageUrl: "http://ll-us-i5.wal.co/dfw/dce07b8c-2c52/k2-_9eeaae1f-2c48-4e31-9038-39e50342f27d.v1.jpg?odnWidth=300&odnHeight=300"
+  },
+  {
+    type: "REQUIRED",
+    numberComponents: 2,
+    title: "Thing 2",
+    imageUrl: "http://ll-us-i5.wal.co/dfw/dce07b8c-2c52/k2-_9eeaae1f-2c48-4e31-9038-39e50342f27d.v1.jpg?odnWidth=300&odnHeight=300"
+  },
+  {
+    type: "REQUIRED",
+    numberComponents: 2,
+    title: "Thing 2",
+    imageUrl: "http://ll-us-i5.wal.co/dfw/dce07b8c-2c52/k2-_9eeaae1f-2c48-4e31-9038-39e50342f27d.v1.jpg?odnWidth=300&odnHeight=300"
+  }]
+}} />

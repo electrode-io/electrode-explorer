@@ -1,0 +1,150 @@
+@require "~react-date-picker/style/index";
+
+$formControl { // @stylint ignore
+  padding: 0 10px;
+  width: 108px;
+}
+
+.calendar-container {
+  .btn,
+  .btn:active,
+  button,
+  button:hover,
+  button:active {
+    @extend $formControl;
+    padding: 0 10px;
+    width: 160px;
+    text-align: left;
+    color: $black;
+    background-color: $white;
+    border: 1px solid #c2cfd6;
+
+    i {
+      float: right;
+      margin: 10px 0;
+      color: #DEDEDE;
+    }
+  }
+
+  .form-label {
+    .validation-group {
+      .form-control {
+        @extend $formControl;
+      }
+
+      .enabled {
+        color: $black;
+      }
+
+      .form-control:disabled {
+        background: none;
+      }
+    }
+  }
+
+  .flyout-modal {
+    padding: 2px;
+    border: 1px solid #C2CFD6;
+    border-radius: 5px;
+    box-shadow: none;
+
+    .date-picker-control {
+      z-index: 50;
+      border: 0;
+
+      * {
+        outline: none;
+      }
+
+      .dp-header {
+        z-index: 50px;
+
+        .dp-nav-table {
+          .dp-row {
+            .dp-nav-cell {
+              color: #C2CFD6;
+            }
+
+            .dp-nav-cell:hover,
+            .dp-nav-view:hover {
+              border-radius: 5px;
+            }
+          }
+        }
+      }
+
+      .dp-body {
+        .dp-table {
+          .dp-row,
+          .dp-week,
+          .dp-cell {
+            z-index: 50;
+            border: 0;
+            font-size: 16px;
+          }
+
+          .dp-week-day-name {
+            min-width: 30px;
+            padding: 0;
+          }
+
+          .dp-month {
+            z-index: 50;
+            height: 45px;
+          }
+
+          .dp-day {
+            font-family: myriad-pro, Myriad Pro, Arial, Helvetica, Sans-Serif;
+          }
+
+          .dp-cell:hover, .dp-day:hover {
+            border-radius: 5px;
+          }
+
+          .dp-current {
+            color: $light-blue;
+            background-color: $white;
+            border-radius: 5px;
+          }
+
+          .dp-prev, .dp-next {
+            color: #DEDEDE;
+          }
+
+          .dp-value {
+            color: $white;
+            background-color: $blue;
+            border-radius: 5px;
+          }
+
+          .dp-cell:active {
+            outline: none;
+          }
+        }
+      }
+
+      .dp-footer {
+        .dp-footer-selected {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .flyout-modal-wide {
+    width: 308px;
+    margin-left: -154px;
+  }
+
+  .date-picker {
+    .dp-nav-table {
+      .dp-cell {
+        z-index: 50;
+      }
+    }
+  }
+
+  .default-trigger {
+    font-weight: normal;
+  }
+}

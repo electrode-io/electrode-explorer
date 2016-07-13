@@ -1,0 +1,12 @@
+ <div>
+  <CheckboxField label="I have read and agree to your privacy policy." />
+  <CheckboxField
+    onChange={() => {}}
+    checked
+    label="These docs look quite nice, thank you."
+  />
+  <CheckboxField touched error label="Error. defaultChecked works, too." />
+  <CheckboxField shouldDisplayValid={() => true} label="Custom valid display example." />
+  <div id="spacer" style={{height: `0.5em`}} />
+  <CheckboxField label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at ligula felis. Suspendisse tellus lectus, bibendum a tempus a, bibendum nec justo. Curabitur vitae odio a diam interdum dapibus. Cras ultrices eleifend mi, a convallis purus tincidunt at. Proin massa sem, dictum id volutpat vitae, lacinia et nulla. Donec viverra ut augue ut feugiat. Vestibulum tincidunt non odio id volutpat." />
+</div>

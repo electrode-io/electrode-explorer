@@ -9,6 +9,8 @@
  * @flow
  **/
 
+/* eslint react/prop-types: 0*/
+
 import type {Props} from "../types";
 
 import React, {Component, PropTypes} from "react";
@@ -137,7 +139,13 @@ class PasswordField extends Component {
               className={`form-control ${hasError ? "form-control--error" : ""}`}
               type={type}
             />
-            {hasError && <p className="error-label">{props.error}</p>}
+            {hasError && (
+              <p
+                className="error-label"
+                data-automation-id={`${this.props["data-automation-id"] || "passwordField"}-error`}>
+                {props.error}
+              </p>
+            )}
           </div>
         </label>
       </div>

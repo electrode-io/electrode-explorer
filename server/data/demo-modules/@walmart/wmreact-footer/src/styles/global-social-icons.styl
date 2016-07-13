@@ -1,0 +1,39 @@
+.footer-GlobalSocialIcons {
+  line-height: 50px;
+
+  +breakpoint($breakpoint-m) {
+    line-height: 40px;
+  }
+}
+
+.footer-GlobalSocialIcons--heading {
+  margin-top: 0;
+
+  color: $grey-medium;
+
+  +breakpoint($breakpoint-xl) {
+    font-size: 16px;
+  }
+}
+
+.footer-GlobalSocialIcons--list {
+  a {
+    padding: 0 12px;
+
+    color: $blue-secondary;
+
+    &:hover,
+    &:focus {
+      color: $blue;
+    }
+  }
+}
+
+.footer-GlobalSocialIcons--mobileApps {
+  display: inline-block;
+  width: 28px;
+  margin-left: 2px;
+
+  font-size: 10px;
+  line-height: 1;
+}

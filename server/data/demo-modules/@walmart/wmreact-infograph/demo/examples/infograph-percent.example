@@ -1,0 +1,29 @@
+var InfographExample = React.createClass({
+  getInitialState() {
+    return {
+      percent: 20
+    }
+  },
+  changePercentage() {
+    var pct = Math.random() * 100.0;
+    this.setState({
+      percent: Math.min(100, Math.max(10, pct))
+    });
+  },
+  render() {
+    return (
+      <div>
+        <div style={{margin:50}}>
+          <Infograph
+            labels={["One", "Two", "Three", "Four", "Five"]}
+            completedPercent={this.state.percent} />
+        </div>
+        <a href="javascript:void(0)" onClick={this.changePercentage}>
+          Change Percentage
+        </a>
+      </div>
+    )
+  }
+});
+
+React.render(<InfographExample/>, mountNode);

@@ -1,0 +1,7 @@
+"use strict";
+
+exports.__esModule = true;
+var SIGN_IN = exports.SIGN_IN = "SIGN_IN";
+var SIGN_IN_SUCCESS = exports.SIGN_IN_SUCCESS = "SIGN_IN_SUCCESS";
+var SIGN_IN_ERROR = exports.SIGN_IN_ERROR = "SIGN_IN_ERROR";
+var REQUEST_SIGN_IN_WIDGET_STATE = exports.REQUEST_SIGN_IN_WIDGET_STATE = "REQUEST_SIGN_IN_WIDGET_STATE";

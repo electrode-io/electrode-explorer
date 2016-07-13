@@ -32,6 +32,15 @@ export const AltImageCarousel = ({
   onSlideChange
 }) => {
 
+  const overriddenTabletSettings = {
+    slideIndex: lastIndex
+  };
+
+  if (hasVideo) {
+    overriddenTabletSettings.slidesToShow = 3;
+    overriddenTabletSettings.slidesToScroll = 3;
+  }
+
   const responsive = [
     {
       selectors: ["large", "x-large"],
@@ -41,9 +50,7 @@ export const AltImageCarousel = ({
     },
     {
       selectors: ["medium"],
-      settings: Object.assign({}, tablet, {
-        slideIndex: lastIndex
-      })
+      settings: Object.assign({}, tablet, overriddenTabletSettings)
     }
   ];
   return (

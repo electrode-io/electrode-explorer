@@ -54,6 +54,7 @@ export default class Field extends React.Component {
       tealeafId,
       showLabel = false,
       placeholder,
+      help,
       validationSuccessMark = false,
       ...rest
       } = this.props;
@@ -70,10 +71,15 @@ export default class Field extends React.Component {
             className={classNames("form-control", className, {error: showFieldError(field)})}
             data-tl-id={tealeafId}
             placeholder={!showLabel && placeholder}
+            aria-describedby={help && `${field.name}-help`}
             {...field}
             {...rest}
           />
-
+          {help &&
+            <span id={`${field.name}-help`} className="visuallyhidden">
+              {help}
+            </span>
+          }
           {showFieldError(field) &&
           <i className="validation-marker validation-marker-error">
             <span className="visuallyhidden">Help</span>
@@ -93,11 +99,16 @@ export default class Field extends React.Component {
 }
 
 Field.propTypes = {
-  field: PropTypes.object,
+  field: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    active: PropTypes.bool,
+    onChange: PropTypes.func
+  }).isRequired,
   triggerIEHack: PropTypes.bool,
   label: PropTypes.node,
   children: PropTypes.node,
   className: PropTypes.string,
+  help: PropTypes.string,
   automationId: PropTypes.string,
   tealeafId: PropTypes.string,
   showLabel: PropTypes.bool,

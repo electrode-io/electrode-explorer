@@ -87,12 +87,13 @@ export default class Demo extends React.Component {
 
         <Playground
           codeText={`<LostStolen
-            greeting={"Hi Kelly,"}
+            userFirstName={"Kelly"}
             subject={"Your membership number was reported lost or stolen."}
             membershipText={"Please enter your new membership member."}
             digitText={"13 or 17 digit number on the back of your membership card."}
             buttonMessage={"Continue"}
             emailFooter={"Questions? Call us at 1.888.746.7726"}
+            fields={{membershipNumber: {value: "Hello there"}}}
             handleSubmit={setAlert}
             initializeForm={() => {}}/>`}
           scope={{LostStolen, ...otherScope}}
@@ -108,11 +109,13 @@ export default class Demo extends React.Component {
 
         <Playground
           codeText={`<IntlProvider locale="en"><MultipleEmails
-            greeting="Hi Kelly,"
+            userFirstName="Kelly"
             subject="We show that there are multiple email addresses associated with your account. Unfortunately, we must ask you to use only one."
             emailAddress={["kelly.lastname@email.com","kelly_bry@email.com"]}
             buttonMessage="Continue"
             emailFooter="Questions? Call us at 1.888.746.7726"
+            initializeForm={() => {}}
+            fields={{email: {value:""}}}
             /></IntlProvider>`}
           scope={{MultipleEmails, ...otherScope}}/>
 

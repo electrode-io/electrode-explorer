@@ -1,0 +1,7 @@
+<ProductsGrid 
+  products={productsData} 
+  columns={{
+    medium: 3,
+    large: 4
+  }}
+/>

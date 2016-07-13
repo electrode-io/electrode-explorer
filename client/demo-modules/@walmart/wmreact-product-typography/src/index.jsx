@@ -28,6 +28,9 @@ export {
 export {
   default as ProductLegalBadge
 } from "./components/product-legal-badge";
+export {
+  default as ProductFulfillmentHeader
+} from "./components/product-fulfillment-header";
 
 import AvailabilityStatus from "./enums/availability-status";
 
