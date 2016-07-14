@@ -6,10 +6,16 @@ const AsyncFetchUsageDetail = require("./async-fetch-usage-detail");
 const Config = require("@walmart/electrode-config").config;
 const github = new GitHubApi(Config.githubApi);
 const githubAuthObject = require("./utils/github-auth-object");
-const ORGS = Config.ORGS_IN_USAGE_SEARCH;
+const REPOS_INCLUDE = Config.REPOS_INCLUDE;
+const REPOS_EXCLUDE = Config.REPOS_EXCLUDE;
 
 const shouldIncludeRepo = (repo) => {
-  return ORGS.some((org) => repo.indexOf(org) === 0 && repo.indexOf("electrode/portal") === -1);
+  REPOS_EXCLUDE.forEach((r) => {
+    if (repo.indexOf(r) !== -1) {
+      return false;
+    }
+  });
+  return REPOS_INCLUDE.some((org) => repo.indexOf(org) === 0);
 };
 
 const fetchUsage = (meta) => {
