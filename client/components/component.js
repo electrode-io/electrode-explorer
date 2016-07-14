@@ -126,7 +126,7 @@ var Component = function (_React$Component) {
             null,
             _react2.default.createElement(
               "a",
-              { href: meta.github },
+              { href: meta.github, target: "_blank" },
               "View Repository on Github"
             )
           ),
@@ -168,7 +168,7 @@ var Component = function (_React$Component) {
                         null,
                         _react2.default.createElement(
                           "a",
-                          { href: detail.uri, className: "detail-uri" },
+                          { href: detail.uri, target: "_blank", className: "detail-uri" },
                           detail.displayName
                         )
                       ),

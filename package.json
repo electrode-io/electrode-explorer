@@ -41,7 +41,7 @@
     "@walmart/category-utils": "^3.5.0",
     "@walmart/electrode-application": "^1.0.0",
     "@walmart/electrode-config": "^1.0.1",
-    "@walmart/electrode-demo-index": "^1.1.0",
+    "@walmart/electrode-demo-index": "^1.2.0",
     "@walmart/electrode-fetch": "^5.0.0",
     "@walmart/electrode-log-consumer": "^1.0.2",
     "@walmart/electrode-react-webapp": "^5.7.1",

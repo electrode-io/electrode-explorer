@@ -35,7 +35,8 @@ const Arrange = (props) => {
     "arrange-middle": props.middle,
     "arrange-bottom": props.bottom,
     "arrange-equal-spacing": props.equalSpacing,
-    "arrange-equal": props.equal
+    "arrange-equal": props.equal,
+    "arrange-baseline": props.baseline
   };
   return (
     <div
@@ -67,6 +68,10 @@ Arrange.propTypes = {
    Applies `arrange-bottom` class
    */
   bottom: React.PropTypes.bool,
+  /**
+   Applies `arrange-baseline` class
+   */
+  baseline: React.PropTypes.bool,
   /**
    Applies `arrange-equal-spacing` class
    */

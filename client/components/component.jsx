@@ -57,7 +57,7 @@ export default class Component extends React.Component {
           {meta.description && <span className="component-description">{meta.description}</span>}
           <span className="component-info">
             {meta.github && <div>
-              <a href={meta.github}>View Repository on Github</a>
+              <a href={meta.github} target="_blank">View Repository on Github</a>
             </div>}
             {meta.name && <Well className="code-well" padded={true}>npm i --save {meta.name}</Well>}
             {usage.length > 0 && <Revealer
@@ -76,7 +76,7 @@ export default class Component extends React.Component {
                 {usage.map((detail) => (
                 <Table.Row>
                   <Table.Cell>
-                    <a href={detail.uri} className="detail-uri">
+                    <a href={detail.uri} target="_blank" className="detail-uri">
                       {detail.displayName}
                     </a>
                   </Table.Cell>

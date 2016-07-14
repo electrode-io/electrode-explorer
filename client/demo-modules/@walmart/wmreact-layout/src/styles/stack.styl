@@ -1,0 +1,28 @@
+@require "~@walmart/lithe-extras/lib/tenants/walmart/base";
+/* ==========================================================================
+   Stack micro-component (like .arrange, but for vertical table rows)
+   ========================================================================== */
+
+.stack {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.stack-fill,
+.stack-fit,
+.stack-row {
+  display: table-row;
+}
+
+.stack-fit > .stack-cell {
+  max-height: 1%;
+}
+
+.stack-fill > .stack-cell {
+  height: 100%;
+}
+
+.stack-cell {
+  display: table-cell;
+}
