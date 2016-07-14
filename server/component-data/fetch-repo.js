@@ -48,7 +48,7 @@ const fetchRepo = (org, repoName) => {
         const pkg = JSON.parse(packageContent);
         meta = extractMetaData(pkg, response.html_url.replace("blob/master/package.json", ""));
 
-        saveModuleDemo(meta.name);
+        saveModuleDemo(meta);
 
       } catch (err) {
 

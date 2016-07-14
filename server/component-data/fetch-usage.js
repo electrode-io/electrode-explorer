@@ -2,6 +2,7 @@
 
 const GitHubApi = require("github");
 const Promise = require("bluebird");
+const AsyncFetchUsageDetail = require("./async-fetch-usage-detail");
 const Config = require("@walmart/electrode-config").config;
 const github = new GitHubApi(Config.githubApi);
 const githubAuthObject = require("./utils/github-auth-object");
@@ -24,7 +25,7 @@ const fetchUsage = (meta) => {
   const moduleName = moduleParts[1] || meta.name;
 
   const opts = {
-    q: `${moduleName}+in:file+language:json`
+    q: `${moduleName}:+in:file+language:json`
   };
 
   return new Promise((resolve, reject) => {
@@ -45,6 +46,8 @@ const fetchUsage = (meta) => {
       });
 
       results.sort();
+
+      AsyncFetchUsageDetail(meta);
 
       return resolve(results);
     });

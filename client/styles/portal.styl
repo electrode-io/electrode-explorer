@@ -1,11 +1,16 @@
 @require "~@walmart/lithe-extras/lib/tenants/walmart/base";
 
+body {
+  background:#efefef;
+}
+
 .portal-header {
   background: white;
 }
 
 .portal-title {
-  margin-top: 0;
+  margin-top: 20px;
+  margin-left: 1%;
 }
 
 .portal-header>h1 {
@@ -19,9 +24,27 @@
 
 .portal-body {
   background: #efefef;
-  padding: 0 8.5% 100px 20.5%;
+  padding: 0 8.5% 100px 15%;
   min-height: 700px;
   border-top: 2px solid #808080;
+}
+
+.component-documentation {
+  background: white;
+  padding: 1px 40px 20px 40px;
+  margin-top: 40px;
+  position: relative;
+}
+
+.component-documentation>div {
+  border-bottom:1px solid #ececec;
+  padding: 40px 0 80px 0;
+
+  &:last-of-type {border-bottom:0;} 
+}
+
+.component-documentation>div>h3 {
+  margin-bottom:20px;
 }
 
 .portal-body span.component-info {
@@ -98,5 +121,77 @@
   font-size: 13px;
   line-height: 40px;
   padding-left: 20px;
+}
+
+.component-version {
+  font-weight: 300;
+  color: #999;
+  font-size:0.9em;
+}
+
+.component-description {
+  color: #888;
+  display: block;
+  font-size: 0.8em;
+  font-weight: 200;
+}
+
+.component-usage {
+  margin:20px 0;
+}
+
+.usage-detail {
+  margin:10px 0;
+}
+
+.detail-uri {
+  font-size:0.9em;
+}
+
+.detail-version {
+  font-family:monospace;
+  padding:0 20px;
+}
+
+.detail-description {
+  color:#666;
+  font-size:0.9em;
+}
+
+.revealer-footer {
+  text-align:left;
+}
+
+.previewArea {
+  padding-top:40px;
+}
+
+.code-well {
+  font-family: monospace;
+  background: #ccc;
+  border-color: #aaa;
+}
+
+.version-status-ok {
+  color:green;
+}
+
+.version-status-bad {
+  color:red;
+}
+
+.portal-menu ul.menu-submodules {
+  margin: 5px 0 0 0;
+  padding: 0;
+
+  li {
+    margin: 0;
+    padding: 2px 10px;
+    font-size:0.9em;
+
+    a {
+      color: #999;
+    }
+  }
 }
 

@@ -31,7 +31,8 @@
             {
               "name": "event",
               "type": {
-                "name": "Object"
+                "name": "Object",
+                "alias": "Object"
               }
             }
           ],
@@ -49,7 +50,8 @@
             {
               "name": "child",
               "type": {
-                "name": "ReactElement"
+                "name": "ReactElement",
+                "alias": "ReactElement"
               }
             },
             {
@@ -135,7 +137,8 @@
             {
               "name": "event",
               "type": {
-                "name": "Object"
+                "name": "Object",
+                "alias": "Object"
               }
             }
           ],
@@ -292,7 +295,8 @@
             {
               "name": "child",
               "type": {
-                "name": "ReactElement"
+                "name": "ReactElement",
+                "alias": "ReactElement"
               }
             },
             {

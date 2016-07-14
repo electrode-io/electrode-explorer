@@ -17,24 +17,50 @@ export default class Component extends React.Component {
 
     return fetchJSON(`${host}/portal/data/orgs.json`)
       .then((menu) => {
-        this.setState({menu: menu.orgs});
+        this.setState({menu: menu.allOrgs});
       }).catch((err) => {
         console.error(err);
       });
+  }
+
+  _subModuleLink(link, submodule) {
+    const hash = submodule.replace(/\s/g, "").toLowerCase();
+    return (
+      <li>
+        <a href={`/portal/${link}#${hash}`}>
+          {submodule}
+        </a>
+      </li>
+    );
+  }
+
+  _renderSubModules(link, submodules) {
+    if (!submodules || !submodules.length) {
+      return;
+    }
+
+    return (
+      <ul className="menu-submodules">
+      {submodules.map((submodule) => this._subModuleLink(link, submodule))}
+      </ul>
+    );
   }
 
   _renderLinks(org) {
     const { menu } = this.state;
     const { repos } = menu[org];
 
-    return repos.map((repo) => (
-      <li>
+    return Object.keys(repos).map((repoName) => {
+      const { link, submodules } = repos[repoName];
+
+      return (<li>
         <a
-          href={`/portal/${repo.link}`}>
-          {repo.name}
+          href={`/portal/${link}`}>
+          {repoName}
         </a>
-      </li>
-    ));
+        {this._renderSubModules(link, submodules)}
+      </li>);
+    });
   }
 
   render() {
