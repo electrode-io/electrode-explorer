@@ -79,7 +79,9 @@
 
   "REPOS_EXCLUDE": [
     "electrode-training",
-    "electrode/portal"
+    "electrode/portal",
+    "electrode/electrode-showcase",
+    "electrode/bootcamp-classes"
   ],
 
   "automaticUpdate": true,

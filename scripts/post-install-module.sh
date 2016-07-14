@@ -11,7 +11,7 @@ fi
 
 function copy_and_clean() {
   cp -r node_modules/$1 client/demo-modules/@walmart/
-  rm -rf client/demo-modules/$1/node_modules client/demo-modules/$1/lib client/demo-modules/$1/test client/demo-modules/$1/.idea client/demo-modules/$1/coverage
+  rm -rf client/demo-modules/$1/node_modules client/demo-modules/$1/lib client/demo-modules/$1/test client/demo-modules/$1/.idea client/demo-modules/$1/coverage client/demo-modules/$1/dist
   rm client/demo-modules/$1/package.json client/demo-modules/$1/README.md client/demo-modules/$1/components* client/demo-modules/$1/.*
   find client/demo-modules/$1 -name "*.flow" -type f -delete
 }

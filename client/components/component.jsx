@@ -60,7 +60,7 @@ export default class Component extends React.Component {
               <a href={meta.github}>View Repository on Github</a>
             </div>}
             {meta.name && <Well className="code-well" padded={true}>npm i --save {meta.name}</Well>}
-            {usage.length && <Revealer
+            {usage.length > 0 && <Revealer
               baseHeight={50}
               buttonClosedText="View Usage"
               buttonOpenText="Hide Usage"
@@ -94,7 +94,7 @@ export default class Component extends React.Component {
             </Revealer>}
           </span>
         </h2>
-        { typeof demoStyl !== "undefined" && demoStyl && demoStyl }
+        { typeof demoStyl !== "undefined" && demoStyl }
         { typeof demo !== "undefined" && demo && <demo.default/> }
         { error && <b>This component does not have demo or demo does not work properly.</b> }
       </div>
