@@ -1,7 +1,0 @@
-<CreditCards
-  onRequestEdit={(id) => console.log(`edit requested for ${id}`)}
-  cardEdited="new"
-  onAdd={() => {}}
-  formActions={ExampleActions}
-  addressForm={ExampleForm}
-  />

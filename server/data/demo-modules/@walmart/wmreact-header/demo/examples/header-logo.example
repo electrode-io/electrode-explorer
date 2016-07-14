@@ -1,3 +1,0 @@
-<div style={{backgroundColor: "#007dc6", height: 65}} >
-  <HeaderLogo small={false} shippingPass={true} />
-</div>

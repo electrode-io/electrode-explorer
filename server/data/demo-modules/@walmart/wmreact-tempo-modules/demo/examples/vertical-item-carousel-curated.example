@@ -1,3 +1,0 @@
-<div style={{ maxWidth: 236, margin: "0 auto" }}>
-  <VerticalItemCarouselCurated moduleData={VerticalItemCarouselCuratedData} dataAutomationId="Homepage-contentZone14" />
-</div>

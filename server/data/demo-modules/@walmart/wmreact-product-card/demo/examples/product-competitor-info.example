@@ -1,0 +1,20 @@
+<div style={{width: 200}}>
+  <ProductCompetitorInfo
+    competitorInfo={[
+      {
+        price: {
+          amount: 127.45,
+          currency: "$"
+       },
+        name: "Amazon"
+      },
+      {
+        price: {
+          amount: 45.2,
+          currency: "$"
+        },
+        name: "Target"
+      }
+    ]}
+  />
+</div>

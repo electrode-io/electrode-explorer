@@ -1,7 +1,0 @@
- <BuyTogether
-  isBTV={false}
-  productData={productData}
-  accessoryData={accessoryData}
-  fulfillmentData={fulfillmentData}
-/>
-

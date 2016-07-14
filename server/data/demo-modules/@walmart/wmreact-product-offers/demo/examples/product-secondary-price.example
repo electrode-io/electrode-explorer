@@ -1,9 +1,0 @@
- <ProductSecondaryPrice
-  currency="$"
-  type="Was"
-  outOfStock
-  displayRange
-  minOldPrice={60}
-  maxOldPrice={100}
-  oldPrice={55.99}
-  savePrice={10.99} />

@@ -7,6 +7,7 @@
       price={{price: 40, currency:"$", savingsPrice: 5, listPrice: 45}}
       stars={{total: 5, count: 3, average: 4}}
       offerShippingPassEligible
+      url="/ip/9252711"
       />
   </div>
   <div style={{ width: 168, display: "inline-block", marginRight: 20 }} >
@@ -15,6 +16,7 @@
       imageSrc="http://placehold.it/144x144"
       fromPrice={{price: 40, currency:"$", type: "from"}}
       stars={{total: 5, countNode: 17, average: 4}}
+      url="/ip/9252711"
       />
   </div>
   <div style={{ width: 168, display: "inline-block", marginRight: 20 }} >
@@ -25,6 +27,7 @@
       maxTitleLines={1}
       isSubmap
       showSubmapFlyout
+      url="/ip/9252711"
       />
   </div>
   <div style={{ width: 168, display: "inline-block", marginRight: 20 }} >
@@ -34,6 +37,7 @@
       price={{price: 40, currency:"$"}}
       inStoreOnly
       quantityLeft={100}
+      url="/ip/9252711"
       />
   </div>
 </div>

@@ -1,4 +1,0 @@
-<ProductsGrid 
-  products={storeItemData} 
-  tileType="store-item-tile"
-/>

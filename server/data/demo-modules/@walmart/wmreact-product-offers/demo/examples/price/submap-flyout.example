@@ -1,5 +1,0 @@
-<div style={{ width: 400 }}>
-  <Price.SubmapFlyout />
-  <hr />
-  <Price.SubmapFlyout checkoutContent />
-</div>

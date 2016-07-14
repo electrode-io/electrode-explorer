@@ -1,3 +1,0 @@
-<div className="variants">
-  <Variants.Item index={0}>S</Variants.Item>
-</div>

@@ -1,3 +1,0 @@
-<ProductCTAAddToCart
-  onAddToCart={(ev)=>console.log(ev)}
-  flyoutDirection="top"/>

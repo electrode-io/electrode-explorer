@@ -1,9 +1,0 @@
-<GiftCard
-  onDelete={ev=>console.log(ev)}
-  onHistory={ev=>console.log(ev)}
-  label:"Arya Stark",
-  lastFour:"2222",
-  balance:"500",
-  currency:"USD",
-  id:"2"
-  />

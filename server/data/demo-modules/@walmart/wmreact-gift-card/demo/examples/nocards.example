@@ -1,6 +1,0 @@
-<GiftCards
-  cards={[]}
-  onAdd={ev=>console.log(ev)}
-  onHistory={ev=>console.log(ev)}
-  onDelete={ev=>console.log(ev)}
-  />

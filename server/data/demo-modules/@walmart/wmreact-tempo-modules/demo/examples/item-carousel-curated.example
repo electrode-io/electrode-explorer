@@ -1,3 +1,0 @@
-<div style={{ maxWidth: 1364, margin: "0 auto" }}>
-  <ItemCarouselCurated moduleData={itemCarouselCuratedData} dataAutomationId="Homepage-contentZone10" />
-</div>

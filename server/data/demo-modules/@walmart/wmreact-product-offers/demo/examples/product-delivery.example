@@ -1,7 +1,0 @@
-<ProductDelivery
-  minDate={1458860168437}
-  maxDate={1458947247691}
-  isWM={true}
-  isToday={true}
-  storeName="Mountain View"
-/>

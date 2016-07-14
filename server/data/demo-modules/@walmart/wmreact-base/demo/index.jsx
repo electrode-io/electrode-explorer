@@ -37,7 +37,7 @@ Index.Components = [
     examples: [
       {
         type: "playground",
-        code: require("./examples/body.example"),
+        code: require("raw!./examples/body.example"),
         noRender: true
       }
     ],

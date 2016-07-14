@@ -49,8 +49,9 @@ export default class Component extends React.Component {
   _renderLinks(org) {
     const { menu } = this.state;
     const { repos } = menu[org];
-
-    return Object.keys(repos).map((repoName) => {
+    const sortedRepos = Object.keys(repos);
+    sortedRepos.sort();
+    return sortedRepos.map((repoName) => {
       const { link, submodules } = repos[repoName];
 
       return (<li>

@@ -1,2 +1,0 @@
-export const SET_CUSTOMER_INFO = "SET_CUSTOMER_INFO";
-

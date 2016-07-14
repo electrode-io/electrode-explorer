@@ -1,1 +1,0 @@
-<PriceRange currency="$" minPrice={99.99} maxPrice={999.99} type="Hero" style={{fontSize:"24px"}}/>

@@ -29,6 +29,7 @@ Product tile.
   stars={{total: 5, count: 3, average: 4}}
   quantities={[1,2,3,4,5]}
   offerShippingPassEligible={true}}
+  url="/ip/9252711"
 />
 ```
 @component Tile
@@ -45,6 +46,7 @@ Tile
   stars={{total: 5, count: 3, average: 4}}
   quantities={[1,2,3,4,5]}
   offerShippingPassEligible={true}
+  url="/ip/9252711"
 />
 ```
 */

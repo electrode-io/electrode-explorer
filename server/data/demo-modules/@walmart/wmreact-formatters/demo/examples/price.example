@@ -1,9 +1,0 @@
-<div>
-  <div>
-    {priceFormatter.displayPrice(2100, {currencyUnit: "€", hiddenClass: " "})}
-  </div>
-
-  <div>
-    {priceFormatter.displayPrice(2100, {useComma: true, hiddenClass: " "})}
-  </div>
-</div>
