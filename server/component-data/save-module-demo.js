@@ -8,7 +8,7 @@ const saveModuleDemo = (meta) => {
 
   const moduleName = meta.name;
 
-  execFile("bash", [Path.join(__dirname, "../../install-module.sh"), moduleName], (error) => {
+  execFile("bash", [Path.join(__dirname, "../../scripts/install-module.sh"), moduleName], (error) => {
     if (error) {
       console.log(`npm install failed for this module, error:\n${error}`);
       throw error;
@@ -16,7 +16,7 @@ const saveModuleDemo = (meta) => {
 
     console.log(`${moduleName}: npm install finished.`);
 
-    execFile("bash", [Path.join(__dirname, "../../post-install-module.sh"), moduleName], (error) => {
+    execFile("bash", [Path.join(__dirname, "../../scripts/post-install-module.sh"), moduleName], (error) => {
       if (error) {
         console.log(`copying files failed for this module, error:\n${error}`);
         throw error;
