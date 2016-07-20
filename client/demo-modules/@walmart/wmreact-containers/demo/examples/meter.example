@@ -1,4 +1,0 @@
-<div style={{height: 100}}>
-  <Meter percent={50}/>
-  <Meter.PercentageCircle percent={50}/>
-</div>

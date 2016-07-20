@@ -1,8 +1,0 @@
-<ProductShippingPrice
- primaryShippingPrice={100}
- logo="seller-offer-shipping-pass-logo"
- secondaryMessage="shipping"
- currency="$"
- secondaryShippingPrice={123}
- showPlus={true}
-/>

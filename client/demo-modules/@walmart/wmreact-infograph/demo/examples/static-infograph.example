@@ -1,5 +1,0 @@
-<div style={{margin:50}}>
-    <Infograph
-      labels={["One", "Two", "Three", "Four", "Five", "Six"]}
-      completed={6} />
-  </div>

@@ -1,7 +1,0 @@
-<CreditCards
-  cards={[]}
-  onRequestEdit={(id) => console.log(`edit requested for ${id}`)}
-  onEdit={ev => console.log(ev)}
-  onDelete={ev => console.log(ev)}
-  loading
-  />

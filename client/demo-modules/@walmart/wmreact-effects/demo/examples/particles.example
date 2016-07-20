@@ -1,8 +1,0 @@
-<div style={{width:'100%', height:200, position: 'relative'}}>
-  <Particles ref="particles" style={{position: 'absolute'}} autoRun={false} />
-  <div style={{width:'100%', position: 'absolute', 'text-align': 'center', top: 72}}>
-    <Button onClick={() => {this.refs.particles.start()}}>
-      Click me!
-    </Button>
-  </div>
-</div>

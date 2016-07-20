@@ -1,9 +1,0 @@
-<div style={{height: 600}}>
-  <StatelessHeader
-    searchExposed={true}
-    totalItemsCount={100}
-    userName="Test"
-    quimbyData={quimbyData}
-    storeFinderResponse={storeFinderResponse}
-  />
-</div>

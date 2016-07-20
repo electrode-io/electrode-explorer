@@ -1,7 +1,0 @@
-<Store
-  nearbyStores={nearbyStores}
-  selectedStores={["5435", "2486", "5884"]}
-  location={location}
-  onFetchStores={(location)=>{console.log(location)}}
-  onFetchPreso={(event)=>{console.log(event)}}
-/>

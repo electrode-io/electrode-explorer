@@ -1,8 +1,0 @@
-<ProductSellerInfo
-  isResponsive={true}
-  name="OJ Commerce"
-  link="http://www.ojcommerce.com/"
-  logo="http://cloudfront.ojcommerce.com/img/des/logo.png"
-  returnPolicy=
-    "https://www.walmart.com/reviews/seller/42?offerId=64CC7E13E445433BA905A9AD8696126E"
-/>

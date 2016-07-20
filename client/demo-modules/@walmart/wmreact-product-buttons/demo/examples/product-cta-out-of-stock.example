@@ -1,3 +1,0 @@
-<ProductCTAOutOfStock
-  onNotifyBackInStock={(emailId)=>console.log(emailId)}
-  flyoutDirection="top"/>

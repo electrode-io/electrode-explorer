@@ -1,5 +1,0 @@
-<Price
-  min={100}
-  max={200}
-  onChange={(range)=> {console.log(range)}}
-/>

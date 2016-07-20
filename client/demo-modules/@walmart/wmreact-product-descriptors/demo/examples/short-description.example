@@ -1,5 +1,0 @@
-<div>
-  <ShortDescription
-    className="hide-content-max-l"
-    shortDescriptionMarkup="<li>Look at this list</li><li>It's amazing</li>"/>
-</div>

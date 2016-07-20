@@ -1,3 +1,0 @@
-<div style={{"backgroundColor": "#007dc6"}}>
-  <HeaderButtonToggle onClick={() => {alert("Toggle Click");}} name="search"/>
-</div>

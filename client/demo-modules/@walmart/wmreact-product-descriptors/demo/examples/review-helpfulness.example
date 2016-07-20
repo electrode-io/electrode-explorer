@@ -1,7 +1,0 @@
-<ReviewHelpfulness
-  yesCount={6}
-  noCount={3}
-  onYesClick={() => console.log("yesyesyes")}
-  onNoClick={() => console.log("nonono")}
-  onReportClick={() => console.log("reporting")}
-/>

@@ -1,5 +1,0 @@
-<CellCoverageFinderCTA
-  status="CELL_COVERAGE_FINDER_PROMPTED"
-  onClick={(ev)=>{console.log("Trigger clicked"); console.log(ev);}}
-  onFlyoutClosed={(ev)=>{console.log("Flyout Closed"); console.log(ev);}}
-  heading="<div>See if this device will work in your area.</div>"/>

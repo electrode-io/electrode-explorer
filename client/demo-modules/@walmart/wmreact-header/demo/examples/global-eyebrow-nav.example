@@ -1,5 +1,0 @@
-<div style={{"backgroundColor": "#007dc6"}}>
-  <GlobalEyebrowNav
-    storeFinderResponse={storeFinderResponse}
-    moduleData={quimbyData.global_header.headerZone1} />
-</div>

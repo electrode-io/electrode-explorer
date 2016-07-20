@@ -1,7 +1,0 @@
-<div style={{height: 100}}>
-  <FlagList>
-    <Flag type="rollback" text="Rollback" />
-    <Flag text="Clearance" align="right" />
-    <Flag text="New flag" outline={true}/>
-  </FlagList>
-</div>

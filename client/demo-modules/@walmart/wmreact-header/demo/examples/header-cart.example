@@ -1,3 +1,0 @@
-<div style={{width:"70px", height:"50px", background: "#007dc6", padding:"5px"}}>
-  <HeaderCart small={false} totalItemsCount={100}/>
-</div>

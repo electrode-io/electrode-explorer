@@ -1,7 +1,0 @@
-<div>
-  <RadioField name="hero" type="hero" value="0" label="Excellent" defaultChecked />
-  <RadioField name="hero" type="hero" value="1" label="Good" />
-  <RadioField name="hero" type="hero" value="2" label="Bad" instructions="Excellent radio option description." />
-  <RadioField name="hero" type="hero" value="3" label="Terrible" error touched />
-  <RadioField name="hero" type="hero" value="3" label="Terrible" shouldDisplayValid={() => true} />
-</div>

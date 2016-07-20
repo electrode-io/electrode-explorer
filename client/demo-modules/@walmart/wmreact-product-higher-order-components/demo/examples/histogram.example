@@ -1,5 +1,0 @@
-<div>
-  <Histogram>
-    {bars.map((bar) => (<Histogram.Bar {...bar} />))}
-  </Histogram>
-</div>

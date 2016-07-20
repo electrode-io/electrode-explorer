@@ -1,8 +1,0 @@
-<StoreItemTile  
-  title="Demo Product"
-  price= {{price:30, oldPrice: 40, currency: "$", pPU: 0.28, uOM: "oz"}}
-  stars={{total: 5, count: 3, average: 4}}
-  imageSrc= "http://i.walmartimages.com/i/p/00/60/76/45/43/0060764543481_180X180.jpg"
-  inStoreInfo= {{availabilityStatus: "IN_STOCK", aisle : "A.9", department: "Food", quantity: 3}}
-  url="/ip/9252711"
-/>

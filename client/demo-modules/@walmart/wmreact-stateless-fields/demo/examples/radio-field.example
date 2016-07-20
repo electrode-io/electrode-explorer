@@ -1,6 +1,0 @@
-<div>
-  <RadioField name="common" value="0" label="Excellent" defaultChecked />
-  <RadioField name="common" value="1" label="Good" />
-  <RadioField name="common" value="2" label="Bad" instructions="Excellent radio option description." />
-  <RadioField name="common" value="3" label="Terrible" shouldDisplayValid={() => true} />
-</div>
