@@ -38,6 +38,7 @@ function build_and_copy() {
 
   update_src client/demo-modules/$1/demo/demo.js "..\/lib\/index" "..\/bundle.min"
   update_src client/demo-modules/$1/demo/index.js "..\/lib\/index" "..\/bundle.min"
+  rm client/demo-modules/$1/bundle.min.js.map
 }
 
 str='@require "~@walmart/lithe-extras/lib/tenants/walmart/base"'
