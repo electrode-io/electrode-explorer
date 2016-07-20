@@ -75,7 +75,9 @@ var Component = function (_React$Component) {
     var url = host + "/portal/data/" + org + "/" + repo + ".json";
     return (0, _electrodeFetch.fetchJSON)(url).then(function (res) {
       var meta = res.meta || {};
-      var usage = res.usage || [];
+      var usage = res.usage.sort(function (a, b) {
+        return a.displayName > b.displayName;
+      }) || [];
       _this2.setState({ meta: meta, usage: usage });
 
       try {
@@ -99,12 +101,6 @@ var Component = function (_React$Component) {
 
     if (!meta.title) {
       meta.title = this.props.params.repo || "[ Missing Title ]";
-    }
-
-    if (usage.length > 0) {
-      usage.sort(function (a, b) {
-        return a.displayName > b.displayName;
-      });
     }
 
     return _react2.default.createElement(

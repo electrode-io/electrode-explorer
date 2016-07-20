@@ -29,7 +29,7 @@ export default class Component extends React.Component {
     return fetchJSON(url)
       .then((res) => {
         const meta = res.meta || {};
-        const usage = res.usage || [];
+        const usage = res.usage.sort((a, b) => a.displayName > b.displayName) || [];
         this.setState({ meta, usage });
 
         try {
@@ -49,10 +49,6 @@ export default class Component extends React.Component {
 
     if (!meta.title) {
       meta.title = this.props.params.repo || "[ Missing Title ]";
-    }
-
-    if (usage.length > 0) {
-      usage.sort((a, b) => a.displayName > b.displayName);
     }
 
     return (
