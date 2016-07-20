@@ -1,9 +1,0 @@
-{
-  "services": {
-    "env": "qa"
-  },
-
-  "ui": {
-    "env": "dev"
-  }
-}

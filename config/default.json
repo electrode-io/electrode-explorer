@@ -18,10 +18,6 @@
         },
         "unbundledJS": {
           "enterHead": [
-            "{{readFile:config/perf.js}}",
-            {
-              "src": "https://beacon.qa.walmart.com/beacon.js"
-            },
             {
               "src": "http://cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/codemirror.min.js"
             },

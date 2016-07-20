@@ -12,7 +12,7 @@ var _objectAssign = require("object-assign");
 
 var _objectAssign2 = _interopRequireDefault(_objectAssign);
 
-var _circleChart = require("../src/components/circle-chart.jsx");
+var _circleChart = require("../bundle.min").CircleChart;
 
 var _circleChart2 = _interopRequireDefault(_circleChart);
 

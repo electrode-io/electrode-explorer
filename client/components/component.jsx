@@ -105,7 +105,7 @@ export default class Component extends React.Component {
           </span>
         </h2>
         { typeof demoStyl !== "undefined" && demoStyl }
-        { typeof demo !== "undefined" && demo && <demo.default/> }
+        { typeof demo !== "undefined" && <demo.default/> }
         { error && <b>This component does not have demo or demo does not work properly.</b> }
       </div>
     );
