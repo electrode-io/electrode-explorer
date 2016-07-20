@@ -29,7 +29,16 @@ export default class Component extends React.Component {
     return fetchJSON(url)
       .then((res) => {
         const meta = res.meta || {};
-        const usage = res.usage.sort((a, b) => a.displayName > b.displayName) || [];
+        const usage = res.usage.sort(function compare(a, b) {
+          if (a.displayName < b.displayName) {
+            return -1;
+          }
+          if (a.displayName > b.displayName) {
+            return 1;
+          }
+          return 0;
+        }) || [];
+
         this.setState({ meta, usage });
 
         try {

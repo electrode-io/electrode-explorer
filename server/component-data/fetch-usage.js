@@ -109,7 +109,15 @@ const fetchUsage = (meta) => {
 
       return Promise.all(promises)
         .then(() => {
-          usage.sort((a, b) => a.displayName > b.displayName);
+          usage.sort(function compare(a, b) {
+            if (a.displayName < b.displayName) {
+              return -1;
+            }
+            if (a.displayName > b.displayName) {
+              return 1;
+            }
+            return 0;
+          });
           return resolve(uniqBy(usage, "uri"));
         });
     });

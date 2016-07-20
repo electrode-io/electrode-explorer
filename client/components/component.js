@@ -75,9 +75,16 @@ var Component = function (_React$Component) {
     var url = host + "/portal/data/" + org + "/" + repo + ".json";
     return (0, _electrodeFetch.fetchJSON)(url).then(function (res) {
       var meta = res.meta || {};
-      var usage = res.usage.sort(function (a, b) {
-        return a.displayName > b.displayName;
+      var usage = res.usage.sort(function compare(a, b) {
+        if (a.displayName < b.displayName) {
+          return -1;
+        }
+        if (a.displayName > b.displayName) {
+          return 1;
+        }
+        return 0;
       }) || [];
+
       _this2.setState({ meta: meta, usage: usage });
 
       try {
