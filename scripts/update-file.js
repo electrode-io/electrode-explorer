@@ -23,7 +23,12 @@ module.exports = (filename, manipulation) => {
     repoData = manipulation(repoData);
 
     if (repoData) {
-      Fs.writeFileSync(fullPath, JSON.stringify(repoData));
+      Fs.writeFile(fullPath, JSON.stringify(repoData), (err, res) => {
+        if (err) {
+          console.err(err);
+          throw err;
+        }
+      });
     }
 
   });

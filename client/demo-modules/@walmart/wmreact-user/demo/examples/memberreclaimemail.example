@@ -1,0 +1,7 @@
+<MemberReclaimEmail
+  userQuestion={"Use this email?"}
+  userMainMessage={"samantha.smith@email.com"}
+  userDetailedMessage={"If you continue, this will be your new membership number"}
+  btnMessage1={"Yes, continue"}
+  btnMessage2={"No, use a different email"}
+/>

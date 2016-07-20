@@ -1,0 +1,90 @@
+.StoreItemTile {
+  position: relative;
+  height: 275px;
+  
+  +breakpoint($breakpoint-m) {
+    height: 310px;
+  }
+  
+  .Price {
+    font-size: 22px;
+  }
+  
+  .Tile-priceContent {
+    height: 24px;
+  }
+  
+  .Tile-heading {
+    height: 40px;
+  }
+  
+  .Tile-content { 
+    padding: 10px 12px; 
+
+    +breakpoint($breakpoint-m) {
+      height: 132px;
+      padding: 16px 12px 12px;
+    }
+  }
+  
+  .Price-display {
+    padding-top: 5px;
+  }
+}
+
+.stockStatus {
+  to-rem(font-size, 16px);
+
+  max-height: 2.4em;
+
+  padding: 5px 12px 18px;
+  margin-bottom: 10px;
+  color: $grey-medium;
+  line-height: 1.2;
+}
+
+.stockStatus-unavailable, .stockStatus-available {
+  to-rem(font-size, 18px);
+
+  font-weight: 700;
+
+  +breakpoint($breakpoint-l) {
+    to-rem(font-size, 20px);
+  }
+}
+
+.stockStatus-unavailable {
+  display: block;
+  margin-bottom: 1em;
+
+  line-height: 1.1;
+}
+
+.stockStatus-available {
+  color: $green;
+}
+
+.stockStatus-aisle {
+  margin: 0;
+  to-rem(font-size, 12px);
+  
+  .wmicon {
+    margin-right: 5px;
+    color: $yellow;
+  }
+}
+
+.stockStatus-lowQuantity {
+  to-rem(font-size, 12px);
+
+  font-weight: 600;
+  color: $blue-secondary;
+}
+
+.unit-price {
+  margin: 0 4px;
+  color: $grey-medium;
+  font-size: 0.85em;
+  font-weight: normal;
+  text-transform: none;
+}

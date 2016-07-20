@@ -1,0 +1,11 @@
+<ProductSellerCard
+  isResponsive={true}
+  price={40}
+  isWM={true}
+  isSOI={false}
+  pickupToday={true}
+  minDate={1458860168437}
+  maxDate={1458947247691}
+  pickupable={true}
+  storeName="Mountain View"
+/>

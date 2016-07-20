@@ -1,0 +1,115 @@
+@require "~@walmart/wmreact-product-descriptors/src/styles/product-descriptors";
+@require "~@walmart/wmreact-product-offers/src/styles/product-offers";
+@require "~@walmart/wmreact-product-buttons/src/styles/product-buttons";
+@require "~@walmart/wmreact-product-variants/src/styles/product-variants";
+@require "~@walmart/wmreact-product-typography/src/styles/product-typography";
+@require "~@walmart/wmreact-shipping-pass/src/styles/shipping-pass";
+
+@require "./product-seller-card";
+@require "./swatch-selector";
+@require "./tile";
+@require "./product-basic-info";
+@require "./product-short-info";
+@require "./theme-tile";
+@require "./store-info";
+@require "./competitor-info";
+
+$ProductCard-caret-position = .75em;
+
+.prod-ProductCard--link div {
+  padding: 3px 0;
+}
+
+.prod-ProductCard {
+  .prod-ProductCard--Image {
+    width: 25%;
+  }
+
+  .prod-ProductOffer-container {
+    width: 75%;
+    padding-left: 10px;
+  }
+}
+
+.prod-ProductCard-CTA-container {
+  margin-top: $ProductCard-caret-position;
+  border-top: 1px solid $grey-light;
+
+  +breakpoint($breakpoint-m) {
+    border-top: 0;
+    margin-top: 0;
+    padding-right: 10px;
+  }
+
+  .prod-ProductCard-CTA-section {
+    +breakpoint($breakpoint-m) {
+      padding-left: 25%;
+      margin-left: 10px;
+    }
+  }
+}
+
+.prod-ProductCard--CTA {
+  margin-top: $ProductCard-caret-position;
+
+  +breakpoint($breakpoint-s-max, "max") {
+    margin-top: 0;
+    background-color: $blue-light;
+    padding: 15px 10px 5px;
+    position: relative;
+    border-bottom: 1px solid $grey-light;
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: -1 * $ProductCard-caret-position;
+      left: 3 * $ProductCard-caret-position;
+      width: 2 * $ProductCard-caret-position;
+      height: 2 * $ProductCard-caret-position;
+      background-color: $blue-light;
+      box-shadow: -1px -1px 0 $grey-light;
+      transform: rotate(45deg);
+    }
+
+    .chooser-option-current {
+      background: $white;
+    }
+  }
+}
+
+.prod-ProductImage--FlagList {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.prod-ProductInformation--FlagList {
+  margin-top: 10px;
+
+  .flag {
+    float: none;
+    padding-top: 2px;
+    padding-bottom: @padding-top;
+  }
+}
+
+.prod-FlagListItem {
+  line-height: 1.25;
+}
+
+.prod-ProductCard--Image {
+  position: relative;
+}
+
+.prod-ProductCard--ImageSrc {
+  height: auto;
+  width: auto;
+}
+
+.prod-ProductVariantType {
+  margin-bottom: 10px;
+
+  .variants.variants-swatches {
+    margin-top: 0;
+  }
+}

@@ -1,0 +1,7 @@
+<MemberSignIn
+  fields={{password:{value:"myPasswordIsUnbreakable", active:true}}}
+  captcha={{
+    inProgress: false
+  }}
+  initializeForm={() => {}}
+  handleSubmit={() => {}}/>

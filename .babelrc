@@ -1,3 +1,6 @@
 {
-  "extends": "./node_modules/@walmart/electrode-archetype-react-app/config/babel/.babelrc"
+  "extends": "./node_modules/@walmart/electrode-archetype-react-app/config/babel/.babelrc",
+  "ignore": [
+    "client/demo-modules/**/*/bundle.min.js*"
+  ]
 }

@@ -1,0 +1,5 @@
+<ProductImage
+  isLazy={true}
+  url="/ip/1531"
+  imageUrl="http://placehold.it/1000x1000"
+  flags={[{text: "Rollback", type: "rollback"}]} />

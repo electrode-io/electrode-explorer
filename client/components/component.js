@@ -79,11 +79,12 @@ var Component = function (_React$Component) {
       _this2.setState({ meta: meta, usage: usage });
 
       try {
-        var demo = require("../demo-modules/" + meta.name + "/" + _electrodeUiConfig2.default.ui.demoPath);
+        var demo = require("../demo-modules/" + meta.name + "/demo/demo");
         var _demoStyl = require("../demo-modules/" + meta.name + "/demo/demo.styl");
         _this2.setState({ demo: demo, demoStyl: _demoStyl });
       } catch (e) {
         console.log("Error require demo in " + meta.name);
+        console.log(e.stack);
         _this2.setState({ error: true });
       }
     });
@@ -177,8 +178,8 @@ var Component = function (_React$Component) {
                         { className: "detail-version" },
                         _react2.default.createElement(
                           "span",
-                          { className: "version-status-" + detail.version.status },
-                          detail.version.str
+                          { className: "version-status-" + (detail.version && detail.version.status) },
+                          detail.version && detail.version.str
                         )
                       ),
                       _react2.default.createElement(

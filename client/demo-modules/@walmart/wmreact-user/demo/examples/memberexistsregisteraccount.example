@@ -1,0 +1,8 @@
+<MemberExistsRegisterAccount
+  headerTitle={"Sign in to your account"}
+  fields={{
+    password:{value:"myPasswordIsUnbreakable", active:true}
+  }}
+  error={{message:"A SamClub.com account already exists for membership # 1234567891234."}}
+  initializeForm={() => {}}
+/>

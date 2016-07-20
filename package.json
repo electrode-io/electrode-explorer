@@ -118,7 +118,7 @@
     "@walmart/wmreact-tempo-analytics-utils": "^7.2.0",
     "@walmart/wmreact-tempo-modules": "^3.26.3",
     "@walmart/wmreact-typeahead": "^3.1.0",
-    "@walmart/wmreact-user": "^5.0.8",
+    "@walmart/wmreact-user": "^6.1.0",
     "@walmart/wmreact-validation": "^3.1.0",
     "@walmart/wmreact-zoomable-image": "^2.1.1",
     "@walmart/wmredux-categories": "^1.0.13",

@@ -33,11 +33,12 @@ export default class Component extends React.Component {
         this.setState({ meta, usage });
 
         try {
-          const demo = require(`../demo-modules/${meta.name}/${Config.ui.demoPath}`);
+          const demo = require(`../demo-modules/${meta.name}/demo/demo`);
           const demoStyl = require(`../demo-modules/${meta.name}/demo/demo.styl`);
           this.setState({ demo, demoStyl });
         } catch (e) {
           console.log(`Error require demo in ${meta.name}`);
+          console.log(e.stack);
           this.setState({error: true});
         }
       });
@@ -81,7 +82,7 @@ export default class Component extends React.Component {
                     </a>
                   </Table.Cell>
                   <Table.Cell className="detail-version">
-                    <span className={`version-status-${detail.version.status}`}>{detail.version.str}</span>
+                    <span className={`version-status-${detail.version && detail.version.status}`}>{detail.version && detail.version.str}</span>
                   </Table.Cell>
                   <Table.Cell className="detail-description">
                     {detail.description}

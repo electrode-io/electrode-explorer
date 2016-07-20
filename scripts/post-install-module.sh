@@ -9,11 +9,33 @@ if [ ! -d client/demo-modules/$1 ]; then
   mkdir -p client/demo-modules/$1
 fi
 
-function copy_and_clean() {
-  cp -r node_modules/$1 client/demo-modules/@walmart/
-  rm -rf client/demo-modules/$1/node_modules client/demo-modules/$1/lib client/demo-modules/$1/test client/demo-modules/$1/.idea client/demo-modules/$1/coverage client/demo-modules/$1/dist
-  rm client/demo-modules/$1/package.json client/demo-modules/$1/README.md client/demo-modules/$1/components* client/demo-modules/$1/.*
-  find client/demo-modules/$1 -name "*.flow" -type f -delete
+function update_src() {
+  if [ -f $1 ]; then
+    sed "s/$2/$3/g" $1 > $1.new
+    rm $1
+    mv $1.new $1
+  fi
+}
+
+function build_and_copy() {
+  rm node_modules/**/*/.babelrc
+  rm -rf client/demo-modules/$1
+  mkdir -p client/demo-modules/$1/demo
+  mkdir -p client/demo-modules/$1/src/styles
+  babel node_modules/$1/demo/*.js* -d ./
+  find node_modules/$1 -type f -name "*.jsx" -delete
+  update_src node_modules/$1/demo/demo.js "..\/src\/index" "..\/lib\/index"
+  update_src node_modules/$1/demo/demo.js "index.jsx" "index"
+  update_src node_modules/$1/demo/index.js "..\/src\/index" "..\/lib\/index"
+  update_src node_modules/$1/demo/index.js "index.jsx" "index"
+
+  webpack --config ./component-webpack.config.js --colors --entry node_modules/$1/lib/index.js --output-path client/demo-modules/$1 --externals
+  cp -r node_modules/$1/demo client/demo-modules/$1
+  cp -r node_modules/$1/src/styles/* client/demo-modules/$1/src/styles
+  find client/demo-modules/$1 -type f -name "*.flow" -delete
+
+  update_src client/demo-modules/$1/demo/demo.js "..\/lib\/index" "..\/bundle.min"
+  update_src client/demo-modules/$1/demo/index.js "..\/lib\/index" "..\/bundle.min"
 }
 
 str='@require "~@walmart/lithe-extras/lib/tenants/walmart/base"'
@@ -30,5 +52,5 @@ function import_stylus() {
   done
 }
 
-copy_and_clean $1
-import_stylus $1
+build_and_copy $1
+#import_stylus $1

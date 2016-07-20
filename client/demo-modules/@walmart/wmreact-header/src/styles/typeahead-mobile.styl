@@ -1,0 +1,176 @@
+.mweb-Typeahead {
+  z-index: 99999;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  height: 100%;
+  width: @height;
+
+  background: $white;
+
+  @media screen and (orientation:landscape) {
+    & {
+      overflow-y: scroll;
+    }
+  }
+
+  .wmicon-add {
+    to-rem(font-size, 14px);
+    transform: rotate(45deg);
+  }
+
+  .mweb-Typeahead-searchbar {
+    padding: $xs-spacing;
+
+    .mweb-Typeahead-input {
+      font-smoothing();
+
+      width: 100%;
+      height: 40px;
+      padding: 5px 43px 5px 16px;
+
+      border: 0;
+      border-radius: 0;
+
+      border-radius: 100px 0 0 100px;
+      height: 30px;
+      to-rem(font-size, 16px);
+      background: $white !important;
+      visibility: visible;
+
+      &:focus {
+        outline: 0;
+      }
+      &:focus::-webkit-input-placeholder {
+        color: $grey-cool-active;
+      }
+    }
+
+    .mweb-Typeahead-clear {
+      height: 30px;
+
+      background: $white;
+      border-radius: 0;
+      color: $grey-medium;
+
+      &,
+      &:hover {
+        position: absolute;
+        right: 10px;
+
+        padding: 0 0 1px;
+        width: 18px;
+        height: @width;
+
+        border-radius: 50%;
+        to-rem(font-size, 13px);
+        line-height: 0;
+      }
+    }
+
+    .mweb-Typeahead-submit {
+      padding: 0;
+      border: 0;
+      height: 30px;
+      width: 44px;
+      border-radius: 0 100px 100px 0;
+      background: $yellow;
+      color: $grey-dark;
+      to-rem(font-size, 16px);
+    }
+
+    .mweb-Typeahead-cancel {
+      line-height: normal;
+      height: 25px;
+      padding: 0 0 0 $xs-spacing;
+
+      &:hover {
+        background: none;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .mweb-Typeahead-list {
+    color: $grey-medium;
+
+    .mweb-Typeahead-listHead {
+      to-rem(font-size, 12px);
+
+      padding: 6px $xs-spacing;
+
+      background: $grey-very-light;
+    }
+
+    .block-list {
+      margin: 0;
+    }
+
+    li,
+    .mweb-Typeahead-recent a,
+    .mweb-Typeahead-trend a {
+      position: relative;
+      border-top: 1px solid $grey-light;
+
+      &:last-child {
+        border-bottom: 1px solid $grey-light;
+      }
+    }
+
+    .list {
+      border-top: 2px solid $grey-light;
+
+      & ~ .list {
+        border-top: 1px solid $grey-light;
+      }
+    }
+
+    .mweb-Typeahead-recent a {
+      ellipsis();
+
+      padding-right: $l-spacing;
+    }
+
+    a {
+      to-rem(font-size, 14px);
+
+      display: block;
+      padding: 9px 16px 9px $xs-spacing;
+
+      color: $grey-medium;
+    }
+
+    b {
+      color: $blue;
+      font-weight: 400;
+    }
+
+    .list-cat {
+      color: $orange;
+    }
+
+    .list-fill,
+    .wmicon-add {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 40px;
+
+      line-height: @height;
+    }
+
+    .wmicon-add {
+      padding: 0 13px 0 10px;
+    }
+
+    .list-fill {
+      padding: 0 $xs-spacing 0 $m-spacing;
+
+      background: url(//i5.walmartimages.com/dfw/63fd9f59-358d/k2-_c8f5e895-c7e3-4d0a-81d7-1a027231af88.v1.png) no-repeat center;
+      color: $grey-cool;
+    }
+  }
+}

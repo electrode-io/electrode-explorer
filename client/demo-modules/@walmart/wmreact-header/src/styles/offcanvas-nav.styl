@@ -1,0 +1,135 @@
+$offcanvas-nav-width = 270px;
+
+.header-OffcanvasNav {
+  position: fixed;
+  top: 0;
+  left: -1 * $offcanvas-nav-width;
+
+  width: $offcanvas-nav-width;
+  height: 100%;
+
+  overflow: auto;
+  background: $blue-light;
+
+  .separator {
+    border-width: 10px;
+    border-color: $blue-pale;
+    margin: 0;
+  }
+}
+
+// Used to shift the page over to expose the offcanvas nav
+body.offcanvasNav-open {
+  position: fixed;
+
+  margin-left: $offcanvas-nav-width;
+  width: 100%;
+
+  .is-fixed {
+    left: $offcanvas-nav-width;
+    width: 100%;
+  }
+
+  .header-OffcanvasNav {
+    left: 0;
+  }
+}
+
+.header-OffcanvasNav-entry {
+  to-rem(font-size, 16px);
+
+  display: inline-block;
+  height: 44px;
+  padding: 0 20px;
+  width: 100%;
+
+  font-weight: 600;
+  line-height: @height;
+}
+
+.header-OffcanvasNav-entry--top {
+  height: 40px;
+
+  line-height: @height;
+  background: $blue-secondary;
+  color: $white;
+}
+
+.header-OffcanvasNav-overlay {
+  wmzindex("header-overlay");
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 105%; // slightly larger than screen so shadow is full height
+
+  box-shadow: -7px -7px 9px -7px rgba(0, 0, 0, 0.4);
+}
+
+.header-OffcanvasNav-subNav {
+  .wmicon {
+    to-rem(font-size, 12px);
+
+    width: 8px;
+    line-height: 44px;
+  }
+
+  .header-OffcanvasNav-entry--top .wmicon {
+    margin-right: $xxs-spacing;
+    line-height: 40px;
+  }
+}
+
+.header-OffcanvasNav-subNav.has-depth0Selected {
+  .header-OffcanvasNav-entry {
+    padding-left: $l-spacing;
+
+    &.is-selected {
+      padding-left: 16px;
+      border-left: 8px solid;
+
+      .wmicon {
+        display: none;
+      }
+    }
+  }
+
+  .header-OffcanvasNav-entry--top {
+    padding-left: $s-spacing;
+  }
+}
+
+.header-OffcanvasNav-subNav-menu {
+  display: none;
+
+  .is-selected + & {
+    display: block;
+  }
+}
+
+.header-OffcanvasNav-entry--depth0,
+.header-OffcanvasNav-entry--depth1 {
+  &.is-selected {
+    border-color: $black;
+    color: @border-color;
+  }
+}
+
+.header-OffcanvasNav-subNav.has-depth1Selected .header-OffcanvasNav-entry--depth0 {
+  border-color: $blue-secondary;
+  color: $blue-secondary;
+}
+
+.header-OffcanvasNav-subNav.has-depth1Selected {
+  .header-OffcanvasNav-entry--depth1:not(.is-selected) {
+    display: none;
+  }
+}
+
+.header-OffcanvasNav-subNav.has-depth0Selected {
+  .header-OffcanvasNav-entry--depth0:not(.is-selected) {
+    display: none;
+  }
+}

@@ -1,0 +1,3 @@
+<SignUp fields={{password:{value:"myPasswordIsUnbreakable", active:true}}}
+  initializeForm={() => {}}
+/>

@@ -1,0 +1,73 @@
+.header-GlobalEyebrowNav {
+  height: 22px;
+  padding-top: 1px;
+
+  .flyout-bottom .flyout-modal {
+    margin-top: 13px;
+  }
+
+  > {
+    .header-GlobalEyebrowNav-link {
+      margin-left: $m-spacing;
+    }
+  }
+}
+
+.header-GlobalEyebrowNav-link,
+.header-GlobalEyebrowNav-button {
+  to-rem(font-size, 12px);
+
+  background: none;
+  color: $white;
+
+  &:hover {
+    color: $blue-tertiary;
+  }
+
+  // Fix layout thrashing due to FOUT when
+  // webfonts are loading.
+  .wf-loading & {
+    to-rem(font-size, 11px);
+    letter-spacing: -0.13px;
+  }
+}
+
+.header-GlobalEyebrowNav-link,
+.header-GlobalEyebrowNav-button {
+   .wmicon {
+    to-rem(font-size, 14px);
+
+    margin-right: $xxs-spacing;
+    vertical-align: text-bottom;
+  }
+}
+
+.header-GlobalEyebrowNav-button {
+  margin-left: 20px;
+}
+
+.header-GlobalEyebrowNav-flyout {
+  .header-GlobalEyebrowNav-flyout-list {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+  }
+
+  .header-GlobalEyebrowNav-flyout-listItem {
+    margin-top: 6px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .flyout-modal .header-GlobalEyebrowNav-link {
+    to-rem(font-size, 14px);
+
+    padding-left: 0;
+
+    color: $blue;
+    line-height: $l-spacing;
+  }
+}

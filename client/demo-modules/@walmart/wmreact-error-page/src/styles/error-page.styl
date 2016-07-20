@@ -1,0 +1,61 @@
+@require "~@walmart/wmreact-base/src/styles/base";
+@require "~@walmart/wmreact-interactive/src/styles/button";
+
+$spark-size-s = 55px;
+$spark-size-l = 68px;
+
+.error-ErrorPage-content {
+  padding: $m-spacing;
+
+  +breakpoint($breakpoint-m) {
+    padding: 60px 0;
+  }
+}
+
+.error-ErrorPage-spark {
+  to-rem(font-size, $spark-size-s);
+
+  color: $yellow;
+
+  +breakpoint($breakpoint-m) {
+    to-rem(font-size, $spark-size-l);
+  }
+}
+
+.error-ErrorPage-heading {
+  to-rem(font-size, 40px);
+
+  margin: 0 0 0 $m-spacing;
+  line-height: $spark-size-s;
+  vertical-align: top;
+
+  +breakpoint($breakpoint-m) {
+    to-rem(font-size, 50px);
+
+    margin-left: 26px;
+    line-height: $spark-size-l;
+  }
+}
+
+.error-ErrorPage-copy {
+  to-rem(font-size, 21px);
+
+  margin: 25px auto;
+  max-width: 615px;
+
+  +breakpoint($breakpoint-m) {
+    to-rem(font-size, 30px);
+
+    margin: 35px auto;
+  }
+}
+
+.error-ErrorPage-link {
+  margin: 0 $m-spacing $m-spacing;
+  padding-top: 10px;
+  height: 38px;
+}
+
+.error-ErrorPage-links-separator {
+  vertical-align: $xs-spacing;
+}

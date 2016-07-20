@@ -1,0 +1,30 @@
+.header-GlobalLefthandNavMobile.is-collapsed .header-GlobalLefthandNavMobile-departments {
+  max-height: 308px;
+  overflow: hidden;
+}
+
+.header-GlobalLefthandNavMobile-expander {
+  position: relative;
+
+  &, &:hover, &:focus {
+    color: $grey-dark;
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: $s-spacing;
+    right: $m-spacing;
+
+    border: 5px solid transparent;
+    border-bottom-color: $grey-dark;
+    margin-left: $xxs-spacing;
+
+    .header-GlobalLefthandNavMobile.is-collapsed & {
+      top: $m-spacing;
+      right: auto;
+
+      transform: scaleY(-1);
+    }
+  }
+}
