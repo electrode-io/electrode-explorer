@@ -1,0 +1,601 @@
+@require "~@walmart/wmreact-base/src/styles/base";
+@require "~@walmart/wmreact-forms/src/styles/forms";
+@require "~@walmart/wmreact-interactive/src/styles/button";
+@require "~@walmart/wmreact-stateless-fields/src/styles/field";
+@require "~@walmart/wmreact-stateless-fields/src/styles/floating-label";
+@require "~@walmart/wmreact-stateless-fields/src/styles/select";
+@require "~@walmart/wmreact-stateless-fields/src/styles/markers";
+
+$hybrid ?= {};
+$hybrid.border-width = 2px;
+$hybrid.border-color = $orange;
+$hybrid.background-color = $orange;
+$hybrid.box-shadow = inset 0 0 0 1px $orange;
+
+// mixin for dividing address columns while offsetting
+// flyouts accordingly
+divide-address-columns($columns) {
+  // normal columns
+  .address-col {
+    width: (100% / $columns);
+  }
+  .address-col-flyout {
+    width: (100% * $columns);
+  }
+  for $column in (1..$columns) {
+    .address-col.nth-{$columns}np{$column} {
+      .address-col-flyout {
+        margin-left: (-100% * ($column - 1));
+      }
+      .address-col-flyout-inner:before {
+        left: unit((100 / $columns * $column) - (100 / $columns / 2), '%');
+      }
+    }
+    // when address-col-full element exists but is hidden, position the
+    // "add new address" flyout correctly
+    .show-all .address-col-full + .add-address-col:nth-child({$columns}n+{($column + 1)}) {
+      .address-col-flyout {
+        margin-left: (-100% * ($column - 1));
+      }
+      .address-col-flyout-inner:before {
+        left: unit((100 / $columns * $column) - (100 / $columns / 2), '%');
+      }
+    }
+  }
+  // when address-col-full element exists and is shown, position the "add new
+  // address" flyout to the left (since it will need to break to a new line)
+  .address-col-full + .add-address-col {
+    .address-col-flyout {
+      margin-left: 0;
+    }
+    .address-col-flyout-inner:before {
+      left: unit((100 / $columns) - (100 / $columns / 2), '%');
+    }
+  }
+}
+
+.address-grid {
+  to-rem(margin-right, -10px);
+  to-rem(margin-left, -10px);
+
+  font-size: 0;
+}
+
+.address-col,
+.address-col-full,
+.address-col-flyout {
+  position: relative;
+
+  width: 100%;
+}
+
+.address-col,
+.address-col-full {
+  to-rem(margin-bottom, 20px);
+}
+
+.address-col {
+  to-rem(font-size, 16px);
+
+  vertical-align: top;
+
+  display: none;
+}
+
+// Ensure that the highest priority address tiles are shown initially
+.show-all .address-col,
+.address-col.add-address-col,
+.address-col-alpha {
+  display: inline-block;
+}
+
+// For medium and above layouts, ensure that the top 6-8
+// (depending on container variant) address tiles are shown
++breakpoint($screen-m) {
+  .four-tile-rows .address-col-gamma,
+  .address-col-beta {
+    display: inline-block;
+  }
+}
+
+.address-col-inner {
+  to-rem(padding, 0 10px);
+
+  + .address-col-inner {
+    to-rem(padding-top, 20px);
+  }
+}
+
+.address-col-flyout {
+  wmzindex("flyout");
+}
+
+.address-col-flyout-inner {
+  to-rem(border-radius, 5px);
+
+  border: 1px solid $grey-cool;
+
+  background-color: $white;
+
+  &:before {
+    wmzindex("basic-increment");
+
+    content: "";
+    position: absolute;
+
+    display: block;
+    margin-left: -9px;
+    left: 50%;
+    top: 10px;
+    width: 18px;
+    height: 18px;
+    border: 1px solid $grey-cool;
+    border-width: 1px 1px 0 0;
+
+    pointer-events: none;
+    background-color: $white;
+    transform: rotate(-45deg);
+  }
+}
+
+// define grid layouts for different widths
+// (may be overwritten later)
+
++breakpoint($breakpoint-m) {
+  divide-address-columns(2);
+}
+
++breakpoint($breakpoint-l) {
+  divide-address-columns(4);
+}
+
+/* ==========================================================================
+   Address Tile + Form
+   ========================================================================== */
+
+address-tile() {
+  // http://css-tricks.com/fighting-the-space-between-inline-block-elements/
+  // Because these tiles are within a container using the font-size technique
+  // linked above, font-size needs to be reset here
+  to-rem(font-size, 16px);
+
+  position: relative;
+
+  border: 1px solid $grey-cool;
+  border-radius: 5px;
+  overflow: hidden;
+
+  background-color: $white;
+
+  +breakpoint($screen-l) {
+    min-height: 195px;
+    min-height: 12.1875rem;
+  }
+}
+
+.lists-address-book-message {
+  margin: 0 0 30px 0;
+}
+
+.container-account,
+.lists-address-section {
+  .address-form-flyout .delivery-identity {
+    padding-right: 40px;
+  }
+}
+
+.delivery-identity {
+  margin-left: 0px;
+
+  .form-label-instructional {
+    margin-left: 10px;
+  }
+
+  .alert-message {
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .validation-group {
+    ul {
+      margin-top: 5px;
+    }
+  }
+
+  .error-label {
+    margin-top: 5px;
+  }
+}
+
+.shipping-addresses {
+  +breakpoint($breakpoint-m) {
+    margin-top: $l-spacing;
+  }
+
+  .expand-addresses-wrapper {
+    clearfix();
+
+    .btn {
+      font-weight: 600;
+    }
+  }
+
+  .address-tile {
+    address-tile();
+
+    padding: 11px 15px 15px 11px;
+
+    background-color: $white;
+
+    &:hover {
+      border-color: $blue-hover;
+    }
+
+    // Unit-less line-height declarations are more predictable, see
+    // https://developer.mozilla.org/en-US/docs/Web/CSS/line-height
+    line-height: (20 / 16);
+
+    .checkbox-container {
+      position: relative;
+      left: -11px;
+
+      box-sizing: content-box;
+      width: 100%;
+      height: 24px;
+      margin: -10px 0 0 0;
+      padding: 10px 15px 10px 10px;
+      border-bottom: 1px solid $grey-cool;
+      font-weight: 600;
+
+      cursor: pointer;
+    }
+
+    &.delete-confirmation .checkbox-container label {
+      cursor: default;
+      font-size: 16px;
+    }
+
+    .preferred-address-spinner-backdrop {
+      width: 20px;
+      margin-top: 10px; // This is to vertically align the spinner properly per design feedback.
+      margin-left: 1px;
+      padding-right: 19px;
+      padding-left: 20px;
+
+      background: $white;
+    }
+
+    .preferred-address-spinner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 25px;
+      height: 25px;
+      margin-top: -13px;
+      margin-left: -13px;
+      background-size: 25px 25px;
+    }
+
+    .edit-link {
+      padding: 15px 10px 15px 15px;
+    }
+
+    .delete-link {
+      padding: 15px 15px 15px 10px;
+    }
+
+    &.selected {
+      box-shadow: inset 0 0 0 1px #6da6cf;
+      border: 1px solid #6da6cf;
+
+      .checkbox-container {
+/*        border-bottom: 2px solid $green;*/
+        margin-bottom: -1px;
+      }
+
+      .shipping-address-footer {
+        right: 7px;
+      }
+
+      .delete-link {
+        padding-right: 9px;
+      }
+    }
+
+    &.delete-confirmation {
+      background-color: $blue-light;
+
+      .checkbox-container {
+        border-color: $blue-light;
+
+        label {
+          to-rem(font-size, 16px);
+
+          &:before {
+            display: none;
+          }
+
+          &:after {
+            display: none;
+          }
+        }
+      }
+
+      .shipping-address-footer {
+        bottom: 12px;
+        left: 11px;
+
+        .edit-link,
+        .delete-link {
+          display: none;
+        }
+
+        .cancel-link,
+        .delete-button {
+          display: block;
+        }
+
+        .cancel-link {
+          padding: 6px 3px 3px 15px;
+        }
+      }
+    }
+
+  }
+
+  .address-book-enabled-element {
+    wmzindex("flyout");
+  }
+
+  .address-tile-clickable {
+    cursor: pointer;
+  }
+
+  .address-details {
+    margin: 10px 0 36px 0px;
+
+    word-wrap: break-word;
+  }
+
+  .recipient-name {
+    font-weight: 600;
+  }
+
+  .add-address-tile {
+    address-tile();
+
+    padding: 15px;
+
+    cursor: pointer;
+
+    h3 {
+      to-rem(font-size, 16px);
+
+      margin-top: 0;
+
+      color: $blue;
+      font-weight: 400;
+      line-height: 1.5;
+      text-align: center;
+
+      i {
+        margin-right: 10px;
+      }
+
+      a {
+        display: block;
+      }
+    }
+
+    +breakpoint($screen-l) {
+      display: table;
+      width: 100%;
+
+      h3 {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+.address-book-overlay.active {
+  wmzindex("basic-increment");
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: white;
+  opacity: 0.5;
+}
+
+.address-form-line-one-wrapper,
+.address-form-city-wrapper {
+  margin-left: 0;
+}
+
++breakpoint($screen-l) {
+  .address-form-main-column-alpha {
+    padding-right: 20px;
+  }
+
+  .address-form-main-column-omega {
+    padding-left: 20px;
+  }
+}
+
+.shipping-address-footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+
+  font-size: 14px;
+
+  .edit-link,
+  .delete-link {
+    float: right;
+    padding: 0px 10px 0px 5px;
+  }
+
+  .cancel-link,
+  .delete-button {
+    float: left;
+    display: none;
+  }
+
+  .cancel-link {
+    padding: 3px 3px 3px 15px;
+  }
+}
+
+.address-tile-container {
+  margin-top: 35px;
+}
+
+.address-tile-preferred {
+  border-color: 2px solid $green;
+
+  .checkbox-container {
+    border-bottom: 2px solid $green;
+  }
+}
+
+.address-col-flyout {
+  .delivery-identity {
+    wmzindex("basic");
+
+    margin-top: 0;
+    padding: 20px;
+  }
+}
+
+.address-form {
+  width: 100%;
+}
+
+.state-label {
+  label {
+    position: absolute;
+    margin-top: 10px;
+  }
+}
+
+.save-address {
+  margin-left: 0;
+  to-rem(font-size, 18px);
+}
+
+.cancel-address-form {
+  margin-top: $s-spacing;
+  margin-left: 0;
+
+  +breakpoint($breakpoint-s) {
+    margin: $xs-spacing 15px 0;
+  }
+}
+
+.btn-fake-link-large {
+  &.btn-link {
+    to-rem(font-size, 18px);
+
+    font-weight: 600;
+  }
+  &.btn-fake-link {
+    text-align: center;
+  }
+}
+
+.address-form-preferred-address-wrapper {
+  // visually equal space above and below
+  &.option {
+    margin-top: 21px;
+  }
+
+  +breakpoint($screen-m) {
+    // align visually with confirm/cancel buttons
+    &.option {
+      margin-top: 31px;
+    }
+  }
+
+  input:checked + label {
+    option-checkout-active();
+  }
+
+  // IE7 and IE8 Compatibility
+  &.selected label {
+    option-checkout-active();
+  }
+}
+
+.address-book-action-buttons {
+  margin-top: 25px;
+  .cancel-btn {
+    to-rem(height, 38px);
+  }
+}
+
+.address-validation {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  background: $white;
+
+  .copy-large {
+    font-size: 16px;
+  }
+
+  .multiple-addresses {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .multiple-address-block {
+    display: inline-block;
+    margin-right: 30px;
+  }
+}
+
+.edit-address-validation {
+  position: relative;
+  top: 2px;
+
+  font-size: 16px;
+  +breakpoint($screen-m) {
+    margin-left: 12px;
+  }
+  text-align: center;
+}
+
+.save-address-validation {
+  margin-right: 11px;
+}
+
+.state-validation-marker {
+  .validation-group {
+    margin-top: 0px;
+  }
+  .form-label {
+    margin: 5px 0 0 10px;
+    color: $grey-medium;
+    font-size: 0.835em;
+  }
+}
+
+.shipping-accordion-cancel {
+  display: inline-block;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.preferred-address {
+  margin-bottom: 0;
+  margin-top: 12px;
+  color: $grey-medium;
+}

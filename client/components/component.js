@@ -101,6 +101,12 @@ var Component = function (_React$Component) {
       meta.title = this.props.params.repo || "[ Missing Title ]";
     }
 
+    if (usage.length > 0) {
+      usage.sort(function (a, b) {
+        return a.displayName > b.displayName;
+      });
+    }
+
     return _react2.default.createElement(
       "div",
       null,

@@ -51,6 +51,10 @@ export default class Component extends React.Component {
       meta.title = this.props.params.repo || "[ Missing Title ]";
     }
 
+    if (usage.length > 0) {
+      usage.sort((a, b) => a.displayName > b.displayName);
+    }
+
     return (
       <div>
         <h2 className="portal-title">

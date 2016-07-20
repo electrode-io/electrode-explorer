@@ -1,0 +1,6 @@
+<AddressForm
+  ref='addressForm'
+  address1='180 North Stetson Avenue'
+  zipCode='60601'
+  city='Chicago'
+  state='IL' />
