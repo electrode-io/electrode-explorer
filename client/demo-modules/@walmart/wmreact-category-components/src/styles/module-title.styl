@@ -1,0 +1,55 @@
+$see-all-left-margin = 36px;
+$see-all-width-smaller = 47px;
+$see-all-width-larger = 53px;
+
+.ModuleTitle-heading {  // @stylint ignore
+  max-width: 240px;
+  to-rem(font-size, 18px);
+
+  margin: 0;
+
+  max-width: 240px;
+
+  padding-bottom: $s-spacing;
+  line-height: $m-spacing;
+
+  +breakpoint($breakpoint-s) {
+    max-width: 385px;
+  }
+
+  +breakpoint($breakpoint-m) {
+    to-rem(font-size, 25px);
+
+    padding-bottom: $l-spacing;
+    line-height: 38px;
+  }
+
+  +breakpoint($breakpoint-l) {
+    max-width: 550px;
+  }
+}
+
+.ModuleTitle-link { // @stylint ignore
+  to-rem(font-size, 14px);
+
+  display: inline-block;
+  vertical-align: bottom;
+
+  margin-left: 36px;
+  width: 47px;
+
+  color: $blue;
+  text-align: right;
+
+  +breakpoint($breakpoint-m) {
+    to-rem(font-size, 16px);
+
+    width: 53px;
+  }
+}
+
+.ModuleTitle-icon { // @stylint ignore
+  to-rem(font-size, 11px);
+  padding-left: 3px;
+  padding-bottom: 5px;
+}

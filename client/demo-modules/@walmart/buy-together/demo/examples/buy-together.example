@@ -1,0 +1,7 @@
+ <BuyTogether
+  hasSavings={true}
+  productData={productData}
+  accessoryData={accessoryData}
+  fulfillmentData={fulfillmentData}
+/>
+

@@ -24,8 +24,8 @@
     "example"
   ],
   "author": [
-    "Dave Stevens <dstevens@walmartlabs.com>",
-    "Caoyang Shi <cshi@walmartlabs.com>"
+    "Caoyang Shi <cshi@walmartlabs.com>",
+    "Dave Stevens <dstevens@walmartlabs.com>"
   ],
   "license": "UNLICENSED",
   "bugs": {
@@ -66,7 +66,7 @@
     "@walmart/wmreact-auth": "^3.1.1",
     "@walmart/wmreact-base": "^7.0.0",
     "@walmart/wmreact-calendar": "^3.1.1",
-    "@walmart/wmreact-carousel": "^5.0.2",
+    "@walmart/wmreact-carousel": "^5.1.0",
     "@walmart/wmreact-category-components": "^4.0.1",
     "@walmart/wmreact-charting": "^2.1.1",
     "@walmart/wmreact-chooser": "^4.1.2",

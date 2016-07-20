@@ -1,0 +1,185 @@
+<div className="grid facet facet-flyout tempo-module">
+  <div className="fake-shelf">
+    <SideBarMenuModule
+      zone="leftNavZone1"
+      moduleTitle="Shop By Category"
+      moduleType="ShopByCategory"
+      analyticsDataFunc={() => (
+        {
+          "getDidMountData": () => {},
+          "dispatch": () => {}
+          }
+        )
+      }
+      data={[
+        {
+          "expandOnLoad": true,
+          "uid": "WcaenllV",
+          "url": "/cp/1229722",
+          "title": "Apple",
+          "maxItemPerColumn": 2,
+          "subMenuData": [
+            {
+              "uid": "WcaenllV",
+              "url": "/cp/1229722",
+              "title": "Apple Brand Experience"
+            },
+            {
+              "uid": "WcaenllV",
+              "url": "/cp/1229722",
+              "title": "Apple Brand Experience"
+            },
+            {
+              "uid": "WcaenllV",
+              "url": "/cp/1229722",
+              "title": "Apple Brand Experience"
+            },
+            {
+              "uid": "WcaenllV",
+              "url": "/cp/1229722",
+              "title": "Apple Brand Experience"
+            }
+          ]
+        },
+        {
+          "expandOnLoad": true,
+          "uid": "WcaenllV",
+          "url": "/cp/1229722",
+          "title": "Apple Brand Experience",
+          "subMenuData": [
+            {
+              "uid": "WcaenllV",
+              "url": "/cp/1229722",
+              "title": "Apple Brand Experience"
+            },
+            {
+              "uid": "WcaenllV",
+              "url": "/cp/1229722",
+              "title": "Apple Brand Experience"
+            }
+          ]
+        },
+        {
+          "expandOnLoad": true,
+          "uid": "WcaenllV",
+          "url": "/cp/1229722",
+          "title": "Apple Brand Experience",
+          "subMenuData": [
+            {
+              "uid": "WcaenllV",
+              "url": "/cp/1229722",
+              "title": "Apple Brand Experience"
+            },
+            {
+              "uid": "WcaenllV",
+              "url": "/cp/1229722",
+              "title": "Apple Brand Experience"
+            }
+          ]
+        },
+        {
+          "expandOnLoad": true,
+          "uid": "WcaenllV",
+          "url": "/cp/1229722",
+          "title": "Apple Brand Experience"
+        },
+        {
+          "expandOnLoad": true,
+          "uid": "WcaenllV",
+          "url": "/cp/1229722",
+          "title": "Apple Brand Experience"
+        },
+        {
+          "expandOnLoad": true,
+          "uid": "WcaenllV",
+          "url": "/cp/1229722",
+          "title": "Apple Brand Experience"
+        },
+        {
+          "expandOnLoad": true,
+          "uid": "WcaenllV",
+          "url": "/cp/1229722",
+          "title": "Apple Brand Experience"
+        },
+        {
+          "expandOnLoad": true,
+          "uid": "WcaenllV",
+          "url": "/cp/1229722",
+          "title": "Apple Brand Experience"
+        },
+        {
+          "expandOnLoad": true,
+          "uid": "WcaenllV",
+          "url": "/cp/1229722",
+          "title": "Apple Brand Experience"
+        },
+        {
+          "expandOnLoad": true,
+          "uid": "WcaenllV",
+          "url": "/cp/1229722",
+          "title": "Apple Brand Experience"
+        },
+        {
+          "expandOnLoad": false,
+          "uid": "WcaenllV",
+          "url": "/cp/1229722",
+          "title": "Apple Brand Experience"
+        },
+        {
+          "expandOnLoad": false,
+          "uid": "WcaenllV",
+          "url": "/cp/1229722",
+          "title": "Apple Brand Experience"
+        },
+        {
+          "expandOnLoad": false,
+          "uid": "WcaenllV",
+          "url": "/cp/1229722",
+          "title": "Apple Brand Experience"
+        },
+        {
+          "expandOnLoad": false,
+          "uid": "WcaenllV",
+          "url": "/cp/1229722",
+          "title": "Apple Brand Experience"
+        },
+        {
+          "expandOnLoad": false,
+          "uid": "WcaenllV",
+          "url": "/cp/1229722",
+          "title": "Apple Brand Experience"
+        },
+        {
+          "expandOnLoad": false,
+          "uid": "WcaenllV",
+          "url": "/cp/1229722",
+          "title": "Apple Brand Experience"
+        },
+        {
+          "expandOnLoad": false,
+          "uid": "WcaenllV",
+          "url": "/cp/1229722",
+          "title": "Apple Brand Experience"
+        },
+        {
+          "expandOnLoad": false,
+          "uid": "WcaenllV",
+          "url": "/cp/1229722",
+          "title": "Apple Brand Experience"
+        },
+        {
+          "expandOnLoad": false,
+          "uid": "WcaenllV",
+          "url": "/cp/1229722",
+          "title": "Apple Brand Experience"
+        },
+        {
+          "expandOnLoad": false,
+          "uid": "WcaenllV",
+          "url": "/cp/1229722",
+          "title": "Apple Brand Experience"
+        }
+      ]}
+     />
+  </div>
+</div>

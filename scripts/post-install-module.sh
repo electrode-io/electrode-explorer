@@ -11,15 +11,17 @@ fi
 
 function update_src() {
   if [ -f $1 ]; then
-    sed "s/$2/$3/g" $1 > $1.new
-    rm $1
-    mv $1.new $1
+    grep $2 $1
+    if [ $? -eq 0 ]; then
+      sed "s/$2/$3/g" $1 > $1.new
+      rm $1
+      mv $1.new $1
+    fi
   fi
 }
 
 function build_and_copy() {
   rm node_modules/**/*/.babelrc
-  rm -rf client/demo-modules/$1
   mkdir -p client/demo-modules/$1/demo
   mkdir -p client/demo-modules/$1/src/styles
   babel node_modules/$1/demo/*.js* -d ./

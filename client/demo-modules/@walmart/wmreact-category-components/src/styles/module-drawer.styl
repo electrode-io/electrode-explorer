@@ -1,0 +1,69 @@
+$xs-img-size = 80px;
+
+.ModuleDrawer { // @stylint ignore
+  padding: 0 $xs-spacing $m-spacing;
+
+  +breakpoint($breakpoint-s) {
+    padding: 0 16px $m-spacing;
+  }
+
+  +breakpoint($breakpoint-m) {
+    padding: 0 16px $l-spacing;
+  }
+
+  +breakpoint($breakpoint-l) {
+    padding: 0 $m-spacing $l-spacing;
+  }
+
+  +breakpoint($breakpoint-xl) {
+    padding: 0 $l-spacing $l-spacing;
+  }
+
+  .Collapsable { // @stylint ignore
+    min-height: 126px;
+
+    padding-top: 1px;
+  }
+
+  .revealer-footer {
+    &.is-active {
+      margin-top: 0;
+    }
+
+    button {
+      display: block;
+      margin: 4px 0;
+
+      height: 40px;
+      width: 100%;
+
+      to-rem(font-size, 14px);
+
+      +breakpoint($breakpoint-s) {
+        margin: 4px auto;
+
+        width: 240px;
+      }
+
+      +breakpoint($breakpoint-l) {
+        margin: 0 auto;
+
+        width: 250px;
+
+        to-rem(font-size, 16px);
+      }
+
+      +breakpoint($breakpoint-xl) {
+        width: 350px;
+      }
+    }
+  }
+
+  .ModuleDrawerTile-image { // @stylint ignore
+    display: block;
+    margin: 0 auto;
+
+    width: $xs-img-size;
+    height: $xs-img-size;
+  }
+}

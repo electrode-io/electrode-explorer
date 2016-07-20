@@ -1,0 +1,28 @@
+/*!
+Wells
+.well-padded - A variant with padding.
+.well-filled - A variant with a solid background color.
+.well-subtle - A variant with a thin, subtle border and smaller radius.
+Styleguide 8.13
+*/
+
+.well {
+  margin: 20px 0;
+  border: 2px solid $blue-pale;
+  border-radius: 10px;
+
+  &.well-padded {
+    padding: 20px;
+  }
+
+  &.well-filled {
+    border-color: $blue-light;
+    background-color: $blue-light;
+    border-radius: 0;
+  }
+
+  &.well-subtle {
+    border-width: 1px;
+    border-radius: 3px;
+  }
+}
