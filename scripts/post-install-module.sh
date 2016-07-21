@@ -26,18 +26,14 @@ function build_and_copy() {
   mkdir -p client/demo-modules/$1/src/styles
   babel node_modules/$1/demo/*.js* -d ./
   find node_modules/$1 -type f -name "*.jsx" -delete
-  update_src node_modules/$1/demo/demo.js "..\/src\/index" "..\/lib\/index"
-  update_src node_modules/$1/demo/demo.js "index.jsx" "index"
-  update_src node_modules/$1/demo/index.js "..\/src\/index" "..\/lib\/index"
-  update_src node_modules/$1/demo/index.js "index.jsx" "index"
 
   webpack --config ./component-webpack.config.js --colors --entry node_modules/$1/lib/index.js --output-path client/demo-modules/$1 --externals
   cp -r node_modules/$1/demo client/demo-modules/$1
   cp -r node_modules/$1/src/styles/* client/demo-modules/$1/src/styles
   find client/demo-modules/$1 -type f -name "*.flow" -delete
 
-  update_src client/demo-modules/$1/demo/demo.js "..\/lib\/index" "..\/bundle.min"
-  update_src client/demo-modules/$1/demo/index.js "..\/lib\/index" "..\/bundle.min"
+  update_src client/demo-modules/$1/demo/demo.js "..\/src\/index" "..\/bundle.min"
+  update_src client/demo-modules/$1/demo/index.js "..\/src\/index" "..\/bundle.min"
   rm client/demo-modules/$1/bundle.min.js.map
 }
 
