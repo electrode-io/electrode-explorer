@@ -1,5 +1,6 @@
 import React from "react";
-import { fetchJSON } from "@walmart/electrode-fetch";
+import { Resolver } from "react-resolver";
+import { fetchJSON, fetch } from "@walmart/electrode-fetch";
 import Well from "@walmart/wmreact-containers/lib/components/well";
 import Table from "@walmart/wmreact-table/lib/components/table";
 import Revealer from "@walmart/wmreact-interactive/lib/components/revealer";
@@ -13,7 +14,6 @@ export default class Component extends React.Component {
       meta: {},
       usage: [],
       demo: null,
-      demoStyl: null,
       error: null
     };
   }
@@ -41,20 +41,37 @@ export default class Component extends React.Component {
 
         this.setState({ meta, usage });
 
-        try {
-          const demo = require(`../demo-modules/${meta.name}/demo/demo`);
-          const demoStyl = require(`../demo-modules/${meta.name}/demo/demo.styl`);
-          this.setState({ demo, demoStyl });
-        } catch (e) {
-          console.log(`Error require demo in ${meta.name}`);
-          console.log(e.stack);
-          this.setState({error: true});
-        }
+        const scriptUrl = `${host}/portal/data/demo-modules/${meta.name}/bundle.min.js`;
+        const script = document.createElement("script");
+        script.src = scriptUrl;
+        script.async = true;
+
+        document.getElementById("placeholder").appendChild(script);
+        const x = setInterval(() => {
+          if (typeof _COMPONENTS !== "undefined" && _COMPONENTS[meta.name]) {
+            this.setState({ demo: _COMPONENTS[meta.name] });
+            clearInterval(x);
+          }
+        }, 500);
       });
   }
 
+  _renderDemo() {
+    const { demo, error } = this.state;
+    if (!demo && !error) {
+      return (<div>Loading, please wait.</div>);
+    }
+
+    return React.createElement(demo);
+  }
+
   render() {
-    const { meta, usage, demo, error } = this.state;
+    const { meta, usage, error } = this.state;
+    let host;
+
+    if (ExecutionEnvironment.canUseDOM) {
+      host = window.location.origin;
+    }
 
     if (!meta.title) {
       meta.title = this.props.params.repo || "[ Missing Title ]";
@@ -104,8 +121,8 @@ export default class Component extends React.Component {
             </Revealer>}
           </span>
         </h2>
-        { typeof demoStyl !== "undefined" && demoStyl }
-        { typeof demo !== "undefined" && demo && <demo.default/> }
+        <div id="placeholder" />
+        { this._renderDemo() }
         { error && <b>This component does not have demo or demo does not work properly.</b> }
       </div>
     );

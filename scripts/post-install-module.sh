@@ -20,40 +20,49 @@ function update_src() {
   fi
 }
 
-function build_and_copy() {
+function add_global() {
+  file=node_modules/$1/demo/demo.js
+  exp=$(grep "exports.default" $file)
+  var_name=$(echo $exp | cut -d "=" -f 2 | cut -d ";" -f 1)
+  echo "global._COMPONENTS=global._COMPONENTS || {};global._COMPONENTS[\"$1\"] = $var_name;" >> $file
+}
+
+function populate_react() {
+  old0="React\."
+  old1="_react2\.default\."
+  old2="_react\."
+  old3="_react2\['default'\]\."
+  old4="_react2\[\"default\"\]\."
+  new="window\.React\."
+  sed "s/$old0/$new/g" $1 > $1.tmp
+  sed "s/$old1/$new/g" $1.tmp > $1.tmp.2
+  sed "s/$old2/$new/g" $1.tmp.2 > $1.tmp.3
+  sed "s/$old3/$new/g" $1.tmp.3 > $1.tmp.4
+  sed "s/$old4/$new/g" $1.tmp.4 > $1.tmp.5
+  rm $1
+  mv $1.tmp.5 $1
+  rm $1.tmp*
+}
+
+function build() {
   rm node_modules/**/*/.babelrc
-  mkdir -p client/demo-modules/$1/demo
-  mkdir -p client/demo-modules/$1/src/styles
-  babel node_modules/$1/demo/*.js* -d ./
-  find node_modules/$1 -type f -name "*.jsx" -delete
-  update_src node_modules/$1/demo/demo.js "..\/src\/index" "..\/lib\/index"
-  update_src node_modules/$1/demo/demo.js "index.jsx" "index"
-  update_src node_modules/$1/demo/index.js "..\/src\/index" "..\/lib\/index"
-  update_src node_modules/$1/demo/index.js "index.jsx" "index"
+  babel node_modules/$1/demo/demo.js* -d ./
 
-  webpack --config ./component-webpack.config.js --colors --entry node_modules/$1/lib/index.js --output-path client/demo-modules/$1 --externals
-  cp -r node_modules/$1/demo client/demo-modules/$1
-  cp -r node_modules/$1/src/styles/* client/demo-modules/$1/src/styles
-  find client/demo-modules/$1 -type f -name "*.flow" -delete
+  if [ -f node_modules/$1/demo/index.jsx ]; then
+    babel node_modules/$1/demo/index.jsx -d ./
+  fi
 
-  update_src client/demo-modules/$1/demo/demo.js "..\/lib\/index" "..\/bundle.min"
-  update_src client/demo-modules/$1/demo/index.js "..\/lib\/index" "..\/bundle.min"
-  rm client/demo-modules/$1/bundle.min.js.map
+  update_src node_modules/$1/demo/demo.js "\/src\/" "\/lib\/"
+  update_src node_modules/$1/demo/demo.js ".jsx" ""
+
+  update_src node_modules/$1/demo/index.js "\/src\/" "\/lib\/"
+  update_src node_modules/$1/demo/index.js ".jsx" ""
+
+  add_global $1
+
+  webpack --config ./component-webpack.config.js --colors --entry node_modules/$1/demo/demo.js --output-path server/data/demo-modules/$1 --output-filename bundle.min.js
+
+  populate_react server/data/demo-modules/$1/bundle.min.js
 }
 
-str='@require "~@walmart/lithe-extras/lib/tenants/walmart/base"'
-function import_stylus() {
-  files=$(find client/demo-modules/$1 -name "*.styl")
-  for file in $files
-  do
-    grep "$str" $file
-    if [ $? -ne 0 ]; then
-      mv $file $file.tmp
-      echo "$str;" | cat - $file.tmp > $file
-      rm $file.tmp
-    fi
-  done
-}
-
-build_and_copy $1
-#import_stylus $1
+build $1

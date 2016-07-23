@@ -1,3 +1,0 @@
-<div style={{height: 500}}>
-  <GlobalLefthandNav moduleData={quimbyData.global_header.headerZone3}/>
-</div>

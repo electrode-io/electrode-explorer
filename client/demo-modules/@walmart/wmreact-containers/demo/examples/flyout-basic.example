@@ -1,3 +1,0 @@
-<FlyoutBasic active hover content={() => <h1>It flew out!</h1>} direction="top" onActiveChange={(active) => console.log(active)}>
-  Fly out default!
-</FlyoutBasic>

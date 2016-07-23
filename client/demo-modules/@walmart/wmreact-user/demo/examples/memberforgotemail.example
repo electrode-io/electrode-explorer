@@ -1,5 +1,0 @@
-<MemberForgotEmail
-  fields={{}}
-  handleResponse={() => {}}
-  initializeForm={() => {}}
-/>

@@ -1,5 +1,0 @@
-<GlobalMarketingMessages
-  fadeDuration={800}
-  sustainDuration={5000}
-  moduleData={quimbyData.global_header.headerZone5}
-/>

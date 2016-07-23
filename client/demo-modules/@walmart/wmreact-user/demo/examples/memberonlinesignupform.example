@@ -1,6 +1,0 @@
-<MemberOnlineSignUpForm
-            membershipId="12345678910"
-            userFirstName="Kelly"
-            userLastName="Lastname"
-            fields={{password:{value:"myPasswordIsUnbreakable", active:true}}}
-            initializeForm={() => {}}/>

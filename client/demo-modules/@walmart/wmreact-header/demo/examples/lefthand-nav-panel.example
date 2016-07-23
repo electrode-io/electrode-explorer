@@ -1,1 +1,0 @@
-<LefthandNavPanel show={true} superDept={quimbyData.global_header.headerZone3.configs.departments[0]} />

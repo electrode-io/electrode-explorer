@@ -1,8 +1,0 @@
-<div style={{height: 50}}>
-  <ProductCardFlagList
-    flags={[
-      {text: "Rollback", type: "rollback"},
-      {text: "Clearance", type: "clearance"}
-    ]} />
-</div>
-

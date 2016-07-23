@@ -1,3 +1,0 @@
-<SwatchSelector
-	swatches = {tileData.properties.base_variants}
-	maxSwatchCount={4} />

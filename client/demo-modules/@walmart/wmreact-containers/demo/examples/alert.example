@@ -1,4 +1,0 @@
-<div>
-  <Alert message="Error" block/>
-  <Alert alertType="warning">Warning</Alert>
-</div>

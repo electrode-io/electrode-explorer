@@ -22,7 +22,7 @@ import "./styles/base.styl";
 const rootEl = document.querySelector(".js-content");
 
 const canaryMessage = (msg) => {};
-
+global.React = React;
 // Note: Change suffix to `.js` if not using actual JSX.
 Resolver.render(
   () => (

@@ -5,5 +5,6 @@ const config = require("@walmart/electrode-archetype-react-component/config/webp
 module.exports = Object.assign(config, {
   externals: {
     react: "react"
-  }
+  },
+  plugins: []
 });

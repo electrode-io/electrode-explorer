@@ -1,8 +1,0 @@
-<StoreListItem
-  id={1234}
-  name="San Bruno"
-  address="850 Cherry Ave"
-  distance="13 mi"
-  dataAutomationId="StoreListItem"
-  preferred={true}
-/>

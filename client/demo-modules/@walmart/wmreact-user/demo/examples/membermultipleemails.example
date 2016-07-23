@@ -1,9 +1,0 @@
-<MemberMultipleEmails
-  userFirstName="Kelly"
-  subject="We show that there are multiple email addresses associated with your account. Unfortunately, we must ask you to use only one."
-  emailAddress={["kelly.lastname@email.com","kelly_bry@email.com"]}
-  buttonMessage="Continue"
-  emailFooter="Questions? Call us at 1.888.746.7726"
-  initializeForm={() => {}}
-  fields={{email: {value:""}}}
-/>

@@ -18,6 +18,8 @@ var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactResolver = require("react-resolver");
+
 var _electrodeFetch = require("@walmart/electrode-fetch");
 
 var _well = require("@walmart/wmreact-containers/lib/components/well");
@@ -54,7 +56,6 @@ var Component = function (_React$Component) {
       meta: {},
       usage: [],
       demo: null,
-      demoStyl: null,
       error: null
     };
     return _this;
@@ -87,24 +88,48 @@ var Component = function (_React$Component) {
 
       _this2.setState({ meta: meta, usage: usage });
 
-      try {
-        var demo = require("../demo-modules/" + meta.name + "/demo/demo");
-        var _demoStyl = require("../demo-modules/" + meta.name + "/demo/demo.styl");
-        _this2.setState({ demo: demo, demoStyl: _demoStyl });
-      } catch (e) {
-        console.log("Error require demo in " + meta.name);
-        console.log(e.stack);
-        _this2.setState({ error: true });
-      }
+      var scriptUrl = host + "/portal/data/demo-modules/" + meta.name + "/bundle.min.js";
+      var script = document.createElement("script");
+      script.src = scriptUrl;
+      script.async = true;
+
+      document.getElementById("placeholder").appendChild(script);
+      var x = setInterval(function () {
+        if (typeof _COMPONENTS !== "undefined" && _COMPONENTS[meta.name]) {
+          _this2.setState({ demo: _COMPONENTS[meta.name] });
+          clearInterval(x);
+        }
+      }, 500);
     });
   };
 
-  Component.prototype.render = function render() {
+  Component.prototype._renderDemo = function _renderDemo() {
     var _state = this.state;
-    var meta = _state.meta;
-    var usage = _state.usage;
     var demo = _state.demo;
     var error = _state.error;
+
+    if (!demo && !error) {
+      return _react2.default.createElement(
+        "div",
+        null,
+        "Loading, please wait."
+      );
+    }
+
+    return _react2.default.createElement(demo);
+  };
+
+  Component.prototype.render = function render() {
+    var _state2 = this.state;
+    var meta = _state2.meta;
+    var usage = _state2.usage;
+    var error = _state2.error;
+
+    var host = undefined;
+
+    if (_exenv2.default.canUseDOM) {
+      host = window.location.origin;
+    }
 
     if (!meta.title) {
       meta.title = this.props.params.repo || "[ Missing Title ]";
@@ -204,8 +229,8 @@ var Component = function (_React$Component) {
           )
         )
       ),
-      typeof demoStyl !== "undefined" && demoStyl,
-      typeof demo !== "undefined" && demo && _react2.default.createElement(demo.default, null),
+      _react2.default.createElement("div", { id: "placeholder" }),
+      this._renderDemo(),
       error && _react2.default.createElement(
         "b",
         null,
