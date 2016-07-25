@@ -46,11 +46,8 @@ function populate_react() {
 
 function build() {
   rm node_modules/**/*/.babelrc
-  babel node_modules/$1/demo/demo.js* -d ./
-
-  if [ -f node_modules/$1/demo/index.jsx ]; then
-    babel node_modules/$1/demo/index.jsx -d ./
-  fi
+  babel node_modules/$1/demo/*.js* -d ./
+  babel node_modules/$1/demo/**/*.js* -d ./
 
   update_src node_modules/$1/demo/demo.js "\/src\/" "\/lib\/"
   update_src node_modules/$1/demo/demo.js ".jsx" ""

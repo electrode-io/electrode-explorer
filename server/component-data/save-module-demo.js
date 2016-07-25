@@ -22,6 +22,8 @@ const saveModuleDemo = (meta) => {
         throw error;
       }
 
+      console.log(`${moduleName}: webpack finished.`);
+
       ProcessSubModules(moduleName, meta.github);
     });
 
