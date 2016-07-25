@@ -8,7 +8,7 @@ const traverse = require("babel-traverse").default;
 const ProcessSubModules = (moduleName, github) => {
   const subModules = [];
 
-  const demoFile = Path.join(__dirname, `../../client/demo-modules/${moduleName}/demo/demo.js`);
+  const demoFile = Path.join(__dirname, `../../node_modules/${moduleName}/demo/demo.js`);
   const orgFile = Path.join(__dirname, "../data/orgs.json");
 
   Babel.transformFile(demoFile, { presets: ["es2015", "react"] }, (err, result) => {
