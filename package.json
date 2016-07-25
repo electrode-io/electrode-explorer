@@ -48,6 +48,7 @@
     "@walmart/electrode-server": "^3.0.0",
     "@walmart/electrode-ui-config": "^1.2.2",
     "@walmart/lithe-extras": "^2.4.0",
+    "@walmart/redux-address-book": "^2.0.2",
     "@walmart/router-resolver-engine": "^1",
     "@walmart/wmreact-analytics": "^4.0.0",
     "@walmart/wmreact-base": "^7.2.0",
