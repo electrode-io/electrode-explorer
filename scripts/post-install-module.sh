@@ -23,23 +23,6 @@ function add_global() {
   echo "global._COMPONENTS=global._COMPONENTS || {};global._COMPONENTS[\"$1\"] = $var_name;" >> $file
 }
 
-function populate_react() {
-  old0="React\."
-  old1="_react2\.default\."
-  old2="_react\."
-  old3="_react2\['default'\]\."
-  old4="_react2\[\"default\"\]\."
-  new="window\.React\."
-  sed "s/$old0/$new/g" $1 > $1.tmp
-  sed "s/$old1/$new/g" $1.tmp > $1.tmp.2
-  sed "s/$old2/$new/g" $1.tmp.2 > $1.tmp.3
-  sed "s/$old3/$new/g" $1.tmp.3 > $1.tmp.4
-  sed "s/$old4/$new/g" $1.tmp.4 > $1.tmp.5
-  rm $1
-  mv $1.tmp.5 $1
-  rm $1.tmp*
-}
-
 function build() {
   rm node_modules/**/*/.babelrc
   babel node_modules/$1/demo/*.js* -d ./
@@ -54,8 +37,6 @@ function build() {
   add_global $1
 
   webpack --config ./component-webpack.config.js --colors --entry node_modules/$1/demo/demo.js --output-path server/data/demo-modules/$1 --output-filename bundle.min.js
-
-  populate_react server/data/demo-modules/$1/bundle.min.js
 }
 
 build $1
