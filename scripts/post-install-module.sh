@@ -5,10 +5,6 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
-if [ ! -d client/demo-modules/$1 ]; then
-  mkdir -p client/demo-modules/$1
-fi
-
 function update_src() {
   if [ -f $1 ]; then
     grep $2 $1
