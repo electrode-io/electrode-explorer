@@ -6,6 +6,7 @@ const Config = require("@walmart/electrode-config").config;
 const github = new GitHubApi(Config.githubApi);
 const REPOS_INCLUDE = Config.REPOS_INCLUDE;
 const REPOS_EXCLUDE = Config.REPOS_EXCLUDE;
+const checkDependencies = require("./check-dependencies");
 const contentToString = require("./utils/content-to-string");
 const checkVersion = require("./utils/check-version");
 const githubAuthObject = require("./utils/github-auth-object");
@@ -54,6 +55,9 @@ const getVersion = (moduleSearchedFor, moduleVersion, githubUri) => {
       }
 
       const pkg = JSON.parse(contentToString(res.content));
+
+      // Trigger check of deps & devDeps asynchronously
+      checkDependencies(`${orgRepo.org}/${orgRepo.repo}`, pkg.dependencies, pkg.devDependencies);
 
       const version = pkg.dependencies && pkg.dependencies[moduleSearchedFor] ||
         pkg.devDependencies && pkg.devDependencies[moduleSearchedFor] ||

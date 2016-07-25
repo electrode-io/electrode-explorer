@@ -55,6 +55,7 @@ var Component = function (_React$Component) {
     _this.state = {
       meta: {},
       usage: [],
+      deps: [],
       demo: null,
       error: null
     };
@@ -86,7 +87,9 @@ var Component = function (_React$Component) {
         return 0;
       }) || [];
 
-      _this2.setState({ meta: meta, usage: usage });
+      var deps = res.deps || [];
+
+      _this2.setState({ meta: meta, usage: usage, deps: deps });
 
       var scriptUrl = host + "/portal/data/demo-modules/" + meta.name + "/bundle.min.js";
       var script = document.createElement("script");
@@ -101,6 +104,47 @@ var Component = function (_React$Component) {
         }
       }, 500);
     });
+  };
+
+  Component.prototype._renderModuleData = function _renderModuleData(data) {
+
+    return _react2.default.createElement(
+      _table2.default,
+      null,
+      _react2.default.createElement(
+        _table2.default.Body,
+        null,
+        data.map(function (detail) {
+          return _react2.default.createElement(
+            _table2.default.Row,
+            null,
+            _react2.default.createElement(
+              _table2.default.Cell,
+              null,
+              _react2.default.createElement(
+                "a",
+                { href: detail.uri, target: "_blank", className: "detail-uri" },
+                detail.displayName
+              )
+            ),
+            _react2.default.createElement(
+              _table2.default.Cell,
+              { className: "detail-version" },
+              _react2.default.createElement(
+                "span",
+                { className: "version-status-" + (detail.version && detail.version.status) },
+                detail.version && detail.version.str
+              )
+            ),
+            _react2.default.createElement(
+              _table2.default.Cell,
+              { className: "detail-description" },
+              detail.description
+            )
+          );
+        })
+      )
+    );
   };
 
   Component.prototype._renderDemo = function _renderDemo() {
@@ -124,8 +168,9 @@ var Component = function (_React$Component) {
     var meta = _state2.meta;
     var usage = _state2.usage;
     var error = _state2.error;
+    var deps = _state2.deps;
 
-    var host = undefined;
+    var host = void 0;
 
     if (_exenv2.default.canUseDOM) {
       host = window.location.origin;
@@ -170,62 +215,6 @@ var Component = function (_React$Component) {
             { className: "code-well", padded: true },
             "npm i --save ",
             meta.name
-          ),
-          usage.length > 0 && _react2.default.createElement(
-            _revealer2.default,
-            {
-              baseHeight: 50,
-              buttonClosedText: "View Usage",
-              buttonOpenText: "Hide Usage",
-              defaultOpen: false,
-              disableClose: false,
-              inverse: true,
-              fakeLink: false,
-              border: false },
-            _react2.default.createElement(
-              "div",
-              { className: "component-usage" },
-              "This component is used in ",
-              usage.length,
-              " modules / apps.",
-              _react2.default.createElement(
-                _table2.default,
-                null,
-                _react2.default.createElement(
-                  _table2.default.Body,
-                  null,
-                  usage.map(function (detail) {
-                    return _react2.default.createElement(
-                      _table2.default.Row,
-                      null,
-                      _react2.default.createElement(
-                        _table2.default.Cell,
-                        null,
-                        _react2.default.createElement(
-                          "a",
-                          { href: detail.uri, target: "_blank", className: "detail-uri" },
-                          detail.displayName
-                        )
-                      ),
-                      _react2.default.createElement(
-                        _table2.default.Cell,
-                        { className: "detail-version" },
-                        _react2.default.createElement(
-                          "span",
-                          { className: "version-status-" + (detail.version && detail.version.status) },
-                          detail.version && detail.version.str
-                        )
-                      ),
-                      _react2.default.createElement(
-                        _table2.default.Cell,
-                        { className: "detail-description" },
-                        detail.description
-                      )
-                    );
-                  })
-                )
-              )
-            )
           )
         )
       ),
@@ -235,6 +224,68 @@ var Component = function (_React$Component) {
         "b",
         null,
         "This component does not have demo or demo does not work properly."
+      ),
+      _react2.default.createElement(
+        "div",
+        { className: "component-consumption" },
+        _react2.default.createElement(
+          "h3",
+          null,
+          "Component Usage"
+        ),
+        usage.length > 0 && _react2.default.createElement(
+          _revealer2.default,
+          {
+            baseHeight: 50,
+            buttonClosedText: "View Usage",
+            buttonOpenText: "Hide Usage",
+            defaultOpen: false,
+            disableClose: false,
+            inverse: true,
+            fakeLink: false,
+            border: false },
+          _react2.default.createElement(
+            "div",
+            { className: "component-usage" },
+            "This component is used in ",
+            _react2.default.createElement(
+              "em",
+              null,
+              usage.length
+            ),
+            " modules / apps.",
+            this._renderModuleData(usage)
+          )
+        ),
+        _react2.default.createElement(
+          "h3",
+          null,
+          "Module Dependencies"
+        ),
+        deps.length > 0 && _react2.default.createElement(
+          _revealer2.default,
+          {
+            baseHeight: 50,
+            buttonClosedText: "View Dependencies",
+            buttonOpenText: "Hide Dependencies",
+            defaultOpen: false,
+            disableClose: false,
+            inverse: true,
+            fakeLink: false,
+            border: false },
+          _react2.default.createElement(
+            "div",
+            { className: "component-dependencies" },
+            "This component has ",
+            _react2.default.createElement(
+              "em",
+              null,
+              deps.length
+            ),
+            " Electrode dependencies.",
+            this._renderModuleData(deps)
+          )
+        )
       )
     );
   };
