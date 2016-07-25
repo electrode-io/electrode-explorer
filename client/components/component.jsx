@@ -59,7 +59,7 @@ export default class Component extends React.Component {
             clearInterval(x);
             this.setState({ error: true });
           }
-        }, 5000);
+        }, 3000);
       });
   }
 
