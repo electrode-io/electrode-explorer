@@ -28,6 +28,8 @@ function build() {
   babel node_modules/$1/demo -d node_modules/$1/demo
   babel node_modules/$1/test -d node_modules/$1/test
 
+  update_src node_modules/$1/demo/demo.styl "+\$tenant+" "+\"walmart\"+"
+
   for file in node_modules/$1/demo/*.js; do
     update_src $file ".jsx" ""
   done
