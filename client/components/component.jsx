@@ -56,6 +56,13 @@ export default class Component extends React.Component {
             clearInterval(x);
           }
         }, 500);
+
+        setTimeout(() => {
+          if (typeof _COMPONENTS === "undefined") {
+            clearInterval(x);
+            this.setState({ error: true });
+          }
+        }, 5000);
       });
   }
 
@@ -91,16 +98,15 @@ export default class Component extends React.Component {
       return (<div>Loading, please wait.</div>);
     }
 
+    if (!demo && error) {
+      return (<b>This component does not have demo or demo does not work properly.</b>);
+    }
+
     return React.createElement(demo);
   }
 
   render() {
-    const { meta, usage, error, deps } = this.state;
-    let host;
-
-    if (ExecutionEnvironment.canUseDOM) {
-      host = window.location.origin;
-    }
+    const { meta, usage, deps } = this.state;
 
     if (!meta.title) {
       meta.title = this.props.params.repo || "[ Missing Title ]";
@@ -120,7 +126,6 @@ export default class Component extends React.Component {
         </h2>
         <div id="placeholder" />
         { this._renderDemo() }
-        { error && <b>This component does not have demo or demo does not work properly.</b> }
         <div className="component-consumption">
           <h3>Component Usage</h3>
           {usage.length > 0 && <Revealer

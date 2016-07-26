@@ -9,8 +9,7 @@
     "help": "builder help",
     "hot": "builder run hot",
     "publish-static": "pronto-js -f \"dist/**/{*.js,*.css,*.woff,*.eot,*.ttf,*.jpg,*.jpeg,*.png,*.gif}\" -o \"config/assets.json\"",
-    "test": "builder run npm:test",
-    "compile-component-js": "babel client/components/component.jsx --out-file client/components/component.js"
+    "test": "builder run npm:test"
   },
   "repository": {
     "type": "git",
@@ -36,6 +35,8 @@
   "dependencies": {
     "@walmart/canary-event-pattern": "^4.0.1",
     "@walmart/canary-event-sequence": "^3.1.0",
+    "@walmart/canary": "^5.0.0",
+    "@walmart/category-utils": "^3.5.0",
     "@walmart/electrode-application": "^1.0.0",
     "@walmart/electrode-archetype-react-component": "^10.3.1",
     "@walmart/electrode-archetype-react-component-dev": "^10.3.1",
@@ -102,7 +103,8 @@
     "redux-thunk": "^1.0.3",
     "request": "^2.55.0",
     "rimraf": "^2.4.0",
-    "semver": "^5.2.0"
+    "semver": "^5.2.0",
+    "swagger-model-validator": "2.0.3"
   },
   "devDependencies": {
     "@walmart/electrode-archetype-react-app": "^7.1.0",

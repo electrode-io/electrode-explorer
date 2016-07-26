@@ -18,9 +18,11 @@ const saveModuleDemo = (meta) => {
 
     execFile("bash", [Path.join(__dirname, "../../scripts/post-install-module.sh"), moduleName], (error) => {
       if (error) {
-        console.log(`copying files failed for this module, error:\n${error}`);
+        console.log(`post processing failed for this module, error:\n${error}`);
         throw error;
       }
+
+      console.log(`${moduleName}: webpack finished.`);
 
       ProcessSubModules(moduleName, meta.github);
     });
