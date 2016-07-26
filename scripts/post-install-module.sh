@@ -26,13 +26,12 @@ function add_global() {
 function build() {
   rm node_modules/**/*/.babelrc
   babel node_modules/$1/demo -d node_modules/$1/demo
-  babel node_modules/$1/src -d node_modules/$1/src
 
-  update_src node_modules/$1/demo/demo.js "\/src\/" "\/lib\/"
-  update_src node_modules/$1/demo/demo.js ".jsx" ""
+  for file in node_modules/$1/demo/*.js; do
+    update_src $file ".jsx" ""
+  done
 
-  update_src node_modules/$1/demo/index.js "\/src\/" "\/lib\/"
-  update_src node_modules/$1/demo/index.js ".jsx" ""
+  cp -r node_modules/$1/lib/* node_modules/$1/src
 
   add_global $1
 
