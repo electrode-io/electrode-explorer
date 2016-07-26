@@ -19,7 +19,9 @@ const UpdateHandler = function (request, reply) {
 
   const { org, repoName } = request.params;
 
-  fetchRepo(org, repoName).then((result) => {
+  const waitingTime = request.query.updateNow ? 0 : Config.WAITING_TIME;
+
+  fetchRepo(org, repoName, waitingTime).then((result) => {
 
     const orgDataPath = Path.join(__dirname, `../data/${org}`);
 
@@ -79,4 +81,3 @@ const UpdateHandler = function (request, reply) {
 };
 
 module.exports = UpdateHandler;
-

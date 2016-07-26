@@ -16,16 +16,6 @@
         "devServer": {
           "port": "2992"
         },
-        "unbundledJS": {
-          "enterHead": [
-            {
-              "src": "http://cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/codemirror.min.js"
-            },
-            {
-              "src": "http://cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/mode/javascript/javascript.min.js"
-            }
-          ]
-        },
         "unbundledStyle": [
           "http://cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/codemirror.min.css",
           "http://cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/theme/monokai.min.css"
@@ -81,6 +71,8 @@
   ],
 
   "automaticUpdate": true,
+
+  "WAITING_TIME": 300000,
 
   "GHACCESS_TOKEN_NAME": "ECE_GHACCESS_TOKEN"
 }

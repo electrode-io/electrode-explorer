@@ -7,7 +7,7 @@ const github = new GitHubApi(Config.githubApi);
 const githubAuthObject = require("./utils/github-auth-object");
 const contentToString = require("./utils/content-to-string");
 
-const saveModuleDemo = require("./save-module-demo");
+const fetchModuleDemo = require("./fetch-module-demo");
 const fetchUsage = require("./fetch-usage");
 
 const extractMetaData = (pkg, repoUrl) => {
@@ -22,7 +22,7 @@ const extractMetaData = (pkg, repoUrl) => {
 
 };
 
-const fetchRepo = (org, repoName) => {
+const fetchRepo = (org, repoName, waitingTime) => {
 
   github.authenticate(githubAuthObject);
 
@@ -48,7 +48,10 @@ const fetchRepo = (org, repoName) => {
         const pkg = JSON.parse(packageContent);
         meta = extractMetaData(pkg, response.html_url.replace("blob/master/package.json", ""));
 
-        saveModuleDemo(meta);
+        setTimeout(() => {
+          console.log(`fetching module ${meta.name}`);
+          fetchModuleDemo(meta);
+        }, waitingTime);
 
       } catch (err) {
 
