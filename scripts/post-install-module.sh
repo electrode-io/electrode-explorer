@@ -26,6 +26,7 @@ function add_global() {
 function build() {
   rm node_modules/**/*/.babelrc
   babel node_modules/$1/demo -d node_modules/$1/demo
+  babel node_modules/$1/test -d node_modules/$1/test
 
   for file in node_modules/$1/demo/*.js; do
     update_src $file ".jsx" ""
