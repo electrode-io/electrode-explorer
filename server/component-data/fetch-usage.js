@@ -57,7 +57,7 @@ const getVersion = (moduleSearchedFor, moduleVersion, githubUri) => {
       const pkg = JSON.parse(contentToString(res.content));
 
       // Trigger check of deps & devDeps asynchronously
-      checkDependencies(`${orgRepo.org}/${orgRepo.repo}`, pkg.dependencies, pkg.devDependencies);
+      //checkDependencies(`${orgRepo.org}/${orgRepo.repo}`, pkg.dependencies, pkg.devDependencies);
 
       const version = pkg.dependencies && pkg.dependencies[moduleSearchedFor] ||
         pkg.devDependencies && pkg.devDependencies[moduleSearchedFor] ||

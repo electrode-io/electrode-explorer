@@ -16,6 +16,8 @@ const saveModuleDemo = (meta) => {
 
     console.log(`${moduleName}: npm install finished.`);
 
+    //ProcessSubModules(moduleName, meta.github);
+
     execFile("bash", [Path.join(__dirname, "../../scripts/post-install-module.sh"), moduleName], (error) => {
       if (error) {
         console.log(`post processing failed for this module, error:\n${error}`);
@@ -24,7 +26,6 @@ const saveModuleDemo = (meta) => {
 
       console.log(`${moduleName}: webpack finished.`);
 
-      ProcessSubModules(moduleName, meta.github);
     });
 
   });
