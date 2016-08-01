@@ -77,7 +77,7 @@
 
   "automaticUpdate": true,
 
-  "WAITING_TIME": 300000,
+  "WAITING_TIME": 1000000,
 
   "GHACCESS_TOKEN_NAME": "ECE_GHACCESS_TOKEN"
 }
