@@ -23,7 +23,7 @@ function add_global() {
   echo "global._COMPONENTS=global._COMPONENTS || {};global._COMPONENTS[\"$1\"] = $var_name;" >> $file
 }
 
-function build() {
+function run_babel() {
   app_arch_config=node_modules/@walmart/electrode-archetype-react-app/config/babel
   comp_arch_config=node_modules/@walmart/electrode-archetype-react-component/config/babel
   mv $app_arch_config/.babelrc $app_arch_config/BABELRC
@@ -33,9 +33,12 @@ function build() {
   mv $comp_arch_config/BABELRC $comp_arch_config/.babelrc
   babel node_modules/$1/demo -d node_modules/$1/demo
   babel node_modules/$1/test -d node_modules/$1/test
+}
+
+function build() {
+  run_babel $1
 
   update_src node_modules/$1/demo/demo.styl "+\$tenant+" "+\"walmart\"+"
-
   for file in node_modules/$1/demo/*.js; do
     update_src $file ".jsx" ""
   done
@@ -44,7 +47,7 @@ function build() {
 
   add_global $1
 
-  webpack --config ./component-webpack.config.js --colors --entry node_modules/$1/demo/demo.js --output-path server/data/demo-modules/$1 --output-filename bundle.min.js
+  webpack --config ./component-webpack.config.js --colors --entry node_modules/$1/demo/demo.js --output-path server/data/demo-modules/$1
 }
 
 build $1
