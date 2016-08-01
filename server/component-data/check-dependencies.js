@@ -14,10 +14,18 @@ const checkDepVersions = (deps, isDev) => {
       return;
     }
 
+    // This just passes in the version we have as the wanted version
+    // to get functionality working. We need to decide on the criteria
+    // for desired version (latest?) and replace this with that value.
+    let wantedVersion = deps[dep].replace(/[^\.\d]/g, "");
+    if (!(/\./).test(wantedVersion)) {
+      wantedVersion += ".0.0";
+    }
+
     moduleDeps.push({
       uri: "#",
       displayName: dep,
-      version: checkVersion(deps[dep].replace(/[^\.\d]/g, ""), deps[dep]),
+      version: checkVersion(wantedVersion, deps[dep]),
       description: isDev ? "[dev]" : ""
     });
 
@@ -34,10 +42,21 @@ module.exports = (moduleName, deps, devDeps) => {
     return;
   }
 
-  const repoFile = require(`../data/${moduleName}.json`);
+  // Fetch the repo data file if it already exists
+  let repoFile = {};
+  try {
+    repoFile = require(`../data/${moduleName}.json`);
+  } catch (err) {}
+
 
   repoFile.deps = moduleDeps;
 
-  Fs.writeFile(Path.join(__dirname, `../data/${moduleName}.json`), JSON.stringify(repoFile));
+  const writePath = Path.join(__dirname, `../data/${moduleName}.json`);
+
+  Fs.writeFile(writePath, JSON.stringify(repoFile), (err) => {
+    if (err) {
+      return console.error("Error writing file with dependencies", err);
+    }
+  });
 
 };
