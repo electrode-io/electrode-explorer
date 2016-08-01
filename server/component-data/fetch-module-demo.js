@@ -22,9 +22,9 @@ const saveModuleDemo = (meta) => {
         throw error;
       }
 
-      console.log(`${moduleName}: webpack finished.`);
-
       processSubModules(moduleName, meta.github);
+
+      console.log(`${moduleName}: webpack finished.`);
     });
 
   });

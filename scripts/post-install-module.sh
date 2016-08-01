@@ -47,6 +47,7 @@ function build() {
 
   add_global $1
 
+  echo "Webpack running for $1";
   webpack --config ./component-webpack.config.js --colors --entry node_modules/$1/demo/demo.js --output-path server/data/demo-modules/$1
 }
 

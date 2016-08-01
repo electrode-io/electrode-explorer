@@ -27,10 +27,21 @@ const UpdateHandler = function (request, reply) {
 
     ensureDirectoryExists(orgDataPath);
 
-    Fs.writeFile(`${orgDataPath}/${repoName}.json`, JSON.stringify(result), (err) => {
+    const repoFilePath = `${orgDataPath}/${repoName}.json`;
+
+    // Preserve saved deps if already saved, prepare empty deps obj if not
+    let deps = {};
+    try {
+      const repoFile = require(repoFilePath);
+      deps = repoFile.deps || deps;
+    } catch (err) {}
+
+    result.deps = deps;
+
+    Fs.writeFile(repoFilePath, JSON.stringify(result), (err) => {
 
       if (err) {
-        console.log("file save error", err);
+        console.log("repo file save error", err);
         return reply("An error occurred saving this repo");
       }
 
