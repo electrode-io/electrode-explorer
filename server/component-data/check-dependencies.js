@@ -2,15 +2,18 @@
 
 const Fs = require("fs");
 const Path = require("path");
+const Config = require("@walmart/electrode-config").config;
 const checkVersion = require("./utils/check-version");
 
+const prefixes = Config.PREFIXES_INCLUDE;
+const pattern = prefixes && prefixes.length && new RegExp(prefixes.join("|"));
 const moduleDeps = [];
 
 const checkDepVersions = (deps, isDev) => {
 
   Object.keys(deps).map((dep) => {
 
-    if (!(/wmreact|electrode/).test(dep)) {
+    if (pattern && !(pattern).test(dep)) {
       return;
     }
 
