@@ -13,6 +13,7 @@ export default class Component extends React.Component {
     this.state = {
       meta: {},
       usage: [],
+      deps: [],
       demo: null,
       error: null
     };
@@ -39,7 +40,9 @@ export default class Component extends React.Component {
           return 0;
         }) || [];
 
-        this.setState({ meta, usage });
+        const deps = res.deps || [];
+
+        this.setState({ meta, usage, deps });
 
         const scriptUrl = `${host}/portal/data/demo-modules/${meta.name}/bundle.min.js`;
         const script = document.createElement("script");
@@ -63,6 +66,32 @@ export default class Component extends React.Component {
       });
   }
 
+  _renderModuleData(data) {
+
+    return (
+      <Table>
+        <Table.Body>
+        {data.map((detail) => (
+        <Table.Row>
+          <Table.Cell>
+            <a href={detail.uri} target="_blank" className="detail-uri">
+              {detail.displayName}
+            </a>
+          </Table.Cell>
+          <Table.Cell className="detail-version">
+            <span className={`version-status-${detail.version && detail.version.status}`}>{detail.version && detail.version.str}</span>
+          </Table.Cell>
+          <Table.Cell className="detail-description">
+            {detail.description}
+          </Table.Cell>
+        </Table.Row>
+      ))}
+      </Table.Body>
+      </Table>
+    );
+
+  }
+
   _renderDemo() {
     const { demo, error } = this.state;
     if (!demo && !error) {
@@ -77,7 +106,7 @@ export default class Component extends React.Component {
   }
 
   render() {
-    const { meta, usage } = this.state;
+    const { meta, usage, deps } = this.state;
 
     if (!meta.title) {
       meta.title = this.props.params.repo || "[ Missing Title ]";
@@ -93,42 +122,42 @@ export default class Component extends React.Component {
               <a href={meta.github} target="_blank">View Repository on Github</a>
             </div>}
             {meta.name && <Well className="code-well" padded={true}>npm i --save {meta.name}</Well>}
-            {usage.length > 0 && <Revealer
-              baseHeight={50}
-              buttonClosedText="View Usage"
-              buttonOpenText="Hide Usage"
-              defaultOpen={false}
-              disableClose={false}
-              inverse={true}
-              fakeLink={false}
-              border={false}>
-              <div className="component-usage">
-              This component is used in {usage.length} modules / apps.
-              <Table>
-                <Table.Body>
-                {usage.map((detail) => (
-                <Table.Row>
-                  <Table.Cell>
-                    <a href={detail.uri} target="_blank" className="detail-uri">
-                      {detail.displayName}
-                    </a>
-                  </Table.Cell>
-                  <Table.Cell className="detail-version">
-                    <span className={`version-status-${detail.version && detail.version.status}`}>{detail.version && detail.version.str}</span>
-                  </Table.Cell>
-                  <Table.Cell className="detail-description">
-                    {detail.description}
-                  </Table.Cell>
-                </Table.Row>
-              ))}
-              </Table.Body>
-              </Table>
-            </div>
-            </Revealer>}
           </span>
         </h2>
         <div id="placeholder" />
         { this._renderDemo() }
+        <div className="component-consumption">
+          <h3>Component Usage</h3>
+          {usage.length > 0 && <Revealer
+            baseHeight={50}
+            buttonClosedText="View Usage"
+            buttonOpenText="Hide Usage"
+            defaultOpen={false}
+            disableClose={false}
+            inverse={true}
+            fakeLink={false}
+            border={false}>
+            <div className="component-usage">
+            This component is used in <em>{usage.length}</em> modules / apps.
+            { this._renderModuleData(usage) }
+          </div>
+          </Revealer>}
+          <h3>Module Dependencies</h3>
+          {deps.length > 0 && <Revealer
+            baseHeight={50}
+            buttonClosedText="View Dependencies"
+            buttonOpenText="Hide Dependencies"
+            defaultOpen={false}
+            disableClose={false}
+            inverse={true}
+            fakeLink={false}
+            border={false}>
+            <div className="component-dependencies">
+            This component has <em>{deps.length}</em> Electrode dependencies.
+            { this._renderModuleData(deps) }
+            </div>
+          </Revealer>}
+        </div>
       </div>
     );
   }

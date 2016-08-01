@@ -33,9 +33,9 @@
   },
   "homepage": "https://electrode-portal.qa.walmart.com/portal",
   "dependencies": {
+    "@walmart/canary-event-pattern": "^4.0.1",
+    "@walmart/canary-event-sequence": "^3.1.0",
     "@walmart/canary": "^5.0.0",
-    "@walmart/canary-event-pattern": "^2.0.0",
-    "@walmart/canary-event-sequence": "^2.0.0",
     "@walmart/category-utils": "^3.5.0",
     "@walmart/electrode-application": "^1.0.0",
     "@walmart/electrode-archetype-react-component": "^10.3.1",
@@ -44,16 +44,13 @@
     "@walmart/electrode-demo-index": "^1.2.0",
     "@walmart/electrode-fetch": "^5.0.0",
     "@walmart/electrode-log-consumer": "^1.0.2",
-    "@walmart/electrode-react-webapp": "^5.7.1",
+    "@walmart/electrode-react-webapp": "^6.2.0",
     "@walmart/electrode-server": "^3.0.0",
     "@walmart/electrode-ui-config": "^1.2.2",
     "@walmart/lithe-extras": "^2.4.0",
-    "@walmart/redux-address-book": "^2.0.2",
+    "@walmart/related-search": "^1.2.4",
     "@walmart/router-resolver-engine": "^1",
-    "@walmart/wmreact-analytics": "^4.0.0",
-    "@walmart/wmreact-base": "^7.2.0",
-    "@walmart/wmreact-containers": "^11.0.0",
-    "@walmart/wmreact-error-page": "^3.1.1",
+    "@walmart/search-util-bar": "^2.1.1",
     "@walmart/wmreact-interactive": "^7.4.0",
     "@walmart/wmreact-layout": "^7.2.0",
     "@walmart/wmreact-table": "^3.0.0",
@@ -110,8 +107,8 @@
     "swagger-model-validator": "2.0.3"
   },
   "devDependencies": {
-    "@walmart/electrode-archetype-react-app": "^3.8.1",
-    "@walmart/electrode-archetype-react-app-dev": "^3.8.1",
+    "@walmart/electrode-archetype-react-app": "^7.1.0",
+    "@walmart/electrode-archetype-react-app-dev": "^7.1.0",
     "builder": "^2.9.1",
     "http-server": "^0.8.0"
   }

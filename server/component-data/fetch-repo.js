@@ -9,6 +9,7 @@ const contentToString = require("./utils/content-to-string");
 
 const fetchModuleDemo = require("./fetch-module-demo");
 const fetchUsage = require("./fetch-usage");
+const checkDependencies = require("./check-dependencies");
 
 const extractMetaData = (pkg, repoUrl) => {
 
@@ -47,6 +48,9 @@ const fetchRepo = (org, repoName, waitingTime) => {
 
         const pkg = JSON.parse(packageContent);
         meta = extractMetaData(pkg, response.html_url.replace("blob/master/package.json", ""));
+
+        // Trigger check of deps & devDeps asynchronously
+        checkDependencies(`${org}/${repoName}`, pkg.dependencies, pkg.devDependencies);
 
         setTimeout(() => {
           console.log(`fetching module ${meta.name}`);
