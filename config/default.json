@@ -72,6 +72,7 @@
 
   "PREFIXES_INCLUDE": [
     "wmreact",
+    "wmredux",
     "electrode"
   ],
 
