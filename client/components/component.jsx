@@ -154,17 +154,19 @@ export default class Component extends React.Component {
     const { doc } = this.state;
 
     return (
-      <Revealer
-        baseHeight={0}
-        buttonClosedText="View Doc"
-        buttonOpenText="Hide Doc"
-        defaultOpen={false}
-        disableClose={false}
-        inverse={true}
-        fakeLink={false}
-        border={false}>
-        <div className="component-dependencies" dangerouslySetInnerHTML={{ __html: doc }} />
-      </Revealer>
+      <div className="portal-title">
+        <Revealer
+          baseHeight={0}
+          buttonClosedText="View Doc"
+          buttonOpenText="Hide Doc"
+          defaultOpen={false}
+          disableClose={false}
+          inverse={true}
+          fakeLink={false}
+          border={false}>
+          <div className="component-dependencies" dangerouslySetInnerHTML={{ __html: doc }} />
+        </Revealer>
+      </div>
     );
   }
 
@@ -219,7 +221,9 @@ export default class Component extends React.Component {
         { this._renderTitle(meta) }
         { this._renderDoc() }
         <div id="placeholder" />
-        { this._renderDemo() }
+        <div className="demo">
+          { this._renderDemo() }
+        </div>
         { this._renderUsage(usage, deps) }
       </div>
     );
