@@ -53,7 +53,7 @@
       "protocol": "https",
       "basePath": "gecgithub01.walmart.com"
     },
-    "demoPath": "demo/demo.jsx"
+    "timeout": 10000
   },
 
   "REPOS_INCLUDE": [
@@ -77,7 +77,7 @@
 
   "automaticUpdate": true,
 
-  "WAITING_TIME": 1000000,
+  "WAITING_TIME": 300000,
 
   "GHACCESS_TOKEN_NAME": "ECE_GHACCESS_TOKEN"
 }

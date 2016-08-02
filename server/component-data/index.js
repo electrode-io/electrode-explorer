@@ -6,7 +6,8 @@
  * the server is up and running, without requiring
  * a restart */
 const Path = require("path");
-const UpdateHandler = require("./update-handler");
+const updateHandler = require("./update-handler");
+const fetchDocHandler = require("./fetch-doc");
 
 const ComponentData = {};
 
@@ -15,7 +16,13 @@ ComponentData.register = (server, options, next) => {
   server.route({
     path: "/portal/api/update/repo/{org}/{repoName}",
     method: "POST",
-    handler: UpdateHandler
+    handler: updateHandler
+  });
+
+  server.route({
+    path: "/portal/api/doc/{org}/{repoName}",
+    method: "GET",
+    handler: fetchDocHandler
   });
 
   server.route({
