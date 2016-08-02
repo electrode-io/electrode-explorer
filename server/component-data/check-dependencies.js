@@ -7,7 +7,7 @@ const Config = require("@walmart/electrode-config").config;
 const checkVersion = require("./utils/check-version");
 const execFile = require("child_process").execFile;
 
-const prefixes = Config.PREFIXES_INCLUDE;
+const prefixes = Config.MODULE_PREFIXES_INCLUDE;
 const pattern = prefixes && prefixes.length && new RegExp(prefixes.join("|"));
 const moduleDeps = [];
 
