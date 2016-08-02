@@ -1,6 +1,6 @@
 import React from "react";
 import { Resolver } from "react-resolver";
-import { fetchJSON, fetch } from "@walmart/electrode-fetch";
+import { fetchJSON } from "@walmart/electrode-fetch";
 import Well from "@walmart/wmreact-containers/lib/components/well";
 import Table from "@walmart/wmreact-table/lib/components/table";
 import Revealer from "@walmart/wmreact-interactive/lib/components/revealer";
