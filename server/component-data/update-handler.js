@@ -21,7 +21,7 @@ const UpdateHandler = function (request, reply) {
 
   const waitingTime = request.query.updateNow ? 0 : Config.WAITING_TIME;
 
-  fetchRepo(org, repoName, waitingTime).then((result) => {
+  return fetchRepo(org, repoName, waitingTime).then((result) => {
 
     const orgDataPath = Path.join(__dirname, `../data/${org}`);
 
@@ -48,37 +48,37 @@ const UpdateHandler = function (request, reply) {
       // update the map of known orgs
       const orgMap = Path.join(__dirname, `../data/orgs.json`);
 
-      let catalog = Fs.readFileSync(orgMap);
+      Fs.readFile(orgMap, (err, catalog) => {
+        try {
+          catalog = JSON.parse(catalog);
 
-      try {
-        catalog = JSON.parse(catalog);
+          if (!catalog.allOrgs[org]) {
+            catalog.allOrgs[org] = {
+              repos: {}
+            };
+          }
 
-        if (!catalog.allOrgs[org]) {
-          catalog.allOrgs[org] = {
-            repos: {}
+          const current = catalog.allOrgs[org];
+
+          current.repos[repoName] = {
+            link: `${org}/${repoName}`
           };
+
+          Fs.writeFile(orgMap, JSON.stringify(catalog), (err) => {
+            if (err) {
+              console.err(err);
+              throw err;
+            }
+          });
+
+        } catch (err) {
+          console.error("Problem checking org map", err);
         }
 
-        const current = catalog.allOrgs[org];
+        return reply(`${org}:${repoName} was saved.`);
 
-        current.repos[repoName] = {
-          link: `${org}/${repoName}`
-        };
+      });
 
-        Fs.writeFile(orgMap, JSON.stringify(catalog), (err) => {
-          if (err) {
-            console.err(err);
-            throw err;
-          }
-        });
-
-      } catch (err) {
-
-        console.error("Problem checking org map", err);
-
-      }
-
-      return reply(`${org}:${repoName} was saved.`);
 
     });
 

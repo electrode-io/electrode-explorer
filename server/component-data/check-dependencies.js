@@ -9,7 +9,6 @@ const execFile = require("child_process").execFile;
 
 const prefixes = Config.MODULE_PREFIXES_INCLUDE;
 const pattern = prefixes && prefixes.length && new RegExp(prefixes.join("|"));
-const moduleDeps = [];
 
 const getDepLatest = (dep, version, isDev) => {
   return new Promise((resolve, reject) => {
@@ -73,7 +72,7 @@ const checkDepVersions = (deps, isDev) => {
       })
       .catch((err) => {
         reject(err);
-      });;
+      });
 
   });
 
@@ -85,28 +84,25 @@ const writeDeps = (moduleName, moduleDeps) => {
     return;
   }
 
-  // Fetch the repo data file if it already exists
-  let repoFile = {};
-  try {
-    repoFile = require(`../data/${moduleName}.json`);
-  } catch (err) {}
+  const filePath = Path.join(__dirname, `../data/${moduleName}.json`);
 
+  Fs.readFile(filePath, (err, repoFile) => {
+    const data = JSON.parse(repoFile);
+    data.deps = moduleDeps;
 
-  repoFile.deps = moduleDeps;
+    Fs.writeFile(filePath, JSON.stringify(data), (err) => {
+      if (err) {
+        return console.error("Error writing file with dependencies", err);
+      }
+    });
+  })
 
-  const writePath = Path.join(__dirname, `../data/${moduleName}.json`);
-
-  Fs.writeFile(writePath, JSON.stringify(repoFile), (err) => {
-    if (err) {
-      return console.error("Error writing file with dependencies", err);
-    }
-  });
 
 };
 
 module.exports = (moduleName, deps, devDeps) => {
 
-  Promise.all([
+  return Promise.all([
     checkDepVersions(deps),
     checkDepVersions(devDeps, true)
   ])
@@ -115,6 +111,6 @@ module.exports = (moduleName, deps, devDeps) => {
     })
     .catch((err) => {
       console.log("error getting module dependencies", err);
-    });;
+    });
 
 };

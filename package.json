@@ -34,6 +34,8 @@
   "homepage": "https://electrode-portal.qa.walmart.com/portal",
   "dependencies": {
     "@walmart/electrode-application": "^1.0.0",
+    "@walmart/electrode-archetype-react-component": "^10.3.1",
+    "@walmart/electrode-archetype-react-component-dev": "^10.3.1",
     "@walmart/electrode-config": "^1.0.1",
     "@walmart/electrode-demo-index": "^1.2.0",
     "@walmart/electrode-fetch": "^5.0.0",
