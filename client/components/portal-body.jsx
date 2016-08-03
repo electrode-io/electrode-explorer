@@ -11,6 +11,7 @@ const PortalBody = (props) => {
       <div className="portal-body">
         {props.children}
       </div>
+      <PortalFooter/>
     </div>
   );
 };
