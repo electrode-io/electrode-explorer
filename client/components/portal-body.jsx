@@ -1,7 +1,6 @@
 import React from "react";
 import PortalHeader from "./portal-header";
 import PortalMenu from "./portal-menu";
-import PortalFooter from "./portal-footer";
 
 const PortalBody = (props) => {
   return (
@@ -11,7 +10,6 @@ const PortalBody = (props) => {
       <div className="portal-body">
         {props.children}
       </div>
-      <PortalFooter/>
     </div>
   );
 };
