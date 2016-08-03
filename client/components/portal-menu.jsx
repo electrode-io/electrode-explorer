@@ -1,3 +1,6 @@
+/* globals console */
+/* eslint-disable no-console */
+
 import React from "react";
 import { fetchJSON } from "@walmart/electrode-fetch";
 import ExecutionEnvironment from "exenv";
@@ -19,7 +22,7 @@ export default class Component extends React.Component {
       .then((menu) => {
         this.setState({menu: menu.allOrgs});
       }).catch((err) => {
-        console.error(err);
+        console.log(err);
       });
   }
 
@@ -35,13 +38,9 @@ export default class Component extends React.Component {
   }
 
   _renderSubModules(link, submodules) {
-    if (!submodules || !submodules.length) {
-      return;
-    }
-
-    return (
+    return submodules && submodules.length && (
       <ul className="menu-submodules">
-      {submodules.map((submodule) => this._subModuleLink(link, submodule))}
+        {submodules.map((submodule) => this._subModuleLink(link, submodule))}
       </ul>
     );
   }
@@ -80,4 +79,4 @@ export default class Component extends React.Component {
       </div>
     );
   }
-} 
+}

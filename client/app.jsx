@@ -1,11 +1,13 @@
 /**
  * Client entry point.
  */
-/*globals document:false*/
+
+/* globals document global */
+
 import React from "react";
 
 import { routes } from "./routes";
-import { Router, browserHistory } from "react-router";
+import { Router } from "react-router";
 import ReactDOM from "react-dom";
 import { Resolver } from "react-resolver";
 import { createHistory } from "history";

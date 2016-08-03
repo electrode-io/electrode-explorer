@@ -16,4 +16,8 @@ const PortalBody = (props) => {
   );
 };
 
+PortalBody.propTypes = {
+  children: React.PropTypes.node
+};
+
 export default PortalBody;

@@ -1,5 +1,6 @@
+/* globals document _COMPONENTS setTimeout setInterval clearInterval */
+
 import React from "react";
-import { Resolver } from "react-resolver";
 import { fetchJSON } from "@walmart/electrode-fetch";
 import Well from "@walmart/wmreact-containers/lib/components/well";
 import Table from "@walmart/wmreact-table/lib/components/table";
@@ -38,7 +39,7 @@ export default class Component extends React.Component {
     const host = window.location.origin;
     const url = `${host}/portal/data/${org}/${repo}.json`;
 
-    function compare(a, b) {
+    const compare = (a, b) => {
       if (a.displayName < b.displayName) {
         return -1;
       }
@@ -46,7 +47,7 @@ export default class Component extends React.Component {
         return 1;
       }
       return 0;
-    }
+    };
 
     return fetchJSON(url)
       .then((res) => {
@@ -93,7 +94,7 @@ export default class Component extends React.Component {
       .then((res) => {
         this.setState({ doc: marked(res.doc) });
       })
-      .catch((err) => {
+      .catch(() => {
         this.setState({ doc: marked("# Error fetching doc") });
       });
   }
@@ -138,14 +139,29 @@ export default class Component extends React.Component {
   _renderTitle(meta) {
     return (
       <h2 className="portal-title">
-        {meta.title} {meta.version && <span className="component-version">{` v${meta.version}`}</span>}
-        {meta.description && <span className="component-description">{meta.description}</span>}
+        { meta.title }
+
+        { meta.version &&
+          <span className="component-version">
+            {` v${meta.version}`}
+          </span> }
+
+        { meta.description &&
+          <span className="component-description">
+            {meta.description}
+          </span> }
+
         <span className="component-info">
-          {meta.github && <div>
-            <a href={meta.github} target="_blank">View Repository on Github</a>
-          </div>}
-          {meta.name && <Well className="code-well" padded={true}>npm i --save {meta.name}</Well>}
+          { meta.github &&
+            <div>
+              <a href={meta.github} target="_blank">View Repository on Github</a>
+            </div> }
+          { meta.name &&
+            <Well className="code-well" padded={true}>
+              npm i --save {meta.name}
+            </Well> }
         </span>
+
       </h2>
     );
   }
@@ -183,7 +199,9 @@ export default class Component extends React.Component {
                 </a>
               </Table.Cell>
               <Table.Cell className="detail-version">
-                <span className={`version-status-${detail.version && detail.version.status}`}>{detail.version && detail.version.str}</span>
+                <span className={`version-status-${detail.version && detail.version.status}`}>
+                  {detail.version && detail.version.str}
+                </span>
               </Table.Cell>
               <Table.Cell className="detail-description">
                 {detail.description}
@@ -229,3 +247,10 @@ export default class Component extends React.Component {
     );
   }
 }
+
+Component.propTypes = {
+  params: React.PropTypes.shape({
+    org: React.PropTypes.string,
+    repo: React.PropTypes.string
+  })
+};
