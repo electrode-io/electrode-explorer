@@ -95,9 +95,7 @@ const writeDeps = (moduleName, moduleDeps) => {
         return console.error("Error writing file with dependencies", err);
       }
     });
-  })
-
-
+  });
 };
 
 module.exports = (moduleName, deps, devDeps) => {
