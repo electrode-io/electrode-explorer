@@ -62,7 +62,9 @@ export default class Component extends React.Component {
         const scriptUrl = `${host}/portal/data/demo-modules/${meta.name}/bundle.min.js`;
         this._getDemo(scriptUrl, meta);
       })
-      .catch(() => {});
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   _getDemo(url, meta) {

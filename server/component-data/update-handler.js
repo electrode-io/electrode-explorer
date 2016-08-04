@@ -29,8 +29,8 @@ const UpdateHandler = function (request, reply) {
 
     const repoFilePath = `${orgDataPath}/${repoName}.json`;
 
-    // Preserve saved deps if already saved, prepare empty deps obj if not
-    let deps = {};
+    // Preserve saved deps if already saved, prepare empty deps array if not
+    let deps = [];
     try {
       const repoFile = require(repoFilePath);
       deps = repoFile.deps || deps;
