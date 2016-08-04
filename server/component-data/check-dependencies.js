@@ -86,7 +86,7 @@ const writeDeps = (moduleName, moduleDeps) => {
 
   const filePath = Path.join(__dirname, `../data/${moduleName}.json`);
 
-  Fs.readFile(filePath, (err, repoFile) => {
+  Fs.readFile(filePath, "utf8", (err, repoFile) => {
     const data = JSON.parse(repoFile);
     data.deps = moduleDeps;
 
