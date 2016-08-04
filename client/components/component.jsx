@@ -59,7 +59,8 @@ export default class Component extends React.Component {
 
         this.setState({ meta, usage, deps });
 
-        const scriptUrl = `${host}/portal/data/demo-modules/${meta.name}/bundle.min.js`;
+        const majorVersion = meta.version.substring(0, meta.version.indexOf("."));
+        const scriptUrl = `${host}/portal/data/demo-modules/${meta.name}/v${majorVersion}/bundle.min.js`;
         this._getDemo(scriptUrl, meta);
       })
       .catch((err) => {

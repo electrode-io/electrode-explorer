@@ -2,6 +2,8 @@
 
 const Fs = require("fs");
 const Path = require("path");
+const semver = require("semver");
+
 const Config = require("@walmart/electrode-config").config;
 const ghToken = Config.automaticUpdate && process.env[Config.GHACCESS_TOKEN_NAME];
 
@@ -19,9 +21,17 @@ const UpdateHandler = function (request, reply) {
 
   const { org, repoName } = request.params;
 
+  const { ref, ref_type } = request.payload;
+
+  let majorVersion;
+  if (ref_type === "tag") {
+    const version = semver.clean(ref);
+    majorVersion = version.substring(0, version.indexOf("."));
+  }
+
   const waitingTime = request.query.updateNow ? 0 : Config.WAITING_TIME;
 
-  return fetchRepo(org, repoName, waitingTime).then((result) => {
+  return fetchRepo(org, repoName, waitingTime, majorVersion).then((result) => {
 
     const orgDataPath = Path.join(__dirname, `../data/${org}`);
 

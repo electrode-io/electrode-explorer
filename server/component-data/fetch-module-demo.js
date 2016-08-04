@@ -4,11 +4,16 @@ const Path = require("path");
 const execFile = require("child_process").execFile;
 const processSubModules = require("./process-submodules");
 
-const saveModuleDemo = (meta) => {
+const saveModuleDemo = (meta, majorVersion) => {
 
   const moduleName = meta.name;
+  const command = [Path.join(__dirname, "../../scripts/install-module.sh"), moduleName];
 
-  execFile("bash", [Path.join(__dirname, "../../scripts/install-module.sh"), moduleName], (error) => {
+  if (majorVersion) {
+    command.push(majorVersion);
+  }
+
+  execFile("bash", command, (error) => {
     if (error) {
       console.log(`npm install failed for this module, error:\n${error}`);
       throw error;
@@ -16,17 +21,7 @@ const saveModuleDemo = (meta) => {
 
     console.log(`${moduleName}: npm install finished.`);
 
-    execFile("bash", [Path.join(__dirname, "../../scripts/post-install-module.sh"), moduleName], (error) => {
-      if (error) {
-        console.log(`post processing failed for this module, error:\n${error}`);
-        throw error;
-      }
-
-      processSubModules(moduleName, meta.github);
-
-      console.log(`${moduleName}: webpack finished.`);
-    });
-
+    processSubModules(moduleName, meta.github);
   });
 
 };
