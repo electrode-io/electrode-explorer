@@ -163,7 +163,7 @@ export default class Component extends React.Component {
           </span> }
 
         <span className="switch-version">
-          <span className="switch-version-text">Choose version:</span>
+          <span className="switch-version-text">Switch version:</span>
           { this._renderVersion() }
         </span>
 
