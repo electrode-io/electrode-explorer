@@ -44,6 +44,7 @@
     "@walmart/electrode-wml-server": "^1.0.0",
     "@walmart/lithe-extras": "^2.4.0",
     "@walmart/router-resolver-engine": "^1",
+    "@walmart/wmreact-chooser": "^4.2.0",
     "@walmart/wmreact-containers": "^11.11.2",
     "@walmart/wmreact-interactive": "^7.4.0",
     "@walmart/wmreact-table": "^3.0.0",
