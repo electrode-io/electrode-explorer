@@ -4,12 +4,17 @@ const Path = require("path");
 const Fs = require("fs");
 const Babel = require("babel-core");
 const traverse = require("babel-traverse").default;
+const UpdateSearchIndex = require("./update-search-index");
 
-const ProcessSubModules = (moduleName, github) => {
+const ProcessSubModules = (moduleName, github, server, keywords) => {
   const subModules = [];
 
   const demoFile = Path.join(__dirname, `../../node_modules/${moduleName}/demo/demo.jsx`);
   const orgFile = Path.join(__dirname, "../data/orgs.json");
+
+  const parts = github.split("/");
+  const moduleOrg = parts[3];
+  const moduleRepo = parts[4];
 
   Babel.transformFile(demoFile, { presets: ["es2015", "react"] }, (err, result) => {
     if (err) {
@@ -27,6 +32,8 @@ const ProcessSubModules = (moduleName, github) => {
 
     traverse(result.ast, visitor);
 
+    UpdateSearchIndex(`${moduleOrg}/${moduleRepo}`, subModules, server, keywords);
+
     if (subModules.length < 3) {
       // Denotes no actual submodules
       return;
@@ -35,9 +42,7 @@ const ProcessSubModules = (moduleName, github) => {
     try {
       const orgs = require(orgFile);
 
-      const parts = github.split("/");
-
-      orgs.allOrgs[parts[3]].repos[parts[4]].submodules =
+      orgs.allOrgs[moduleOrg].repos[moduleRepo].submodules =
         subModules.filter((sm,i)=>i);
 
       Fs.writeFile(orgFile, JSON.stringify(orgs), (err) => {
@@ -46,7 +51,7 @@ const ProcessSubModules = (moduleName, github) => {
           console.log(err);
         }
 
-        console.log(`Wrote submodules for ${parts[3]}/${parts[4]}`);
+        console.log(`Wrote submodules for ${moduleOrg}/${moduleRepo}`);
       });
 
     } catch (err) {

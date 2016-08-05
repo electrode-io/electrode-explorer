@@ -9,6 +9,7 @@
     }
   },
   "plugins": {
+    "./server/search-api": {},
     "./server/component-data": {},
     "@walmart/electrode-react-webapp": {
       "options": {

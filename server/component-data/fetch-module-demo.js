@@ -4,7 +4,7 @@ const Path = require("path");
 const execFile = require("child_process").execFile;
 const processSubModules = require("./process-submodules");
 
-const saveModuleDemo = (meta) => {
+const saveModuleDemo = (meta, server, keywords) => {
 
   const moduleName = meta.name;
 
@@ -22,7 +22,7 @@ const saveModuleDemo = (meta) => {
         throw error;
       }
 
-      processSubModules(moduleName, meta.github);
+      processSubModules(moduleName, meta.github, server, keywords);
 
       console.log(`${moduleName}: webpack finished.`);
     });
