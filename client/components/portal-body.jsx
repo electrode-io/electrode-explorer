@@ -2,7 +2,6 @@ import React from "react";
 import PortalHeader from "./portal-header";
 import PortalSearchBar from "./portal-search-bar";
 import PortalMenu from "./portal-menu";
-import PortalFooter from "./portal-footer";
 
 const PortalBody = (props) => {
   return (
@@ -15,6 +14,10 @@ const PortalBody = (props) => {
       </div>
     </div>
   );
+};
+
+PortalBody.propTypes = {
+  children: React.PropTypes.node
 };
 
 export default PortalBody;

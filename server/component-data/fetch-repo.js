@@ -12,7 +12,6 @@ const fetchUsage = require("./fetch-usage");
 const checkDependencies = require("./check-dependencies");
 
 const extractMetaData = (pkg, repoUrl) => {
-
   return {
     name: pkg.name,
     title: pkg.title,
@@ -23,7 +22,7 @@ const extractMetaData = (pkg, repoUrl) => {
 
 };
 
-const fetchRepo = (org, repoName, waitingTime, server) => {
+const fetchRepo = (org, repoName, waitingTime, majorVersion, server) => {
 
   github.authenticate(githubAuthObject);
 
@@ -44,17 +43,15 @@ const fetchRepo = (org, repoName, waitingTime, server) => {
       const packageContent = contentToString(response.content);
 
       let meta;
+      let pkg = {};
       try {
 
-        const pkg = JSON.parse(packageContent);
+        pkg = JSON.parse(packageContent);
         meta = extractMetaData(pkg, response.html_url.replace("blob/master/package.json", ""));
-
-        // Trigger check of deps & devDeps asynchronously
-        checkDependencies(`${org}/${repoName}`, pkg.dependencies, pkg.devDependencies);
 
         setTimeout(() => {
           console.log(`fetching module ${meta.name}`);
-          fetchModuleDemo(meta, server, pkg.keywords);
+          fetchModuleDemo(meta, majorVersion, server, pkg.keywords);
         }, waitingTime);
 
       } catch (err) {
@@ -64,8 +61,11 @@ const fetchRepo = (org, repoName, waitingTime, server) => {
 
       }
 
-      return fetchUsage(meta)
-        .then((usage) => {
+      return Promise.all([
+        fetchUsage(meta),
+        checkDependencies(`${org}/${repoName}`, pkg.dependencies, pkg.devDependencies)
+      ])
+        .spread((usage) => {
           return resolve({meta, usage});
         }).catch((err) => {
           console.error(`Error fetching demo index for ${org}/${repoName}`, err);

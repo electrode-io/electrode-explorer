@@ -1,6 +1,6 @@
 import React from "react";
 
-const PortalFooter = (props) => {
+const PortalFooter = () => {
   return (
     <div className="portal-footer">
       <div className="footer-container">

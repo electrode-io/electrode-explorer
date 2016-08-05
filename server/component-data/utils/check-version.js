@@ -6,6 +6,6 @@ const checkVersion = (wanted, got) => {
     status: semver.satisfies(wanted, got) ? "ok" : "bad",
     str: got
   };
-}
+};
 
 module.exports = checkVersion;

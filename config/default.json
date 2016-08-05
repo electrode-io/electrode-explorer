@@ -71,7 +71,7 @@
     "electrode/bootcamp-classes"
   ],
 
-  "PREFIXES_INCLUDE": [
+  "MODULE_PREFIXES_INCLUDE": [
     "wmreact",
     "wmredux",
     "electrode"

@@ -1,9 +1,11 @@
+/* globals document _COMPONENTS setTimeout setInterval clearInterval */
+
 import React from "react";
-import { Resolver } from "react-resolver";
-import { fetchJSON, fetch } from "@walmart/electrode-fetch";
+import { fetchJSON } from "@walmart/electrode-fetch";
 import Well from "@walmart/wmreact-containers/lib/components/well";
 import Table from "@walmart/wmreact-table/lib/components/table";
 import Revealer from "@walmart/wmreact-interactive/lib/components/revealer";
+import Chooser from "@walmart/wmreact-chooser/lib/components/chooser";
 import ExecutionEnvironment from "exenv";
 import Config from "@walmart/electrode-ui-config";
 import marked from "marked";
@@ -17,6 +19,8 @@ export default class Component extends React.Component {
       deps: [],
       demo: null,
       doc: null,
+      currentVersion: null,
+      latestVersion: null,
       error: null
     };
   }
@@ -26,19 +30,24 @@ export default class Component extends React.Component {
       return;
     }
 
-    const { org, repo } = this.props.params;
+    const { org, repo, version } = this.props.params;
+
+    const currentVersion = parseInt(version);
+    if (!isNaN(currentVersion)) {
+      this.setState({ currentVersion });
+    }
 
     Promise.all([
-      this._getComponent(org, repo),
+      this._getComponentInfo(org, repo),
       this._getDoc(org, repo)
     ]);
   }
 
-  _getComponent(org, repo) {
+  _getComponentInfo(org, repo) {
     const host = window.location.origin;
     const url = `${host}/portal/data/${org}/${repo}.json`;
 
-    function compare(a, b) {
+    const compare = (a, b) => {
       if (a.displayName < b.displayName) {
         return -1;
       }
@@ -46,7 +55,7 @@ export default class Component extends React.Component {
         return 1;
       }
       return 0;
-    }
+    };
 
     return fetchJSON(url)
       .then((res) => {
@@ -56,20 +65,28 @@ export default class Component extends React.Component {
         const deps = res.deps || [];
         deps.sort(compare);
 
-        this.setState({ meta, usage, deps });
+        const latestVersion = parseInt(meta.version.substring(0, meta.version.indexOf(".")));
+        const currentVersion = this.state.currentVersion || latestVersion;
 
-        const scriptUrl = `${host}/portal/data/demo-modules/${meta.name}/bundle.min.js`;
-        this._getDemo(scriptUrl, meta);
+        this.setState({ meta, usage, deps, latestVersion, currentVersion });
+
+        this._getDemo(meta);
       })
-      .catch(() => {});
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
-  _getDemo(url, meta) {
+  _getDemo(meta) {
+    const host = window.location.origin;
     const script = document.createElement("script");
-    script.src = url;
+    const { currentVersion } = this.state;
+    script.src = `${host}/portal/data/demo-modules/${meta.name}/v${currentVersion}/bundle.min.js`;
     script.async = true;
 
-    document.getElementById("placeholder").appendChild(script);
+    const placeholder = document.getElementById("placeholder");
+    placeholder.appendChild(script);
+
     const x = setInterval(() => {
       if (typeof _COMPONENTS !== "undefined" && _COMPONENTS[meta.name]) {
         this.setState({ demo: _COMPONENTS[meta.name] });
@@ -93,7 +110,7 @@ export default class Component extends React.Component {
       .then((res) => {
         this.setState({ doc: marked(res.doc) });
       })
-      .catch((err) => {
+      .catch(() => {
         this.setState({ doc: marked("# Error fetching doc") });
       });
   }
@@ -138,36 +155,107 @@ export default class Component extends React.Component {
   _renderTitle(meta) {
     return (
       <h2 className="portal-title">
-        {meta.title} {meta.version && <span className="component-version">{` v${meta.version}`}</span>}
-        {meta.description && <span className="component-description">{meta.description}</span>}
-        <span className="component-info">
-          {meta.github && <div>
-            <a href={meta.github} target="_blank">View Repository on Github</a>
-          </div>}
-          {meta.name && <Well className="code-well" padded={true}>npm i --save {meta.name}</Well>}
+        { meta.title }
+
+        { meta.version &&
+          <span className="component-version">
+            {` v${meta.version}`}
+          </span> }
+
+        <span className="switch-version">
+          <span className="switch-version-text">Choose version:</span>
+          { this._renderVersion() }
         </span>
+
+        { meta.description &&
+          <span className="component-description">
+            {meta.description}
+          </span> }
+
+        <span className="component-info">
+          { meta.github &&
+            <div>
+              <a href={meta.github} target="_blank">View Repository on Github</a>
+            </div> }
+          { meta.name &&
+            <Well className="code-well" padded={true}>
+              npm i --save {meta.name}
+            </Well> }
+        </span>
+
       </h2>
     );
+  }
+
+  _onVersionChange(currentVersion) {
+    const { org, repo } = this.props.params;
+    const prev = this.state.currentVersion;
+
+    if (typeof currentVersion === "number" && prev !== currentVersion) {
+      window.location.pathname = Config.fullPath(`/${org}/${repo}/${currentVersion}`);
+    }
+  }
+
+  _renderVersionOptions() {
+    const chooser = [
+      <Chooser.Option value="Select">
+        Select
+      </Chooser.Option>
+    ];
+    const { latestVersion } = this.state;
+
+    if (latestVersion === 0) {
+      chooser.push(
+        <Chooser.Option value={0}>
+          v0
+        </Chooser.Option>
+      );
+    } else {
+      for (let i = 1; i <= latestVersion; i += 1) {
+        chooser.push(
+          <Chooser.Option value={i}>
+            {`v${i}`}
+          </Chooser.Option>
+        );
+      }
+    }
+
+    return chooser;
+  }
+
+  _renderVersion() {
+    const { latestVersion, currentVersion } = this.state;
+
+    const placeholder = currentVersion || latestVersion;
+    return latestVersion ? (
+      <Chooser
+        chooserName="Version"
+        placeholderText={`v${placeholder}`}
+        onChange={this._onVersionChange.bind(this)}>
+        { this._renderVersionOptions() }
+      </Chooser>
+    ) : null;
   }
 
   _renderDoc() {
     const { doc } = this.state;
 
     return (
-      <Revealer
-        baseHeight={0}
-        buttonClosedText="View Doc"
-        buttonOpenText="Hide Doc"
-        defaultOpen={false}
-        disableClose={false}
-        inverse={true}
-        fakeLink={false}
-        border={false}>
-        <div className="component-dependencies" dangerouslySetInnerHTML={{ __html: doc }} />
-      </Revealer>
+      <div className="portal-title">
+        <Revealer
+          baseHeight={0}
+          buttonClosedText="View Doc"
+          buttonOpenText="Hide Doc"
+          defaultOpen={false}
+          disableClose={false}
+          inverse={true}
+          fakeLink={false}
+          border={false}>
+          <div className="component-dependencies" dangerouslySetInnerHTML={{ __html: doc }} />
+        </Revealer>
+      </div>
     );
   }
-
 
   _renderModuleData(data) {
     return (
@@ -181,7 +269,9 @@ export default class Component extends React.Component {
                 </a>
               </Table.Cell>
               <Table.Cell className="detail-version">
-                <span className={`version-status-${detail.version && detail.version.status}`}>{detail.version && detail.version.str}</span>
+                <span className={`version-status-${detail.version && detail.version.status}`}>
+                  {detail.version && detail.version.str}
+                </span>
               </Table.Cell>
               <Table.Cell className="detail-description">
                 {detail.description}
@@ -219,9 +309,19 @@ export default class Component extends React.Component {
         { this._renderTitle(meta) }
         { this._renderDoc() }
         <div id="placeholder" />
-        { this._renderDemo() }
+        <div className="demo">
+          { this._renderDemo() }
+        </div>
         { this._renderUsage(usage, deps) }
       </div>
     );
   }
 }
+
+Component.propTypes = {
+  params: React.PropTypes.shape({
+    org: React.PropTypes.string,
+    repo: React.PropTypes.string,
+    version: React.PropTypes.string
+  })
+};

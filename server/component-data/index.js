@@ -36,7 +36,6 @@ ComponentData.register = (server, options, next) => {
     }
   });
 
-  // Temporary Example
   server.route({
     method: "GET",
     path: "/portal/img/electrode.png",

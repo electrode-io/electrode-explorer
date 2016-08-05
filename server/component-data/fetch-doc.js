@@ -23,7 +23,7 @@ const fetchDoc = (request, reply) => {
 
     if (err) {
       console.log("error fetchDoc", err);
-      return reply(err).code(err.status || 500);
+      return reply("An error occured").code(err.code || 500);
     }
 
     const doc = contentToString(response.content);

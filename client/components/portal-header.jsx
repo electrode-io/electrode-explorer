@@ -1,7 +1,7 @@
 import React from "react";
 import Config from "@walmart/electrode-ui-config";
 
-const PortalHeader = (props) => {
+const PortalHeader = () => {
   return (
     <div className="portal-header">
       <h1 className="portal-title">{Config.ui.meta.portalLogo ?

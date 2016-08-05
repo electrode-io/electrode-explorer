@@ -2,6 +2,8 @@
 
 const Fs = require("fs");
 const Path = require("path");
+const semver = require("semver");
+
 const Config = require("@walmart/electrode-config").config;
 const ghToken = Config.automaticUpdate && process.env[Config.GHACCESS_TOKEN_NAME];
 
@@ -19,9 +21,17 @@ const UpdateHandler = function (request, reply) {
 
   const { org, repoName } = request.params;
 
+  const { ref, ref_type } = request.payload;
+
+  let majorVersion;
+  if (ref_type === "tag") {
+    const version = semver.clean(ref);
+    majorVersion = version.substring(0, version.indexOf("."));
+  }
+
   const waitingTime = request.query.updateNow ? 0 : Config.WAITING_TIME;
 
-  fetchRepo(org, repoName, waitingTime, request.server).then((result) => {
+  return fetchRepo(org, repoName, waitingTime, majorVersion, request.server).then((result) => {
 
     const orgDataPath = Path.join(__dirname, `../data/${org}`);
 
@@ -29,8 +39,8 @@ const UpdateHandler = function (request, reply) {
 
     const repoFilePath = `${orgDataPath}/${repoName}.json`;
 
-    // Preserve saved deps if already saved, prepare empty deps obj if not
-    let deps = {};
+    // Preserve saved deps if already saved, prepare empty deps array if not
+    let deps = [];
     try {
       const repoFile = require(repoFilePath);
       deps = repoFile.deps || deps;
@@ -48,37 +58,37 @@ const UpdateHandler = function (request, reply) {
       // update the map of known orgs
       const orgMap = Path.join(__dirname, `../data/orgs.json`);
 
-      let catalog = Fs.readFileSync(orgMap);
+      Fs.readFile(orgMap, (err, catalog) => {
+        try {
+          catalog = JSON.parse(catalog);
 
-      try {
-        catalog = JSON.parse(catalog);
+          if (!catalog.allOrgs[org]) {
+            catalog.allOrgs[org] = {
+              repos: {}
+            };
+          }
 
-        if (!catalog.allOrgs[org]) {
-          catalog.allOrgs[org] = {
-            repos: {}
+          const current = catalog.allOrgs[org];
+
+          current.repos[repoName] = {
+            link: `${org}/${repoName}`
           };
+
+          Fs.writeFile(orgMap, JSON.stringify(catalog), (err) => {
+            if (err) {
+              console.err(err);
+              throw err;
+            }
+          });
+
+        } catch (err) {
+          console.error("Problem checking org map", err);
         }
 
-        const current = catalog.allOrgs[org];
+        return reply(`${org}:${repoName} was saved.`);
 
-        current.repos[repoName] = {
-          link: `${org}/${repoName}`
-        };
+      });
 
-        Fs.writeFile(orgMap, JSON.stringify(catalog), (err) => {
-          if (err) {
-            console.err(err);
-            throw err;
-          }
-        });
-
-      } catch (err) {
-
-        console.error("Problem checking org map", err);
-
-      }
-
-      return reply(`${org}:${repoName} was saved.`);
 
     });
 

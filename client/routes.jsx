@@ -13,5 +13,6 @@ export const routes = (
     <IndexRoute component={Home}/>
     <Route path={Config.fullPath("/search/:term")} component={Search} />
     <Route path={Config.fullPath("/:org/:repo")} component={Component} />
+    <Route path={Config.fullPath("/:org/:repo/:version")} component={Component} />
   </Route>
 );

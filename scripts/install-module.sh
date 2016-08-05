@@ -5,11 +5,26 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
-if [ -f /usr/local/lib/electrode-ops-helpers.sh ]; then
-  source /usr/local/lib/electrode-ops-helpers.sh
-  prepare_nodejs 4
-  npm set registry https://npme.walmart.com/
-  npm set strict-ssl false
+function npm_install() {
+  echo "installing $1"
+  if which npm; then
+    npm i $1
+  elif [ -f /usr/local/lib/electrode-ops-helpers.sh ]; then
+    source /usr/local/lib/electrode-ops-helpers.sh
+    prepare_nodejs 4
+    npm set registry https://npme.walmart.com/
+    npm set strict-ssl false
+    npm i $1
+  fi
+}
+
+
+if [ -z "$2" ]; then
+  version="latest"
+else
+  version=^$2
 fi
 
-npm i $1@latest
+rm -rf node_modules/$1
+npm_install $1@$version
+`pwd`/scripts/post-install-module.sh $1 $2
