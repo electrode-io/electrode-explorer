@@ -12,7 +12,11 @@ const Results = (props) => {
   return (
     <div>
       <h2>You searched for <em>{term}</em></h2>
-      <h3>There were <em>{count ? count : "no" }</em> result{count > 1 ? "s" : ""}</h3>
+      <h3>
+        There
+        {count > 1 ? " were " : " was "}
+        <em> {count ? count : "no" } </em>
+        result{count > 1 ? "s" : ""}:</h3>
       {count &&
         <div className="results-list">
         {matched.map((result) => {
