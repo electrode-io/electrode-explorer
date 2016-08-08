@@ -7,7 +7,6 @@ const github = new GitHubApi(Config.githubApi);
 const githubAuthObject = require("./utils/github-auth-object");
 const contentToString = require("./utils/content-to-string");
 
-const fetchModuleDemo = require("./fetch-module-demo");
 const fetchUsage = require("./fetch-usage");
 const checkDependencies = require("./check-dependencies");
 
@@ -22,7 +21,7 @@ const extractMetaData = (pkg, repoUrl) => {
 
 };
 
-const fetchRepo = (org, repoName, waitingTime, majorVersion, server) => {
+const fetchRepo = (org, repoName) => {
 
   github.authenticate(githubAuthObject);
 
@@ -49,11 +48,6 @@ const fetchRepo = (org, repoName, waitingTime, majorVersion, server) => {
         pkg = JSON.parse(packageContent);
         meta = extractMetaData(pkg, response.html_url.replace("blob/master/package.json", ""));
 
-        setTimeout(() => {
-          console.log(`fetching module ${meta.name}`);
-          fetchModuleDemo(meta, majorVersion, server, pkg.keywords);
-        }, waitingTime);
-
       } catch (err) {
 
         console.error("Error parsing package.json", err);
@@ -66,7 +60,7 @@ const fetchRepo = (org, repoName, waitingTime, majorVersion, server) => {
         checkDependencies(`${org}/${repoName}`, pkg.dependencies, pkg.devDependencies)
       ])
         .spread((usage) => {
-          return resolve({meta, usage});
+          return resolve({ meta, usage, pkg });
         }).catch((err) => {
           console.error(`Error fetching demo index for ${org}/${repoName}`, err);
           return reject(err);

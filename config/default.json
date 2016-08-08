@@ -57,14 +57,19 @@
     "timeout": 10000
   },
 
-  "REPOS_INCLUDE": [
+  "ORGS": [
+    "react",
+    "redux"
+  ],
+
+  "REPOS_USAGE_INCLUDE": [
     "electrode",
     "react",
     "redux",
     "R-"
   ],
 
-  "REPOS_EXCLUDE": [
+  "REPOS_USAGE_EXCLUDE": [
     "electrode-training",
     "electrode/portal",
     "electrode/electrode-showcase",

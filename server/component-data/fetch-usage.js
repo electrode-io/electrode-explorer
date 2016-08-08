@@ -4,8 +4,8 @@ const GitHubApi = require("github");
 const Promise = require("bluebird");
 const Config = require("@walmart/electrode-config").config;
 const github = new GitHubApi(Config.githubApi);
-const REPOS_INCLUDE = Config.REPOS_INCLUDE;
-const REPOS_EXCLUDE = Config.REPOS_EXCLUDE;
+const REPOS_USAGE_INCLUDE = Config.REPOS_USAGE_INCLUDE;
+const REPOS_USAGE_EXCLUDE = Config.REPOS_USAGE_EXCLUDE;
 const contentToString = require("./utils/content-to-string");
 const checkVersion = require("./utils/check-version");
 const githubAuthObject = require("./utils/github-auth-object");
@@ -13,13 +13,13 @@ const uniqBy = require("lodash/uniqBy");
 
 const shouldIncludeRepo = (repo) => {
   let shouldExclude = false;
-  REPOS_EXCLUDE.some((r) => {
+  REPOS_USAGE_EXCLUDE.some((r) => {
     if (repo.indexOf(r) !== -1) {
       shouldExclude = true;
       return true;
     }
   });
-  return !shouldExclude && REPOS_INCLUDE.some((org) => repo.indexOf(org) === 0);
+  return !shouldExclude && REPOS_USAGE_INCLUDE.some((org) => repo.indexOf(org) === 0);
 };
 
 const getOrgRepo = (uri) => {

@@ -9,6 +9,7 @@ const ghToken = Config.automaticUpdate && process.env[Config.GHACCESS_TOKEN_NAME
 
 const ensureDirectoryExists = require("./utils/ensure-directory-exists");
 const fetchRepo = require("./fetch-repo");
+const fetchModuleDemo = require("./fetch-module-demo");
 
 const UpdateHandler = function (request, reply) {
 
@@ -21,17 +22,11 @@ const UpdateHandler = function (request, reply) {
 
   const { org, repoName } = request.params;
 
-  const { ref, ref_type } = request.payload;
-
-  let majorVersion;
-  if (ref_type === "tag") {
-    const version = semver.clean(ref);
-    majorVersion = version.substring(0, version.indexOf("."));
-  }
+  const { ref, ref_type } = request.payload || {};
 
   const waitingTime = request.query.updateNow ? 0 : Config.WAITING_TIME;
 
-  return fetchRepo(org, repoName, waitingTime, majorVersion, request.server).then((result) => {
+  return fetchRepo(org, repoName).then((result) => {
 
     const orgDataPath = Path.join(__dirname, `../data/${org}`);
 
@@ -40,13 +35,35 @@ const UpdateHandler = function (request, reply) {
     const repoFilePath = `${orgDataPath}/${repoName}.json`;
 
     // Preserve saved deps if already saved, prepare empty deps array if not
-    let deps = [];
+    let deps;
+    let currentVersion;
+
     try {
       const repoFile = require(repoFilePath);
-      deps = repoFile.deps || deps;
+      deps = repoFile.deps || [];
+      currentVersion = repoFile.meta.version || 0;
     } catch (err) {}
 
+    const latestVersion = result.meta.version;
+
+    if (!semver.lt(currentVersion, latestVersion)) {
+      return reply(`${org}:${repoName} is at its latest version.`);
+    }
+
     result.deps = deps;
+
+    let version;
+    if (ref_type === "tag") {
+      version = semver.clean(ref);
+    } else {
+      version = result.pkg.version;
+    }
+    version = version.substring(0, version.indexOf("."));
+
+    setTimeout(() => {
+      console.log(`fetching module ${result.meta.name}`);
+      fetchModuleDemo(result.meta, version, request.server, result.pkg.keywords);
+    }, waitingTime);
 
     Fs.writeFile(repoFilePath, JSON.stringify(result), (err) => {
 
