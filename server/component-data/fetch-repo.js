@@ -22,7 +22,7 @@ const extractMetaData = (pkg, repoUrl) => {
 
 };
 
-const fetchRepo = (org, repoName, waitingTime, majorVersion) => {
+const fetchRepo = (org, repoName, waitingTime, majorVersion, server) => {
 
   github.authenticate(githubAuthObject);
 
@@ -51,7 +51,7 @@ const fetchRepo = (org, repoName, waitingTime, majorVersion) => {
 
         setTimeout(() => {
           console.log(`fetching module ${meta.name}`);
-          fetchModuleDemo(meta, majorVersion);
+          fetchModuleDemo(meta, majorVersion, server, pkg.keywords);
         }, waitingTime);
 
       } catch (err) {

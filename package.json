@@ -48,6 +48,8 @@
     "@walmart/wmreact-containers": "^11.11.2",
     "@walmart/wmreact-interactive": "^7.4.0",
     "@walmart/wmreact-table": "^3.0.0",
+    "@walmart/wmreact-typeahead": "^3.1.0",
+    "babel-traverse": "^6.10.4",
     "bluebird": "^2",
     "exenv": "^1.2.0",
     "github": "^1.1.2",

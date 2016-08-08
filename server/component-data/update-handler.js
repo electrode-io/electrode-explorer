@@ -31,7 +31,7 @@ const UpdateHandler = function (request, reply) {
 
   const waitingTime = request.query.updateNow ? 0 : Config.WAITING_TIME;
 
-  return fetchRepo(org, repoName, waitingTime, majorVersion).then((result) => {
+  return fetchRepo(org, repoName, waitingTime, majorVersion, request.server).then((result) => {
 
     const orgDataPath = Path.join(__dirname, `../data/${org}`);
 
