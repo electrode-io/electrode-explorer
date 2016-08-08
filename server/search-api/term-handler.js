@@ -25,7 +25,7 @@ module.exports = function TermHandler (request, reply) {
     return reply({ err: "No search term specified" });
   }
 
-  const results = { term: term };
+  const results = { term };
 
   const searchIndex = request.server.settings.app.searchIndex || {};
 
