@@ -41,12 +41,14 @@ const UpdateHandler = function (request, reply) {
     try {
       const repoFile = require(repoFilePath);
       deps = repoFile.deps || [];
-      currentVersion = repoFile.meta.version || 0;
-    } catch (err) {}
+      currentVersion = repoFile.meta && repoFile.meta.version;
+    } catch (err) {
+      return reply(`Error requiring ${repoFilePath}`);
+    }
 
     const latestVersion = result.meta.version;
 
-    if (!semver.lt(currentVersion, latestVersion)) {
+    if (currentVersion && !semver.lt(currentVersion, latestVersion)) {
       return reply(`${org}:${repoName} is at its latest version.`);
     }
 
@@ -60,11 +62,13 @@ const UpdateHandler = function (request, reply) {
     }
     version = version.substring(0, version.indexOf("."));
 
+    const keywords = result.pkg.keywords;
     setTimeout(() => {
       console.log(`fetching module ${result.meta.name}`);
-      fetchModuleDemo(result.meta, version, request.server, result.pkg.keywords);
+      fetchModuleDemo(result.meta, version, request.server, keywords);
     }, waitingTime);
 
+    delete result.pkg;
     Fs.writeFile(repoFilePath, JSON.stringify(result), (err) => {
 
       if (err) {

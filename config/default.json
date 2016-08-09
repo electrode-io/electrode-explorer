@@ -11,6 +11,7 @@
   "plugins": {
     "./server/search-api": {},
     "./server/component-data": {},
+    "./server/component-data/poll": {},
     "@walmart/electrode-react-webapp": {
       "options": {
         "pageTitle": "Electrode Portal",
@@ -85,6 +86,8 @@
   "automaticUpdate": true,
 
   "WAITING_TIME": 300000,
+
+  "POLL_INTERVAL": 1800000,
 
   "GHACCESS_TOKEN_NAME": "ECE_GHACCESS_TOKEN"
 }
