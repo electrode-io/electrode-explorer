@@ -24,7 +24,7 @@ const UpdateHandler = function (request, reply) {
 
   const { ref, ref_type } = request.payload || {};
 
-  const waitingTime = request.query.updateNow ? 0 : Config.WAITING_TIME;
+  const waitingTime = request.query.updateNow ? 0 : Config.NPM_WAITING_TIME;
 
   return fetchRepo(org, repoName).then((result) => {
 
