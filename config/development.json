@@ -1,0 +1,17 @@
+{
+  "services": {
+    "env": "qa"
+  },
+  "plugins": {
+    "@walmart/electrode-react-webapp": {
+      "options": {
+        "cdn": {
+          "enabled": false
+        }
+      }
+    }
+  },
+  "ui": {
+    "env": "development"
+  }
+}

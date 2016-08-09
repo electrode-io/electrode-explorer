@@ -43,7 +43,7 @@ const UpdateHandler = function (request, reply) {
       deps = repoFile.deps || [];
       currentVersion = repoFile.meta && repoFile.meta.version;
     } catch (err) {
-      return reply(`Error requiring ${repoFilePath}`);
+      return reply(err.message);
     }
 
     const latestVersion = result.meta.version;
