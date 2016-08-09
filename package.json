@@ -59,6 +59,7 @@
     "react": "^0.14.8",
     "react-dom": "^0.14.8",
     "react-modal": "^1.4.0",
+    "redux-logger": "^2.6.1",
     "redux-thunk": "^2.1.0",
     "semver": "^5.2.0"
   },
