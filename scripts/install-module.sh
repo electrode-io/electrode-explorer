@@ -25,6 +25,5 @@ else
   version=^$2
 fi
 
-rm -rf node_modules/$1
 npm_install $1@$version
 `pwd`/scripts/post-install-module.sh $1 $2
