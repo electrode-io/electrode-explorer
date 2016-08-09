@@ -61,7 +61,7 @@ Poll.register = (server, options, next) => {
               console.log(res.result);
             });
           }, Config.POLL_INTERVAL);
-        }, 10000 + index * 30000);
+        }, 10000 + index * 300000);
       });
 
       return next();
