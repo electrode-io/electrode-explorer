@@ -94,10 +94,13 @@ const writeDeps = (moduleName, moduleDeps) => {
 
   const writePath = Path.join(__dirname, `../data/${moduleName}.json`);
 
-  Fs.writeFile(writePath, JSON.stringify(repoFile), (err) => {
-    if (err) {
-      return console.error("Error writing file with dependencies", err);
-    }
+  return new Promise((resolve) => {
+    Fs.writeFile(writePath, JSON.stringify(repoFile), (err) => {
+      if (err) {
+        console.error("Error writing file with dependencies", err);
+      }
+      resolve({});
+    });
   });
 };
 
@@ -108,7 +111,7 @@ module.exports = (moduleName, deps, devDeps) => {
     checkDepVersions(devDeps, true)
   ])
     .then((depArrays) => {
-      writeDeps(moduleName, Array.concat(depArrays[0], depArrays[1]))
+      return writeDeps(moduleName, Array.concat(depArrays[0], depArrays[1]))
     })
     .catch((err) => {
       console.log("error getting module dependencies", err);
