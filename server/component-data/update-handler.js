@@ -83,6 +83,10 @@ const UpdateHandler = function (request, reply) {
         try {
           catalog = JSON.parse(catalog);
 
+          if (!catalog.allOrgs) {
+            catalog.allOrgs = {};
+          }
+
           if (!catalog.allOrgs[org]) {
             catalog.allOrgs[org] = {
               repos: {}
