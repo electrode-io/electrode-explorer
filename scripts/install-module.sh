@@ -14,6 +14,7 @@ function npm_install() {
     prepare_nodejs 4
     npm set registry https://npme.walmart.com/
     npm set strict-ssl false
+    npm set progress false
     npm i $1
   fi
 }

@@ -17,7 +17,7 @@ const UpdateSearchIndex = (moduleName, subModules, server, keywords) => {
     searchIndex = require(IndexPath);
   } catch (err) { }
 
-  searchIndex[moduleName] = Array.concat(keywords || [], subModules);
+  searchIndex[moduleName] = (keywords || []).concat(subModules);
 
   // Directly update server app stored value so that it's available immediately
   server.settings.app.searchIndex = searchIndex;
