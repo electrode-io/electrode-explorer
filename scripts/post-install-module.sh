@@ -20,7 +20,7 @@ function add_global() {
   file=node_modules/$1/demo/demo.js
   exp=$(grep "exports.default" $file)
   var_name=$(echo $exp | cut -d "=" -f 2 | cut -d ";" -f 1)
-  echo "global._COMPONENTS=global._COMPONENTS || {};global._COMPONENTS[\"$1\"] = $var_name;" >> $file
+  echo "global._COMPONENTS=global._COMPONENTS || {};global._COMPONENTS[\"$1\"]=$var_name;" >> $file
 }
 
 function run_babel() {
@@ -31,8 +31,8 @@ function run_babel() {
   rm node_modules/**/*/.babelrc
   mv $app_arch_config/BABELRC $app_arch_config/.babelrc
   mv $comp_arch_config/BABELRC $comp_arch_config/.babelrc
-  `pwd`/node_module/.bin/babel node_modules/$1/demo -d node_modules/$1/demo
-  `pwd`/node_module/.bin/babel node_modules/$1/test -d node_modules/$1/test
+  `pwd`/node_modules/.bin/babel node_modules/$1/demo -d node_modules/$1/demo
+  `pwd`/node_modules/.bin/babel node_modules/$1/test -d node_modules/$1/test
 }
 
 function build() {
@@ -49,7 +49,7 @@ function build() {
 
   outputPath="server/data/demo-modules/$1/v$2"
   echo "Webpack running for $1";
-  `pwd`/node_module/.bin/webpack --config ./component-webpack.config.js --colors --entry node_modules/$1/demo/demo.js --output-path $outputPath
+  `pwd`/node_modules/.bin/webpack --config ./component-webpack.config.js --colors --entry node_modules/$1/demo/demo.js --output-path $outputPath
   echo "Webpack finished for $1";
 }
 
