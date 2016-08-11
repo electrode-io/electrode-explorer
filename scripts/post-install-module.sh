@@ -31,8 +31,8 @@ function run_babel() {
   rm node_modules/**/*/.babelrc
   mv $app_arch_config/BABELRC $app_arch_config/.babelrc
   mv $comp_arch_config/BABELRC $comp_arch_config/.babelrc
-  babel node_modules/$1/demo -d node_modules/$1/demo
-  babel node_modules/$1/test -d node_modules/$1/test
+  `pwd`/node_module/.bin/babel node_modules/$1/demo -d node_modules/$1/demo
+  `pwd`/node_module/.bin/babel node_modules/$1/test -d node_modules/$1/test
 }
 
 function build() {
@@ -49,7 +49,7 @@ function build() {
 
   outputPath="server/data/demo-modules/$1/v$2"
   echo "Webpack running for $1";
-  webpack --config ./component-webpack.config.js --colors --entry node_modules/$1/demo/demo.js --output-path $outputPath
+  `pwd`/node_module/.bin/webpack --config ./component-webpack.config.js --colors --entry node_modules/$1/demo/demo.js --output-path $outputPath
   echo "Webpack finished for $1";
 }
 
