@@ -13,6 +13,8 @@ const githubAuthObject = require("./utils/github-auth-object");
 
 const Poll = {};
 
+const HALF_DAY = 4320000;
+
 function getRepos(org, page, repos) {
   return new Promise((resolve) => {
     github.repos.getForOrg({
@@ -46,6 +48,9 @@ Poll.register = (server, options, next) => {
   const promises = [];
   ORGS.forEach((org) => {
     promises.push(getRepos(org, 1, repos));
+    setInterval(() => {
+      getRepos(org, 1, repos).then();
+    }, HALF_DAY);
   });
 
   return Promise.all(promises)
