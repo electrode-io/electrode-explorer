@@ -162,10 +162,7 @@ export default class Component extends React.Component {
             {` v${meta.version}`}
           </span> }
 
-        <span className="switch-version">
-          <span className="switch-version-text">Switch version:</span>
-          { this._renderVersion() }
-        </span>
+        { this._renderVersion() }
 
         { meta.description &&
           <span className="component-description">
@@ -228,12 +225,15 @@ export default class Component extends React.Component {
 
     const placeholder = currentVersion || latestVersion;
     return latestVersion ? (
-      <Chooser
-        chooserName="Version"
-        placeholderText={`v${placeholder}`}
-        onChange={this._onVersionChange.bind(this)}>
-        { this._renderVersionOptions() }
-      </Chooser>
+      <span className="switch-version">
+        <span className="switch-version-text">Switch version:</span>
+        <Chooser
+          chooserName="Version"
+          placeholderText={`v${placeholder}`}
+          onChange={this._onVersionChange.bind(this)}>
+          { this._renderVersionOptions() }
+        </Chooser>
+      </span>
     ) : null;
   }
 
