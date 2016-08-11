@@ -16,7 +16,7 @@ const ProcessSubModules = (moduleName, github, server, keywords) => {
   const moduleOrg = parts[3];
   const moduleRepo = parts[4];
 
-  Babel.transformFile(demoFile, { presets: ["es2015", "react"] }, (err, result) => {
+  Babel.transformFile(demoFile, {presets: ["es2015", "react"]}, (err, result) => {
     if (err) {
       console.log("error processing submodules for ", moduleName);
       return console.log(err);
@@ -39,26 +39,29 @@ const ProcessSubModules = (moduleName, github, server, keywords) => {
       return;
     }
 
-    try {
-      const orgs = require(orgFile);
+    Fs.readFile(orgFile, (err, resp) => {
+      if (err) {
+        console.error("Could not parse orgs.json");
+        console.log(err);
+      }
 
-      orgs.allOrgs[moduleOrg].repos[moduleRepo].submodules =
-        subModules.filter((sm,i)=>i);
+      try {
+        const orgs = JSON.parse(resp);
+        orgs.allOrgs[moduleOrg].repos[moduleRepo].submodules =
+          subModules.filter((sm, i)=>i);
 
-      Fs.writeFile(orgFile, JSON.stringify(orgs), (err) => {
-        if (err) {
-          console.error("Could not add submodules to orgs file");
-          console.log(err);
-        }
+        Fs.writeFile(orgFile, JSON.stringify(orgs), (err) => {
+          if (err) {
+            console.error("Could not add submodules to orgs file");
+            console.log(err);
+          }
 
-        console.log(`Wrote submodules for ${moduleOrg}/${moduleRepo}`);
-      });
-
-    } catch (err) {
-      console.error("Could not parse orgs.json");
-      console.log(err);
-    }
-
+          console.log(`Wrote submodules for ${moduleOrg}/${moduleRepo}`);
+        });
+      } catch (e) {
+        console.error("Problem checking org map", e);
+      }
+    });
   });
 
 };
