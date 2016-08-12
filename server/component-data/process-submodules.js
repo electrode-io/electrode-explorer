@@ -50,14 +50,7 @@ const ProcessSubModules = (moduleName, github, server, keywords) => {
         orgs.allOrgs[moduleOrg].repos[moduleRepo].submodules =
           subModules.filter((sm, i)=>i);
 
-        Fs.writeFile(orgFile, JSON.stringify(orgs), (err) => {
-          if (err) {
-            console.error("Could not add submodules to orgs file");
-            console.log(err);
-          }
-
-          console.log(`Wrote submodules for ${moduleOrg}/${moduleRepo}`);
-        });
+        Fs.writeFileSync(orgFile, JSON.stringify(orgs));
       } catch (e) {
         console.error("Problem checking org map", e);
       }
