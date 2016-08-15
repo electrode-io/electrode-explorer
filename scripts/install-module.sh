@@ -9,6 +9,7 @@ function npm_install() {
   echo "installing $1"
   if which npm; then
     npm i $1
+    npm i --only=dev $1
   elif [ -f /usr/local/lib/electrode-ops-helpers.sh ]; then
     source /usr/local/lib/electrode-ops-helpers.sh
     prepare_nodejs 4
@@ -16,6 +17,7 @@ function npm_install() {
     npm set strict-ssl false
     npm set progress false
     npm i $1
+    npm i --only=dev $1
   fi
 }
 
