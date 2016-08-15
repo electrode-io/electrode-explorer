@@ -99,12 +99,7 @@ const UpdateHandler = function (request, reply) {
             link: `${org}/${repoName}`
           };
 
-          Fs.writeFile(orgMap, JSON.stringify(catalog), (err) => {
-            if (err) {
-              console.err(err);
-              throw err;
-            }
-          });
+          Fs.writeFileSync(orgMap, JSON.stringify(catalog));
 
         } catch (err) {
           console.error("Problem checking org map", err);
