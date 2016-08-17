@@ -22,7 +22,7 @@ const Results = (props) => {
         {matched.map((result) => {
           return (
           <div className="search-result">
-            <a href={`/portal/${result.module}`}>
+            <a href={`/explorer/${result.module}`}>
             {result.isModule && <span className="module">Module <em>{result.module}</em></span>}
             {result.matches && <span className="matches">{result.matches.join(", ")} </span>}
             {!result.isModule && <span className="location">in {result.module}</span>}
@@ -53,7 +53,7 @@ export default class Search extends React.Component {
       window.location.origin :
       "http://localhost:3000";
 
-    fetchJSON(`${host}/portal/api/search/term/${term}`)
+    fetchJSON(`${host}/explorer/api/search/term/${term}`)
       .then((results) => {
         this.setState({ results, completed: true });
       }).catch((err) => {

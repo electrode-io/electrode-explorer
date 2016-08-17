@@ -18,7 +18,7 @@ export default class Component extends React.Component {
       window.location.origin :
       "http://localhost:3000";
 
-    return fetchJSON(`${host}/portal/data/orgs.json`)
+    return fetchJSON(`${host}/explorer/data/orgs.json`)
       .then((menu) => {
         this.setState({menu: menu.allOrgs});
       }).catch((err) => {
@@ -30,7 +30,7 @@ export default class Component extends React.Component {
     const hash = submodule.replace(/\s/g, "").toLowerCase();
     return (
       <li>
-        <a href={`/portal/${link}#${hash}`}>
+        <a href={`/explorer/${link}#${hash}`}>
           {submodule}
         </a>
       </li>
@@ -55,7 +55,7 @@ export default class Component extends React.Component {
 
       return (<li>
         <a
-          href={`/portal/${link}`}>
+          href={`/explorer/${link}`}>
           {repoName}
         </a>
         {this._renderSubModules(link, submodules)}
@@ -67,7 +67,7 @@ export default class Component extends React.Component {
     const { menu } = this.state;
 
     return (
-      <div className="portal-menu">
+      <div className="explorer-menu">
         {menu && Object.keys(menu).map((org) => (
           <span>
             <h4>{org}</h4>

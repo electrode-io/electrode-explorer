@@ -53,7 +53,7 @@ Poll.register = (server, options, next) => {
           setInterval(() => {
             server.inject({
               method: "POST",
-              url:`/portal/api/update/repo/${org}/${repoName}`
+              url:`/explorer/api/update/repo/${org}/${repoName}`
             }, (res) => {
               console.log(res.result);
             });

@@ -45,7 +45,7 @@ export default class Component extends React.Component {
 
   _getComponentInfo(org, repo) {
     const host = window.location.origin;
-    const url = `${host}/portal/data/${org}/${repo}.json`;
+    const url = `${host}/explorer/data/${org}/${repo}.json`;
 
     const compare = (a, b) => {
       if (a.displayName < b.displayName) {
@@ -81,7 +81,7 @@ export default class Component extends React.Component {
     const host = window.location.origin;
     const script = document.createElement("script");
     const { currentVersion } = this.state;
-    script.src = `${host}/portal/data/demo-modules/${meta.name}/v${currentVersion}/bundle.min.js`;
+    script.src = `${host}/explorer/data/demo-modules/${meta.name}/v${currentVersion}/bundle.min.js`;
     script.async = true;
 
     const placeholder = document.getElementById("placeholder");
@@ -104,7 +104,7 @@ export default class Component extends React.Component {
 
   _getDoc(org, repo) {
     const host = window.location.origin;
-    const url = `${host}/portal/api/doc/${org}/${repo}`;
+    const url = `${host}/explorer/api/doc/${org}/${repo}`;
 
     return fetchJSON(url)
       .then((res) => {
@@ -154,7 +154,7 @@ export default class Component extends React.Component {
 
   _renderTitle(meta) {
     return (
-      <h2 className="portal-title">
+      <h2 className="explorer-title">
         { meta.title }
 
         { meta.version &&
@@ -241,7 +241,7 @@ export default class Component extends React.Component {
     const { doc } = this.state;
 
     return (
-      <div className="portal-title">
+      <div className="explorer-title">
         <Revealer
           baseHeight={0}
           buttonClosedText="View Doc"

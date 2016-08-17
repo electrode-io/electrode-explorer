@@ -1,8 +1,8 @@
 import React from "react";
 
-const PortalFooter = () => {
+const explorerFooter = () => {
   return (
-    <div className="portal-footer">
+    <div className="explorer-footer">
       <div className="footer-container">
         <div className="footer-text">
           © Electrode
@@ -12,4 +12,4 @@ const PortalFooter = () => {
   );
 };
 
-export default PortalFooter;
+export default explorerFooter;

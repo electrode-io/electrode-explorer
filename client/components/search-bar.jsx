@@ -23,7 +23,7 @@ export default class Component extends React.Component {
 
     const { host } = this.state;
 
-    fetchJSON(`${host}/portal/api/search/partial/${part}`)
+    fetchJSON(`${host}/explorer/api/search/partial/${part}`)
       .then((results) => {
         this.setState({list: results});
       }).catch((err) => {
@@ -33,13 +33,13 @@ export default class Component extends React.Component {
 
   _performSearch(term) {
     if (ExecutionEnvironment.canUseDOM) {
-      window.location = "/portal/search/" + term;
+      window.location = "/explorer/search/" + term;
     }
   }
 
   render() {
     return (
-      <div className="portal-search-bar">
+      <div className="explorer-search-bar">
         <Typeahead
           list={this.state.list}
           placeholderText="Search"

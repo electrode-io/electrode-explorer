@@ -1,13 +1,4 @@
 {
-  "services": {
-    "consumerId": "91e1b78e-261b-4676-8317-4cf5bfa24a42",
-    "privateKey": {
-      "file": "config/private-key-qa.pem",
-      "version": 2,
-      "algorithm": "RSA",
-      "encoding": "PKCS#8"
-    }
-  },
   "plugins": {
     "./server/search-api": {},
     "./server/component-data": {},
@@ -46,7 +37,7 @@
   },
 
   "ui": {
-    "basePath": "/portal",
+    "basePath": "/explorer",
     "meta": {
       "portalName": "Electrode Showcase",
       "portalLogo": "/portal/img/electrode.png"
@@ -59,28 +50,19 @@
   },
 
   "ORGS": [
-    "react",
-    "redux"
+
   ],
 
   "REPOS_USAGE_INCLUDE": [
-    "electrode",
-    "react",
-    "redux",
-    "R-"
+
   ],
 
   "REPOS_USAGE_EXCLUDE": [
-    "electrode-training",
-    "electrode/portal",
-    "electrode/electrode-showcase",
-    "electrode/bootcamp-classes"
+
   ],
 
   "MODULE_PREFIXES_INCLUDE": [
-    "wmreact",
-    "wmredux",
-    "electrode"
+
   ],
 
   "automaticUpdate": true,
