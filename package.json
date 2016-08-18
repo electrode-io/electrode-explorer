@@ -45,6 +45,7 @@
     "bluebird": "^3",
     "electrode-archetype-react-component": "^1.0.0",
     "electrode-archetype-react-component-dev": "^1.0.0",
+    "electrode-router-resolver-engine": "^1.0.0",
     "electrode-server": "^1.0.0",
     "exenv": "^1.2.0",
     "github": "^1.1.2",

@@ -1,6 +1,6 @@
 require("babel-core/register");
 
-import RouterResolverEngine from "@walmart/router-resolver-engine";
+import RouterResolverEngine from "electrode-router-resolver-engine";
 import { routes } from "../client/routes";
 
 module.exports = (req) => {

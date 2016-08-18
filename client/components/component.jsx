@@ -1,7 +1,6 @@
-/* globals document _COMPONENTS setTimeout setInterval clearInterval fetchJSON */
+/* globals document _COMPONENTS setTimeout setInterval clearInterval fetch */
 
 import React from "react";
-import Well from "@walmart/wmreact-containers/lib/components/well";
 import Table from "@walmart/wmreact-table/lib/components/table";
 import Revealer from "@walmart/wmreact-interactive/lib/components/revealer";
 import Chooser from "@walmart/wmreact-chooser/lib/components/chooser";
@@ -56,7 +55,13 @@ export default class Component extends React.Component {
       return 0;
     };
 
-    return fetchJSON(url)
+    return fetch(url)
+      .then((res) => {
+        if (res.status >= 400) {
+          throw res;
+        }
+        return res.json();
+      })
       .then((res) => {
         const meta = res.meta || {};
         const usage = res.usage.sort(compare);
@@ -105,7 +110,13 @@ export default class Component extends React.Component {
     const host = window.location.origin;
     const url = `${host}/explorer/api/doc/${org}/${repo}`;
 
-    return fetchJSON(url)
+    return fetch(url)
+      .then((res) => {
+        if (res.status >= 400) {
+          throw res;
+        }
+        return res.json();
+      })
       .then((res) => {
         this.setState({ doc: marked(res.doc) });
       })
@@ -174,9 +185,9 @@ export default class Component extends React.Component {
               <a href={meta.github} target="_blank">View Repository on Github</a>
             </div> }
           { meta.name &&
-            <Well className="code-well" padded={true}>
+            <div className="code-well">
               npm i --save {meta.name}
-            </Well> }
+            </div> }
         </span>
 
       </h2>
@@ -258,27 +269,27 @@ export default class Component extends React.Component {
 
   _renderModuleData(data) {
     return (
-      <Table>
-        <Table.Body>
+      <table>
+        <tbody>
           {data.map((detail) => (
-            <Table.Row>
-              <Table.Cell>
+            <tr>
+              <td>
                 <a href={detail.uri} target="_blank" className="detail-uri">
                   {detail.displayName}
                 </a>
-              </Table.Cell>
-              <Table.Cell className="detail-version">
+              </td>
+              <td className="detail-version">
                 <span className={`version-status-${detail.version && detail.version.status}`}>
                   {detail.version && detail.version.str}
                 </span>
-              </Table.Cell>
-              <Table.Cell className="detail-description">
+              </td>
+              <td className="detail-description">
                 {detail.description}
-              </Table.Cell>
-            </Table.Row>
+              </td>
+            </tr>
           ))}
-        </Table.Body>
-      </Table>
+        </tbody>
+      </table>
     );
   }
 

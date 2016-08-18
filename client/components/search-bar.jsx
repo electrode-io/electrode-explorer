@@ -1,4 +1,4 @@
-/* globals fetchJSON */
+/* globals fetch */
 
 import React from "react";
 import ExecutionEnvironment from "exenv";
@@ -24,7 +24,13 @@ export default class Component extends React.Component {
 
     const { host } = this.state;
 
-    fetchJSON(`${host}/explorer/api/search/partial/${part}`)
+    return fetch(`${host}/explorer/api/search/partial/${part}`)
+      .then((res) => {
+        if (res.status >= 400) {
+          throw res;
+        }
+        return res.json();
+      })
       .then((results) => {
         this.setState({list: results});
       }).catch((err) => {

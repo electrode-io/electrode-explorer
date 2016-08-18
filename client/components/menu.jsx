@@ -1,4 +1,4 @@
-/* globals console fetchJSON */
+/* globals console fetch */
 /* eslint-disable no-console */
 
 import React from "react";
@@ -17,7 +17,13 @@ export default class Component extends React.Component {
       window.location.origin :
       "http://localhost:3000";
 
-    return fetchJSON(`${host}/explorer/data/orgs.json`)
+    return fetch(`${host}/explorer/data/orgs.json`)
+      .then((res) => {
+        if (res.status >= 400) {
+          throw res;
+        }
+        return res.json();
+      })
       .then((menu) => {
         this.setState({menu: menu.allOrgs});
       }).catch((err) => {

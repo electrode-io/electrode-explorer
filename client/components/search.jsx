@@ -1,4 +1,4 @@
-/* globals fetchJSON */
+/* globals fetch */
 
 import React from "react";
 import ExecutionEnvironment from "exenv";
@@ -54,7 +54,13 @@ export default class Search extends React.Component {
       window.location.origin :
       "http://localhost:3000";
 
-    fetchJSON(`${host}/explorer/api/search/term/${term}`)
+    return fetch(`${host}/explorer/api/search/term/${term}`)
+      .then((res) => {
+        if (res.status >= 400) {
+          throw res;
+        }
+        return res.json();
+      })
       .then((results) => {
         this.setState({ results, completed: true });
       }).catch((err) => {
