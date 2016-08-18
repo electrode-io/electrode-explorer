@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://gecgithub01.walmart.com/electrode/portal.git"
+    "url": "https://github.com/electrode-io/electrode-explorer.git"
   },
   "keywords": [
     "react",
@@ -24,14 +24,13 @@
     "example"
   ],
   "author": [
-    "Caoyang Shi <cshi@walmartlabs.com>",
+    "Caoyang Shi <wuwa007@gmail.com>",
     "Dave Stevens <dstevens@walmartlabs.com>"
   ],
-  "license": "UNLICENSED",
+  "license": "MIT",
   "bugs": {
-    "url": "https://gecgithub01.walmart.com/electrode/portal/issues"
+    "url": "https://github.com/electrode-io/electrode-explorer/issues"
   },
-  "homepage": "https://electrode-portal.qa.walmart.com/portal",
   "dependencies": {
     "@walmart/electrode-application": "^1.0.0",
     "@walmart/electrode-archetype-react-component": "^10.3.1",
