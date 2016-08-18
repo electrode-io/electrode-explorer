@@ -32,38 +32,33 @@
     "url": "https://github.com/electrode-io/electrode-explorer/issues"
   },
   "dependencies": {
-    "@walmart/electrode-application": "^1.0.0",
-    "@walmart/electrode-archetype-react-component": "^10.3.1",
-    "@walmart/electrode-archetype-react-component-dev": "^10.3.1",
     "@walmart/electrode-config": "^1.0.1",
     "@walmart/electrode-demo-index": "^1.2.0",
-    "@walmart/electrode-fetch": "^5.0.0",
     "@walmart/electrode-react-webapp": "^6.2.0",
     "@walmart/electrode-ui-config": "^1.2.2",
-    "@walmart/electrode-wml-server": "^1.0.0",
-    "@walmart/lithe-extras": "^2.4.0",
-    "@walmart/router-resolver-engine": "^1",
     "@walmart/wmreact-chooser": "^4.2.0",
     "@walmart/wmreact-containers": "^11.11.2",
     "@walmart/wmreact-interactive": "^7.4.0",
     "@walmart/wmreact-table": "^3.0.0",
     "@walmart/wmreact-typeahead": "^3.1.0",
     "babel-traverse": "^6.10.4",
-    "bluebird": "^2",
+    "bluebird": "^3",
+    "electrode-archetype-react-component": "^1.0.0",
+    "electrode-archetype-react-component-dev": "^1.0.0",
+    "electrode-server": "^1.0.0",
     "exenv": "^1.2.0",
     "github": "^1.1.2",
     "history": "~1.13.1",
+    "isomorphic-fetch": "^2.2.1",
     "marked": "^0.3.6",
     "mkdirp": "^0.5.1",
     "react": "^0.14.8",
     "react-dom": "^0.14.8",
-    "react-modal": "^1.4.0",
-    "redux-logger": "^2.6.1",
-    "redux-thunk": "^2.1.0",
     "semver": "^5.2.0"
   },
   "devDependencies": {
-    "@walmart/electrode-archetype-react-app": "^7.1.0",
-    "@walmart/electrode-archetype-react-app-dev": "^7.1.0"
+    "electrode-archetype-react-app": "^1.0.0",
+    "electrode-archetype-react-app-dev": "^1.0.0",
+    "gulp": "^3.9.1"
   }
 }

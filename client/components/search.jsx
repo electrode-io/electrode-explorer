@@ -1,5 +1,6 @@
+/* globals fetchJSON */
+
 import React from "react";
-import { fetchJSON } from "@walmart/electrode-fetch";
 import ExecutionEnvironment from "exenv";
 
 const Results = (props) => {
@@ -33,7 +34,7 @@ const Results = (props) => {
         </div>}
     </div>
   );
-}
+};
 
 export default class Search extends React.Component {
 

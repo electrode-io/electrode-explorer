@@ -1,8 +1,7 @@
-/* globals console */
+/* globals console fetchJSON */
 /* eslint-disable no-console */
 
 import React from "react";
-import { fetchJSON } from "@walmart/electrode-fetch";
 import ExecutionEnvironment from "exenv";
 
 export default class Component extends React.Component {

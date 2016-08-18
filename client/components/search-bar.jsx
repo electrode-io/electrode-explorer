@@ -1,5 +1,6 @@
+/* globals fetchJSON */
+
 import React from "react";
-import { fetchJSON } from "@walmart/electrode-fetch";
 import ExecutionEnvironment from "exenv";
 import Typeahead from "@walmart/wmreact-typeahead";
 
@@ -49,6 +50,4 @@ export default class Component extends React.Component {
       </div>
     );
   }
-
 }
-
