@@ -40,7 +40,7 @@
     "basePath": "/explorer",
     "meta": {
       "portalName": "Electrode Showcase",
-      "portalLogo": "/portal/img/electrode.png"
+      "portalLogo": "/explorer/img/electrode.png"
     },
     "github": {
       "protocol": "https",

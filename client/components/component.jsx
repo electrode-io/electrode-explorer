@@ -1,7 +1,6 @@
 /* globals document _COMPONENTS setTimeout setInterval clearInterval fetch */
 
 import React from "react";
-import Table from "@walmart/wmreact-table/lib/components/table";
 import Revealer from "@walmart/wmreact-interactive/lib/components/revealer";
 import Chooser from "@walmart/wmreact-chooser/lib/components/chooser";
 import ExecutionEnvironment from "exenv";

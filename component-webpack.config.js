@@ -1,6 +1,6 @@
 "use strict";
 
-const config = require("@walmart/electrode-archetype-react-component/config/webpack/webpack.config");
+const config = require("electrode-archetype-react-component/config/webpack/webpack.config");
 
 module.exports = Object.assign(config, {
   externals: [
