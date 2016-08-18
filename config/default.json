@@ -5,7 +5,7 @@
     "./server/component-data/poll": {},
     "@walmart/electrode-react-webapp": {
       "options": {
-        "pageTitle": "Electrode Portal",
+        "pageTitle": "Electrode Explorer",
         "devServer": {
           "port": "2992"
         },
@@ -39,8 +39,8 @@
   "ui": {
     "basePath": "/explorer",
     "meta": {
-      "portalName": "Electrode Showcase",
-      "portalLogo": "/explorer/img/electrode.png"
+      "name": "Electrode Showcase",
+      "logo": "/explorer/img/electrode.png"
     },
     "github": {
       "protocol": "https",
