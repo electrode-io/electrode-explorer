@@ -2,7 +2,7 @@
 
 import React from "react";
 import ExecutionEnvironment from "exenv";
-import Typeahead from "@walmart/wmreact-typeahead";
+import Typeahead from "radon-typeahead";
 
 export default class Component extends React.Component {
   constructor(props) {
@@ -49,7 +49,24 @@ export default class Component extends React.Component {
       <div className="explorer-search-bar">
         <Typeahead
           list={this.state.list}
-          placeholderText="Search"
+          listStyle={{
+            position: "absolute",
+            top: "100%",
+            left: 0,
+            zIndex: 100,
+            width: "auto",
+            minWidth: "100%",
+            margin: "0 0 0 2px",
+            padding: "5px 0",
+            display: "block"
+          }}
+          inputComponent={
+            <input
+              autoComplete="off"
+              className="search-input"
+              placeholder="Search"
+               />
+          }
           onChange={this._fetchSuggestions}
           onSelectOption={this._performSearch}
           isRequiredField={false}/>
