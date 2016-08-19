@@ -2,7 +2,6 @@
 
 import React from "react";
 import Revealer from "@walmart/wmreact-interactive/lib/components/revealer";
-import Chooser from "@walmart/wmreact-chooser/lib/components/chooser";
 import ExecutionEnvironment from "exenv";
 import Config from "@walmart/electrode-ui-config";
 import marked from "marked";
@@ -193,36 +192,40 @@ export default class Component extends React.Component {
     );
   }
 
-  _onVersionChange(currentVersion) {
+  _onVersionChange(e) {
     const { org, repo } = this.props.params;
-    const prev = this.state.currentVersion;
+    const curr = this.state.currentVersion;
+    const next = +e.target.value;
 
-    if (typeof currentVersion === "number" && prev !== currentVersion) {
-      window.location.pathname = Config.fullPath(`/${org}/${repo}/${currentVersion}`);
+    if (!isNaN(next) && curr !== next) {
+      window.location.pathname = Config.fullPath(`/${org}/${repo}/${next}`);
     }
   }
 
   _renderVersionOptions() {
+    const { latestVersion, currentVersion } = this.state;
+
     const chooser = [
-      <Chooser.Option value="Select">
-        Select
-      </Chooser.Option>
+      <option value="Select">
+        v{currentVersion}
+      </option>
     ];
-    const { latestVersion } = this.state;
 
     if (latestVersion === 0) {
       chooser.push(
-        <Chooser.Option value={0}>
+        <option value={0}>
           v0
-        </Chooser.Option>
+        </option>
       );
     } else {
       for (let i = 1; i <= latestVersion; i += 1) {
-        chooser.push(
-          <Chooser.Option value={i}>
-            {`v${i}`}
-          </Chooser.Option>
-        );
+        if (i !== currentVersion) {
+          chooser.push(
+            <option value={i}>
+              v{i}
+            </option>
+          );
+        }
       }
     }
 
@@ -230,18 +233,14 @@ export default class Component extends React.Component {
   }
 
   _renderVersion() {
-    const { latestVersion, currentVersion } = this.state;
+    const { latestVersion } = this.state;
 
-    const placeholder = currentVersion || latestVersion;
     return latestVersion ? (
       <span className="switch-version">
         <span className="switch-version-text">Switch version:</span>
-        <Chooser
-          chooserName="Version"
-          placeholderText={`v${placeholder}`}
-          onChange={this._onVersionChange.bind(this)}>
+        <select className="chooser" onChange={this._onVersionChange.bind(this)}>
           { this._renderVersionOptions() }
-        </Chooser>
+        </select>
       </span>
     ) : null;
   }
