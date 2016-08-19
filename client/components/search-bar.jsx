@@ -51,21 +51,15 @@ export default class Component extends React.Component {
           list={this.state.list}
           listStyle={{
             position: "absolute",
-            top: "100%",
-            left: 0,
             zIndex: 100,
-            width: "auto",
-            minWidth: "100%",
+            width: "99%",
             margin: "0 0 0 2px",
-            padding: "5px 0",
-            display: "block"
+            background: "#fff",
+            padding: "5px",
+            boxShadow: "2px 2px 2px #555"
           }}
           inputComponent={
-            <input
-              autoComplete="off"
-              className="search-input"
-              placeholder="Search"
-               />
+            <input autoComplete="off" className="search-input" placeholder="Search"/>
           }
           onChange={this._fetchSuggestions}
           onSelectOption={this._performSearch}
