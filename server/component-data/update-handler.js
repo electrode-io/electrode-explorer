@@ -4,7 +4,7 @@ const Fs = require("fs");
 const Path = require("path");
 const semver = require("semver");
 
-const Config = require("@walmart/electrode-config").config;
+const Config = require("electrode-confippet").config;
 const ghToken = Config.automaticUpdate && process.env[Config.GHACCESS_TOKEN_NAME];
 
 const ensureDirectoryExists = require("./utils/ensure-directory-exists");

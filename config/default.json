@@ -1,20 +1,14 @@
 {
-  "services": {
-    "consumerId": "91e1b78e-261b-4676-8317-4cf5bfa24a42",
-    "privateKey": {
-      "file": "config/private-key-qa.pem",
-      "version": 2,
-      "algorithm": "RSA",
-      "encoding": "PKCS#8"
-    }
-  },
   "plugins": {
+    "inert": {
+      "enable": true
+    },
     "./server/search-api": {},
     "./server/component-data": {},
     "./server/component-data/poll": {},
     "@walmart/electrode-react-webapp": {
       "options": {
-        "pageTitle": "Electrode Portal",
+        "pageTitle": "Electrode Explorer",
         "devServer": {
           "port": "2992"
         },
@@ -42,45 +36,36 @@
     "version": "3.0.0",
     "pathPrefix": "/api/v3",
     "protocol": "https",
-    "host": "gecgithub01.walmart.com"
+    "host": "github.com"
   },
 
   "ui": {
-    "basePath": "/portal",
+    "basePath": "/explorer",
     "meta": {
-      "portalName": "Electrode Showcase",
-      "portalLogo": "/portal/img/electrode.png"
+      "name": "Electrode Showcase",
+      "logo": "/explorer/img/electrode.png"
     },
     "github": {
       "protocol": "https",
-      "basePath": "gecgithub01.walmart.com"
+      "basePath": "github.com"
     },
     "timeout": 10000
   },
 
   "ORGS": [
-    "react",
-    "redux"
+
   ],
 
   "REPOS_USAGE_INCLUDE": [
-    "electrode",
-    "react",
-    "redux",
-    "R-"
+
   ],
 
   "REPOS_USAGE_EXCLUDE": [
-    "electrode-training",
-    "electrode/portal",
-    "electrode/electrode-showcase",
-    "electrode/bootcamp-classes"
+
   ],
 
   "MODULE_PREFIXES_INCLUDE": [
-    "wmreact",
-    "wmredux",
-    "electrode"
+
   ],
 
   "automaticUpdate": true,

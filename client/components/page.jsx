@@ -1,12 +1,12 @@
 import React from "react";
 
-import PortalBody from "./portal-body";
+import Body from "./body";
 
 export const Page = (props) => {
   return (
-    <PortalBody>
+    <Body>
       {props.children}
-    </PortalBody>
+    </Body>
   );
 };
 

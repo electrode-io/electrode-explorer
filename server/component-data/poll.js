@@ -7,7 +7,7 @@
 
 const GitHubApi = require("github");
 const Promise = require("bluebird");
-const Config = require("@walmart/electrode-config").config;
+const Config = require("electrode-confippet").config;
 const github = new GitHubApi(Config.githubApi);
 const githubAuthObject = require("./utils/github-auth-object");
 
@@ -53,7 +53,7 @@ Poll.register = (server, options, next) => {
           setInterval(() => {
             server.inject({
               method: "POST",
-              url:`/portal/api/update/repo/${org}/${repoName}`
+              url:`/explorer/api/update/repo/${org}/${repoName}`
             }, (res) => {
               console.log(res.result);
             });

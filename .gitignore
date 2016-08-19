@@ -151,9 +151,5 @@ Temporary Items
 # Build
 dist
 Procfile
-config/assets.json
 npm-shrinkwrap.json
 
-.ccm
-
-.isomorphic-loader-config.json
