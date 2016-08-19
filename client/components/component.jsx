@@ -1,11 +1,7 @@
-/* globals document _COMPONENTS setTimeout setInterval clearInterval */
+/* globals document _COMPONENTS setTimeout setInterval clearInterval fetch */
 
 import React from "react";
-import { fetchJSON } from "@walmart/electrode-fetch";
-import Well from "@walmart/wmreact-containers/lib/components/well";
-import Table from "@walmart/wmreact-table/lib/components/table";
 import Revealer from "@walmart/wmreact-interactive/lib/components/revealer";
-import Chooser from "@walmart/wmreact-chooser/lib/components/chooser";
 import ExecutionEnvironment from "exenv";
 import Config from "@walmart/electrode-ui-config";
 import marked from "marked";
@@ -45,7 +41,7 @@ export default class Component extends React.Component {
 
   _getComponentInfo(org, repo) {
     const host = window.location.origin;
-    const url = `${host}/portal/data/${org}/${repo}.json`;
+    const url = `${host}/explorer/data/${org}/${repo}.json`;
 
     const compare = (a, b) => {
       if (a.displayName < b.displayName) {
@@ -57,7 +53,13 @@ export default class Component extends React.Component {
       return 0;
     };
 
-    return fetchJSON(url)
+    return fetch(url)
+      .then((res) => {
+        if (res.status >= 400) {
+          throw res;
+        }
+        return res.json();
+      })
       .then((res) => {
         const meta = res.meta || {};
         const usage = res.usage.sort(compare);
@@ -81,7 +83,7 @@ export default class Component extends React.Component {
     const host = window.location.origin;
     const script = document.createElement("script");
     const { currentVersion } = this.state;
-    script.src = `${host}/portal/data/demo-modules/${meta.name}/v${currentVersion}/bundle.min.js`;
+    script.src = `${host}/explorer/data/demo-modules/${meta.name}/v${currentVersion}/bundle.min.js`;
     script.async = true;
 
     const placeholder = document.getElementById("placeholder");
@@ -104,9 +106,15 @@ export default class Component extends React.Component {
 
   _getDoc(org, repo) {
     const host = window.location.origin;
-    const url = `${host}/portal/api/doc/${org}/${repo}`;
+    const url = `${host}/explorer/api/doc/${org}/${repo}`;
 
-    return fetchJSON(url)
+    return fetch(url)
+      .then((res) => {
+        if (res.status >= 400) {
+          throw res;
+        }
+        return res.json();
+      })
       .then((res) => {
         this.setState({ doc: marked(res.doc) });
       })
@@ -154,7 +162,7 @@ export default class Component extends React.Component {
 
   _renderTitle(meta) {
     return (
-      <h2 className="portal-title">
+      <h2 className="explorer-title">
         { meta.title }
 
         { meta.version &&
@@ -175,45 +183,49 @@ export default class Component extends React.Component {
               <a href={meta.github} target="_blank">View Repository on Github</a>
             </div> }
           { meta.name &&
-            <Well className="code-well" padded={true}>
+            <div className="code-well">
               npm i --save {meta.name}
-            </Well> }
+            </div> }
         </span>
 
       </h2>
     );
   }
 
-  _onVersionChange(currentVersion) {
+  _onVersionChange(e) {
     const { org, repo } = this.props.params;
-    const prev = this.state.currentVersion;
+    const curr = this.state.currentVersion;
+    const next = +e.target.value;
 
-    if (typeof currentVersion === "number" && prev !== currentVersion) {
-      window.location.pathname = Config.fullPath(`/${org}/${repo}/${currentVersion}`);
+    if (!isNaN(next) && curr !== next) {
+      window.location.pathname = Config.fullPath(`/${org}/${repo}/${next}`);
     }
   }
 
   _renderVersionOptions() {
+    const { latestVersion, currentVersion } = this.state;
+
     const chooser = [
-      <Chooser.Option value="Select">
-        Select
-      </Chooser.Option>
+      <option value="Select">
+        v{currentVersion}
+      </option>
     ];
-    const { latestVersion } = this.state;
 
     if (latestVersion === 0) {
       chooser.push(
-        <Chooser.Option value={0}>
+        <option value={0}>
           v0
-        </Chooser.Option>
+        </option>
       );
     } else {
       for (let i = 1; i <= latestVersion; i += 1) {
-        chooser.push(
-          <Chooser.Option value={i}>
-            {`v${i}`}
-          </Chooser.Option>
-        );
+        if (i !== currentVersion) {
+          chooser.push(
+            <option value={i}>
+              v{i}
+            </option>
+          );
+        }
       }
     }
 
@@ -221,18 +233,14 @@ export default class Component extends React.Component {
   }
 
   _renderVersion() {
-    const { latestVersion, currentVersion } = this.state;
+    const { latestVersion } = this.state;
 
-    const placeholder = currentVersion || latestVersion;
     return latestVersion ? (
       <span className="switch-version">
         <span className="switch-version-text">Switch version:</span>
-        <Chooser
-          chooserName="Version"
-          placeholderText={`v${placeholder}`}
-          onChange={this._onVersionChange.bind(this)}>
+        <select className="chooser" onChange={this._onVersionChange.bind(this)}>
           { this._renderVersionOptions() }
-        </Chooser>
+        </select>
       </span>
     ) : null;
   }
@@ -241,7 +249,7 @@ export default class Component extends React.Component {
     const { doc } = this.state;
 
     return (
-      <div className="portal-title">
+      <div className="explorer-title">
         <Revealer
           baseHeight={0}
           buttonClosedText="View Doc"
@@ -259,27 +267,27 @@ export default class Component extends React.Component {
 
   _renderModuleData(data) {
     return (
-      <Table>
-        <Table.Body>
+      <table>
+        <tbody>
           {data.map((detail) => (
-            <Table.Row>
-              <Table.Cell>
+            <tr>
+              <td>
                 <a href={detail.uri} target="_blank" className="detail-uri">
                   {detail.displayName}
                 </a>
-              </Table.Cell>
-              <Table.Cell className="detail-version">
+              </td>
+              <td className="detail-version">
                 <span className={`version-status-${detail.version && detail.version.status}`}>
                   {detail.version && detail.version.str}
                 </span>
-              </Table.Cell>
-              <Table.Cell className="detail-description">
+              </td>
+              <td className="detail-description">
                 {detail.description}
-              </Table.Cell>
-            </Table.Row>
+              </td>
+            </tr>
           ))}
-        </Table.Body>
-      </Table>
+        </tbody>
+      </table>
     );
   }
 

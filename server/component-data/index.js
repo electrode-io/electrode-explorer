@@ -14,20 +14,20 @@ const ComponentData = {};
 ComponentData.register = (server, options, next) => {
 
   server.route({
-    path: "/portal/api/update/repo/{org}/{repoName}",
+    path: "/explorer/api/update/repo/{org}/{repoName}",
     method: "POST",
     handler: updateHandler
   });
 
   server.route({
-    path: "/portal/api/doc/{org}/{repoName}",
+    path: "/explorer/api/doc/{org}/{repoName}",
     method: "GET",
     handler: fetchDocHandler
   });
 
   server.route({
     method: "GET",
-    path: "/portal/data/{param*}",
+    path: "/explorer/data/{param*}",
     handler: {
       directory: {
         path: Path.join(__dirname, "../data"),
@@ -38,7 +38,7 @@ ComponentData.register = (server, options, next) => {
 
   server.route({
     method: "GET",
-    path: "/portal/img/electrode.png",
+    path: "/explorer/img/electrode.png",
     handler: function (request, reply) {
       reply.file(Path.join(__dirname, "../../client/images/electrode.png"));
     }
@@ -49,7 +49,7 @@ ComponentData.register = (server, options, next) => {
 };
 
 ComponentData.register.attributes = {
-  name: "portalComponentData",
+  name: "componentData",
   version: "1.0.0"
 };
 
