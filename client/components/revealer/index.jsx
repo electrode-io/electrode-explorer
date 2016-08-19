@@ -75,9 +75,7 @@ export default class Revealer extends React.Component {
 
   render() {
     const buttonText = this.state.isOpen ? this.props.buttonOpenText : this.props.buttonClosedText;
-    const baseHeight = this.state.contentSet ?
-      this.state.baseHeight + 20 : // This makes up for the 20px margin-top
-      this.state.baseHeight;       // that was cutting off the text.
+    const baseHeight = this.state.baseHeight;
 
     return (
       <div>
