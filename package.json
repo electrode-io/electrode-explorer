@@ -35,9 +35,9 @@
     "@walmart/electrode-demo-index": "^1.2.0",
     "@walmart/electrode-react-webapp": "^6.2.0",
     "@walmart/electrode-ui-config": "^1.2.2",
-    "@walmart/wmreact-interactive": "^7.4.0",
     "babel-traverse": "^6.10.4",
     "bluebird": "^3",
+    "classname": "0.0.0",
     "electrode-archetype-react-component": "^1.0.0",
     "electrode-archetype-react-component-dev": "^1.0.0",
     "electrode-confippet": "^1.5.0",
@@ -52,6 +52,7 @@
     "radon-typeahead": "^0.3.1",
     "react": "^0.14.8",
     "react-dom": "^0.14.8",
+    "react-tween-state": "^0.1.5",
     "semver": "^5.2.0"
   },
   "devDependencies": {
