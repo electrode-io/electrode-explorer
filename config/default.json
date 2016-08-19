@@ -33,7 +33,7 @@
     "version": "3.0.0",
     "pathPrefix": "/api/v3",
     "protocol": "https",
-    "host": "gecgithub01.walmart.com"
+    "host": "github.com"
   },
 
   "ui": {
@@ -44,7 +44,7 @@
     },
     "github": {
       "protocol": "https",
-      "basePath": "gecgithub01.walmart.com"
+      "basePath": "github.com"
     },
     "timeout": 10000
   },
