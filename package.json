@@ -4,12 +4,10 @@
   "main": "server/index.js",
   "description": "Showcase/Portal for Electrode",
   "scripts": {
-    "build": "builder run build",
-    "dev": "builder run dev",
-    "help": "builder help",
-    "hot": "builder run hot",
-    "publish-static": "pronto-js -f \"dist/**/{*.js,*.css,*.woff,*.eot,*.ttf,*.jpg,*.jpeg,*.png,*.gif}\" -o \"config/assets.json\"",
-    "test": "builder run npm:test"
+    "build": "gulp build",
+    "dev": "gulp dev",
+    "help": "gulp help",
+    "hot": "gulp hot"
   },
   "repository": {
     "type": "git",
