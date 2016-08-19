@@ -48,8 +48,8 @@
     "marked": "^0.3.6",
     "mkdirp": "^0.5.1",
     "radon-typeahead": "^0.3.1",
-    "react": "^0.14.8",
-    "react-dom": "^0.14.8",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
     "react-tween-state": "^0.1.5",
     "semver": "^5.2.0"
   },
