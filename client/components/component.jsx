@@ -128,7 +128,7 @@ export default class Component extends React.Component {
       <div className="component-consumption">
         <h3>Component Usage</h3>
         { usage.length > 0 && <Revealer
-          baseHeight={50}
+          baseHeight={24}
           buttonClosedText="View Usage"
           buttonOpenText="Hide Usage"
           defaultOpen={false}
@@ -143,7 +143,7 @@ export default class Component extends React.Component {
         </Revealer> }
         <h3>Module Dependencies</h3>
         { deps.length > 0 && <Revealer
-          baseHeight={50}
+          baseHeight={24}
           buttonClosedText="View Dependencies"
           buttonOpenText="Hide Dependencies"
           defaultOpen={false}

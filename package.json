@@ -30,7 +30,6 @@
     "url": "https://github.com/electrode-io/electrode-explorer/issues"
   },
   "dependencies": {
-    "@walmart/electrode-demo-index": "^1.2.0",
     "@walmart/electrode-react-webapp": "^6.2.0",
     "@walmart/electrode-ui-config": "^1.2.2",
     "babel-traverse": "^6.10.4",
