@@ -4,12 +4,10 @@
   "main": "server/index.js",
   "description": "Showcase/Portal for Electrode",
   "scripts": {
-    "build": "builder run build",
-    "dev": "builder run dev",
-    "help": "builder help",
-    "hot": "builder run hot",
-    "publish-static": "pronto-js -f \"dist/**/{*.js,*.css,*.woff,*.eot,*.ttf,*.jpg,*.jpeg,*.png,*.gif}\" -o \"config/assets.json\"",
-    "test": "builder run npm:test"
+    "build": "gulp build",
+    "dev": "gulp dev",
+    "help": "gulp help",
+    "hot": "gulp hot"
   },
   "repository": {
     "type": "git",
@@ -32,19 +30,15 @@
     "url": "https://github.com/electrode-io/electrode-explorer/issues"
   },
   "dependencies": {
-    "@walmart/electrode-config": "^1.0.1",
     "@walmart/electrode-demo-index": "^1.2.0",
     "@walmart/electrode-react-webapp": "^6.2.0",
     "@walmart/electrode-ui-config": "^1.2.2",
-    "@walmart/wmreact-chooser": "^4.2.0",
-    "@walmart/wmreact-containers": "^11.11.2",
-    "@walmart/wmreact-interactive": "^7.4.0",
-    "@walmart/wmreact-table": "^3.0.0",
-    "@walmart/wmreact-typeahead": "^3.1.0",
     "babel-traverse": "^6.10.4",
     "bluebird": "^3",
+    "classname": "0.0.0",
     "electrode-archetype-react-component": "^1.0.0",
     "electrode-archetype-react-component-dev": "^1.0.0",
+    "electrode-confippet": "^1.5.0",
     "electrode-router-resolver-engine": "^1.0.0",
     "electrode-server": "^1.0.0",
     "exenv": "^1.2.0",
@@ -53,8 +47,10 @@
     "isomorphic-fetch": "^2.2.1",
     "marked": "^0.3.6",
     "mkdirp": "^0.5.1",
-    "react": "^0.14.8",
-    "react-dom": "^0.14.8",
+    "radon-typeahead": "^0.3.1",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
+    "react-tween-state": "^0.1.5",
     "semver": "^5.2.0"
   },
   "devDependencies": {

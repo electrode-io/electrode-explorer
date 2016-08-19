@@ -3,7 +3,7 @@
 const Fs = require("fs");
 const Promise = require("bluebird");
 const Path = require("path");
-const Config = require("@walmart/electrode-config").config;
+const Config = require("electrode-confippet").config;
 const checkVersion = require("./utils/check-version");
 const execFile = require("child_process").execFile;
 

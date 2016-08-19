@@ -1,7 +1,7 @@
 /* globals document _COMPONENTS setTimeout setInterval clearInterval fetch */
 
 import React from "react";
-import Revealer from "@walmart/wmreact-interactive/lib/components/revealer";
+import Revealer from "./revealer";
 import ExecutionEnvironment from "exenv";
 import Config from "@walmart/electrode-ui-config";
 import marked from "marked";
