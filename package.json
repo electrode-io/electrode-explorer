@@ -32,7 +32,6 @@
     "url": "https://github.com/electrode-io/electrode-explorer/issues"
   },
   "dependencies": {
-    "@walmart/electrode-config": "^1.0.1",
     "@walmart/electrode-demo-index": "^1.2.0",
     "@walmart/electrode-react-webapp": "^6.2.0",
     "@walmart/electrode-ui-config": "^1.2.2",
@@ -41,6 +40,7 @@
     "bluebird": "^3",
     "electrode-archetype-react-component": "^1.0.0",
     "electrode-archetype-react-component-dev": "^1.0.0",
+    "electrode-confippet": "^1.5.0",
     "electrode-router-resolver-engine": "^1.0.0",
     "electrode-server": "^1.0.0",
     "exenv": "^1.2.0",

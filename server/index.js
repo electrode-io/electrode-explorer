@@ -4,7 +4,7 @@ extendRequire()
   .then(function () {
     /*eslint-disable*/
     require("babel-core/register");
-    require("electrode-server")(require("@walmart/electrode-config").config);
+    require("electrode-server")(require("electrode-confippet").config);
     /*eslint-enable*/
   })
   .catch(function (err) {
