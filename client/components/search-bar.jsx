@@ -1,8 +1,7 @@
-/* globals fetch */
-
 import React from "react";
 import ExecutionEnvironment from "exenv";
 import Typeahead from "radon-typeahead";
+import fetch from "isomorphic-fetch";
 
 export default class Component extends React.Component {
   constructor(props) {

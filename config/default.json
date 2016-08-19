@@ -1,5 +1,8 @@
 {
   "plugins": {
+    "inert": {
+      "enable": true
+    },
     "./server/search-api": {},
     "./server/component-data": {},
     "./server/component-data/poll": {},

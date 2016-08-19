@@ -1,8 +1,9 @@
-/* globals console fetch */
+/* globals console */
 /* eslint-disable no-console */
 
 import React from "react";
 import ExecutionEnvironment from "exenv";
+import fetch from "isomorphic-fetch";
 
 export default class Component extends React.Component {
   constructor(props) {

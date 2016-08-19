@@ -1,10 +1,11 @@
-/* globals document _COMPONENTS setTimeout setInterval clearInterval fetch */
+/* globals document _COMPONENTS setTimeout setInterval clearInterval */
 
 import React from "react";
 import Revealer from "./revealer";
 import ExecutionEnvironment from "exenv";
 import Config from "@walmart/electrode-ui-config";
 import marked from "marked";
+import fetch from "isomorphic-fetch";
 
 export default class Component extends React.Component {
   constructor(props) {

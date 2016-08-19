@@ -1,7 +1,6 @@
-/* globals fetch */
-
 import React from "react";
 import ExecutionEnvironment from "exenv";
+import fetch from "isomorphic-fetch";
 
 const Results = (props) => {
   const {
