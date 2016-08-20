@@ -34,7 +34,7 @@
     "@walmart/electrode-ui-config": "^1.2.2",
     "babel-traverse": "^6.10.4",
     "bluebird": "^3",
-    "classname": "0.0.0",
+    "classnames": "^2.2.5",
     "electrode-archetype-react-component": "^1.0.0",
     "electrode-archetype-react-component-dev": "^1.0.0",
     "electrode-confippet": "^1.5.0",
