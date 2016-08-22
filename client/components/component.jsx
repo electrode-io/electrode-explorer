@@ -3,7 +3,7 @@
 import React from "react";
 import Revealer from "./revealer";
 import ExecutionEnvironment from "exenv";
-import Config from "@walmart/electrode-ui-config";
+import Config from "electrode-ui-config";
 import marked from "marked";
 import fetch from "isomorphic-fetch";
 

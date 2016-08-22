@@ -1,5 +1,5 @@
 import React from "react";
-import Config from "@walmart/electrode-ui-config";
+import Config from "electrode-ui-config";
 
 const explorerHeader = () => {
   return (

@@ -22,7 +22,6 @@ const fetchDoc = (request, reply) => {
   return github.repos.getContent(opts, (err, response) => {
 
     if (err) {
-      console.log("error fetchDoc", err);
       return reply("An error occured").code(err.code || 500);
     }
 
