@@ -14,9 +14,11 @@ export default class Component extends React.Component {
   }
 
   componentWillMount() {
-    const host = ExecutionEnvironment.canUseDOM ?
-      window.location.origin :
-      "http://localhost:3000";
+    if (!ExecutionEnvironment.canUseDOM) {
+      return;
+    }
+
+    const host = window.location.origin;
 
     return fetch(`${host}/explorer/data/orgs.json`)
       .then((res) => {

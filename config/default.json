@@ -42,7 +42,7 @@
   "ui": {
     "basePath": "/explorer",
     "meta": {
-      "name": "Electrode Showcase",
+      "name": "Electrode Explorer",
       "logo": "/explorer/img/electrode.png"
     },
     "github": {

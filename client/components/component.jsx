@@ -3,7 +3,6 @@
 import React from "react";
 import Revealer from "./revealer";
 import ExecutionEnvironment from "exenv";
-import Config from "electrode-ui-config";
 import marked from "marked";
 import fetch from "isomorphic-fetch";
 
@@ -102,7 +101,7 @@ export default class Component extends React.Component {
         clearInterval(x);
         this.setState({ error: true });
       }
-    }, Config.ui.timeout);
+    }, 10000);
   }
 
   _getDoc(org, repo) {
@@ -199,7 +198,7 @@ export default class Component extends React.Component {
     const next = +e.target.value;
 
     if (!isNaN(next) && curr !== next) {
-      window.location.pathname = Config.fullPath(`/${org}/${repo}/${next}`);
+      window.location.pathname = `/explorer/${org}/${repo}/${next}`;
     }
   }
 

@@ -39,7 +39,6 @@
     "electrode-react-webapp": "^1.0.0",
     "electrode-router-resolver-engine": "^1.0.0",
     "electrode-server": "^1.0.0",
-    "electrode-ui-config": "^1.0.0",
     "exenv": "^1.2.0",
     "github": "^1.1.2",
     "history": "~1.13.1",

@@ -47,11 +47,13 @@ export default class Search extends React.Component {
   }
 
   componentWillMount() {
+    if (!ExecutionEnvironment.canUseDOM) {
+      return;
+    }
+
     const { term } = this.props.params;
 
-    const host = ExecutionEnvironment.canUseDOM ?
-      window.location.origin :
-      "http://localhost:3000";
+    const host = window.location.origin;
 
     return fetch(`${host}/explorer/api/search/term/${term}`)
       .then((res) => {
