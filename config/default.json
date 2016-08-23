@@ -5,7 +5,11 @@
     },
     "./server/search-api": {},
     "./server/component-data": {},
-    "./server/component-data/poll": {},
+    "./server/component-data/poll": {
+      "options": {
+        "enabled": false
+      }
+    },
     "@walmart/electrode-react-webapp": {
       "options": {
         "pageTitle": "Electrode Explorer",
@@ -20,7 +24,7 @@
           "/{args*}": {
             "view": "index",
             "content": {
-              "module": "./view/index-view"
+              "module": "./server/app"
             }
           }
         },

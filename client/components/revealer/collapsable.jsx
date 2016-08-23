@@ -135,8 +135,7 @@ export default React.createClass({
       <div
         className={classNames(this.props.containerClassName, "Collapsable")}
         ref="collapsable"
-        style={this._getContentWrapperStyles()}
-        ariaHidden={this.props.isOpen}>
+        style={this._getContentWrapperStyles()}>
         <div
           {...this.props}
           style={{display: "block", boxSizing: "border-box"}}
