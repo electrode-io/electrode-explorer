@@ -48,6 +48,9 @@ Poll.register = (server, options, next) => {
   const repos = [];
 
   const promises = [];
+  ORGS.forEach((org) => {
+    promises.push(getRepos(org, 1, repos));
+  });
 
   return Promise.all(promises)
     .then(() => {
