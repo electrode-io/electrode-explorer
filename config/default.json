@@ -10,7 +10,7 @@
         "enabled": false
       }
     },
-    "@walmart/electrode-react-webapp": {
+    "electrode-react-webapp": {
       "options": {
         "pageTitle": "Electrode Explorer",
         "devServer": {
@@ -78,5 +78,5 @@
 
   "POLL_INTERVAL": 1800000,
 
-  "GHACCESS_TOKEN_NAME": "ECE_GHACCESS_TOKEN"
+  "GHACCESS_TOKEN_NAME": "GHACCESS_TOKEN"
 }
