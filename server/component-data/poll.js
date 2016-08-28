@@ -38,7 +38,7 @@ function getRepos(org, page, repos) {
 }
 
 Poll.register = (server, options, next) => {
-  if (options.enabled === false) {
+  if (options.enable === false) {
     return next();
   }
 

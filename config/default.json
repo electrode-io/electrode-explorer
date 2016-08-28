@@ -7,7 +7,7 @@
     "./server/component-data": {},
     "./server/component-data/poll": {
       "options": {
-        "enabled": false
+        "enable": false
       }
     },
     "electrode-react-webapp": {
