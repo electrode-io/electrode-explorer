@@ -47,7 +47,7 @@
     "basePath": "/explorer",
     "meta": {
       "name": "Electrode Explorer",
-      "logo": "/explorer/img/electrode.png"
+      "logo": "/explorer/img/electrode.svg"
     },
     "github": {
       "protocol": "https",
