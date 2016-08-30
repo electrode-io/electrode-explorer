@@ -38,9 +38,9 @@ ComponentData.register = (server, options, next) => {
 
   server.route({
     method: "GET",
-    path: "/explorer/img/electrode.png",
+    path: "/explorer/img/electrode.svg",
     handler: function (request, reply) {
-      reply.file(Path.join(__dirname, "../../client/images/electrode.png"));
+      reply.file(Path.join(__dirname, "../../client/images/electrode.svg"));
     }
   });
 
