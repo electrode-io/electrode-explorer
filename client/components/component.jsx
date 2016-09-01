@@ -41,7 +41,7 @@ export default class Component extends React.Component {
 
   _getComponentInfo(org, repo) {
     const host = window.location.origin;
-    const url = `${host}/explorer/data/${org}/${repo}.json`;
+    const url = `${host}/data/${org}/${repo}.json`;
 
     const compare = (a, b) => {
       if (a.displayName < b.displayName) {
@@ -83,7 +83,7 @@ export default class Component extends React.Component {
     const host = window.location.origin;
     const script = document.createElement("script");
     const { currentVersion } = this.state;
-    script.src = `${host}/explorer/data/demo-modules/${meta.name}/v${currentVersion}/bundle.min.js`;
+    script.src = `${host}/data/demo-modules/${meta.name}/v${currentVersion}/bundle.min.js`;
     script.async = true;
 
     const placeholder = document.getElementById("placeholder");
@@ -106,7 +106,7 @@ export default class Component extends React.Component {
 
   _getDoc(org, repo) {
     const host = window.location.origin;
-    const url = `${host}/explorer/api/doc/${org}/${repo}`;
+    const url = `${host}/api/doc/${org}/${repo}`;
 
     return fetch(url)
       .then((res) => {
@@ -198,7 +198,7 @@ export default class Component extends React.Component {
     const next = +e.target.value;
 
     if (!isNaN(next) && curr !== next) {
-      window.location.pathname = `/explorer/${org}/${repo}/${next}`;
+      window.location.pathname = `/${org}/${repo}/${next}`;
     }
   }
 

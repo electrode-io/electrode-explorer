@@ -14,20 +14,20 @@ const ComponentData = {};
 ComponentData.register = (server, options, next) => {
 
   server.route({
-    path: "/explorer/api/update/repo/{org}/{repoName}",
+    path: "/api/update/repo/{org}/{repoName}",
     method: "POST",
     handler: updateHandler
   });
 
   server.route({
-    path: "/explorer/api/doc/{org}/{repoName}",
+    path: "/api/doc/{org}/{repoName}",
     method: "GET",
     handler: fetchDocHandler
   });
 
   server.route({
     method: "GET",
-    path: "/explorer/data/{param*}",
+    path: "/data/{param*}",
     handler: {
       directory: {
         path: Path.join(__dirname, "../data"),
@@ -38,7 +38,7 @@ ComponentData.register = (server, options, next) => {
 
   server.route({
     method: "GET",
-    path: "/explorer/img/electrode.svg",
+    path: "/img/electrode.svg",
     handler: function (request, reply) {
       reply.file(Path.join(__dirname, "../../client/images/electrode.svg"));
     }

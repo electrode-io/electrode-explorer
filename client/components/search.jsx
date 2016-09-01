@@ -22,7 +22,7 @@ const Results = (props) => {
         {matched.map((result) => {
           return (
           <div className="search-result">
-            <a href={`/explorer/${result.module}`}>
+            <a href={`/${result.module}`}>
             {result.isModule && <span className="module">Module <em>{result.module}</em></span>}
             {result.matches && <span className="matches">{result.matches.join(", ")} </span>}
             {!result.isModule && <span className="location">in {result.module}</span>}
@@ -55,7 +55,7 @@ export default class Search extends React.Component {
 
     const host = window.location.origin;
 
-    return fetch(`${host}/explorer/api/search/term/${term}`)
+    return fetch(`${host}/api/search/term/${term}`)
       .then((res) => {
         if (res.status >= 400) {
           throw res;

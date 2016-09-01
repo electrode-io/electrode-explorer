@@ -26,13 +26,13 @@ SearchApi.register = (server, options, next) => {
   }
 
   server.route({
-    path: "/explorer/api/search/partial/{part}",
+    path: "/api/search/partial/{part}",
     method: "GET",
     handler: PartialHandler
   });
 
   server.route({
-    path: "/explorer/api/search/term/{term}",
+    path: "/api/search/term/{term}",
     method: "GET",
     handler: TermHandler
   });

@@ -23,7 +23,7 @@ export default class Component extends React.Component {
 
     const { host } = this.state;
 
-    return fetch(`${host}/explorer/api/search/partial/${part}`)
+    return fetch(`${host}/api/search/partial/${part}`)
       .then((res) => {
         if (res.status >= 400) {
           throw res;
@@ -39,7 +39,7 @@ export default class Component extends React.Component {
 
   _performSearch(term) {
     if (ExecutionEnvironment.canUseDOM) {
-      window.location = "/explorer/search/" + term;
+      window.location = "/search/" + term;
     }
   }
 

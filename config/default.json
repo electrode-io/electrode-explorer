@@ -44,10 +44,10 @@
   },
 
   "ui": {
-    "basePath": "/explorer",
+    "basePath": "/",
     "meta": {
       "name": "Electrode Explorer",
-      "logo": "/explorer/img/electrode.svg"
+      "logo": "/img/electrode.svg"
     },
     "github": {
       "protocol": "https",

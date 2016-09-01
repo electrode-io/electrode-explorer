@@ -60,12 +60,12 @@ Poll.register = (server, options, next) => {
           setInterval(() => {
             server.inject({
               method: "POST",
-              url:`/explorer/api/update/repo/${org}/${repoName}`
+              url:`/api/update/repo/${org}/${repoName}`
             }, (res) => {
               console.log(res.result);
             });
           }, Config.POLL_INTERVAL);
-        }, 10000 + index * 100000);
+        }, 10000 + index * 500000);
       });
 
       return next();

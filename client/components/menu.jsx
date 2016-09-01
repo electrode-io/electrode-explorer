@@ -20,7 +20,7 @@ export default class Component extends React.Component {
 
     const host = window.location.origin;
 
-    return fetch(`${host}/explorer/data/orgs.json`)
+    return fetch(`${host}/data/orgs.json`)
       .then((res) => {
         if (res.status >= 400) {
           throw res;
@@ -38,7 +38,7 @@ export default class Component extends React.Component {
     const hash = submodule.replace(/\s/g, "").toLowerCase();
     return (
       <li>
-        <a href={`/explorer/${link}#${hash}`}>
+        <a href={`/${link}#${hash}`}>
           {submodule}
         </a>
       </li>
@@ -63,7 +63,7 @@ export default class Component extends React.Component {
 
       return (<li>
         <a
-          href={`/explorer/${link}`}>
+          href={`/${link}`}>
           {repoName}
         </a>
         {this._renderSubModules(link, submodules)}
