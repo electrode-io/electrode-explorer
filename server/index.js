@@ -4,7 +4,7 @@ extendRequire()
   .then(function () {
     /*eslint-disable*/
     require("babel-core/register");
-    require("electrode-server")(require("electrode-confippet").config);
+    require("electrode-server")(require("electrode-confippet").config, [require("electrode-static-paths")()]);
     /*eslint-enable*/
   })
   .catch(function (err) {
