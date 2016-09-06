@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "main": "server/index.js",
   "description": "Showcase/Explorer for Electrode components",
+  "engine": {
+    "node": ">=4.0.0",
+    "npm": ">=3.0.0"
+  },
   "scripts": {
     "build": "gulp build",
     "dev": "gulp dev",
@@ -19,7 +23,9 @@
     "electrode",
     "showcase",
     "catalog",
-    "example"
+    "example",
+    "explore",
+    "demo"
   ],
   "author": [
     "Caoyang Shi <wuwa007@gmail.com>",
