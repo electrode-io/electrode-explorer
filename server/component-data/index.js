@@ -30,7 +30,7 @@ ComponentData.register = (server, options, next) => {
     path: "/data/{param*}",
     handler: {
       directory: {
-        path: Path.join(__dirname, "../data"),
+        path: Path.join(__dirname, "../../data"),
         listing: true
       }
     }
