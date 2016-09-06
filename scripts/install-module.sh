@@ -5,15 +5,40 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
+function prepare_nodejs() {
+  local version;
+  if [ -n "$NODE_VERSION" ]; then
+    version=$NODE_VERSION
+  else
+    version=4
+  fi
+
+  if [ -z `command -v nvm` ]; then
+    local NVM_DIR="/usr/local/nvm"
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.7/install.sh | NVM_DIR=$NVM_DIR bash
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+  fi
+
+  nvm install $version
+
+  npm set progress false
+
+  local NPM_MAJOR=$(npm --version | cut -f1 -d.)
+  if [ $version -ge 4 ]; then
+    if [ $NPM_MAJOR -lt 3 ]; then
+      echo "NPM major version is $NPM_MAJOR, upgrading to npm@3"
+      npm install -g npm@^3
+    fi
+  fi
+}
+
 function npm_install() {
   echo "installing $1"
   if which npm; then
     npm i $1
     npm i --only=dev $1
-  elif [ -f /usr/local/lib/electrode-ops-helpers.sh ]; then
-    source /usr/local/lib/electrode-ops-helpers.sh
-    prepare_nodejs 4
-    npm set progress false
+  else
+    prepare_nodejs
     npm i $1
     npm i --only=dev $1
   fi
