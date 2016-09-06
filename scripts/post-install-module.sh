@@ -38,7 +38,6 @@ function run_babel() {
 function build() {
   run_babel $1
 
-  update_src node_modules/$1/demo/demo.styl "+\$tenant+" "+\"walmart\"+"
   for file in node_modules/$1/demo/*.js; do
     update_src $file ".jsx" ""
   done
