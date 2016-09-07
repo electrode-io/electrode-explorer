@@ -18,7 +18,6 @@ const extractMetaData = (pkg, repoUrl) => {
     github: repoUrl,
     version: pkg.version
   };
-
 };
 
 const fetchRepo = (org, repoName) => {
@@ -43,16 +42,13 @@ const fetchRepo = (org, repoName) => {
 
       let meta;
       let pkg = {};
-      try {
 
+      try {
         pkg = JSON.parse(packageContent);
         meta = extractMetaData(pkg, response.html_url.replace("blob/master/package.json", ""));
-
       } catch (err) {
-
         console.error("Error parsing package.json", err);
         return reject(new Error("Could not get package.json as JSON"));
-
       }
 
       return Promise.all([

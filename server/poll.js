@@ -60,7 +60,7 @@ Poll.register = (server, options, next) => {
           setInterval(() => {
             server.inject({
               method: "POST",
-              url:`/api/update/repo/${org}/${repoName}`
+              url:`/api/update/${org}/${repoName}`
             }, (res) => {
               console.log(res.result);
             });
