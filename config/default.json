@@ -4,7 +4,7 @@
       "enable": true
     },
     "./server/search-api": {},
-    "./server/component-data": {},
+    "./server/component-api": {},
     "./server/poll": {
       "options": {
         "enable": false
