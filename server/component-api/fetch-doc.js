@@ -3,8 +3,8 @@
 const GitHubApi = require("github");
 const Config = require("electrode-confippet").config;
 const github = new GitHubApi(Config.githubApi);
-const githubAuthObject = require("./utils/github-auth-object");
-const contentToString = require("./utils/content-to-string");
+const githubAuthObject = require("../utils/github-auth-object");
+const contentToString = require("../utils/content-to-string");
 
 const fetchDoc = (request, reply) => {
 

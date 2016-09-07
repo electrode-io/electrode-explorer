@@ -7,7 +7,7 @@ const semver = require("semver");
 const Config = require("electrode-confippet").config;
 const ghToken = Config.automaticUpdate && process.env[Config.GHACCESS_TOKEN_NAME];
 
-const ensureDirectoryExists = require("./utils/ensure-directory-exists");
+const ensureDirectoryExists = require("../utils/ensure-directory-exists");
 const fetchRepo = require("./fetch-repo");
 const fetchModuleDemo = require("./fetch-module-demo");
 

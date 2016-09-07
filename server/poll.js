@@ -9,7 +9,7 @@ const GitHubApi = require("github");
 const Promise = require("bluebird");
 const Config = require("electrode-confippet").config;
 const github = new GitHubApi(Config.githubApi);
-const githubAuthObject = require("./component-api/utils/github-auth-object");
+const githubAuthObject = require("./utils/github-auth-object");
 
 const Poll = {};
 

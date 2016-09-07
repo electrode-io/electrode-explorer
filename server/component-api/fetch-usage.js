@@ -6,9 +6,9 @@ const Config = require("electrode-confippet").config;
 const github = new GitHubApi(Config.githubApi);
 const REPOS_USAGE_INCLUDE = Config.REPOS_USAGE_INCLUDE;
 const REPOS_USAGE_EXCLUDE = Config.REPOS_USAGE_EXCLUDE;
-const contentToString = require("./utils/content-to-string");
-const checkVersion = require("./utils/check-version");
-const githubAuthObject = require("./utils/github-auth-object");
+const contentToString = require("../utils/content-to-string");
+const checkVersion = require("../utils/check-version");
+const githubAuthObject = require("../utils/github-auth-object");
 const uniqBy = require("lodash/uniqBy");
 
 const shouldIncludeRepo = (repo) => {
