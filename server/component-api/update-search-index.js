@@ -14,7 +14,7 @@ const UpdateSearchIndex = (moduleName, subModules, server, keywords) => {
 
   let searchIndex = {};
 
-  readFile(IndexPath)
+  return readFile(IndexPath)
     .then((data) => {
       searchIndex = data;
 

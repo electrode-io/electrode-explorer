@@ -1,7 +1,9 @@
 "use strict";
 
 const Path = require("path");
-const Fs = require("fs");
+const fs = require("fs");
+const Promise = require("bluebird");
+const readFile = Promise.promisify(fs.readFile);
 const Babel = require("babel-core");
 const traverse = require("babel-traverse").default;
 const UpdateSearchIndex = require("./update-search-index");
@@ -39,22 +41,17 @@ const ProcessSubModules = (moduleName, github, server, keywords) => {
       return;
     }
 
-    Fs.readFile(orgFile, (err, resp) => {
-      if (err) {
-        console.error("Could not parse orgs.json");
-        console.log(err);
-      }
-
-      try {
-        const orgs = JSON.parse(resp);
+    readFile(orgFile)
+      .then((data) => {
+        const orgs = JSON.parse(data);
         orgs.allOrgs[moduleOrg].repos[moduleRepo].submodules =
           subModules.filter((sm, i)=>i);
 
-        Fs.writeFileSync(orgFile, JSON.stringify(orgs));
-      } catch (e) {
+        fs.writeFileSync(orgFile, JSON.stringify(orgs));
+      })
+      .catch((e) => {
         console.error("Problem checking org map", e);
-      }
-    });
+      });
   });
 
 };
