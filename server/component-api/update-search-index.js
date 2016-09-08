@@ -16,7 +16,7 @@ const UpdateSearchIndex = (moduleName, subModules, server, keywords) => {
 
   return readFile(IndexPath)
     .then((data) => {
-      searchIndex = data;
+      searchIndex = JSON.parse(data);
 
       searchIndex[moduleName] = (keywords || []).concat(subModules);
 
