@@ -2,7 +2,7 @@
 
 import React from "react";
 import Revealer from "./revealer";
-import ExecutionEnvironment from "exenv";
+import { canUseDOM } from "exenv";
 import marked from "marked";
 import fetch from "isomorphic-fetch";
 
@@ -22,7 +22,7 @@ export default class Component extends React.Component {
   }
 
   componentWillMount() {
-    if (!ExecutionEnvironment.canUseDOM) {
+    if (!canUseDOM) {
       return;
     }
 
