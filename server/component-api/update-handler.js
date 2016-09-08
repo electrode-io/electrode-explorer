@@ -40,8 +40,9 @@ const UpdateHandler = function (request, reply) {
     let deps;
     let currentVersion;
 
-    return readFile(repoFilePath)
+    return readFile(repoFilePath, "utf8")
       .then((data) => {
+        data = JSON.parse(data);
         deps = data.deps || [];
         currentVersion = data.meta && data.meta.version;
         const latestVersion = result.meta.version;

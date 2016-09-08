@@ -97,7 +97,7 @@ const fetchUsage = (meta) => {
                 usage.push(detail);
               })
               .catch((err) => {
-                if (err.code === "404") {
+                if (err.code === 404) {
                   console.log("Missing package.json?: " + meta.github);
                 } else {
                   console.log(err);
