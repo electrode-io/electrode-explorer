@@ -137,7 +137,6 @@ export default React.createClass({
         ref="collapsable"
         style={this._getContentWrapperStyles()}>
         <div
-          {...this.props}
           style={{display: "block", boxSizing: "border-box"}}
           ref="interior">{this.props.children}</div>
       </div>

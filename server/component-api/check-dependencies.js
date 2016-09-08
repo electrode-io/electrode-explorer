@@ -37,9 +37,7 @@ const getDepLatest = (dep, version, isDev) => {
         version: checkVersion(wantedVersion, version),
         description: isDev ? "[dev]" : ""
       });
-
     });
-
   });
 };
 
@@ -63,19 +61,10 @@ const processDeps = (deps, isDev) => {
 };
 
 const checkDepVersions = (deps, isDev) => {
-
-  return new Promise((resolve, reject) => {
-
-    processDeps(deps, isDev)
-      .then((depArr) => {
-        resolve(depArr);
-      })
-      .catch((err) => {
-        reject(err);
-      });
-
-  });
-
+  return processDeps(deps, isDev)
+    .then((depArr) => {
+      return depArr;
+    });
 };
 
 const writeDeps = (moduleName, moduleDeps) => {

@@ -44,7 +44,6 @@ function npm_install() {
   fi
 }
 
-
 if [ -z "$2" ]; then
   version="latest"
 else
