@@ -10,7 +10,7 @@ const ProcessSubModules = (moduleName, github, server, keywords) => {
   const subModules = [];
 
   const demoFile = Path.join(__dirname, `../../node_modules/${moduleName}/demo/demo.jsx`);
-  const orgFile = Path.join(__dirname, "../data/orgs.json");
+  const orgFile = Path.join(__dirname, "../../data/orgs.json");
 
   const parts = github.split("/");
   const moduleOrg = parts[3];

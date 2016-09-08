@@ -25,7 +25,8 @@ const UpdateHandler = function (request, reply) {
 
   const { ref, ref_type } = request.payload || {};
 
-  const waitingTime = request.query.updateNow ? 0 : Config.NPM_WAITING_TIME;
+  const updateNow = request.query.updateNow;
+  const waitingTime = updateNow ? 0 : Config.NPM_WAITING_TIME;
 
   return fetchRepo(org, repoName).then((result) => {
 
@@ -45,7 +46,7 @@ const UpdateHandler = function (request, reply) {
         currentVersion = data.meta && data.meta.version;
         const latestVersion = result.meta.version;
 
-        if (currentVersion && !semver.lt(currentVersion, latestVersion)) {
+        if (!updateNow && currentVersion && !semver.lt(currentVersion, latestVersion)) {
           return reply(`${org}:${repoName} is at its latest version.`);
         }
 
