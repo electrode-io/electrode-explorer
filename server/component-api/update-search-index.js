@@ -25,7 +25,7 @@ const UpdateSearchIndex = (moduleName, subModules, server, keywords) => {
       server.settings.app.searchStrings = CreateSearchStrings(searchIndex);
 
       // Write to file to persist data
-      Fs.writeFileSync(IndexPath, JSON.stringify(searchIndex));
+      fs.writeFileSync(IndexPath, JSON.stringify(searchIndex));
       console.log(Chalk.green(`Successfully wrote search index to ${IndexPath}`));
     })
     .catch(() => {});
