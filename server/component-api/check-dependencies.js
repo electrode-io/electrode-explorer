@@ -87,12 +87,12 @@ const writeDeps = (moduleName, moduleDeps) => {
   // Fetch the repo data file if it already exists
   let repoFile = {};
   try {
-    repoFile = require(`../data/${moduleName}.json`);
+    repoFile = require(`../../data/${moduleName}.json`);
   } catch (err) {}
 
   repoFile.deps = moduleDeps;
 
-  const writePath = Path.join(__dirname, `../data/${moduleName}.json`);
+  const writePath = Path.join(__dirname, `../../data/${moduleName}.json`);
 
   return new Promise((resolve) => {
     Fs.writeFile(writePath, JSON.stringify(repoFile), (err) => {
