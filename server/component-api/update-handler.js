@@ -14,6 +14,47 @@ const ensureDirectoryExists = require("../utils/ensure-directory-exists");
 const fetchRepo = require("./fetch-repo");
 const fetchModuleDemo = require("./fetch-module-demo");
 
+const updateFiles = (repoFilePath, org, repoName, data) => {
+  return writeFile(repoFilePath, data)
+    .then(() => {
+
+      // update the map of known orgs
+      const orgMap = Path.join(__dirname, `../../data/orgs.json`);
+
+      return readFile(orgMap)
+        .then((catalog) => {
+          try {
+            catalog = JSON.parse(catalog);
+
+            if (!catalog.allOrgs) {
+              catalog.allOrgs = {};
+            }
+
+            if (!catalog.allOrgs[org]) {
+              catalog.allOrgs[org] = {
+                repos: {}
+              };
+            }
+
+            const current = catalog.allOrgs[org];
+
+            current.repos[repoName] = {
+              link: `${org}/${repoName}`
+            };
+
+            fs.writeFileSync(orgMap, JSON.stringify(catalog));
+
+          } catch (err) {
+            console.error("Problem checking org map", err);
+          }
+        });
+    })
+    .catch((err) => {
+      console.log("repo file save error", err);
+      throw err;
+    });
+};
+
 const UpdateHandler = function (request, reply) {
 
   if (!ghToken) {
@@ -69,45 +110,8 @@ const UpdateHandler = function (request, reply) {
 
         delete result.pkg;
 
-        return writeFile(repoFilePath, JSON.stringify(result))
-          .then(() => {
-
-            // update the map of known orgs
-            const orgMap = Path.join(__dirname, `../../data/orgs.json`);
-
-            return readFile(orgMap)
-              .then((catalog) => {
-                try {
-                  catalog = JSON.parse(catalog);
-
-                  if (!catalog.allOrgs) {
-                    catalog.allOrgs = {};
-                  }
-
-                  if (!catalog.allOrgs[org]) {
-                    catalog.allOrgs[org] = {
-                      repos: {}
-                    };
-                  }
-
-                  const current = catalog.allOrgs[org];
-
-                  current.repos[repoName] = {
-                    link: `${org}/${repoName}`
-                  };
-
-                  fs.writeFileSync(orgMap, JSON.stringify(catalog));
-
-                } catch (err) {
-                  console.error("Problem checking org map", err);
-                }
-                return reply(`${org}:${repoName} was saved.`);
-              });
-          })
-          .catch((err) => {
-            console.log("repo file save error", err);
-            return reply("An error occurred saving this repo");
-          });
+        return updateFiles(repoFilePath, org, repoName, JSON.stringify(result))
+          .then(() => reply(`${org}:${repoName} was saved.`));
       });
   }).catch((e) => {
     console.log("e", e);
