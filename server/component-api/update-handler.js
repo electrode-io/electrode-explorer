@@ -69,11 +69,13 @@ const UpdateHandler = function (request, reply) {
   const updateNow = request.query.updateNow;
   const waitingTime = updateNow ? 0 : Config.NPM_WAITING_TIME;
 
+  const orgDataPath = Path.join(__dirname, `../../data/${org}`);
+
+  ensureDirectoryExists(orgDataPath);
+
   return fetchRepo(org, repoName).then((result) => {
 
-    const orgDataPath = Path.join(__dirname, `../../data/${org}`);
 
-    ensureDirectoryExists(orgDataPath);
 
     const repoFilePath = `${orgDataPath}/${repoName}.json`;
 

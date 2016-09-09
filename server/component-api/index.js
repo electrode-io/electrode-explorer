@@ -14,7 +14,7 @@ const ComponentData = {};
 ComponentData.register = (server, options, next) => {
 
   server.route({
-    path: "/api/update/repo/{org}/{repoName}",
+    path: "/api/update/{org}/{repoName}",
     method: "POST",
     handler: updateHandler
   });
