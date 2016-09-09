@@ -1,2 +1,2 @@
-Electrode Portal
+Electrode Explorer
 ================
