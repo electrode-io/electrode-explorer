@@ -55,8 +55,6 @@
 
   ],
 
-  "automaticUpdate": true,
-
   "NPM_WAITING_TIME": 300000,
 
   "POLL_INTERVAL": 1800000,
