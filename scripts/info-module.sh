@@ -7,9 +7,9 @@ fi
 
 if which npm; then
   npm info $1
-elif [ -f /usr/local/lib/electrode-ops-helpers.sh ]; then
-  source /usr/local/lib/electrode-ops-helpers.sh
-  prepare_nodejs 4
+else
+  source `pwd`/scripts/prepare_nodejs.sh
+  prepare_nodejs
   npm set strict-ssl false
   npm info $1
 fi
