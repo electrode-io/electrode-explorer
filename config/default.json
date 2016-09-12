@@ -39,19 +39,6 @@
     "host": "github.com"
   },
 
-  "ui": {
-    "basePath": "/",
-    "meta": {
-      "name": "Electrode Explorer",
-      "logo": "/img/electrode.svg"
-    },
-    "github": {
-      "protocol": "https",
-      "basePath": "github.com"
-    },
-    "timeout": 10000
-  },
-
   "ORGS": [
 
   ],
