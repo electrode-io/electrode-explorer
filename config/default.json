@@ -27,10 +27,6 @@
               "module": "./server/app"
             }
           }
-        },
-        "cdn": {
-          "enabled": false,
-          "mapping": "config/assets.json"
         }
       }
     }
