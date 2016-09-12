@@ -15,6 +15,7 @@ function prepare_nodejs() {
   nvm install $version
 
   npm set progress false
+  npm set strict-ssl false
 
   local NPM_MAJOR=$(npm --version | cut -f1 -d.)
   if [ $version -ge 4 ]; then

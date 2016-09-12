@@ -10,6 +10,5 @@ if which npm; then
 else
   source `pwd`/scripts/prepare_nodejs.sh
   prepare_nodejs
-  npm set strict-ssl false
   npm info $1
 fi
