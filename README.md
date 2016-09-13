@@ -75,6 +75,44 @@ This post processing script works well with all electrode components. If you hav
 }
 ```
 
+## Start server
+
+First install dependencies
+```sh
+npm i
+```
+
+Export github access token or set it as an environment variable
+```sh
+export GHACCESS_TOKEN=YOUR_GITHUB_TOKEN
+```
+
+For development mode
+```sh
+gulp dev
+```
+or
+```sh
+GHACCESS_TOKEN=YOUR_GITHUB_TOKEN gulp dev
+```
+
+For production mode
+```sh
+gulp build
+```
+and
+```sh
+NODE_ENV=production node .
+```
+or
+```sh
+GHACCESS_TOKEN=YOUR_GITHUB_TOKEN NODE_ENV=production node .
+```
+
+## Deploy
+
+Since this is an electrode app, it can be deployed the same way as any other electrode app. Just remember to set your github token as an environment variable.
+
 [data/orgs.json]: https://github.com/electrode-io/electrode-explorer/blob/master/data/orgs.json
 [scripts/install-module.sh]: https://github.com/electrode-io/electrode-explorer/blob/master/scripts/install-module.sh
 [scripts/post-install-module.sh]: https://github.com/electrode-io/electrode-explorer/blob/master/scripts/post-install-module.sh
