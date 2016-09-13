@@ -3,7 +3,7 @@ Electrode Explorer
 
 An electrode application that showcases all your components.
 
-<img src="/data/screenshot.png"/>
+<img src="/data/screenshot.png" height="500px"/>
 
 ## Prerequisites
 
