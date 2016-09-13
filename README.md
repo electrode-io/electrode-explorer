@@ -3,7 +3,7 @@ Electrode Explorer
 
 An electrode application that showcases all your components.
 
-![alt text](https://github.com/electrode-io/electrode-explorer/tree/master/data/screenshot.png)
+<img src="/data/screenshot.png"/>
 
 ## Prerequisites
 
