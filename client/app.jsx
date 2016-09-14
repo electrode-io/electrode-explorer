@@ -17,17 +17,18 @@ import { configureStore } from "./store";
 import "./styles/base.styl";
 
 const store = configureStore({});
-const rootEl = document.querySelector(".js-content");
 
 global.React = React;
 global.ReactDOM = ReactDOM;
 
-// Note: Change suffix to `.js` if not using actual JSX.
-Resolver.render(
-  () => (
-    <Provider store={store}>
-      <Router history={createHistory()}>{routes}</Router>
-    </Provider>
-  ),
-  rootEl
-);
+global.webappStart = function () {
+  const rootEl = document.querySelector(".js-content");
+  Resolver.render(
+    () => (
+      <Provider store={store}>
+        <Router history={createHistory()}>{routes}</Router>
+      </Provider>
+    ),
+    rootEl
+  );
+};
