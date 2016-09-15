@@ -25,6 +25,8 @@ There are 2 ways the components can update dynamically:
 1. Add github hooks to send POST requests to `/api/update/{org}/{repoName}` when a new tag is created
 2. Enable `./server/poll` plugin, so the server will send the POST requests every certain interval
 
+It's recommended to use Method #1 to see updates in near real time.
+
 After the server receives the POST request, it will fetch the `package.json` file under `yourGithubUrl/org/repoName`,
 update [data/orgs.json] and `data/{org}/{repoName}.json` files. If there is a newer version, it will try to download the
 new component through npm ([scripts/install-module.sh]) after a waiting period, babel transpile, and webpack the demo module ([scripts/post-install-module.sh]).
