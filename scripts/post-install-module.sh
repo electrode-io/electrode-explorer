@@ -28,7 +28,6 @@ function run_babel() {
   comp_arch_config=node_modules/electrode-archetype-react-component/config/babel
   rm node_modules/$1/.babelrc
   `pwd`/node_modules/.bin/babel node_modules/$1/demo -d node_modules/$1/demo
-  `pwd`/node_modules/.bin/babel node_modules/$1/test -d node_modules/$1/test
 }
 
 function build() {
