@@ -34,17 +34,17 @@
 
   "githubApi": {
     "version": "3.0.0",
-    "pathPrefix": "/api/v3",
+    "pathPrefix": "",
     "protocol": "https",
-    "host": "github.com"
+    "host": "api.github.com"
   },
 
   "ORGS": [
-
+    "electrode-io"
   ],
 
   "REPOS_USAGE_INCLUDE": [
-
+    "electrode"
   ],
 
   "REPOS_USAGE_EXCLUDE": [
@@ -52,7 +52,7 @@
   ],
 
   "MODULE_PREFIXES_INCLUDE": [
-
+    "electrode"
   ],
 
   "NPM_WAITING_TIME": 300000,

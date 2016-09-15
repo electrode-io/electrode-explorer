@@ -74,9 +74,6 @@ const UpdateHandler = function (request, reply) {
   ensureDirectoryExists(orgDataPath);
 
   return fetchRepo(org, repoName).then((result) => {
-
-
-
     const repoFilePath = `${orgDataPath}/${repoName}.json`;
 
     // Preserve saved deps if already saved, prepare empty deps array if not
