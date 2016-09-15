@@ -3,6 +3,8 @@ import React from "react";
 import { canUseDOM } from "exenv";
 import fetch from "isomorphic-fetch";
 
+const random = (arr) => arr[Math.floor(Math.random() * arr.length)];
+
 export class Home extends React.Component {
   render() {
     if (canUseDOM) {
@@ -17,9 +19,9 @@ export class Home extends React.Component {
           return res.json();
         })
         .then((res) => {
-          const org = Object.keys(res.allOrgs || {})[0];
+          const org = random(Object.keys(res.allOrgs || {}));
           if (org) {
-            const repo = Object.keys(res.allOrgs[org].repos)[0];
+            const repo = random(Object.keys(res.allOrgs[org].repos));
             return window.location.pathname = `/${org}/${repo}`;
           }
         });
