@@ -40,11 +40,11 @@
   },
 
   "ORGS": [
-    "electrode-io"
+
   ],
 
   "REPOS_USAGE_INCLUDE": [
-    "electrode"
+
   ],
 
   "REPOS_USAGE_EXCLUDE": [
@@ -52,7 +52,7 @@
   ],
 
   "MODULE_PREFIXES_INCLUDE": [
-    "electrode"
+
   ],
 
   "NPM_WAITING_TIME": 300000,
