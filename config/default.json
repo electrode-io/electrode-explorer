@@ -10,16 +10,12 @@
         "enable": false
       }
     },
-    "electrode-react-webapp": {
+    "./server/webapp": {
       "options": {
         "pageTitle": "Electrode Explorer",
         "devServer": {
           "port": "2992"
         },
-        "unbundledStyle": [
-          "http://cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/codemirror.min.css",
-          "http://cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/theme/monokai.min.css"
-        ],
         "paths": {
           "/{args*}": {
             "view": "index",
