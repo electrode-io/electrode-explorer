@@ -49,7 +49,6 @@
     "electrode-archetype-react-component": "^1.0.0",
     "electrode-archetype-react-component-dev": "^1.0.0",
     "electrode-confippet": "^1.5.0",
-    "electrode-react-webapp": "^1.0.0",
     "electrode-redux-router-engine": "^1.0.0",
     "electrode-server": "^1.0.0",
     "electrode-static-paths": "^1.0.0",
