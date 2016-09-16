@@ -11,7 +11,9 @@
     "build": "gulp build",
     "dev": "gulp dev",
     "help": "gulp help",
-    "hot": "gulp hot"
+    "hot": "gulp hot",
+    "heroku-postbuild": "gulp build",
+    "start": "node server/index.js"
   },
   "repository": {
     "type": "git",
