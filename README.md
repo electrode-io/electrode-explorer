@@ -31,7 +31,7 @@ After the server receives the POST request, it will fetch the `package.json` fil
 update [data/orgs.json] and `data/{org}/{repoName}.json` files. If there is a newer version, it will try to download the
 new component through npm ([scripts/install-module.sh]) after a waiting period, babel transpile, and webpack the demo module ([scripts/post-install-module.sh]).
 
-To make the server update immediately or force an update, add a parameter to the POST request, `/api/update/{org}/{repoName}?updateNow=1`.
+To make the server update immediately or force an update, add a url parameter to the POST request, `/api/update/{org}/{repoName}?updateNow=1`.
 
 This post processing script works well with all electrode components. If you have non-electrode components, you can modify your [scripts/post-install-module.sh].
 
@@ -55,27 +55,31 @@ This post processing script works well with all electrode components. If you hav
     "host": "github.com"
   },
 
-  "ORGS": [ // org/user names under which components will be included in the explorer 
-
+  "ORGS": [ 
+    // org/user names under which components will be included in the explorer
+    // for example, put ["xxx", "yyy"] to include every repo under github.com/xxx and github.com/yyy 
   ],
 
-  "REPOS_USAGE_INCLUDE": [ // consumers need to contain one of these substrings to be included in usages 
-
+  "REPOS_USAGE_INCLUDE": [
+    // consumers need to contain one of these substrings to be included in usages 
+    // for example, put ["react"] so consumers named /*react*/ will be included in usages
   ],
 
-  "REPOS_USAGE_EXCLUDE": [ // consumers containing any of these substrings won't be included in usages
-
+  "REPOS_USAGE_EXCLUDE": [
+    // consumers containing any of these substrings won't be included in usages
+    // for example, put ["training"] so consumers named /*training*/ will be excluded in usages
   ],
 
-  "MODULE_PREFIXES_INCLUDE": [ // only module names beginning with one of these strings will be included in dependencies
-
+  "MODULE_PREFIXES_INCLUDE": [
+    // only module names beginning with one of these strings will be included in dependencies
+    // for example, put ["react"] so only modules with name starting with "react" will be included in dependencies
   ],
 
   "NPM_WAITING_TIME": 300000, // wait for 5 minutes before `npm install`
 
-  "POLL_INTERVAL": 3600000, // poll for updates once an hour
+  "POLL_INTERVAL": 3600000, // poll for updates once an hour, applicable when you enable poll plugin
 
-  "GHACCESS_TOKEN_NAME": "GHACCESS_TOKEN" // github token variable name
+  "GHACCESS_TOKEN_NAME": "GHACCESS_TOKEN" // github token variable name, your token would be accessible via `process.env["GHACCESS_TOKEN"]`
 }
 ```
 
