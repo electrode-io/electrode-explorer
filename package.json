@@ -29,10 +29,17 @@
     "explore",
     "demo"
   ],
-  "author": [
-    "Caoyang Shi <wuwa007@gmail.com>",
-    "Dave Stevens <dstevens@walmartlabs.com>"
-  ],
+  "author": "Caoyang Shi <cshi@walmartlabs.com>",
+  "contributors": [
+    {
+      "name": "Caoyang Shi",
+      "email": "cshi@walmartlabs.com"
+    },
+    {
+      "name": "Dave Stevens",
+      "email": "dstevens@walmartlabs.com"
+    }
+  ]
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/electrode-io/electrode-explorer/issues"
