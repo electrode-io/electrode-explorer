@@ -33,7 +33,7 @@ new component through npm ([scripts/install-module.sh]) after a waiting period, 
 
 To make the server update immediately or force an update, add a url parameter to the POST request, `/api/update/{org}/{repoName}?updateNow=1`.
 
-This post processing script works well with all electrode components. If you have non-electrode components, you can modify your [scripts/post-install-module.sh].
+This post processing script works well with all electrode components. If you have non-electrode components, you can modify your [scripts/post-install-module.sh]. See our [wiki] page for more details.
 
 ## Config
 
@@ -121,6 +121,11 @@ GHACCESS_TOKEN=YOUR_GITHUB_TOKEN NODE_ENV=production node .
 
 Since this is an electrode app, it can be deployed the same way as any other electrode app. Just remember to set your github token as an environment variable.
 
+## Learn more
+
+Wish to learn more? Check our [wiki] page!
+
 [data/orgs.json]: https://github.com/electrode-io/electrode-explorer/blob/master/data/orgs.json
 [scripts/install-module.sh]: https://github.com/electrode-io/electrode-explorer/blob/master/scripts/install-module.sh
 [scripts/post-install-module.sh]: https://github.com/electrode-io/electrode-explorer/blob/master/scripts/post-install-module.sh
+[wiki]: https://github.com/electrode-io/electrode-explorer/wiki
