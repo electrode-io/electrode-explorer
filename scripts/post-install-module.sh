@@ -23,8 +23,6 @@ function add_global() {
 }
 
 function run_babel() {
-  app_arch_config=node_modules/electrode-archetype-react-app/config/babel
-  comp_arch_config=node_modules/electrode-archetype-react-component/config/babel
   rm node_modules/$1/.babelrc
   `pwd`/node_modules/.bin/babel node_modules/$1/demo -d node_modules/$1/demo
 }
