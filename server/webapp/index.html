@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Electrode explorer</title>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/codemirror.min.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/theme/monokai.min.css">
+    {{PREFETCH_BUNDLES}}
+    {{WEBAPP_BUNDLES}}
+</head>
+<body>
+<div class="js-content">{{SSR_CONTENT}}</div>
+<script>if (window.webappStart) webappStart();</script>
+</body>
+</html>
