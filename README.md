@@ -7,7 +7,7 @@ An electrode application that showcases all your components.
 
 ## Prerequisites
 
-* node: ">=4.0.0"
+* node: ">=4.2.0"
 * npm: ">=3.0.0"
 * Github access token
 
