@@ -1,7 +1,8 @@
 Electrode Explorer
 ================
 
-An electrode application that showcases all your components.
+> An electrode application that allows you to view all the components in your organization, play with the components, read the component docs, view the different versions of the component, and more - All in your browser.  
+[View The Live Demo](https://electrode-explorer.herokuapp.com/)
 
 <img src="/data/screenshot.png" height="500px"/>
 
