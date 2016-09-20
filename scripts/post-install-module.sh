@@ -5,15 +5,11 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
-function update_src() {
-  if [ -f $1 ]; then
-    grep $2 $1
-    if [ $? -eq 0 ]; then
-      sed "s/$2/$3/g" $1 > $1.new
-      rm $1
-      mv $1.new $1
-    fi
-  fi
+function update_content() {
+  files=`find $1 -type f -name "$2"`
+  for f in $files; do
+    sed -i "" $3 $f
+  done
 }
 
 function add_global() {
@@ -30,9 +26,7 @@ function run_babel() {
 function build() {
   run_babel $1
 
-  for file in node_modules/$1/demo/*.js; do
-    update_src $file ".jsx" ""
-  done
+  update_content node_modules/$1/demo "*.js" 's/\.jsx//g'
 
   cp -r node_modules/$1/lib/* node_modules/$1/src
 
