@@ -152,4 +152,5 @@ Temporary Items
 dist
 Procfile
 npm-shrinkwrap.json
+.isomorphic-loader-config.json
 
