@@ -56,13 +56,13 @@ This post processing script works well with all electrode components. If you hav
     "host": "github.com"
   },
 
-  "ORGS": [ 
+  "ORGS": [
     // org/user names under which components will be included in the explorer
-    // for example, put ["xxx", "yyy"] to include every repo under github.com/xxx and github.com/yyy 
+    // for example, put ["xxx", "yyy"] to include every repo under github.com/xxx and github.com/yyy
   ],
 
   "REPOS_USAGE_INCLUDE": [
-    // consumers need to contain one of these substrings to be included in usages 
+    // consumers need to contain one of these substrings to be included in usages
     // for example, put ["react"] so consumers named /*react*/ will be included in usages
   ],
 
@@ -125,6 +125,8 @@ Since this is an electrode app, it can be deployed the same way as any other ele
 ## Learn more
 
 Wish to learn more? Check our [wiki] page!
+
+Built with :heart: by [Team Electrode](https://github.com/orgs/electrode-io/people) @WalmartLabs.
 
 [data/orgs.json]: https://github.com/electrode-io/electrode-explorer/blob/master/data/orgs.json
 [scripts/install-module.sh]: https://github.com/electrode-io/electrode-explorer/blob/master/scripts/install-module.sh
