@@ -34,7 +34,7 @@ new component through npm ([scripts/install-module.sh]) after a waiting period, 
 
 To make the server update immediately or force an update, add a url parameter to the POST request, `/api/update/{org}/{repoName}?updateNow=1`.
 
-This post processing script works well with all electrode components (components using our [archetype]). If you have non-electrode components, you can modify your [scripts/post-install-module.sh]. See our [wiki] page for more details.
+This post processing script works well with all electrode components (meaning components using our [archetype]). If you have non-electrode components, you can modify your [scripts/post-install-module.sh]. See our [wiki] page for more details.
 
 ## Config
 
