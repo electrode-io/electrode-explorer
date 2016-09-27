@@ -42,7 +42,11 @@ Poll.register = (server, options, next) => {
     return next();
   }
 
-  github.authenticate(githubAuthObject);
+  try {
+    github.authenticate(githubAuthObject);
+  } catch (e) {
+    console.log("A valid GitHub access token is needed.");
+  }
 
   const ORGS = Config.ORGS;
   const repos = [];

@@ -45,16 +45,18 @@ const processDeps = (deps, isDev) => {
 
   const promises = [];
 
-  Object.keys(deps).map((dep) => {
+  if (deps) {
+    Object.keys(deps).map((dep) => {
 
-    if (pattern && !(pattern).test(dep)) {
-      return;
-    }
+      if (pattern && !(pattern).test(dep)) {
+        return;
+      }
 
-    const promise = getDepLatest(dep, deps[dep], isDev);
-    promises.push(promise);
+      const promise = getDepLatest(dep, deps[dep], isDev);
+      promises.push(promise);
 
-  });
+    });
+  }
 
   return Promise.all(promises);
 
