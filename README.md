@@ -42,7 +42,7 @@ This post processing script works well with all electrode components (meaning co
   "plugins": {
     "./server/poll": {
       "options": {
-        "enable": false
+        "enable": true
       }
     }
   },
