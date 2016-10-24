@@ -24,7 +24,7 @@ This is a central place where you can view
 There are 2 ways the components can update dynamically:
 
 1. Add github hooks to send POST requests to `/api/update/{org}/{repoName}` when a new tag is created
-2. Enable `./server/poll` plugin to set up cron job that sends the POST requests everyday
+2. Enable `./server/poll` plugin to set up cron job that sends the POST requests every day
 
 After the server receives the POST request, it will fetch the `package.json` file under `yourGithubUrl/org/repoName`,
 update [data/orgs.json] and `data/{org}/{repoName}.json` files. If there is a newer version, it will try to download the
