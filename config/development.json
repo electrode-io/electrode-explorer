@@ -2,7 +2,13 @@
   "services": {
     "env": "qa"
   },
-
+  "plugins": {
+    "./server/poll": {
+      "options": {
+        "enable": false
+      }
+    }
+  },
   "ui": {
     "env": "development"
   }

@@ -10,8 +10,13 @@ const Promise = require("bluebird");
 const Config = require("electrode-confippet").config;
 const github = new GitHubApi(Config.githubApi);
 const githubAuthObject = require("./utils/github-auth-object");
+const fs = require("fs");
+const path = require("path");
+const exec = require('child_process').exec;
 
 const Poll = {};
+
+let command = "";
 
 function getRepos(org, page, repos) {
   return new Promise((resolve) => {
@@ -37,6 +42,13 @@ function getRepos(org, page, repos) {
   });
 }
 
+function addCronJob(cmd, index) {
+  // 15 minutes between each job
+  const minute = index % 4 * 15;
+  const hour = Math.floor(index / 4) % 24;
+  command += `${minute} ${hour} * * * ${cmd}\n`;
+}
+
 Poll.register = (server, options, next) => {
   if (options.enable === false) {
     return next();
@@ -47,6 +59,8 @@ Poll.register = (server, options, next) => {
   } catch (e) {
     console.log("A valid GitHub access token is needed.");
   }
+
+  next();
 
   const ORGS = Config.ORGS;
   const repos = [];
@@ -59,21 +73,27 @@ Poll.register = (server, options, next) => {
   return Promise.all(promises)
     .then(() => {
       repos.forEach((repo, index) => {
-        setTimeout(() => {
-          const { org, repoName } = repo;
-          setInterval(() => {
-            server.inject({
-              method: "POST",
-              url:`/api/update/${org}/${repoName}`
-            }, (res) => {
-              console.log(res.result);
-            });
-          }, Config.POLL_INTERVAL);
-        }, 10000 + index * 1200000);
+        const { org, repoName } = repo;
+        addCronJob(`curl -X POST http://localhost:3000/api/update/${org}/${repoName} > /dev/null`, index);
       });
+    })
+    .then(() => {
+      const filePath = path.join(__dirname, "../myjob");
+      fs.writeFile(filePath, command, "utf8", (err) => {
+        if (err) {
+          console.log(err);
+          return;
+        }
 
-      return next();
+        exec(`crontab ${filePath}`, (error) => {
+          if (error) {
+            console.error(`exec error: ${error}`);
+            return;
+          }
 
+          console.log("Cron job set.");
+        });
+      });
     });
 };
 
