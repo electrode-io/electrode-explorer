@@ -24,9 +24,7 @@ This is a central place where you can view
 There are 2 ways the components can update dynamically:
 
 1. Add github hooks to send POST requests to `/api/update/{org}/{repoName}` when a new tag is created
-2. Enable `./server/poll` plugin, so the server will send the POST requests every certain interval
-
-It's recommended to use Method #1 to see updates in near real time.
+2. Enable `./server/poll` plugin to set up cron job that sends the POST requests everyday
 
 After the server receives the POST request, it will fetch the `package.json` file under `yourGithubUrl/org/repoName`,
 update [data/orgs.json] and `data/{org}/{repoName}.json` files. If there is a newer version, it will try to download the
@@ -77,8 +75,6 @@ This post processing script works well with all electrode components (meaning co
   ],
 
   "NPM_WAITING_TIME": 300000, // wait for 5 minutes before `npm install`
-
-  "POLL_INTERVAL": 3600000, // poll for updates once an hour, applicable when you enable poll plugin
 
   "GHACCESS_TOKEN_NAME": "GHACCESS_TOKEN" // github token variable name, your token would be accessible via `process.env["GHACCESS_TOKEN"]`
 }
