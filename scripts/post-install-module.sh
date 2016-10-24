@@ -9,6 +9,7 @@ function update_content() {
   files=`find $1 -type f -name "$2"`
   for f in $files; do
     sed -i "" $3 $f
+    sed -i $3 $f
   done
 }
 
