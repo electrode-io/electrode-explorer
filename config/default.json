@@ -7,7 +7,7 @@
     "./server/component-api": {},
     "./server/poll": {
       "options": {
-        "enable": false
+        "enable": true
       }
     },
     "./server/webapp": {
@@ -52,6 +52,6 @@
   ],
 
   "NPM_WAITING_TIME": 300000,
-  
+
   "GHACCESS_TOKEN_NAME": "GHACCESS_TOKEN"
 }
