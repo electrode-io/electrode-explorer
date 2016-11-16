@@ -75,22 +75,22 @@ const writeDeps = (moduleName, moduleDeps) => {
     return;
   }
 
-  // Fetch the repo data file if it already exists
-  let repoFile = {};
-  try {
-    repoFile = require(`../../data/${moduleName}.json`);
-  } catch (err) {}
-
-  repoFile.deps = moduleDeps;
-
-  const writePath = Path.join(__dirname, `../../data/${moduleName}.json`);
-
   return new Promise((resolve) => {
-    Fs.writeFile(writePath, JSON.stringify(repoFile), (err) => {
-      if (err) {
-        console.error("Error writing file with dependencies", err);
-      }
-      resolve({});
+    Fs.readFile(Path.join(__dirname, `../../data/${moduleName}.json`), (err, repoFile) => {
+      let data = {};
+      try {
+        data = JSON.parse(repoFile);
+      } catch (e) {}
+
+      data.deps = moduleDeps;
+
+      const writePath = Path.join(__dirname, `../../data/${moduleName}.json`);
+      Fs.writeFile(writePath, JSON.stringify(data), (err) => {
+        if (err) {
+          console.error("Error writing file with dependencies", err);
+        }
+        resolve({});
+      });
     });
   });
 };
