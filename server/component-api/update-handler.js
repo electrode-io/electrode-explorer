@@ -115,7 +115,6 @@ const UpdateHandler = function (request, reply) {
   }).catch((e) => {
     console.log("e", e);
     return reply(`Error encountered: ${e.message}`);
-
   });
 
 };
