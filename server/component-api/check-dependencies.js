@@ -14,14 +14,9 @@ const getDepLatest = (dep, version, isDev) => {
   return new Promise((resolve, reject) => {
 
     execFile("bash", [Path.join(__dirname, "../../scripts/info-module.sh"), dep], (err, stdout, stderr) => {
-      if (err) {
-        console.log("error getting module info", err);
-        return reject(err);
-      }
-
-      if (stderr) {
-        console.error("module info stderr", stderr);
-        return reject(new Error(stderr));
+      if (err || stderr) {
+        console.log("error getting module info", err || stderr);
+        return resolve({});
       }
 
       const m = stdout.match(/latest:\s'([\d\.]+)'/);
