@@ -18,7 +18,7 @@ const ProcessSubModules = (moduleName, github, server, keywords) => {
   const moduleOrg = parts[3];
   const moduleRepo = parts[4];
 
-  Babel.transformFile(demoFile, {presets: ["es2015", "react"]}, (err, result) => {
+  Babel.transformFile(demoFile, { presets: ["es2015", "react"] }, (err, result) => {
     if (err) {
       console.log("error processing submodules for ", moduleName);
       return console.log(err);
@@ -42,18 +42,16 @@ const ProcessSubModules = (moduleName, github, server, keywords) => {
     }
 
     readFile(orgFile)
-      .then((data) => {
+      .then(data => {
         const orgs = JSON.parse(data);
-        orgs.allOrgs[moduleOrg].repos[moduleRepo].submodules =
-          subModules.filter((sm, i)=>i);
+        orgs.allOrgs[moduleOrg].repos[moduleRepo].submodules = subModules.filter((sm, i) => i);
 
         fs.writeFileSync(orgFile, JSON.stringify(orgs));
       })
-      .catch((e) => {
+      .catch(e => {
         console.error("Problem checking org map", e);
       });
   });
-
 };
 
 module.exports = ProcessSubModules;

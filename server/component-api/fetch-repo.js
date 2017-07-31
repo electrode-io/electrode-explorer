@@ -6,6 +6,7 @@ const Config = require("electrode-confippet").config;
 const github = new GitHubApi(Config.githubApi);
 const githubAuthObject = require("../utils/github-auth-object");
 const contentToString = require("../utils/content-to-string");
+const _ = require("lodash");
 
 const fetchUsage = require("./fetch-usage");
 const checkDependencies = require("./check-dependencies");
@@ -20,48 +21,88 @@ const extractMetaData = (pkg, repoUrl) => {
   };
 };
 
-const fetchRepo = (org, repoName) => {
-
-  github.authenticate(githubAuthObject);
-
-  const opts = {
-    user: org,
-    repo: repoName,
-    path: "package.json"
-  };
-
+const readPackageContent = (org, repoName, path) => {
   return new Promise((resolve, reject) => {
-    github.repos.getContent(opts, (err, response) => {
+    github.authenticate(githubAuthObject);
+    const packagesOpts = {
+      owner: org,
+      repo: repoName,
+      path: path
+    };
+    github.repos
+      .getContent(packagesOpts)
+      .then(response => {
+        resolve(response.data);
+      })
+      .catch(err => {
+        console.log("READ PACKAGE CONTENT ERROR:::", err);
+        reject(err);
+      });
+  });
+};
 
-      if (err) {
-        console.log("error fetchRepo", err);
-        return reject(err);
-      }
+const fetchRepo = (org, repoName) => {
+  let isLernaStructure = false;
+  //github.authenticate(githubAuthObject);
+  return new Promise((resolve, reject) => {
+    //fetch top level package.json for repo
+    readPackageContent(org, repoName, "package.json")
+      .then(response => {
+        let packageContent = contentToString(response.content);
+        let meta;
+        let pkg = {};
 
-      const packageContent = contentToString(response.content);
-
-      let meta;
-      let pkg = {};
-
-      try {
         pkg = JSON.parse(packageContent);
-        meta = extractMetaData(pkg, response.html_url.replace("blob/master/package.json", ""));
-      } catch (err) {
-        console.error("Error parsing package.json", err);
-        return reject(new Error("Could not get package.json as JSON"));
-      }
 
-      return Promise.all([
-        fetchUsage(meta),
-        checkDependencies(`${org}/${repoName}`, pkg.dependencies, pkg.devDependencies)
-      ])
-        .spread((usage) => {
-          return resolve({ meta, usage, pkg });
-        }).catch((err) => {
-          console.error(`Error fetching demo index for ${org}/${repoName}`, err);
-          return reject(err);
+        const isCorrectPkg =
+          _.includes(_.keys(pkg.dependencies), "electrode-archetype-react-component") ||
+          _.includes(_.keys(pkg.devDependencies), "electrode-archetype-react-component");
+
+        isLernaStructure =
+          _.includes(_.keys(pkg.dependencies, "lerna")) ||
+          _.includes(_.keys(pkg.devDependencies), "lerna");
+
+        if (!isCorrectPkg && isLernaStructure) {
+          return readPackageContent(org, repoName, "packages").then(packagesArray => {
+            return Promise.map(packagesArray, componentName =>
+              readPackageContent(org, repoName, componentName.path + "/package.json")
+            ).then(componentArray => {
+              let componentResults = componentArray.map(arr => {
+                let pkg = JSON.parse(contentToString(arr.content));
+                let meta = extractMetaData(
+                  pkg,
+                  arr.html_url.replace("blob/master/", "tree/master/").replace("package.json", "")
+                );
+                return { pkg, meta };
+              });
+              return componentResults;
+            });
+          });
+        } else {
+          meta = extractMetaData(pkg, response.html_url.replace("blob/master/package.json", ""));
+          return [{ pkg, meta }];
+        }
+      })
+      .then(componentResults => {
+        return Promise.all([
+          componentResults,
+          Promise.map(componentResults, component => fetchUsage(component.meta)),
+          Promise.map(componentResults, component =>
+            checkDependencies(
+              isLernaStructure ? `${org}/${component.meta.name}` : `${org}/${repoName}`,
+              component.meta,
+              component.pkg.dependencies,
+              component.pkg.devDependencies
+            )
+          )
+        ]).spread(usageArray => {
+          return resolve(usageArray);
         });
-    });
+      })
+      .catch(err => {
+        console.error(`Error fetching demo index for ${org}/${repoName}`, err);
+        return reject(err);
+      });
   });
 };
 

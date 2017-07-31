@@ -6,101 +6,99 @@ const Path = require("path");
 const Config = require("electrode-confippet").config;
 const checkVersion = require("../utils/check-version");
 const execFile = require("child_process").execFile;
+const ensureDirectoryExists = require("../utils/ensure-directory-exists");
 
 const prefixes = Config.MODULE_PREFIXES_INCLUDE;
 const pattern = prefixes && prefixes.length && new RegExp(prefixes.join("|"));
 
 const getDepLatest = (dep, version, isDev) => {
   return new Promise((resolve, reject) => {
+    execFile(
+      "bash",
+      [Path.join(__dirname, "../../scripts/info-module.sh"), dep],
+      (err, stdout, stderr) => {
+        if (err) {
+          console.log("error getting module info", err);
+          return reject(err);
+        }
 
-    execFile("bash", [Path.join(__dirname, "../../scripts/info-module.sh"), dep], (err, stdout, stderr) => {
-      if (err || stderr) {
-        console.log("error getting module info", err || stderr);
-        return resolve({});
+        if (stderr) {
+          console.error("module info stderr", stderr);
+          return reject(new Error(stderr));
+        }
+
+        const m = stdout.match(/latest:\s'([\d\.]+)'/);
+        let wantedVersion = m ? m[1] : version.replace(/[^\.\d]/g, "");
+
+        if (!/\./.test(wantedVersion)) {
+          wantedVersion += ".0.0";
+        }
+
+        resolve({
+          uri: "#",
+          displayName: dep,
+          version: checkVersion(wantedVersion, version),
+          description: isDev ? "[dev]" : ""
+        });
       }
-
-      const m = stdout.match(/latest:\s'([\d\.]+)'/);
-      let wantedVersion = m ? m[1] : version.replace(/[^\.\d]/g, "");
-
-      if (!(/\./).test(wantedVersion)) {
-        wantedVersion += ".0.0";
-      }
-
-      resolve({
-        uri: "#",
-        displayName: dep,
-        version: checkVersion(wantedVersion, version),
-        description: isDev ? "[dev]" : ""
-      });
-    });
+    );
   });
 };
 
 const processDeps = (deps, isDev) => {
-
   const promises = [];
 
   if (deps) {
-    Object.keys(deps).map((dep) => {
-
-      if (pattern && !(pattern).test(dep)) {
+    Object.keys(deps).map(dep => {
+      if (pattern && !pattern.test(dep)) {
         return;
       }
 
       const promise = getDepLatest(dep, deps[dep], isDev);
       promises.push(promise);
-
     });
   }
 
   return Promise.all(promises);
-
 };
 
 const checkDepVersions = (deps, isDev) => {
-  return processDeps(deps, isDev)
-    .then((depArr) => {
-      return depArr;
-    });
+  return processDeps(deps, isDev).then(depArr => {
+    return depArr;
+  });
 };
 
-const writeDeps = (moduleName, moduleDeps) => {
-
+const writeDeps = (moduleName, meta, moduleDeps) => {
   if (!moduleDeps.length) {
     return;
   }
 
-  return new Promise((resolve) => {
-    Fs.readFile(Path.join(__dirname, `../../data/${moduleName}.json`), (err, repoFile) => {
-      let data = {};
-      try {
-        data = JSON.parse(repoFile);
-      } catch (e) {}
+  // Fetch the repo data file if it already exists
+  let repoFile = {};
+  let writePath = Path.join(__dirname, `../../data/${moduleName}.json`);
+  try {
+    repoFile = require(writePath);
+  } catch (err) {
+    console.log("WritePath not found", repoFile);
+  }
 
-      data.deps = moduleDeps;
-
-      const writePath = Path.join(__dirname, `../../data/${moduleName}.json`);
-      Fs.writeFile(writePath, JSON.stringify(data), (err) => {
-        if (err) {
-          console.error("Error writing file with dependencies", err);
-        }
-        resolve({});
-      });
+  return new Promise(resolve => {
+    repoFile.deps = moduleDeps;
+    Fs.writeFile(writePath, JSON.stringify(repoFile), err => {
+      if (err) {
+        console.error("Error writing file with dependencies", err);
+      }
+      resolve({});
     });
   });
 };
 
-module.exports = (moduleName, deps, devDeps) => {
-
-  return Promise.all([
-    checkDepVersions(deps),
-    checkDepVersions(devDeps, true)
-  ])
-    .then((depArrays) => {
-      return writeDeps(moduleName, Array.concat(depArrays[0], depArrays[1]))
+module.exports = (moduleName, meta, deps, devDeps) => {
+  return Promise.all([checkDepVersions(deps), checkDepVersions(devDeps, true)])
+    .then(depArrays => {
+      return writeDeps(moduleName, meta, Array.concat(depArrays[0], depArrays[1]));
     })
-    .catch((err) => {
+    .catch(err => {
       console.log("error getting module dependencies", err);
     });
-
 };
