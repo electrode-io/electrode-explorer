@@ -8,7 +8,7 @@ const Chalk = require("chalk");
 
 const CreateSearchStrings = require("../search-api/create-search-strings");
 
-const IndexPath = Path.join(__dirname, "../../data/search-index.json");
+const IndexPath = Path.join(__dirname, "../../../data/search-index.json");
 
 const UpdateSearchIndex = (moduleName, subModules, server, keywords) => {
 

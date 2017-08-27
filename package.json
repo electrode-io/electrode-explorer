@@ -8,7 +8,9 @@
     "npm": ">=3.0.0"
   },
   "scripts": {
+    "start": "if test \"$NODE_ENV\" = \"production\"; then npm run prod; else clap dev; fi",
     "build": "gulp build",
+    "prod": "echo 'Starting standalone server in PROD mode'; NODE_ENV=production node ./lib/server/",
     "dev": "gulp dev",
     "help": "gulp help",
     "hot": "gulp hot"
@@ -46,20 +48,22 @@
     "babel-traverse": "^6.10.4",
     "bluebird": "^3",
     "classnames": "^2.2.5",
-    "electrode-archetype-react-component": "^1.0.0",
-    "electrode-archetype-react-component-dev": "^1.0.0",
+    "electrode-archetype-react-component": "^3.0.0",
+    "electrode-archetype-react-component-dev": "^3.0.0",
     "electrode-confippet": "^1.5.0",
+    "electrode-react-ssr-caching": "^0.1.6",
+    "electrode-react-webapp": "^1.8.1",
     "electrode-redux-router-engine": "^1.0.0",
     "electrode-server": "^1.0.0",
     "electrode-static-paths": "^1.0.0",
     "exenv": "^1.2.0",
-    "github": "^1.1.2",
-    "history": "~1.13.1",
+    "github": "^10.0.0",
+    "history": "~4.7.2",
     "inert": "^4.0.1",
     "isomorphic-fetch": "^2.2.1",
     "marked": "^0.3.6",
     "mkdirp": "^0.5.1",
-    "radon-typeahead": "^0.3.1",
+    "radon-typeahead": "^0.4.0",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
     "react-tween-state": "^0.1.5",
@@ -67,8 +71,8 @@
     "semver": "^5.2.0"
   },
   "devDependencies": {
-    "electrode-archetype-react-app": "^1.0.0",
-    "electrode-archetype-react-app-dev": "^1.0.0",
+    "electrode-archetype-react-app": "^3.0.0",
+    "electrode-archetype-react-app-dev": "^3.0.0",
     "gulp": "^3.9.1"
   }
 }

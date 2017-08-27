@@ -3,24 +3,27 @@
     "inert": {
       "enable": true
     },
-    "./server/search-api": {},
-    "./server/component-api": {},
+    "./server/search-api": {
+      "module": "./{{env.APP_SRC_DIR}}server/search-api"
+    },
+    "./server/component-api": {
+      "module": "./{{env.APP_SRC_DIR}}server/component-api"
+    },
     "./server/poll": {
+      "module": "./{{env.APP_SRC_DIR}}server/poll",
       "options": {
         "enable": true
       }
     },
-    "./server/webapp": {
+    "webapp": {
+      "module": "electrode-react-webapp/lib/hapi",
       "options": {
         "pageTitle": "Electrode Explorer",
-        "devServer": {
-          "port": "2992"
-        },
         "paths": {
           "/{args*}": {
             "view": "index",
             "content": {
-              "module": "./server/app"
+              "module": "./{{env.APP_SRC_DIR}}server/views/index-view"
             }
           }
         }

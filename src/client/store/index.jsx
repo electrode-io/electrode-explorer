@@ -4,7 +4,7 @@ import { createStore, applyMiddleware } from "redux";
 
 const createStoreWithMiddleware = applyMiddleware(thunkMiddleware)(createStore);
 
-const reducer = () => {};
+const reducer = (state = {}) => state;
 
 export const configureStore = (initialState) => {
   if (process.env.NODE_ENV !== "production" && ExEnv.canUseDOM) {

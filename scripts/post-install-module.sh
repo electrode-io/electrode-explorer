@@ -35,7 +35,7 @@ function build() {
 
   outputPath="data/demo-modules/$1/v$2"
   echo "Webpack running for $1";
-  `pwd`/node_modules/.bin/webpack --config ./component-webpack.config.js --colors --entry node_modules/$1/demo/EXPLORER.js --output-path $outputPath
+  `pwd`/node_modules/.bin/webpack --config ./component-webpack.config.js --colors --entry ./node_modules/$1/demo/EXPLORER.js --output-path $outputPath
   echo "Webpack finished for $1";
 }
 

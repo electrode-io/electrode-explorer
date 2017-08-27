@@ -9,7 +9,7 @@ const TermHandler = require("./term-handler");
 const PartialHandler = require("./partial-handler");
 const CreateSearchStrings = require("./create-search-strings");
 
-const searchIndexPath = Path.join(__dirname, "../../data/search-index.json");
+const searchIndexPath = Path.join(__dirname, "../../../data/search-index.json");
 
 const SearchApi = {};
 
