@@ -8,12 +8,12 @@
     "npm": ">=3.0.0"
   },
   "scripts": {
-    "start": "if test \"$NODE_ENV\" = \"production\"; then npm run prod; else clap dev; fi",
-    "build": "gulp build",
+    "start": "if test \"$NODE_ENV\" = \"production\"; then npm run prod; else npm run dev; fi",
+    "build": "clap build",
     "prod": "echo 'Starting standalone server in PROD mode'; NODE_ENV=production node ./lib/server/",
-    "dev": "gulp dev",
-    "help": "gulp help",
-    "hot": "gulp hot"
+    "dev": "clap dev",
+    "help": "clap",
+    "hot": "clap hot"
   },
   "repository": {
     "type": "git",
