@@ -48,7 +48,7 @@ const fetchRepo = (org, repoName) => {
     //fetch top level package.json for repo
     readPackageContent(org, repoName, "package.json")
       .then(response => {
-        let packageContent = contentToString(response.content);
+        const packageContent = contentToString(response.content);
         let meta;
         let pkg = {};
 

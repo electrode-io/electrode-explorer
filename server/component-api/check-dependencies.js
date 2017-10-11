@@ -75,7 +75,7 @@ const writeDeps = (moduleName, meta, moduleDeps) => {
 
   // Fetch the repo data file if it already exists
   let repoFile = {};
-  let writePath = Path.join(__dirname, `../../data/${moduleName}.json`);
+  const writePath = Path.join(__dirname, `../../data/${moduleName}.json`);
   try {
     repoFile = require(writePath);
   } catch (err) {
