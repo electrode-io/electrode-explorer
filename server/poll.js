@@ -12,33 +12,39 @@ const github = new GitHubApi(Config.githubApi);
 const githubAuthObject = require("./utils/github-auth-object");
 const fs = require("fs");
 const path = require("path");
-const exec = require('child_process').exec;
+const exec = require("child_process").exec;
 
 const Poll = {};
 
 let command = "";
 
 function getRepos(org, page, repos) {
-  return new Promise((resolve) => {
-    github.repos.getForOrg({
-      org,
-      page,
-      per_page: 100
-    }, (err, res) => {
-      res.forEach((repo) => {
-        const fullName = repo.full_name.split("/");
-        repos.push({
-          org: fullName[0],
-          repoName: fullName[1]
+  return new Promise(resolve => {
+    github.repos
+      .getForOrg({
+        org,
+        page,
+        per_page: 100
+      })
+      .then(res => {
+        res.data.forEach(repo => {
+          const fullName = repo.full_name.split("/");
+          repos.push({
+            org: fullName[0],
+            repoName: fullName[1]
+          });
         });
-      });
 
-      if (res.length < 100) {
-        return resolve(repos);
-      } else {
-        return resolve(getRepos(org, page + 1, repos));
-      }
-    });
+        if (res.data.length < 100) {
+          return resolve(repos);
+        } else {
+          return resolve(getRepos(org, page + 1, repos));
+        }
+      })
+      .catch(err => {
+        console.log("ERROR IN POLL RESPONSE:::", err);
+        resolve(err);
+      });
   });
 }
 
@@ -66,7 +72,7 @@ Poll.register = (server, options, next) => {
   const repos = [];
 
   const promises = [];
-  ORGS.forEach((org) => {
+  ORGS.forEach(org => {
     promises.push(getRepos(org, 1, repos));
   });
 
@@ -74,18 +80,21 @@ Poll.register = (server, options, next) => {
     .then(() => {
       repos.forEach((repo, index) => {
         const { org, repoName } = repo;
-        addCronJob(`curl -X POST http://localhost:3000/api/update/${org}/${repoName} > /dev/null`, index);
+        addCronJob(
+          `curl -X POST http://localhost:3000/api/update/${org}/${repoName} > /dev/null`,
+          index
+        );
       });
     })
     .then(() => {
       const filePath = path.join(__dirname, "../myjob");
-      fs.writeFile(filePath, command, "utf8", (err) => {
+      fs.writeFile(filePath, command, "utf8", err => {
         if (err) {
           console.log(err);
           return;
         }
 
-        exec(`crontab ${filePath}`, (error) => {
+        exec(`crontab ${filePath}`, (error, stdout, stderr) => {
           if (error) {
             console.error(`exec error: ${error}`);
             return;

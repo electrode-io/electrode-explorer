@@ -8,10 +8,10 @@
     "npm": ">=3.0.0"
   },
   "scripts": {
-    "build": "gulp build",
-    "dev": "gulp dev",
-    "help": "gulp help",
-    "hot": "gulp hot"
+    "build": "clap build",
+    "dev": "clap dev",
+    "help": "clap help",
+    "hot": "clap hot"
   },
   "repository": {
     "type": "git",
@@ -46,14 +46,14 @@
     "babel-traverse": "^6.10.4",
     "bluebird": "^3",
     "classnames": "^2.2.5",
-    "electrode-archetype-react-component": "^1.0.0",
-    "electrode-archetype-react-component-dev": "^1.0.0",
+    "electrode-archetype-react-component": "^4.0.0",
+    "electrode-archetype-react-component-dev": "^4.0.0",
     "electrode-confippet": "^1.5.0",
     "electrode-redux-router-engine": "^1.0.0",
     "electrode-server": "^1.0.0",
     "electrode-static-paths": "^1.0.0",
     "exenv": "^1.2.0",
-    "github": "^1.1.2",
+    "github": "^9.2.0",
     "history": "~1.13.1",
     "inert": "^4.0.1",
     "isomorphic-fetch": "^2.2.1",
@@ -67,8 +67,8 @@
     "semver": "^5.2.0"
   },
   "devDependencies": {
-    "electrode-archetype-react-app": "^1.0.0",
-    "electrode-archetype-react-app-dev": "^1.0.0",
-    "gulp": "^3.9.1"
+    "electrode-archetype-react-app": "^4.0.0",
+    "electrode-archetype-react-app-dev": "^4.0.0",
+    "xclap": "^0.2.0"
   }
 }

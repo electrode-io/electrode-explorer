@@ -21,15 +21,16 @@ export default class Component extends React.Component {
     const host = window.location.origin;
 
     return fetch(`${host}/data/orgs.json`)
-      .then((res) => {
+      .then(res => {
         if (res.status >= 400) {
           throw res;
         }
         return res.json();
       })
-      .then((menu) => {
-        this.setState({menu: menu.allOrgs});
-      }).catch((err) => {
+      .then(menu => {
+        this.setState({ menu: menu.allOrgs });
+      })
+      .catch(err => {
         console.log(err);
       });
   }
@@ -46,9 +47,11 @@ export default class Component extends React.Component {
   }
 
   _renderSubModules(link, submodules) {
-    return submodules && submodules.length && (
+    return (
+      submodules &&
+      submodules.length &&
       <ul className="menu-submodules">
-        {submodules.map((submodule) => this._subModuleLink(link, submodule))}
+        {submodules.map(submodule => this._subModuleLink(link, submodule))}
       </ul>
     );
   }
@@ -58,16 +61,17 @@ export default class Component extends React.Component {
     const { repos } = menu[org];
     const sortedRepos = Object.keys(repos);
     sortedRepos.sort();
-    return sortedRepos.map((repoName) => {
+    return sortedRepos.map(repoName => {
       const { link, submodules } = repos[repoName];
 
-      return (<li>
-        <a
-          href={`/${link}`}>
-          {repoName}
-        </a>
-        {this._renderSubModules(link, submodules)}
-      </li>);
+      return (
+        <li>
+          <a href={`/${link}`}>
+            {repoName}
+          </a>
+          {this._renderSubModules(link, submodules)}
+        </li>
+      );
     });
   }
 
@@ -76,14 +80,15 @@ export default class Component extends React.Component {
 
     return (
       <div className="explorer-menu">
-        {menu && Object.keys(menu).map((org) => (
-          <span>
-            <h4>{org}</h4>
-            <ul>
-              {this._renderLinks(org)}
-            </ul>
-          </span>
-        ))}
+        {menu &&
+          Object.keys(menu).map(org =>
+            <span>
+              <h4>{org}</h4>
+              <ul>
+                {this._renderLinks(org)}
+              </ul>
+            </span>
+          )}
       </div>
     );
   }

@@ -1,11 +1,13 @@
 "use strict";
 
-const doSearch = (term, key, pool, omitMatches) => {
+/* eslint-disable max-statements */
+/* eslint-disable max-params */
 
+const doSearch = (term, key, pool, omitMatches) => {
   const pattern = new RegExp(`^(${pool.join("|")})$`, "g");
   const m = term.match(pattern);
 
-  const matchesObj = { "module": key };
+  const matchesObj = { module: key };
 
   if (!omitMatches) {
     matchesObj.matches = m;
@@ -14,11 +16,9 @@ const doSearch = (term, key, pool, omitMatches) => {
   }
 
   return m && matchesObj;
-
 };
 
-module.exports = function TermHandler (request, reply) {
-
+module.exports = function TermHandler(request, reply) {
   const term = request.params.term;
 
   if (!term) {
@@ -40,15 +40,10 @@ module.exports = function TermHandler (request, reply) {
     const leftKey = moduleKeys[leftPointer];
     const rightKey = moduleKeys[rightPointer];
 
-    [leftKey, rightKey].map((key) => {
-      const keywordMatches = doSearch(term, key, searchIndex[key]);
-      const moduleMatches = doSearch(term, key, key.split('/'), true);
-
-      [
-        doSearch(term, key, searchIndex[key]),
-        doSearch(term, key, key.split('/'), true)
-      ].map((matches) => matches && results.matched.push(matches));
-
+    [leftKey, rightKey].map(key => {
+      [doSearch(term, key, searchIndex[key]), doSearch(term, key, key.split("/"), true)].map(
+        matches => matches && results.matched.push(matches)
+      );
     });
 
     ++leftPointer;
@@ -59,4 +54,3 @@ module.exports = function TermHandler (request, reply) {
 
   return reply(results);
 };
-

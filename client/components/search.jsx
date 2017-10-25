@@ -1,42 +1,48 @@
+/* globals document _COMPONENTS console*/
+
+/* eslint-disable no-console */
 import React from "react";
 import ExecutionEnvironment from "exenv";
 import fetch from "isomorphic-fetch";
 
-const Results = (props) => {
-  const {
-    term,
-    count,
-    matched
-  } = props;
+const Results = props => {
+  const { term, count, matched } = props;
 
   return (
     <div>
-      <h2>You searched for <em>{term}</em></h2>
+      <h2>
+        You searched for <em>{term}</em>
+      </h2>
       <h3>
         There
         {count > 1 ? " were " : " was "}
-        <em> {count ? count : "no" } </em>
-        result{count > 1 ? "s" : ""}:</h3>
-      {count &&
+        <em> {count ? count : "no"} </em>
+        result{count > 1 ? "s" : ""}:
+      </h3>
+      {count && (
         <div className="results-list">
-        {matched.map((result) => {
-          return (
-          <div className="search-result">
-            <a href={`/${result.module}`}>
-            {result.isModule && <span className="module">Module <em>{result.module}</em></span>}
-            {result.matches && <span className="matches">{result.matches.join(", ")} </span>}
-            {!result.isModule && <span className="location">in {result.module}</span>}
-            </a>
-          </div>
-          );
-        })}
-        </div>}
+          {matched.map(result => {
+            return (
+              <div className="search-result">
+                <a href={`/${result.module}`}>
+                  {result.isModule && (
+                    <span className="module">
+                      Module <em>{result.module}</em>
+                    </span>
+                  )}
+                  {result.matches && <span className="matches">{result.matches.join(", ")} </span>}
+                  {!result.isModule && <span className="location">in {result.module}</span>}
+                </a>
+              </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 };
 
 export default class Search extends React.Component {
-
   constructor(props) {
     super(props);
 
@@ -56,15 +62,16 @@ export default class Search extends React.Component {
     const host = window.location.origin;
 
     return fetch(`${host}/api/search/term/${term}`)
-      .then((res) => {
+      .then(res => {
         if (res.status >= 400) {
           throw res;
         }
         return res.json();
       })
-      .then((results) => {
+      .then(results => {
         this.setState({ results, completed: true });
-      }).catch((err) => {
+      })
+      .catch(err => {
         console.error(err);
       });
   }
@@ -74,13 +81,9 @@ export default class Search extends React.Component {
 
     return (
       <div className="search-results">
-        {this.state.completed ?
-           "" : <span>Searching...</span>}
-        {this.state.completed &&
-          <Results {...results} />}
+        {this.state.completed ? "" : <span>Searching...</span>}
+        {this.state.completed && <Results {...results} />}
       </div>
     );
   }
-
 }
-

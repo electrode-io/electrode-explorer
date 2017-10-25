@@ -1,10 +1,16 @@
-/* globals document _COMPONENTS setTimeout setInterval clearInterval */
+/* globals document _COMPONENTS setTimeout setInterval clearInterval console*/
+
+/* eslint-disable no-console */
 
 import React from "react";
+import PropTypes from "prop-types";
 import Revealer from "./revealer";
 import { canUseDOM } from "exenv";
 import marked from "marked";
 import fetch from "isomorphic-fetch";
+const HTTP_BAD_REQUEST = 400;
+const WAIT_INTERVAL = 500;
+const TIMEOUT_INTERVAL = 10000;
 
 export default class Component extends React.Component {
   constructor(props) {
@@ -33,16 +39,12 @@ export default class Component extends React.Component {
       this.setState({ currentVersion });
     }
 
-    Promise.all([
-      this._getComponentInfo(org, repo),
-      this._getDoc(org, repo)
-    ]);
+    Promise.all([this._getComponentInfo(org, repo), this._getDoc(org, repo)]);
   }
 
   _getComponentInfo(org, repo) {
     const host = window.location.origin;
     const url = `${host}/data/${org}/${repo}.json`;
-
     const compare = (a, b) => {
       if (a.displayName < b.displayName) {
         return -1;
@@ -54,19 +56,18 @@ export default class Component extends React.Component {
     };
 
     return fetch(url)
-      .then((res) => {
-        if (res.status >= 400) {
+      .then(res => {
+        if (res.status >= HTTP_BAD_REQUEST) {
           throw res;
         }
         return res.json();
       })
-      .then((res) => {
+      .then(res => {
         const meta = res.meta || {};
-        const usage = res.usage.sort(compare);
+        const usage = (res.usage && res.usage.sort(compare)) || {};
 
         const deps = res.deps || [];
         deps.sort(compare);
-
         const latestVersion = parseInt(meta.version.substring(0, meta.version.indexOf(".")));
         const currentVersion = this.state.currentVersion || latestVersion;
 
@@ -74,7 +75,7 @@ export default class Component extends React.Component {
 
         this._getDemo(meta);
       })
-      .catch((err) => {
+      .catch(err => {
         console.log(err);
       });
   }
@@ -85,7 +86,6 @@ export default class Component extends React.Component {
     const { currentVersion } = this.state;
     script.src = `${host}/data/demo-modules/${meta.name}/v${currentVersion}/bundle.min.js`;
     script.async = true;
-
     const placeholder = document.getElementById("placeholder");
     placeholder.appendChild(script);
 
@@ -94,14 +94,14 @@ export default class Component extends React.Component {
         this.setState({ demo: _COMPONENTS[meta.name] });
         clearInterval(x);
       }
-    }, 500);
+    }, WAIT_INTERVAL);
 
     setTimeout(() => {
       if (typeof _COMPONENTS === "undefined") {
         clearInterval(x);
         this.setState({ error: true });
       }
-    }, 10000);
+    }, TIMEOUT_INTERVAL);
   }
 
   _getDoc(org, repo) {
@@ -109,13 +109,13 @@ export default class Component extends React.Component {
     const url = `${host}/api/doc/${org}/${repo}`;
 
     return fetch(url)
-      .then((res) => {
-        if (res.status >= 400) {
+      .then(res => {
+        if (res.status >= HTTP_BAD_REQUEST) {
           throw res;
         }
         return res.json();
       })
-      .then((res) => {
+      .then(res => {
         this.setState({ doc: marked(res.doc) });
       })
       .catch(() => {
@@ -127,35 +127,41 @@ export default class Component extends React.Component {
     return (
       <div className="component-consumption">
         <h3>Component Usage</h3>
-        { usage.length > 0 && <Revealer
-          baseHeight={24}
-          buttonClosedText="View Usage"
-          buttonOpenText="Hide Usage"
-          defaultOpen={false}
-          disableClose={false}
-          inverse={true}
-          fakeLink={false}
-          border={false}>
-          <div className="component-usage">
-            This component is used in <em>{usage.length}</em> modules / apps.
-            { this._renderModuleData(usage) }
+        {usage.length > 0 && (
+          <Revealer
+            baseHeight={24}
+            buttonClosedText="View Usage"
+            buttonOpenText="Hide Usage"
+            defaultOpen={false}
+            disableClose={false}
+            inverse={true}
+            fakeLink={false}
+            border={false}
+          >
+            <div className="component-usage">
+              This component is used in <em>{usage.length}</em> modules / apps.
+              {this._renderModuleData(usage)}
             </div>
-        </Revealer> }
+          </Revealer>
+        )}
         <h3>Module Dependencies</h3>
-        { deps.length > 0 && <Revealer
-          baseHeight={24}
-          buttonClosedText="View Dependencies"
-          buttonOpenText="Hide Dependencies"
-          defaultOpen={false}
-          disableClose={false}
-          inverse={true}
-          fakeLink={false}
-          border={false}>
-          <div className="component-dependencies">
-            This component has <em>{deps.length}</em> Electrode dependencies.
-            { this._renderModuleData(deps) }
-          </div>
-        </Revealer> }
+        {deps.length > 0 && (
+          <Revealer
+            baseHeight={24}
+            buttonClosedText="View Dependencies"
+            buttonOpenText="Hide Dependencies"
+            defaultOpen={false}
+            disableClose={false}
+            inverse={true}
+            fakeLink={false}
+            border={false}
+          >
+            <div className="component-dependencies">
+              This component has <em>{deps.length}</em> Electrode dependencies.
+              {this._renderModuleData(deps)}
+            </div>
+          </Revealer>
+        )}
       </div>
     );
   }
@@ -163,31 +169,24 @@ export default class Component extends React.Component {
   _renderTitle(meta) {
     return (
       <h2 className="explorer-title">
-        { meta.title }
+        {meta.title}
 
-        { meta.version &&
-          <span className="component-version">
-            {` v${meta.version}`}
-          </span> }
+        {meta.version && <span className="component-version">{` v${meta.version}`}</span>}
 
-        { this._renderVersion() }
+        {this._renderVersion()}
 
-        { meta.description &&
-          <span className="component-description">
-            {meta.description}
-          </span> }
+        {meta.description && <span className="component-description">{meta.description}</span>}
 
         <span className="component-info">
-          { meta.github &&
+          {meta.github && (
             <div>
-              <a href={meta.github} target="_blank">View Repository on Github</a>
-            </div> }
-          { meta.name &&
-            <div className="code-well">
-              npm i --save {meta.name}
-            </div> }
+              <a href={meta.github} target="_blank">
+                View Repository on Github
+              </a>
+            </div>
+          )}
+          {meta.name && <div className="code-well">npm i --save {meta.name}</div>}
         </span>
-
       </h2>
     );
   }
@@ -206,25 +205,17 @@ export default class Component extends React.Component {
     const { latestVersion, currentVersion } = this.state;
 
     const chooser = [
-      <option value="Select">
+      <option key={currentVersion} value="Select">
         v{currentVersion}
       </option>
     ];
 
     if (latestVersion === 0) {
-      chooser.push(
-        <option value={0}>
-          v0
-        </option>
-      );
+      chooser.push(<option value={0}>v0</option>);
     } else {
       for (let i = 1; i <= latestVersion; i += 1) {
         if (i !== currentVersion) {
-          chooser.push(
-            <option value={i}>
-              v{i}
-            </option>
-          );
+          chooser.push(<option value={i}>v{i}</option>);
         }
       }
     }
@@ -234,12 +225,11 @@ export default class Component extends React.Component {
 
   _renderVersion() {
     const { latestVersion } = this.state;
-
     return latestVersion ? (
       <span className="switch-version">
         <span className="switch-version-text">Switch version:</span>
         <select className="chooser" onChange={this._onVersionChange.bind(this)}>
-          { this._renderVersionOptions() }
+          {this._renderVersionOptions()}
         </select>
       </span>
     ) : null;
@@ -247,7 +237,6 @@ export default class Component extends React.Component {
 
   _renderDoc() {
     const { doc } = this.state;
-
     return (
       <div className="explorer-title">
         <Revealer
@@ -258,7 +247,8 @@ export default class Component extends React.Component {
           disableClose={false}
           inverse={true}
           fakeLink={false}
-          border={false}>
+          border={false}
+        >
           <div className="component-dependencies" dangerouslySetInnerHTML={{ __html: doc }} />
         </Revealer>
       </div>
@@ -269,7 +259,7 @@ export default class Component extends React.Component {
     return (
       <table>
         <tbody>
-          {data.map((detail) => (
+          {data.map(detail => (
             <tr>
               <td>
                 <a href={detail.uri} target="_blank" className="detail-uri">
@@ -281,9 +271,7 @@ export default class Component extends React.Component {
                   {detail.version && detail.version.str}
                 </span>
               </td>
-              <td className="detail-description">
-                {detail.description}
-              </td>
+              <td className="detail-description">{detail.description}</td>
             </tr>
           ))}
         </tbody>
@@ -295,11 +283,11 @@ export default class Component extends React.Component {
     const { demo, error } = this.state;
 
     if (!demo && !error) {
-      return (<div>Loading, please wait.</div>);
+      return <div>Loading, please wait.</div>;
     }
 
     if (!demo && error) {
-      return (<b>This component does not have demo or demo does not work properly.</b>);
+      return <b>This component does not have demo or demo does not work properly.</b>;
     }
 
     return React.createElement(demo);
@@ -314,22 +302,20 @@ export default class Component extends React.Component {
 
     return (
       <div>
-        { this._renderTitle(meta) }
-        { this._renderDoc() }
+        {this._renderTitle(meta)}
+        {this._renderDoc()}
         <div id="placeholder" />
-        <div className="demo">
-          { this._renderDemo() }
-        </div>
-        { this._renderUsage(usage, deps) }
+        <div className="demo">{this._renderDemo()}</div>
+        {this._renderUsage(usage, deps)}
       </div>
     );
   }
 }
 
 Component.propTypes = {
-  params: React.PropTypes.shape({
-    org: React.PropTypes.string,
-    repo: React.PropTypes.string,
-    version: React.PropTypes.string
+  params: PropTypes.shape({
+    org: PropTypes.string,
+    repo: PropTypes.string,
+    version: PropTypes.string
   })
 };
