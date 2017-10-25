@@ -1,10 +1,16 @@
-/* globals document _COMPONENTS setTimeout setInterval clearInterval */
+/* globals document _COMPONENTS setTimeout setInterval clearInterval console*/
+
+/* eslint-disable no-console */
 
 import React from "react";
+import PropTypes from "prop-types";
 import Revealer from "./revealer";
 import { canUseDOM } from "exenv";
 import marked from "marked";
 import fetch from "isomorphic-fetch";
+const HTTP_BAD_REQUEST = 400;
+const WAIT_INTERVAL = 500;
+const TIMEOUT_INTERVAL = 10000;
 
 export default class Component extends React.Component {
   constructor(props) {
@@ -51,7 +57,7 @@ export default class Component extends React.Component {
 
     return fetch(url)
       .then(res => {
-        if (res.status >= 400) {
+        if (res.status >= HTTP_BAD_REQUEST) {
           throw res;
         }
         return res.json();
@@ -88,14 +94,14 @@ export default class Component extends React.Component {
         this.setState({ demo: _COMPONENTS[meta.name] });
         clearInterval(x);
       }
-    }, 500);
+    }, WAIT_INTERVAL);
 
     setTimeout(() => {
       if (typeof _COMPONENTS === "undefined") {
         clearInterval(x);
         this.setState({ error: true });
       }
-    }, 10000);
+    }, TIMEOUT_INTERVAL);
   }
 
   _getDoc(org, repo) {
@@ -104,7 +110,7 @@ export default class Component extends React.Component {
 
     return fetch(url)
       .then(res => {
-        if (res.status >= 400) {
+        if (res.status >= HTTP_BAD_REQUEST) {
           throw res;
         }
         return res.json();
@@ -121,7 +127,7 @@ export default class Component extends React.Component {
     return (
       <div className="component-consumption">
         <h3>Component Usage</h3>
-        {usage.length > 0 &&
+        {usage.length > 0 && (
           <Revealer
             baseHeight={24}
             buttonClosedText="View Usage"
@@ -136,9 +142,10 @@ export default class Component extends React.Component {
               This component is used in <em>{usage.length}</em> modules / apps.
               {this._renderModuleData(usage)}
             </div>
-          </Revealer>}
+          </Revealer>
+        )}
         <h3>Module Dependencies</h3>
-        {deps.length > 0 &&
+        {deps.length > 0 && (
           <Revealer
             baseHeight={24}
             buttonClosedText="View Dependencies"
@@ -153,7 +160,8 @@ export default class Component extends React.Component {
               This component has <em>{deps.length}</em> Electrode dependencies.
               {this._renderModuleData(deps)}
             </div>
-          </Revealer>}
+          </Revealer>
+        )}
       </div>
     );
   }
@@ -163,29 +171,22 @@ export default class Component extends React.Component {
       <h2 className="explorer-title">
         {meta.title}
 
-        {meta.version &&
-          <span className="component-version">
-            {` v${meta.version}`}
-          </span>}
+        {meta.version && <span className="component-version">{` v${meta.version}`}</span>}
 
         {this._renderVersion()}
 
-        {meta.description &&
-          <span className="component-description">
-            {meta.description}
-          </span>}
+        {meta.description && <span className="component-description">{meta.description}</span>}
 
         <span className="component-info">
-          {meta.github &&
+          {meta.github && (
             <div>
-              <a href={meta.github} target="_blank">View Repository on Github</a>
-            </div>}
-          {meta.name &&
-            <div className="code-well">
-              npm i --save {meta.name}
-            </div>}
+              <a href={meta.github} target="_blank">
+                View Repository on Github
+              </a>
+            </div>
+          )}
+          {meta.name && <div className="code-well">npm i --save {meta.name}</div>}
         </span>
-
       </h2>
     );
   }
@@ -204,25 +205,17 @@ export default class Component extends React.Component {
     const { latestVersion, currentVersion } = this.state;
 
     const chooser = [
-      <option value="Select">
+      <option key={currentVersion} value="Select">
         v{currentVersion}
       </option>
     ];
 
     if (latestVersion === 0) {
-      chooser.push(
-        <option value={0}>
-          v0
-        </option>
-      );
+      chooser.push(<option value={0}>v0</option>);
     } else {
       for (let i = 1; i <= latestVersion; i += 1) {
         if (i !== currentVersion) {
-          chooser.push(
-            <option value={i}>
-              v{i}
-            </option>
-          );
+          chooser.push(<option value={i}>v{i}</option>);
         }
       }
     }
@@ -232,14 +225,14 @@ export default class Component extends React.Component {
 
   _renderVersion() {
     const { latestVersion } = this.state;
-    return latestVersion
-      ? <span className="switch-version">
-          <span className="switch-version-text">Switch version:</span>
-          <select className="chooser" onChange={this._onVersionChange.bind(this)}>
-            {this._renderVersionOptions()}
-          </select>
-        </span>
-      : null;
+    return latestVersion ? (
+      <span className="switch-version">
+        <span className="switch-version-text">Switch version:</span>
+        <select className="chooser" onChange={this._onVersionChange.bind(this)}>
+          {this._renderVersionOptions()}
+        </select>
+      </span>
+    ) : null;
   }
 
   _renderDoc() {
@@ -266,7 +259,7 @@ export default class Component extends React.Component {
     return (
       <table>
         <tbody>
-          {data.map(detail =>
+          {data.map(detail => (
             <tr>
               <td>
                 <a href={detail.uri} target="_blank" className="detail-uri">
@@ -278,11 +271,9 @@ export default class Component extends React.Component {
                   {detail.version && detail.version.str}
                 </span>
               </td>
-              <td className="detail-description">
-                {detail.description}
-              </td>
+              <td className="detail-description">{detail.description}</td>
             </tr>
-          )}
+          ))}
         </tbody>
       </table>
     );
@@ -314,9 +305,7 @@ export default class Component extends React.Component {
         {this._renderTitle(meta)}
         {this._renderDoc()}
         <div id="placeholder" />
-        <div className="demo">
-          {this._renderDemo()}
-        </div>
+        <div className="demo">{this._renderDemo()}</div>
         {this._renderUsage(usage, deps)}
       </div>
     );
@@ -324,9 +313,9 @@ export default class Component extends React.Component {
 }
 
 Component.propTypes = {
-  params: React.PropTypes.shape({
-    org: React.PropTypes.string,
-    repo: React.PropTypes.string,
-    version: React.PropTypes.string
+  params: PropTypes.shape({
+    org: PropTypes.string,
+    repo: PropTypes.string,
+    version: PropTypes.string
   })
 };

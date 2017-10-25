@@ -1,4 +1,6 @@
 "use strict";
+/* eslint-disable no-console */
+/* eslint-disable max-params */
 
 const Path = require("path");
 const execFile = require("child_process").execFile;

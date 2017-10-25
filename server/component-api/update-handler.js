@@ -36,8 +36,8 @@ const updateFiles = (repoFilePath, org, repoName, component, isLerna) => {
             }
 
             const current = catalog.allOrgs[org];
-            let repoLink = isLerna ? `${org}/${component.meta.name}` : `${org}/${repoName}`;
-            let repoPath = isLerna ? `${component.meta.name}` : repoName;
+            const repoLink = isLerna ? `${org}/${component.meta.name}` : `${org}/${repoName}`;
+            const repoPath = isLerna ? `${component.meta.name}` : repoName;
             current.repos[repoPath] = {
               link: repoLink
             };
@@ -123,8 +123,8 @@ const UpdateHandler = function(request, reply) {
               });
           })
           .catch(err => {
-            console.log("READFILE ERR:::" + err);
-            return "READFILE ERR:::" + err;
+            console.log(`READFILE ERR:::${  err}`);
+            return `READFILE ERR:::${  err}`;
           });
       }).then(finalResult => {
         reply(`${org}:${repoName} was saved.`);

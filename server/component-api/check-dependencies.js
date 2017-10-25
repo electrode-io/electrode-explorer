@@ -1,4 +1,6 @@
 "use strict";
+/* eslint-disable no-console */
+/* eslint-disable max-params */
 
 const Fs = require("fs");
 const Promise = require("bluebird");
@@ -6,7 +8,6 @@ const Path = require("path");
 const Config = require("electrode-confippet").config;
 const checkVersion = require("../utils/check-version");
 const execFile = require("child_process").execFile;
-const ensureDirectoryExists = require("../utils/ensure-directory-exists");
 
 const prefixes = Config.MODULE_PREFIXES_INCLUDE;
 const pattern = prefixes && prefixes.length && new RegExp(prefixes.join("|"));
@@ -34,7 +35,7 @@ const getDepLatest = (dep, version, isDev) => {
           wantedVersion += ".0.0";
         }
 
-        resolve({
+        return resolve({
           uri: "#",
           displayName: dep,
           version: checkVersion(wantedVersion, version),
@@ -88,7 +89,7 @@ const writeDeps = (moduleName, meta, moduleDeps) => {
       if (err) {
         console.error("Error writing file with dependencies", err);
       }
-      resolve({});
+      return resolve({});
     });
   });
 };

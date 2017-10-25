@@ -1,5 +1,7 @@
 "use strict";
 
+/* eslint-disable no-console */
+
 const GitHubApi = require("github");
 const Promise = require("bluebird");
 const Config = require("electrode-confippet").config;
@@ -10,6 +12,7 @@ const contentToString = require("../utils/content-to-string");
 const checkVersion = require("../utils/check-version");
 const githubAuthObject = require("../utils/github-auth-object");
 const uniqBy = require("lodash/uniqBy");
+const REPO_INDEX = 2;
 
 const shouldIncludeRepo = repo => {
   let shouldExclude = false;
@@ -30,7 +33,7 @@ const getOrgRepo = uri => {
   const parts = uri.replace("://", "").split("/");
   return {
     org: parts[1],
-    repo: parts[2]
+    repo: parts[REPO_INDEX]
   };
 };
 
@@ -74,6 +77,7 @@ const getVersion = (moduleSearchedFor, moduleVersion, githubUri) => {
 };
 
 const searchUsage = (moduleName, page, items) => {
+  const PER_PAGE = 100;
   const opts = {
     q: `${moduleName}:+in:file+language:json+filename:package.json`,
     page,
@@ -90,7 +94,7 @@ const searchUsage = (moduleName, page, items) => {
         items.push(item);
       });
 
-      if (res.data.items.length < 100) {
+      if (res.data.items.length < PER_PAGE) {
         return resolve(items);
       }
 
@@ -105,6 +109,7 @@ const fetchUsage = meta => {
   const moduleParts = meta.name.split("/");
   const moduleName = moduleParts[1] || meta.name;
   const items = [];
+  const HTTP_NOT_FOUND = 404;
 
   return searchUsage(moduleName, 0, items).then(items => {
     const promises = [];
@@ -119,8 +124,8 @@ const fetchUsage = meta => {
             usage.push(detail);
           })
           .catch(err => {
-            if (err.code === 404) {
-              console.log("Missing package.json?: " + meta.github);
+            if (err.code === HTTP_NOT_FOUND) {
+              console.log(`Missing package.json?: ${meta.github}`);
             } else {
               console.log(err);
             }
@@ -130,7 +135,7 @@ const fetchUsage = meta => {
     });
 
     return Promise.all(promises).then(() => {
-      usage.sort(function compare(a, b) {
+      usage.sort((a, b) => {
         if (a.displayName < b.displayName) {
           return -1;
         }

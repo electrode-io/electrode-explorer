@@ -1,4 +1,6 @@
 "use strict";
+/* eslint-disable no-console */
+/* eslint-disable max-params */
 
 const GitHubApi = require("github");
 const Promise = require("bluebird");
@@ -27,7 +29,7 @@ const readPackageContent = (org, repoName, path) => {
     const packagesOpts = {
       owner: org,
       repo: repoName,
-      path: path
+      path
     };
     github.repos
       .getContent(packagesOpts)
@@ -65,11 +67,11 @@ const fetchRepo = (org, repoName) => {
         if (!isCorrectPkg && isLernaStructure) {
           return readPackageContent(org, repoName, "packages").then(packagesArray => {
             return Promise.map(packagesArray, componentName =>
-              readPackageContent(org, repoName, componentName.path + "/package.json")
+              readPackageContent(org, repoName, `${componentName.path}/package.json`)
             ).then(componentArray => {
-              let componentResults = componentArray.map(arr => {
-                let pkg = JSON.parse(contentToString(arr.content));
-                let meta = extractMetaData(
+              const componentResults = componentArray.map(arr => {
+                pkg = JSON.parse(contentToString(arr.content));
+                meta = extractMetaData(
                   pkg,
                   arr.html_url.replace("blob/master/", "tree/master/").replace("package.json", "")
                 );

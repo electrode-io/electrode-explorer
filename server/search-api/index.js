@@ -1,4 +1,5 @@
 "use strict";
+/* eslint-disable no-console */
 
 const Path = require("path");
 const Chalk = require("chalk");
@@ -7,21 +8,20 @@ const readFile = Promise.promisify(require("fs").readFile);
 
 const TermHandler = require("./term-handler");
 const PartialHandler = require("./partial-handler");
-const CreateSearchStrings = require("./create-search-strings");
+const createSearchStrings = require("./create-search-strings");
 
 const searchIndexPath = Path.join(__dirname, "../../data/search-index.json");
 
 const SearchApi = {};
 
 SearchApi.register = (server, options, next) => {
-
   readFile(searchIndexPath)
-    .then((res) => {
+    .then(res => {
       const searchIndex = JSON.parse(res);
       server.settings.app.searchIndex = searchIndex;
-      server.settings.app.searchStrings = CreateSearchStrings(searchIndex);
+      server.settings.app.searchStrings = createSearchStrings(searchIndex);
     })
-    .catch((err) => {
+    .catch(err => {
       console.log("search Index loading error:", err);
       console.log(Chalk.red("WARNING: No search index file exists. Search will be non-functional"));
       console.log(Chalk.red(`Expected search index file path: ${searchIndexPath}`));
@@ -42,7 +42,6 @@ SearchApi.register = (server, options, next) => {
   });
 
   return next();
-
 };
 
 SearchApi.register.attributes = {
@@ -51,4 +50,3 @@ SearchApi.register.attributes = {
 };
 
 module.exports = SearchApi;
-

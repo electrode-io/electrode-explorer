@@ -35,21 +35,13 @@
     "host": "api.github.com"
   },
 
-  "ORGS": [
+  "ORGS": ["electrode-io"],
 
-  ],
+  "REPOS_USAGE_INCLUDE": [],
 
-  "REPOS_USAGE_INCLUDE": [
+  "REPOS_USAGE_EXCLUDE": [],
 
-  ],
-
-  "REPOS_USAGE_EXCLUDE": [
-
-  ],
-
-  "MODULE_PREFIXES_INCLUDE": [
-
-  ],
+  "MODULE_PREFIXES_INCLUDE": [],
 
   "NPM_WAITING_TIME": 300000,
 
