@@ -57,7 +57,7 @@
     "history": "~1.13.1",
     "inert": "^4.0.1",
     "isomorphic-fetch": "^2.2.1",
-    "marked": "^0.3.6",
+    "marked": "^0.8.2",
     "mkdirp": "^0.5.1",
     "radon-typeahead": "^0.3.1",
     "react": "^15.3.1",
